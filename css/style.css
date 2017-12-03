@@ -1,0 +1,311 @@
+body{
+	font-family: 'Roboto', sans-serif;
+}
+
+header{
+	height: 50px;
+}
+
+.navbar-inverse .navbar-nav li a.active{color: #000;font-weight: bold;}
+
+#login-dp{
+    min-width: 300px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+    font-size:12px    
+}
+#login-dp .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+#login-dp .social-buttons{
+    margin:12px 0    
+}
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}
+
+
+#myCarousel{
+	position: relative;
+	
+}
+
+.carousel{
+	height: 80%;
+}
+
+.sethei{
+	height: 50%;
+}
+
+.carousel .item,
+.carousel .item .active,
+.carousel .carousel-inner{
+	height: 100%;
+}
+
+.carousel .fill{
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+
+.slide-img-1{
+	background-position: center;
+	background-size: cover;
+	background-image: url('../images/banner.png');
+}
+
+/*service*/
+
+.line-style{
+	border-bottom: dashed #db0a5b 2px;
+	margin: 10px auto 15px;
+	width: 150px;
+}
+
+
+/*work*/
+
+.filter-select{
+	width: 100%;
+	font-size: 14px;
+	padding: 10px;
+	border: 1px solid #eee;
+	border-radius: 3px;
+	outline-color: #db0a5b;
+	margin-bottom: 15px;
+}
+.filter-wrapper{display: none;}
+.filter-wrapper li a , .filter-wrapper li a:hover{ text-decoration: none; }
+.activeFilter{
+	font-weight: bold;
+}
+.activeFilter a{
+	color: #aeaa8d;
+}
+
+.Story{
+	width: 100%;
+	display: block;
+	position: relative;
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	overflow: hidden;
+}
+
+.storyThaiFabric{
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+
+.Storybackground{
+	background-image: url('../images/story.png');
+}
+
+/* .BlogStory{
+	float: right;
+	margin: 20px 20px 0 0;
+	width: 90%;
+	height: 90%;
+	background-color: #fff;
+	border: 1px solid #000;
+} */
+
+.DataStory{
+	width: 100%;
+	height: 100%;
+	background-color:rgba(255, 255, 255, 0.7);
+	border-radius: 20px;
+}
+
+.headStory{
+	width: 90%;
+	height: 10%;
+	padding-top: 2%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.headStory img{
+	float: left;
+	width: 80px;
+	height: 100%;
+	/* margin-top: 5px; */
+}
+
+.headStory p{
+	float: right;
+	margin-top: 10px;
+}
+
+.infostory{
+	height: 77%;
+	width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+	/* padding-bottom: 2%; */
+	/* padding-top: 5%; */
+	/* padding-left: 2%;
+    padding-right: 2%; */
+    /* background-color: #fff; */
+}
+
+.infostory h2{
+	font-size: 1.5em;
+	margin-top: 10px;
+	font-weight: 600;
+}
+
+.infostory p{
+	font-size: 0.8em;
+}
+
+.hoverproduct{
+    -webkit-animation: circle .50s;
+    animation: circle .50s;
+    position: absolute;
+    top: 0;
+    left: 0;
+	opacity: 0;
+	height: 100%;
+	width: 100%;
+    background-color: rgba(99, 99, 99, 0.5);
+    /* border: 1px solid #000; */
+    transition: all .4s ease-in;
+}
+
+.hoverproduct:hover{
+	opacity: 1;
+    transition: all .4s ease-in;
+}
+
+.leftproduct{
+	left: 10%;
+}
+
+.view-details-btn {
+	position: relative;
+	/* left: 10%; */
+    top: 40%;
+    width: 80%;
+	line-height: 20px !important;
+	background: orangered;
+	color: #fff;
+	border-color: transparent;
+	border-radius: 0px;
+}
+.view-details-btn:hover {
+    color: #f82e56!important;
+    border: 1px solid #f82e56!important;
+    background: #fff!important;
+    -webkit-transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+.setheiproduct{
+	height: 80%;
+}
+
+@media screen and (min-width: 763px){
+	.infostory h2{
+		font-size: 2em;
+	}
+	.infostory p{
+		font-size: 1.3em;
+	}
+}
+
+@media screen and (min-width: 802px){
+	.carousel{
+		height: 50%;
+	}
+
+	.sethei{
+		height: 75%;
+	}
+
+	/* .BlogStory{
+		height: 90%;
+		width: 40%;
+	} */
+
+	.filter-select{
+		display: none;
+	}
+
+	.filter-wrapper{
+		display: block;
+		text-align: center;
+		margin-bottom: 15px;
+	}
+
+	.filter-item{
+		display: inline-block;
+		list-style: none;
+		border-radius: 3px;
+		margin: 0 5px;
+	}
+
+	.filter-style{
+		display: block;
+		color: #999;
+		padding: 8px;
+	}
+
+	.filter-style:hover{
+		color: #000000;
+		border-radius: 3px;
+		text-decoration: none;
+	}
+
+	/* .storyThaiFabric{
+		height: 50%;
+	} */
+
+	.setheiproduct{
+		height: 70%;
+	}
+}
+
+@media screen and (min-width: 1024px){
+	
+	/* .BlogStory{
+		height: 90%;
+		width: 40%;
+	} */
+	
+	.setheiproduct{
+		height: 350px;
+	}
+}
+
+
+
+
+
+
+
+
