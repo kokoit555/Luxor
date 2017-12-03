@@ -79,8 +79,7 @@
 														</form>
 													</div>
 													<div class="bottom text-center">
-														<p>เป็นส่วนหนึ่งกับเรา <a href="#"><b>สมัครสมาชิก</b></a>
-															<p>
+														<p>เป็นส่วนหนึ่งกับเรา <a href="Register.php"><b>สมัครสมาชิก</b></a><p>
 													</div>
 												</div>
 											</li>
