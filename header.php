@@ -25,13 +25,7 @@
 									<a href="Listproduct.php">สินค้าทั้งหมด</a>
 								</li>
 								<li>
-									<a href="#">โปรโมชั่น</a>
-								</li>
-								<li>
 									<a href="#">บทความ</a>
-								</li>
-								<li>
-									<a href="#" style="color: #FB7787;">เริ่มต้นขายสินค้า</a>
 								</li>
 								<li>
 									<a href="Cartproduct.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ตะกร้าสินค้า</a>
@@ -43,9 +37,6 @@
 									?>
 									<li>
 										<a href="Codephp/logout.php" style="color: #2E2EFE;">Logout</a>
-									</li>
-									<li>
-										<a href="AdminPage/Admin.php" style="color: #2E2EFE;">ZoneAdmin</a>
 									</li>
 									<?php
 								}
@@ -60,8 +51,8 @@
 														<p>Login Member</p>
 														<form class="form" role="form" method="post" accept-charset="UTF-8" id="login-nav">
 															<div class="form-group">
-																<label class="sr-only" for="exampleInputEmail2">Username</label>
-																<input type="text" name="IDUsernameMember" class="form-control" id="exampleInputEmail2" placeholder="Username" required>
+																<label class="sr-only" for="exampleInputEmail2">Email</label>
+																<input type="text" name="IDUsernameMember" class="form-control" id="exampleInputEmail2" placeholder="Email" required>
 															</div>
 															<div class="form-group">
 																<label class="sr-only" for="exampleInputPassword2">Password</label>

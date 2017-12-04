@@ -38,29 +38,6 @@
                                         <fieldset>
                                             <legend class="text-center">สมัครสมาชิก</legend>
                                             &nbsp
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label" for="email">รูปประจำตัว</label>
-                                                <div class="col-md-9 input-group image-preview">
-                                                    <input type="text" class="form-control image-preview-filename" disabled="disabled">
-                                                    <!-- don't give a name === doesn't send on POST/GET -->
-                                                    <span class="input-group-btn">
-                                                        <!-- image-preview-clear button -->
-                                                        <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
-                                                            <span class="glyphicon glyphicon-remove"></span>Clear
-                                                        </button>
-                                                        <!-- image-preview-input -->
-                                                        <div class="btn btn-default image-preview-input">
-                                                            <span class="glyphicon glyphicon-folder-open"></span>
-                                                            <span class="image-preview-input-title">Browse</span>
-                                                            <input type="file" accept="image/png, image/jpeg" name="input-file-preview" />
-                                                            <!-- rename it -->
-                                                        </div>
-                                                    </span>
-                                                </div>
-                                                <!-- /input-group image-preview [TO HERE]-->
-                                            </div>
-                                            <script type="text/javascript" src="js/insertproduct.js"></script>
-                                            
                                             <!-- ชื่อสินค้า-->
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label" for="name">ชื่อจริง</label>
@@ -68,10 +45,10 @@
                                                     <input id="name" name="product_name" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
                                                 </div> -->
                                                 <div class="col-md-4">
-                                                    <input type="text" name="first_name" class="form-control" placeholder="First Name" style="margin-bottom:5px;">
+                                                    <input type="text" name="firstname" class="form-control" placeholder="ชื่อจริง" style="margin-bottom:5px;">
 				                                </div>
 				                                <div class="col-md-4">
-						                            <input type="text" name="last_name"  class="form-control" placeholder="Last Name">
+						                            <input type="text" name="lastname"  class="form-control" placeholder="นามสกุล">
 				                                </div>
                                             </div>
 
@@ -79,7 +56,7 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">เบอร์โทรศัพท์*</label>
                                                 <div class="col-md-9">
-                                                    <input id="tel" name="tel" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
+                                                    <input id="tel" name="tel" type="text" placeholder="ตัวเลขเท่านั้น" class="form-control">
                                                 </div>
                                             </div>
 
@@ -91,15 +68,54 @@
                                                 </div>
                                             </div>
 
+                                             <!-- ราคาสินค้า-->
+                                             <div class="form-group">
+                                                <label class="col-md-3 control-label">อำเภอ</label>
+                                                <div class="col-md-3" style="margin-bottom:5px;">
+                                                    <input id="city" name="city" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
+                                                </div>
+                                                <label class="col-md-2 control-label">จังหวัด</label>
+                                                <div class="col-md-3">
+                                                    <input id="state" name="state" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">ประเทศ</label>
+                                                <div class="col-md-3" style="margin-bottom:5px;">
+                                                    <input id="country" name="country" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
+                                                </div>
+                                                <label class="col-md-2 control-label">รหัสไปรษณีย์</label>
+                                                <div class="col-md-3">
+                                                    <input id="zip" name="zip" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            &nbsp
+                                            <h4 class="text-center">กำหนดรหัสเข้าสู่ระบบ</h4>
+                                            &nbsp
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Email*</label>
+                                                <div class="col-md-9">
+                                                    <input id="email" name="email" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Password*</label>
+                                                <div class="col-md-9">
+                                                    <input id="password" name="password" type="password" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
+                                                </div>
+                                            </div>
+
                                             <!-- Form actions -->
                                             <div class="form-group">
                                                 <div class="col-md-12 text-right">
-                                                    <input name="submitinsertproduct" type="submit" class="btn btn-primary btn-lg" value="สมัครสมาชิก">
+                                                    <input name="submitRegister" type="submit" class="btn btn-primary btn-lg" value="สมัครสมาชิก">
                                                 </div>
                                             </div>
                                         </fieldset>
                                     </form>
                                 </div>
+                                <?php include "Codephp/CodeFront/insertmember.php"; ?>
                             </div>
                         </div>
                     </div>

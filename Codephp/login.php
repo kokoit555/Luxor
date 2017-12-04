@@ -6,7 +6,7 @@
         $passid = mysqli_escape_string($connect,$_POST['PassUsernameMember']);
 
         $loginWebsite_sql = "SELECT * FROM `User_member`
-                             WHERE `Username` = '$userid' AND `Password` = MD5('$passid')";
+                             WHERE `email` = '$userid' AND `Password` = MD5('$passid')";
 
         $resultLoginWebsite = mysqli_query($connect,$loginWebsite_sql) or die('Error : '.mysqli_error($connect));
         $num_row_login_website = mysqli_num_rows($resultLoginWebsite);
