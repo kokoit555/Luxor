@@ -44,7 +44,7 @@ if(!empty($_POST['submiteditproduct'])){
     WHERE `id_product` = '".$_GET['idproduct']."'";
 
     mysqli_query($connect,$sql);
-    header("Location: ./Admin.php");
+    header("Location: ./Listproduct.php");
 }
 ?>
 

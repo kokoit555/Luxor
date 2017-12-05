@@ -68,7 +68,7 @@
         mysqli_close($connect);
 
         if($queryinsertimgdetail){
-            echo "<script type='text/javascript'>window.location='./Admin.php'</script>";
+            echo "<script type='text/javascript'>window.location='./Listproduct.php'</script>";
             // header("Location: ./Admin.php");
         }
     }

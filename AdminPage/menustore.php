@@ -3,7 +3,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title">
-                    <a href="./Admin.php">หน้าแรก</a>
+                    <a href="./Dashbord.php">หน้าแรก</a>
                 </h4>
             </div>
 
@@ -20,17 +20,17 @@
                     <table class="table">
                         <tr>
                             <td>
-                                <a href="#">ตรวจสอบออเดอร์</a>
+                                <a href="Liststore.php">รายชื่อร้านค้าทั้งหมด</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="#">รายชื่อร้านค้าทั้งหมด</a>
+                                <a href="PageinsertStore.php">ลงทะเบียนร้านค้าใหม่</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="#">ยอดขายสินค้าและสถิติ</a>
+                                <a href="orderproduct.php">ตรวจสอบออเดอร์</a>
                             </td>
                         </tr>
                         <tr>
@@ -53,29 +53,20 @@
             <div id="collapseTwo" class="panel-collapse collapse in">
                 <div class="panel-body">
                     <table class="table">
+                       
                         <tr>
                             <td>
-                                <a href="insertProduct.php">ลงทะเบียนสินค้าใหม่</a>
+                                <a href="Listproduct.php">จัดการข้อมูลสินค้า</a>
                             </td>
                         </tr>
                         <tr>
+                            <td>
+                                <a href="PageinsertProduct.php">ลงทะเบียนสินค้าใหม่</a>
+                            </td>
+                        </tr>
+                         <tr>
                             <td>
                                 <a href="#">ตรวจสอบยอดขายสินค้า</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="adminlistproduct.php">จัดการข้อมูลสินค้า</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#">เครมสินค้า</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <a href="#">เพิ่มพื้นที่การขาย</a>
                             </td>
                         </tr>
                     </table>

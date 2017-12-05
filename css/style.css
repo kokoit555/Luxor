@@ -35,7 +35,7 @@ header{
 
 
 .slider {
-	width: 50%;
+	width: 100%;
 	margin: 100px auto;
 }
 
@@ -66,6 +66,9 @@ header{
   opacity: 1;
 }
 
+.Story{
+	margin-top: 10px;
+}
 
 
 @media screen and (max-width:768px){
