@@ -1,27 +1,18 @@
 
     $(document).ready(function() {
-        $('#example').DataTable();
+        $('#product').DataTable();
     });
 
-    var order = angular.module('Listorder',[]);
-    order.controller('UserListorder',function($scope,$http){
-
-        $scope.displayListorder = function(){
-            $http.get("../Codephp/CodeBack/showinfoOrder.php").then(function(response){
-                $scope.listorder = response.data.records;
-            })
-        }
+    $(document).ready(function() {
+        $('#store').DataTable();
     });
 
+    $(document).ready(function() {
+        $('#order').DataTable();
+    });
     
     var app = angular.module('ListProduct',[]);
     app.controller('UserListProduct',function($scope,$http){
-
-        $scope.displayListProduct = function(){
-            $http.get("../Codephp/CodeBack/showinfoproduct.php").then(function(response){
-                $scope.listproduct = response.data.records;
-            })
-        }
 
         $scope.deleteData = function(id){
             $scope.id = id;
@@ -50,12 +41,6 @@
 
     var store = angular.module('ListStore',[]);
     store.controller('UserListStore',function($scope,$http){
-
-        $scope.displayListStore = function(){
-            $http.get("../Codephp/CodeBack/showinfostore.php").then(function(response){
-                $scope.liststore = response.data.records;
-            })
-        }
 
         $scope.deleteData = function(id){
             $scope.id = id;

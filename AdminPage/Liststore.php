@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -26,30 +26,53 @@
 		<div class="container">
        
 		<?php include "menustore.php" ?>
-		<div class="col-sm-9 col-md-9" ng-app="ListStore" ng-controller="UserListStore" ng-init="displayListStore()">
+		<div class="col-sm-9 col-md-9" ng-app="ListStore" ng-controller="UserListStore"> <!-- ng-init="displayListStore()" -->
 		<h1>ข้อมูลสินค้า</h1>
 
-		<table id="example" class="table table-hover table-condensed" cellspacing="0" width="100%">
+		<table id="store" class="table table-hover table-condensed" cellspacing="0" width="100%">
 			<thead>
 				<tr>
 					<th>ID</th>
 					<th>name Store</th>
 					<th>Telephone</th>
-					<th>price</th>
+					<th>email</th>
 					<th>edit</th>
 					<th>delete</th>
 				</tr>
 			</thead>
 
 			<tbody>
-            	<tr ng-repeat="x in liststore">
+			<?php
+				include "../Codephp/connectdb.php";
+
+				$select = "SELECT * FROM `Store` s order by `id_store`";
+				$query = mysqli_query($connect,$select);
+				
+				if(mysqli_num_rows($query)>0){
+					while($row = mysqli_fetch_array($query)){
+					?>
+					<tr>
+						<td><?php echo $row['id_store']; ?></td>
+						<td><?php echo $row['NameStore']; ?></td>
+						<td><?php echo $row['TelStore']; ?></td>
+						<td><?php echo $row['EmailStore']; ?></td>
+						<td><a href="EditPageStore.php?idproduct=<?php echo $row['id_store']; ?>" class="btn btn-info">แก้ไข</a></td>
+						<td><button ng-click="deleteData(<?php echo $row['id_store']; ?>)" class="btn btn-danger">ลบข้อมูล</button></td>
+					</tr>
+					<?php
+					}
+				}
+
+				mysqli_close($connect);
+			?>
+            	<!-- <tr ng-repeat="x in liststore">
 					<td>{{x.id_store}}</td>
                		<td>{{x.NameStore}}</td>
                 	<td>{{x.TelStore}}</td>
 					<td>{{x.EmailStore}}</td>
 					<td><a href="EditPageStore.php?idproduct={{x.id_store}}" class="btn btn-info">แก้ไข</a></td>
 					<td><button ng-click="deleteData(x.id_store)" class="btn btn-danger">ลบข้อมูล</button></td>
-				</tr>
+				</tr> -->
 			</tbody>
 			
 			<tfoot>

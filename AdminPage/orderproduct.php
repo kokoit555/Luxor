@@ -26,8 +26,8 @@
 		<section class="Story">
 		    <div class="container">
 		        <?php include "menustore.php" ?>
-                <div class="col-sm-9 col-md-9" ng-app="Listorder" ng-controller="UserListorder" ng-init="displayListorder()">
-                    <table id="example" class="table table-hover table-condensed" cellspacing="0" width="100%">
+                <div class="col-sm-9 col-md-9" ng-app="Listorder" ng-controller="UserListorder">
+                    <table id="order" class="table table-hover table-condensed" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>id order</th>
@@ -36,17 +36,34 @@
                                 <th>Date_order</th>
                                 <th>Totalprice</th>
                                 <th>Status</th>
+                                <th>แก้ไขสถานะ</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="x in listorder">
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>Edinburgh</td>
-                                <td>61</td>
-                                <td>2011/04/25</td>
-                                <td>$320,800</td>
-                            </tr>
+                        <?php
+                            include "../Codephp/connectdb.php";
+            
+                            $select = "SELECT * FROM `order_product` op  order by `id_order`";
+                            $query = mysqli_query($connect,$select);
+                            
+                            if(mysqli_num_rows($query)>0){
+                                while($row = mysqli_fetch_array($query)){
+                                ?>
+                                <tr>
+                                    <td><?php echo $row['id_order']; ?></td>
+                                    <td><?php echo $row['id_user']; ?></td>
+                                    <td><?php echo $row['id_shipping']; ?></td>
+                                    <td><?php echo $row['Date_order']; ?></td>
+                                    <td><?php echo $row['Totalprice']; ?></td>
+                                    <td><?php echo $row['id_shipment']; ?></td>
+                                    <td><button class="btn btn-danger">ดูข้อมูลเชิงลึก</button></td>
+                                </tr>
+                                <?php
+                                }
+                            }
+            
+                            mysqli_close($connect);
+                        ?>
                         </tbody>
                         <tfoot>
                             <tr>
@@ -56,6 +73,7 @@
                                 <th>Date_order</th>
                                 <th>Totalprice</th>
                                 <th>Status</th>
+                                <th>แก้ไขสถานะ</th>
                             </tr>
                         </tfoot>
                     </table>

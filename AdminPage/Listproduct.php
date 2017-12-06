@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -12,8 +12,8 @@
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/sweetalert2.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-	<!-- <script type="text/javascript" src="../js/jquery.min.js"></script> -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/angular.min.js"></script>
 	<script type="text/javascript" src="../js/app.js"></script>
@@ -28,9 +28,9 @@
 		<div class="container">
        
 		<?php include "menustore.php" ?>
-		<div class="col-sm-9 col-md-9" ng-app="ListProduct" ng-controller="UserListProduct" ng-init="displayListProduct()">
+		<div class="col-sm-9 col-md-9" ng-app="ListProduct" ng-controller="UserListProduct">
 		<h1>ข้อมูลสินค้า</h1>
-		<table id="example" class="table table-hover table-condensed" cellspacing="0" width="100%">
+		<table id="product" class="table table-hover table-condensed" cellspacing="0" width="100%">
 			<thead>
 				<tr>
 					<th>id</th>
@@ -52,14 +52,29 @@
 				</tr>
 			</tfoot>
 			<tbody>
-            	<tr ng-repeat="x in listproduct">
-					<td>{{x.id}}</td>
-               		<td>{{x.nameproduct}}</td>
-                	<td>{{x.qty}}</td>
-					<td>{{x.priceproduct}}</td>
-					<td><a href="EditPageProduct.php?idproduct={{x.id}}" class="btn btn-info">แก้ไข</a></td>
-					<td><button ng-click="deleteData(x.id)" class="btn btn-danger">ลบข้อมูล</button></td>
-				</tr>
+			<?php
+				include "../Codephp/connectdb.php";
+
+				$select = "SELECT * FROM `Product` p order by `id_product`";
+				$query = mysqli_query($connect,$select);
+				
+				if(mysqli_num_rows($query)>0){
+					while($row = mysqli_fetch_array($query)){
+					?>
+					<tr>
+						<td><?php echo $row['id_product']; ?></td>
+						<td><?php echo $row['NameProduct']; ?></td>
+						<td><?php echo $row['qty']; ?></td>
+						<td><?php echo $row['PriceProduct']; ?></td>
+						<td><a href="EditPageStore.php?idproduct=<?php echo $row['id_product']; ?>" class="btn btn-info">แก้ไข</a></td>
+						<td><button ng-click="deleteData(<?php echo $row['id_product']; ?>)" class="btn btn-danger">ลบข้อมูล</button></td>
+					</tr>
+					<?php
+					}
+				}
+
+				mysqli_close($connect);
+			?>
 			</tbody>
 			
 			
