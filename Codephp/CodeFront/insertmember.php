@@ -15,9 +15,9 @@
         $password = md5($passwordcheck);
         
         echo $sqluser = "INSERT INTO `User_member`(`id_user`, `Name`, `LastName`, `Email`,
-         `Tel`, `Address`, `City`, `State`, `Country`, `Zip`, `Username`, `Password`)
+         `Tel`, `Address`, `City`, `State`, `Country`, `Zip`, `Password`)
          VALUES (0,'$firstname','$lastname','$email',
-         '$tel','$address','$city','$state','$country','$zip','---','$password');";
+         '$tel','$address','$city','$state','$country','$zip','$password');";
         
 
         if(mysqli_query($connect,$sqluser)){

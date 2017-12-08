@@ -56,7 +56,7 @@
 						<td><?php echo $row['NameStore']; ?></td>
 						<td><?php echo $row['TelStore']; ?></td>
 						<td><?php echo $row['EmailStore']; ?></td>
-						<td><a href="EditPageStore.php?idproduct=<?php echo $row['id_store']; ?>" class="btn btn-info">แก้ไข</a></td>
+						<td><a href="PageStore.php?idstore=<?php echo $row['id_store']; ?>" class="btn btn-info">แก้ไข</a></td>
 						<td><button ng-click="deleteData(<?php echo $row['id_store']; ?>)" class="btn btn-danger">ลบข้อมูล</button></td>
 					</tr>
 					<?php
@@ -65,14 +65,6 @@
 
 				mysqli_close($connect);
 			?>
-            	<!-- <tr ng-repeat="x in liststore">
-					<td>{{x.id_store}}</td>
-               		<td>{{x.NameStore}}</td>
-                	<td>{{x.TelStore}}</td>
-					<td>{{x.EmailStore}}</td>
-					<td><a href="EditPageStore.php?idproduct={{x.id_store}}" class="btn btn-info">แก้ไข</a></td>
-					<td><button ng-click="deleteData(x.id_store)" class="btn btn-danger">ลบข้อมูล</button></td>
-				</tr> -->
 			</tbody>
 			
 			<tfoot>
@@ -82,7 +74,7 @@
 					<td></td>
 					<td></td>
 					<td></td>
-					<td></td>
+					<td><a href="PageinsertStore.php" class="btn btn-success btn-block">เพิ่มร้านค้า <i class="fa fa-angle-right"></i></a></td>
 				</tr>
 			</tfoot>
 		</table>

@@ -11,7 +11,7 @@
         $tax = "---";
         $textproductdetail = $_POST['detailproduct1'].$_POST['detailproduct2'].$_POST['detailproduct3'].$_POST['message'];
         $idtype = $_POST['SettypeProduct'];
-        $idstore = "1";
+        $idstore = $_GET['idstore'];
         $idstory = $_POST['SetstoryProduct'];
 
         echo $sqlinsertProduct = "INSERT INTO `Product` (`id_product`, `NameProduct`, `qty`, `Status`, `PriceProduct`, 
@@ -68,7 +68,7 @@
         mysqli_close($connect);
 
         if($queryinsertimgdetail){
-            echo "<script type='text/javascript'>window.location='./Listproduct.php'</script>";
+            echo "<script type='text/javascript'>window.location='./PageStore.php?idstore=$idstore'</script>";
             // header("Location: ./Admin.php");
         }
     }

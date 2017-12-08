@@ -27,21 +27,21 @@ if(!empty($_GET['idproduct'])){
 if(!empty($_POST['submiteditproduct'])){
 
 
-    $nameproduct = $_POST['product_name'];
-    $qty = $_POST['quant'];
-    $priceproduct = $_POST['priceproduct'];
-    $textproductdetail = $_POST['message'];
-    $idtype = $_POST['SettypeProduct'];
-    $idstory = $_POST['SetstoryProduct'];
+    // $nameproduct = $_POST['product_name'];
+    // $qty = $_POST['quant'];
+    // $priceproduct = $_POST['priceproduct'];
+    // $textproductdetail = $_POST['message'];
+    // $idtype = $_POST['SettypeProduct'];
+    // $idstory = $_POST['SetstoryProduct'];
 
-    $sql = "UPDATE `Product` SET 
-    `NameProduct`='$nameproduct',
-    `qty`= '$qty',
-    `PriceProduct`= '$priceproduct',
-    `textProductDetail`= '$textproductdetail',
-    `id_type`= '$idtype',
-    `id_story`= '$idstory'
-    WHERE `id_product` = '".$_GET['idproduct']."'";
+    // $sql = "UPDATE `Product` SET 
+    // `NameProduct`='$nameproduct',
+    // `qty`= '$qty',
+    // `PriceProduct`= '$priceproduct',
+    // `textProductDetail`= '$textproductdetail',
+    // `id_type`= '$idtype',
+    // `id_story`= '$idstory'
+    // WHERE `id_product` = '".$_GET['idproduct']."'";
 
     mysqli_query($connect,$sql);
     header("Location: ./Listproduct.php");
