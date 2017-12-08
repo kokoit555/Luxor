@@ -35,7 +35,7 @@
 				<tr>
 					<th>id</th>
 					<th>name product</th>
-					<th>Qty</th>
+					<th>Status</th>
 					<th>price</th>
 					<th>edit</th>
 					<th>delete</th>
@@ -64,7 +64,7 @@
 					<tr>
 						<td><?php echo $row['id_product']; ?></td>
 						<td><?php echo $row['NameProduct']; ?></td>
-						<td><?php echo $row['qty']; ?></td>
+						<td><?php echo $row['Status']; ?></td>
 						<td><?php echo $row['PriceProduct']; ?></td>
 						<td><a href="EditPageStore.php?idproduct=<?php echo $row['id_product']; ?>" class="btn btn-info">แก้ไข</a></td>
 						<td><button ng-click="deleteData(<?php echo $row['id_product']; ?>)" class="btn btn-danger">ลบข้อมูล</button></td>

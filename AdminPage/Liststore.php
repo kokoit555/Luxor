@@ -27,7 +27,7 @@
        
 		<?php include "menustore.php" ?>
 		<div class="col-sm-9 col-md-9" ng-app="ListStore" ng-controller="UserListStore"> <!-- ng-init="displayListStore()" -->
-		<h1>ข้อมูลสินค้า</h1>
+		<h1>รายชื่อร้านค้าทั้งหมด</h1>
 
 		<table id="store" class="table table-hover table-condensed" cellspacing="0" width="100%">
 			<thead>
@@ -82,7 +82,7 @@
 					<td></td>
 					<td></td>
 					<td></td>
-					<td><a href="PageinsertProduct.php" class="btn btn-success btn-block">Insert Product <i class="fa fa-angle-right"></i></a></td>
+					<td></td>
 				</tr>
 			</tfoot>
 		</table>

@@ -71,7 +71,7 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">เบอร์โทรศัพท์</label>
                                                 <div class="col-md-9">
-                                                    <input id="email" name="priceproduct" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
+                                                    <input id="email" name="telephone" type="number" placeholder="ตัวเลขเท่านั้น" class="form-control">
                                                 </div>
                                             </div>
 
@@ -112,19 +112,19 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">ชื่อบัญชีร้านค้า</label>
                                                 <div class="col-md-9">
-                                                    <input id="email" name="priceproduct" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
+                                                    <input id="email" name="nameAccountStore" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">เลขบัญชีร้านค้า</label>
                                                 <div class="col-md-9">
-                                                    <input id="email" name="priceproduct" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
+                                                    <input id="email" name="numberStorebank" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">ธนาคารร้านค้า</label>
                                                 <div class="col-md-9">
-                                                    <input id="email" name="priceproduct" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
+                                                    <input id="email" name="namebank" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
                                                 </div>
                                             </div>
 
@@ -144,47 +144,17 @@
                                                     <input id="email" name="password" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
                                                 </div>
                                             </div>
-                                            
-                                            <!-- <div class="form-group">
-                                                <label class="col-md-3 control-label" for="email">ประเภทสินค้า*</label>
-                                                <div class="col-md-9">
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" value="">เสื้อผ้า</label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" value="">กระเป๋า</label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" value="">Option 1</label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" value="">Option 1</label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" value="">Option 1</label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label><input type="checkbox" value="">Option 1</label>
-                                                    </div>
-                                                </div>
-                                            </div> -->
-
-
-
-
-                                           
  &nbsp
-
-                                            
-
                                             <!-- Form actions -->
                                             <div class="form-group">
                                                 <div class="col-md-12 text-right">
-                                                    <input name="submitinsertproduct" type="submit" class="btn btn-primary btn-lg" value="ส่งข้อมูลสินค้า">
+                                                    <input name="submitinsertstore" type="submit" class="btn btn-primary btn-lg" value="ส่งข้อมูลสินค้า">
                                                 </div>
                                             </div>
                                         </fieldset>
                                     </form>
+
+                                    <?php include "../Codephp/CodeBack/insertStore.php"; ?>
                                 </div>
                             </div>
                         </div>

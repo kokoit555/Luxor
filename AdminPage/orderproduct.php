@@ -43,7 +43,10 @@
                         <?php
                             include "../Codephp/connectdb.php";
             
-                            $select = "SELECT * FROM `order_product` op  order by `id_order`";
+                            $select = "SELECT * FROM `Order_product` op
+                                        INNER JOIN User_member um ON um.id_user = op.id_user
+                                        INNER JOIN Store_product_shipment sps ON sps.id_order = op.id_order
+                                        INNER JOIN Shipping s ON s.id_Shipping = sps.Id_shipping";
                             $query = mysqli_query($connect,$select);
                             
                             if(mysqli_num_rows($query)>0){
@@ -51,12 +54,13 @@
                                 ?>
                                 <tr>
                                     <td><?php echo $row['id_order']; ?></td>
-                                    <td><?php echo $row['id_user']; ?></td>
-                                    <td><?php echo $row['id_shipping']; ?></td>
+                                    <td><?php echo $row['Name']; ?></td>
+                                    <td><?php echo $row['NameShipping']; ?></td>
                                     <td><?php echo $row['Date_order']; ?></td>
                                     <td><?php echo $row['Totalprice']; ?></td>
-                                    <td><?php echo $row['id_shipment']; ?></td>
-                                    <td><button class="btn btn-danger">ดูข้อมูลเชิงลึก</button></td>
+                                    <td><?php if($row['Status'] == '1'){echo "Success";}
+                                              else if($row['Status'] == '0'){echo "Pedding";} ?></td>
+                                    <td><button class="btn btn-info">ดูข้อมูลเชิงลึก</button></td>
                                 </tr>
                                 <?php
                                 }
