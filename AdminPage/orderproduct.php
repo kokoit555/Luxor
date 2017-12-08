@@ -15,11 +15,16 @@
                         <tbody>
                         <?php
                             include "../Codephp/connectdb.php";
-            
+                            $idstore = $_GET['idstore'];
                             $select = "SELECT * FROM `Order_product` op
                                         INNER JOIN User_member um ON um.id_user = op.id_user
                                         INNER JOIN Store_product_shipment sps ON sps.id_order = op.id_order
-                                        INNER JOIN Shipping s ON s.id_Shipping = sps.Id_shipping";
+                                        INNER JOIN Shipping s ON s.id_Shipping = sps.Id_shipping
+                                        INNER JOIN orderproductdetail opd ON opd.id_order = op.id_order
+                                        INNER JOIN product p ON p.id_product = opd.id_product
+                                        WHERE p.id_store = '$idstore'
+                                        ORDER BY opd.id_orderDetail LIMIT 1";
+                                        
                             $query = mysqli_query($connect,$select);
                             
                             if(mysqli_num_rows($query)>0){

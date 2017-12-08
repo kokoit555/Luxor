@@ -4,73 +4,76 @@
         
         
         $nameproduct = $_POST['product_name'];
-        $qty = $_POST['quant'];
         $status = "wait";
         $priceproduct = $_POST['priceproduct'];
         $discount = "---";
-        $tax = "---";
-        $textproductdetail = $_POST['detailproduct1'].$_POST['detailproduct2'].$_POST['detailproduct3'].$_POST['message'];
+        $tax = "7%";
+        $date = date("Y-m-d h:i:sa");
+        $textproductdetail = $_POST['message'];
         $idtype = $_POST['SettypeProduct'];
         $idstore = $_GET['idstore'];
-        $idstory = $_POST['SetstoryProduct'];
 
-        echo $sqlinsertProduct = "INSERT INTO `Product` (`id_product`, `NameProduct`, `qty`, `Status`, `PriceProduct`, 
-        `discount`, `tax`, `textProductDetail`, `id_type`, `id_store`, `id_story`) VALUES 
-        (0, '$nameproduct', '$qty', '$status', '$priceproduct', '$discount', '$tax'
-        , '$textproductdetail', '$idtype', '$idstore', '$idstory')";
+
+        echo $sqlinsertProduct = "INSERT INTO  `Product` (`id_product`, `NameProduct`, `Status`, `PriceProduct`, `discount`, `tax`, `date_input`,
+         `textProductDetail`, `id_type`, `id_store`) VALUES
+         ('0', '$nameproduct', 'Stock', '$priceproduct', '$discount', '$tax', '$date', 
+         '$textproductdetail', '$idtype', '$idstore');";
     
-        $target_dir = "images/";
-        $basenameproduct1 = basename($_FILES["input-file-preview"]["name"]);
-        $target_file = $target_dir . $basenameproduct1;
-        $uploadOk = 1;
-        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-        // Check if image file is a actual image or fake image
+        if(mysqli_query($connect,$sqlinsertProduct)){ echo "Complete insert product";}
 
-        $check = getimagesize($_FILES["input-file-preview"]["tmp_name"]);
-        if($check !== false) {$uploadOk = 1;} 
-        else {/* echo "File is not an image.";*/$uploadOk = 0;}
+
+
         
-        if($imageFileType != "jpg" && $imageFileType != "png") {
-            echo "Sorry, only JPG,PNG files are allowed.";
-            $uploadOk = 0;
+
+        for ($i=0; $i < count($_POST['quant']); $i++) { 
+            $qty[] = $_POST['quant'][$i];
+            $sqlinsertimg = "";
+
+            $target_dir = "images/";
+            $basenameproduct = basename($_FILES["input-file-img-product"]["name"][$i]);
+            $target_file = $target_dir . $basenameproduct;
+            $uploadOk = 1;
+            $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+            $check = getimagesize($_FILES["input-file-img-product"]["tmp_name"][$i]);
+    
+            $target_dir_thumb = "images/thumbproduct/";
+            $basenameproduct_thumb = basename($_FILES["input-file-img-product-thumb"]["name"][$i]);
+            $target_file_thumb = $target_dir_thumb . $basenameproduct_thumb;
+            $imageFileType_thumb = pathinfo($target_file_thumb,PATHINFO_EXTENSION);
+            $check_thumb = getimagesize($_FILES["input-file-img-product-thumb"]["tmp_name"][$i]);
+    
+            if($check !== false && $check_thumb !== false) {$uploadOk = 1;}  else {$uploadOk = 0;}
+            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType_thumb != "jpg" && $imageFileType_thumb != "png") { $uploadOk = 0;}
+            if ($uploadOk == 0) {echo "Sorry, your file was not uploaded.";} 
+            else {
+                if (move_uploaded_file($_FILES["input-file-img-product"]["tmp_name"][$i], "../".$target_file) &&
+                    move_uploaded_file($_FILES["input-file-img-product-thumb"]["tmp_name"][$i], "../".$target_file_thumb)){echo "The file has been uploaded.";}    
+                else {echo "Sorry, there was an error uploading your file.";}
+            }
+
+            $sqlinsertimg = "INSERT INTO `IMGProduct` (`id_imgProduct`, `Name_img`, `url_img`) VALUES 
+            ('0', '$basenameproduct', '$target_dir');";
+
+            if(mysqli_query($connect,$sqlinsertimg)){echo "insert img complete ".($i);}
+
+            $selectidproduct = "SELECT `id_product` FROM `Product` order by `id_product` DESC LIMIT 1";
+            $selectidimg = "SELECT `id_imgProduct` FROM `IMGProduct` order by `id_imgProduct` DESC LIMIT 1";
+    
+            $idproduct = mysqli_fetch_array(mysqli_query($connect,$selectidproduct));
+            $idimgproduct = mysqli_fetch_array(mysqli_query($connect,$selectidimg));
+    
+            $namethumb = $idproduct['id_product'] . $idimgproduct['id_imgProduct'] .($i+1);
+            $sqlinsertimgdetail = "INSERT INTO `imgproductdetail` (`id_imgProductDetail`, `id_product`, `id_imgProduct`, `namethumbProduct`, `urlthumbProduct`, `qty`) VALUES
+             ('0', '".$idproduct['id_product']."', '".$idimgproduct['id_imgProduct']."', '$namethumb', '$target_file_thumb', '".$qty[$i]."');";
+            
+            if(mysqli_query($connect,$sqlinsertimgdetail))
+            { 
+                echo "complete insert detailproduct".$i;
+                // echo "<script type='text/javascript'>window.location='./PageStore.php?idstore=$idstore'</script>";
+            } 
+
         }
-
-        if ($uploadOk == 0) {echo "Sorry, your file was not uploaded.";} 
-        else {
-            if (move_uploaded_file($_FILES["input-file-preview"]["tmp_name"], "../".$target_file)) 
-            {
-                echo "The file has been uploaded.";
-            }    
-            else {echo "Sorry, there was an error uploading your file.";}
-        }
-
-        $sqlinsertimg = "INSERT INTO `IMGProduct` (`id_imgProduct`, `Name_img`, `url_img`) VALUES 
-        ('0', '$basenameproduct1', '$target_dir');";
-        
-        $queryinsertproduct = mysqli_query($connect,$sqlinsertProduct);
-        $queryinsertimg = mysqli_query($connect,$sqlinsertimg);
-
-        $selectidproduct = "SELECT `id_product` FROM `Product` order by `id_product` DESC LIMIT 1";
-        $selectidimg = "SELECT * FROM `IMGProduct` order by `id_imgProduct` DESC LIMIT 1";
-
-        $queryselectidproduct = mysqli_query($connect,$selectidproduct);
-        $idproduct = mysqli_fetch_array($queryselectidproduct);
-
-        $queryselectimg = mysqli_query($connect,$selectidimg);
-        $idimgproduct = mysqli_fetch_array($queryselectimg);
-
-        echo $sqlinsertimgdetail = "INSERT INTO `IMGProductDetail` (`id_imgProductDetail`
-        ,`NumberIMGProduct`, `id_product`, `id_imgProduct`) VALUES 
-        ('0', '1', '".$idproduct['id_product']."', '".$idimgproduct['id_imgProduct']."');";
-        
-        $queryinsertimgdetail = mysqli_query($connect,$sqlinsertimgdetail);
-        
         mysqli_close($connect);
-
-        if($queryinsertimgdetail){
-            echo "<script type='text/javascript'>window.location='./PageStore.php?idstore=$idstore'</script>";
-            // header("Location: ./Admin.php");
-        }
     }
 
 

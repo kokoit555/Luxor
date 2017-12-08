@@ -25,8 +25,8 @@
 			<tbody>
 			<?php
 				include "../Codephp/connectdb.php";
-
-				$select = "SELECT * FROM `Product` p order by `id_product`";
+				$idstore = $_GET['idstore'];
+				$select = "SELECT * FROM `Product` p WHERE id_store = '$idstore' order by `id_product`";
 				$query = mysqli_query($connect,$select);
 				
 				if(mysqli_num_rows($query)>0){

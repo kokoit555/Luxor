@@ -6,22 +6,27 @@
     $id = $data->id;
     
     $nameurlimg = "";
+    $nameurlthumbimg = "";
     $sqldelete1 = "DELETE FROM `IMGProductDetail` WHERE `id_product` = '".$id."'; ";
     $sqldelete2 = "DELETE FROM `Product` WHERE `id_product` = '".$id."';";
-    $selectimg = "SELECT `id_imgProduct`,`id_product` FROM `IMGProductDetail` WHERE `id_product` = '".$id."'; ";
-    $sqldelete3 = "";
+    $selectimg = "SELECT `id_imgProduct`,`id_product`,`urlthumbProduct` FROM `IMGProductDetail` WHERE `id_product` = '".$id."'; ";
+    $sqldelete3 = array();
 
     if($queryselectidimg = mysqli_query($connect,$selectimg)){
         while($row = mysqli_fetch_array($queryselectidimg)){
             $selecturlimg = "SELECT * FROM `IMGProduct` WHERE `id_imgProduct` = '".$row['id_imgProduct']."';";
             $sqldelete3[] = "DELETE FROM `IMGProduct` WHERE `id_imgProduct` = '".$row['id_imgProduct']."'; ";
 
+            echo $nameurlthumbimg = "../../".$row['urlthumbProduct'];
+            unlink("$nameurlthumbimg");
+            $nameurlthumbimg = "";
+            
             if($queryurlimg = mysqli_query($connect,$selecturlimg)){
                 while($row = mysqli_fetch_array($queryurlimg)){
                     echo $nameurlimg = "../../".$row['url_img']."".$row['Name_img'];
-        
+                    
                     unlink("$nameurlimg");
-
+                    
                     $nameurlimg = "";
                 }
             }
@@ -38,6 +43,7 @@
         if(mysqli_query($connect,"".$sqldelete3[$i])){echo "Delete IMG Complete";}else{echo"Not Complete"." ".$i;}
     }
     
-        
     mysqli_close($connect);
+
+    echo "<script type='text/javascript'>window.location.reload();</script>";
 ?>

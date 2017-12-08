@@ -3,6 +3,8 @@
         $('#product').DataTable();
     });
 
+
+    
     $(document).ready(function() {
         $('#store').DataTable();
     });
@@ -10,6 +12,9 @@
     $(document).ready(function() {
         $('#order').DataTable();
     });
+
+    
+
     
     var app = angular.module('ListProduct',[]);
     app.controller('UserListProduct',function($scope,$http){

@@ -43,28 +43,6 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label" for="email">รูปสินค้า 300x500px</label>
-                                                <div class="col-md-9 input-group image-preview">
-                                                    <input type="text" class="form-control image-preview-filename" disabled="disabled">
-                                                    <!-- don't give a name === doesn't send on POST/GET -->
-                                                    <span class="input-group-btn">
-                                                        <!-- image-preview-clear button -->
-                                                        <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
-                                                            <span class="glyphicon glyphicon-remove"></span>Clear
-                                                        </button>
-                                                        <!-- image-preview-input -->
-                                                        <div class="btn btn-default image-preview-input">
-                                                            <span class="glyphicon glyphicon-folder-open"></span>
-                                                            <span class="image-preview-input-title">Browse</span>
-                                                            <input type="file" accept="image/png, image/jpeg" name="input-file-preview" />
-                                                            <!-- rename it -->
-                                                        </div>
-                                                    </span>
-                                                </div>
-                                                <!-- /input-group image-preview [TO HERE]-->
-                                            </div>
-                                            <script type="text/javascript" src="../js/insertproduct.js"></script>
                                             <!-- ประเภทสินค้า-->
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label" for="email">ประเภทสินค้า*</label>
@@ -80,94 +58,59 @@
                                                     </select>
                                                 </div>
                                             </div>
-
-
                                             <!-- ราคาสินค้า-->
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">ราคาสินค้า*</label>
                                                 <div class="col-md-9">
-                                                    <input id="email" name="priceproduct" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
+                                                    <input name="priceproduct" type="number"  class="form-control">
                                                 </div>
                                             </div>
-
-                                            <!-- ราคาสินค้า-->
+                                            
+                                            
+                                            &nbsp
+                                            <h4 class="text-center">รูปภาพสินค้า</h4>
+                                            &nbsp
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">จำนวนสต้อค*</label>
-                                                <div class="col-md-8">
-
-
-                                                    <div class="input-group">
-                                                        <span class="input-group-btn">
-                                                            <button type="button" class="btn btn-danger btn-number" data-type="minus" data-field="quant">
-                                                                <span class="glyphicon glyphicon-minus"></span>
-                                                            </button>
-                                                        </span>
-                                                        <input type="text" name="quant" class="form-control input-number" style="text-align:center;" value="1" min="1" max="9999">
-                                                        <span class="input-group-btn">
-                                                            <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant">
-                                                                <span class="glyphicon glyphicon-plus"></span>
-                                                            </button>
-                                                        </span>
-                                                    </div>
+                                                <label class="col-md-3 control-label" for="name">ลายสินค้า*</label>
+                                                <div class="col-md-9">
+                                                    <input name="input-file-img-product-thumb[]" type="file" class="form-control">
                                                 </div>
                                             </div>
-
-                                            <script type="text/javascript" src="../js/qtystockproduct.js"></script> &nbsp
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label" for="name">รูปสินค้า*</label>
+                                                <div class="col-md-9">
+                                                    <input name="input-file-img-product[]" type="file" class="form-control">
+                                                </div>
+                                            </div>
+                                             <!-- ราคาสินค้า-->
+                                             <div class="form-group">
+                                                <label class="col-md-3 control-label">จำนวนสินค้า*</label>
+                                                <div class="col-md-9">
+                                                    <input type="number" name="quant[]" class="form-control" style="text-align:center;" value="1" min="1" max="999">
+                                                </div>
+                                            </div>
+                                            <script type="text/javascript" src="../js/qtystockproduct.js"></script>
+                                            <div class="form-group">
+                                                <label class="col-md-3"></label>
+                                                <button class="btn btn-info col-md-9"> + เพิ่มลายสินค้า</button>
+                                            </div>
+                                            &nbsp
                                             <h4 class="text-center">รายละเอียดสินค้า</h4>
                                             &nbsp
-                                            <!-- ราคาสินค้า-->
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label">วัสดุที่ใช้</label>
+                                                <label class="col-md-3 control-label">ข้อมูลสินค้า</label>
                                                 <div class="col-md-9">
-                                                    <input id="email" name="detailproduct1" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
-                                                </div>
-                                            </div>
-                                            <!-- ราคาสินค้า-->
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">จังหวัดที่จัดจำหน่าย</label>
-                                                <div class="col-md-9">
-                                                    <input id="email" name="detailproduct2" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
-                                                </div>
-                                            </div>
-                                            <!-- ราคาสินค้า-->
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label">คำแนะนำในสินค้า</label>
-                                                <div class="col-md-9">
-                                                    <input id="email" name="detailproduct3" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
+                                                    <input id="email" name="detailproduct" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
                                                 </div>
                                             </div>
                                             <!-- Message body -->
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="message">เพิ่มเติม</label>
+                                                <label class="col-md-3 control-label" for="message">รายละเอียดเชิงลึก</label>
                                                 <div class="col-md-9">
                                                     <textarea class="form-control" id="message" name="message" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" rows="5"></textarea>
                                                 </div>
                                             </div>
-                                            &nbsp
-                                            <h4 class="text-center">เนื้อเรื่องสินค้า</h4>
-                                            &nbsp
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label" for="message">เนื้อเรื่องที่ต้องการใช้ในสินค้าชิ้นนี้</label>
-                                                <div class="col-md-9">
-                                                    <!-- <textarea class="form-control" id="message" name="message" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" rows="5"></textarea> -->
-                                                    <?php 
-                                                        include "../Codephp/connectdb.php";
-                                                        $selectsqlstory = "SELECT * FROM `Story`";
-                                                        $resutloutputstory = mysqli_query($connect,$selectsqlstory);
-                                                    ?>
-                                                    <select name="SetstoryProduct" class="form-control">
-                                                        <option value="">เลือกเนื้อเรื่องสินค้า</option>
-                                                        <?php
-                                                            while($rowoutputstory = mysqli_fetch_array($resutloutputstory))
-                                                            {
-                                                               echo "<option value=".$rowoutputstory['id_story'].">".$rowoutputstory['id_story']." )".$rowoutputstory['textStory']."</option>";
-                                                            }
-
-                                                        mysqli_close($connect);
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
+                                            
 
                                             <!-- Form actions -->
                                             <div class="form-group">
@@ -184,7 +127,6 @@
                     </div>
                 </div>
             </section>
-
         </div>
         <!-- wrapper -->
 
