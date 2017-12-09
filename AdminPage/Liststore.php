@@ -36,7 +36,7 @@
 					<th>name Store</th>
 					<th>Telephone</th>
 					<th>email</th>
-					<th>edit</th>
+					<th>view</th>
 					<th>delete</th>
 				</tr>
 			</thead>
@@ -56,7 +56,7 @@
 						<td><?php echo $row['NameStore']; ?></td>
 						<td><?php echo $row['TelStore']; ?></td>
 						<td><?php echo $row['EmailStore']; ?></td>
-						<td><a href="PageStore.php?idstore=<?php echo $row['id_store']; ?>" class="btn btn-info">แก้ไข</a></td>
+						<td><a href="PageStore.php?idstore=<?php echo $row['id_store']; ?>" class="btn btn-info">View</a></td>
 						<td><button ng-click="deleteData(<?php echo $row['id_store']; ?>)" class="btn btn-danger">ลบข้อมูล</button></td>
 					</tr>
 					<?php

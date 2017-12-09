@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/insertproduct.css">
     <link rel="stylesheet" type="text/css" href="../css/sweetalert2.min.css">
-    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/angular.min.js"></script>
 	<script type="text/javascript" src="../js/app.js"></script>

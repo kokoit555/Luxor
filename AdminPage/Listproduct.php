@@ -12,16 +12,6 @@
 					<th>delete</th>
 				</tr>
 			</thead>
-			<tfoot>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td><a href="PageinsertProduct.php" class="btn btn-success btn-block">Insert Product <i class="fa fa-angle-right"></i></a></td>
-				</tr>
-			</tfoot>
 			<tbody>
 			<?php
 				include "../Codephp/connectdb.php";
@@ -47,6 +37,16 @@
 				mysqli_close($connect);
 			?>
 			</tbody>
+			<tfoot>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td><a href="PageinsertProduct.php?idstore=<?php echo $idstore; ?>" class="btn btn-success btn-block">Insert Product <i class="fa fa-angle-right"></i></a></td>
+				</tr>
+			</tfoot>
 			
 			
 		</table>

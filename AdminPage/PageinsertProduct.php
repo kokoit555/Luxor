@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/insertproduct.css">
     <link rel="stylesheet" type="text/css" href="../css/sweetalert2.min.css">
-    <script type="text/javascript" src="../js/jquery.js"></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/angular.min.js"></script>
 	<script type="text/javascript" src="../js/app.js"></script>
@@ -71,6 +71,10 @@
                                             <h4 class="text-center">รูปภาพสินค้า</h4>
                                             &nbsp
                                             <div class="form-group">
+                                                <label class="col-md-3"></label>
+                                                <button class="btn btn-info col-md-9" type="button" onclick="addproduct();"> + เพิ่มลายสินค้า</button>
+                                            </div>
+                                            <div class="form-group">
                                                 <label class="col-md-3 control-label" for="name">ลายสินค้า*</label>
                                                 <div class="col-md-9">
                                                     <input name="input-file-img-product-thumb[]" type="file" class="form-control">
@@ -82,18 +86,15 @@
                                                     <input name="input-file-img-product[]" type="file" class="form-control">
                                                 </div>
                                             </div>
-                                             <!-- ราคาสินค้า-->
                                              <div class="form-group">
                                                 <label class="col-md-3 control-label">จำนวนสินค้า*</label>
                                                 <div class="col-md-9">
                                                     <input type="number" name="quant[]" class="form-control" style="text-align:center;" value="1" min="1" max="999">
                                                 </div>
                                             </div>
-                                            <script type="text/javascript" src="../js/qtystockproduct.js"></script>
-                                            <div class="form-group">
-                                                <label class="col-md-3"></label>
-                                                <button class="btn btn-info col-md-9"> + เพิ่มลายสินค้า</button>
-                                            </div>
+                                            <div id="addimgproduct"></div>
+
+
                                             &nbsp
                                             <h4 class="text-center">รายละเอียดสินค้า</h4>
                                             &nbsp
