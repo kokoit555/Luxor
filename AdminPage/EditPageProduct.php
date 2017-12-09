@@ -78,23 +78,25 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label" for="name">ลายสินค้า*</label>
                                                 <div class="col-md-9">
+                                                    <!-- <img src="../" style="width:250px;heigth:250px;"> -->
                                                     <input name="input-file-img-product-thumb[]" type="file" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label" for="name">รูปสินค้า*</label>
                                                 <div class="col-md-9">
+                                                    <!-- <img src="../" style="width:250px;heigth:250px;"> -->
                                                     <input name="input-file-img-product[]" type="file" class="form-control">
                                                 </div>
                                             </div>
                                              <div class="form-group">
                                                 <label class="col-md-3 control-label">จำนวนสินค้า*</label>
                                                 <div class="col-md-9">
-                                                    <input type="number" name="quant[]" class="form-control" style="text-align:center;" value="1" min="1" max="999">
+                                                    <input type="number" name="quant[]" value="<?php echo $qty[0]; ?>" class="form-control" style="text-align:center;" value="1" min="1" max="999">
                                                 </div>
                                             </div>
                                             <div id="addimgproduct"></div>
-
+                                            
 
 
                                             &nbsp
@@ -103,14 +105,14 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">ข้อมูลสินค้า</label>
                                                 <div class="col-md-9">
-                                                    <input id="email" name="detailproduct" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
+                                                    <input id="email" value="<?php echo $rowitem['']; ?>" name="detailproduct" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
                                                 </div>
                                             </div>
                                             <!-- Message body -->
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label" for="message">รายละเอียดเชิงลึก</label>
                                                 <div class="col-md-9">
-                                                    <textarea class="form-control" id="message" name="message" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" rows="5"></textarea>
+                                                    <textarea  class="form-control" id="message" name="message" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" rows="5"><?php echo $rowitem['textProductDetail'];?></textarea>
                                                 </div>
                                             </div>
                                             

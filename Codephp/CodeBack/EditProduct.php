@@ -13,12 +13,11 @@ if(!empty($_GET['idproduct'])){
             while($row = mysqli_fetch_array($result)){
                 $idimg[] = $row['id_imgProduct'];
                 $thumb[] = $row['urlthumbProduct'];
-            }
-        
-            for ($i=0; $i < count($idimg); $i++) { 
-                $selecturlimg = "SELECT * FROM `IMGProduct` WHERE `id_imgProduct` = '$idimg[$i]';";
-                $queryurlimg = mysqli_query($connect,$selecturlimg);
-                $urlimg[] = mysqli_fetch_array($queryurlimg); 
+                $qty[] = $row['qty'];
+ 
+                // $selecturlimg = "SELECT * FROM `IMGProduct` WHERE `id_imgProduct` = '".$row['id_imgProduct']."';";
+                // $queryurlimg = mysqli_query($connect,$selecturlimg);
+                // $urlimg[] = mysqli_fetch_array($queryurlimg); 
             }
         }
     }

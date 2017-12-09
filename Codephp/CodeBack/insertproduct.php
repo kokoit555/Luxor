@@ -11,6 +11,7 @@
         $date = date("Y-m-d h:i:sa");
         $textproductdetail = $_POST['message'];
         $idtype = $_POST['SettypeProduct'];
+        $detailproduct = $_POST['detailproduct'];
         $idstore = $_GET['idstore'];
 
 
