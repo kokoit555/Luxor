@@ -7,11 +7,12 @@ if(!empty($_GET['idproduct'])){
         $rowitem = mysqli_fetch_array($query);
     }
     if($rowitem['id_product'] != null){
-        $img = "SELECT `id_imgProduct`,`id_product` FROM `IMGProductDetail` WHERE `id_product` = '".$_GET['idproduct']."'; ";
+        $img = "SELECT * FROM `IMGProductDetail` WHERE `id_product` = '".$_GET['idproduct']."'; ";
 
         if($result = mysqli_query($connect,$img)){
             while($row = mysqli_fetch_array($result)){
                 $idimg[] = $row['id_imgProduct'];
+                $thumb[] = $row['urlthumbProduct'];
             }
         
             for ($i=0; $i < count($idimg); $i++) { 

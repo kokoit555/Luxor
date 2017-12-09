@@ -29,7 +29,6 @@
                 <div class="container">
                     <div class="row">
                         <?php include "menustore.php" ?>
-                        
                         <div class="col-sm-9 col-md-9">
                             <div class="row">
                                 <div class="col-md-8 ">
@@ -42,7 +41,7 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label" for="name">ชื่อสินค้า*</label>
                                                 <div class="col-md-9">
-                                                    <input id="name" name="product_name" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
+                                                    <input id="name" value="<?php echo $rowitem['NameProduct']; ?>" name="product_name" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
                                                 </div>
                                             </div>
 
@@ -51,13 +50,12 @@
                                                 <label class="col-md-3 control-label" for="email">ประเภทสินค้า*</label>
                                                 <div class="col-md-9">
                                                     <select name="SettypeProduct" class="form-control">
-                                                        <option value="">เลือกประเภทสินค้า</option>
-                                                        <option value="1">เสื้อผ้า</option>
-                                                        <option value="2">หมวก</option>
-                                                        <option value="3">ผ้าพันคอ</option>
-                                                        <option value="4">ของฝาก</option>
-                                                        <option value="5">กระเป๋า</option>
-                                                        <option value="6">อื่นๆ</option>
+                                                        <option value="1" <?php if($rowitem['id_type']==1){ echo "selected";}?>>เสื้อผ้า</option>
+                                                        <option value="2" <?php if($rowitem['id_type']==2){ echo "selected";}?>>หมวก</option>
+                                                        <option value="3" <?php if($rowitem['id_type']==3){ echo "selected";}?>>ผ้าพันคอ</option>
+                                                        <option value="4" <?php if($rowitem['id_type']==4){ echo "selected";}?>>ของฝาก</option>
+                                                        <option value="5" <?php if($rowitem['id_type']==5){ echo "selected";}?>>กระเป๋า</option>
+                                                        <option value="6" <?php if($rowitem['id_type']==6){ echo "selected";}?>>อื่นๆ</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -65,7 +63,7 @@
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label">ราคาสินค้า*</label>
                                                 <div class="col-md-9">
-                                                    <input name="priceproduct" type="number"  class="form-control">
+                                                    <input name="priceproduct" type="number"  value="<?php echo $rowitem['PriceProduct']; ?>" class="form-control">
                                                 </div>
                                             </div>
                                             
@@ -73,6 +71,10 @@
                                             &nbsp
                                             <h4 class="text-center">รูปภาพสินค้า</h4>
                                             &nbsp
+                                            <div class="form-group">
+                                                <label class="col-md-3"></label>
+                                                <button class="btn btn-info col-md-9" type="button" onclick="addproduct();"> + เพิ่มลายสินค้า</button>
+                                            </div>
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label" for="name">ลายสินค้า*</label>
                                                 <div class="col-md-9">
@@ -85,18 +87,16 @@
                                                     <input name="input-file-img-product[]" type="file" class="form-control">
                                                 </div>
                                             </div>
-                                             <!-- ราคาสินค้า-->
                                              <div class="form-group">
                                                 <label class="col-md-3 control-label">จำนวนสินค้า*</label>
                                                 <div class="col-md-9">
                                                     <input type="number" name="quant[]" class="form-control" style="text-align:center;" value="1" min="1" max="999">
                                                 </div>
                                             </div>
-                                            <script type="text/javascript" src="../js/qtystockproduct.js"></script>
-                                            <div class="form-group">
-                                                <label class="col-md-3"></label>
-                                                <button class="btn btn-info col-md-9"> + เพิ่มลายสินค้า</button>
-                                            </div>
+                                            <div id="addimgproduct"></div>
+
+
+
                                             &nbsp
                                             <h4 class="text-center">รายละเอียดสินค้า</h4>
                                             &nbsp

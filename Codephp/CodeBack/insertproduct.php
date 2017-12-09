@@ -69,7 +69,7 @@
             if(mysqli_query($connect,$sqlinsertimgdetail))
             { 
                 echo "complete insert detailproduct".$i;
-                // echo "<script type='text/javascript'>window.location='./PageStore.php?idstore=$idstore'</script>";
+                echo "<script type='text/javascript'>window.location='./PageStore.php?idstore=$idstore'</script>";
             } 
 
         }

@@ -4,8 +4,8 @@
         <h4 class="text-center">ข้อมูลร้านค้าเบื้องต้น</h4>
          &nbsp
         <!-- ชื่อสินค้า-->
-                                            <div class="form-group">
-                                                <label class="col-md-3 control-label" for="name">ชื่อร้านค้า*</label>
+            <div class="form-group">
+                <label class="col-md-3 control-label" for="name">ชื่อร้านค้า*</label>
                                                 <div class="col-md-9">
                                                     <input id="name" name="namestore" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
                                                 </div>
@@ -13,26 +13,10 @@
 
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label" >รูปร้านค้า</label>
-                                                <div class="col-md-9 input-group image-preview">
-                                                    <input type="text" class="form-control image-preview-filename" disabled="disabled">
-                                                    <!-- don't give a name === doesn't send on POST/GET -->
-                                                    <span class="input-group-btn">
-                                                        <!-- image-preview-clear button -->
-                                                        <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
-                                                            <span class="glyphicon glyphicon-remove"></span>Clear
-                                                        </button>
-                                                        <!-- image-preview-input -->
-                                                        <div class="btn btn-default image-preview-input">
-                                                            <span class="glyphicon glyphicon-folder-open"></span>
-                                                            <span class="image-preview-input-title">Browse</span>
-                                                            <input type="file" accept="image/png, image/jpeg" name="input-file-preview" />
-                                                            <!-- rename it -->
-                                                        </div>
-                                                    </span>
+                                                <div class="col-md-9">
+                                                    <input name="input-file-img-product[]" type="file" class="form-control">
                                                 </div>
-                                                <!-- /input-group image-preview [TO HERE]-->
                                             </div>
-                                            <script type="text/javascript" src="../js/insertproduct.js"></script>
 
 
                                              <!-- ราคาสินค้า-->
