@@ -1,12 +1,18 @@
 
     $(document).ready(function() {
-        $('#product').DataTable();
+        $('#product').DataTable({ responsive: {
+            details: false
+        }});
     });
     $(document).ready(function() {
-        $('#store').DataTable();
+        $('#store').DataTable({ responsive: {
+            details: false
+        }});
     });
     $(document).ready(function() {
-        $('#order').DataTable();
+        $('#order').DataTable({ responsive: {
+            details: false
+        }});
     });
 
     var room = 1;
