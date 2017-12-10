@@ -9,7 +9,7 @@
             <div class="x_content">
                 <br/>
                 <?php include "../Codephp/CodeBack/EditProduct.php"; ?>
-                <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                <form id="form" class="form-horizontal" method="post" enctype="multipart/form-data">
                 <fieldset>
                     <!-- ชื่อสินค้า-->
                     <div class="item form-group">
@@ -40,7 +40,7 @@
                                 <input value="<?php echo $rowitem['PriceProduct']; ?>" name="priceproduct" type="number" class="form-control" required="required" min="1" placeholder="ใส่เฉพาะตัวเลขเท่านั้น" data-validate-minmax="10,99999">
                             </div>
                         </div>
-                        &nbsp
+                        <!-- &nbsp
                         <h3 class="text-center">
                             รูปสินค้าและจำนวนสินค้า
                         </h3>
@@ -69,7 +69,7 @@
                                 <input value="<?php echo $qty[0]; ?>" type="number" name="quant[]" class="form-control" placeholder="ใส่เฉพาะตัวเลขเท่านั้น" min="1" max="999" data-validate-minmax="5,999" required="required">
                             </div>
                         </div>
-                        <div id="addimgproduct"></div>
+                        <div id="addimgproduct"></div> -->
                         &nbsp
                         <h4 class="text-center">รายละเอียดสินค้า</h4>
                         &nbsp
@@ -89,13 +89,47 @@
                         <!-- Form actions -->
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <input name="submitinsertproduct" type="submit" class="btn btn-primary btn-lg" value="ส่งข้อมูลสินค้า">
+                                <input name="submiteditproduct" type="submit" class="btn btn-primary btn-lg" value="ส่งข้อมูลสินค้า">
                             </div>
                         </div>
                 </fieldset>
             </form>
+            <?php 
+
+                if(!empty($_POST['submiteditproduct'])){
+                        // $nameproduct = $_POST['product_name'];
+                        // $qty = $_POST['quant'];
+                        // $priceproduct = $_POST['priceproduct'];
+                        // $textproductdetail = $_POST['message'];
+                        // $idtype = $_POST['SettypeProduct'];
+                        // $idstory = $_POST['SetstoryProduct'];
+                    
+                        $nameproduct = $_POST['product_name'];
+                        $priceproduct = $_POST['priceproduct'];
+                        $productDetail = $_POST['productDetail'];
+                        $textproductdetail = $_POST['message'];
+                        $idtype = $_POST['SettypeProduct'];
+                        
+                    
+                        // $sql = "UPDATE `Product` SET 
+                        // `NameProduct`='$nameproduct',
+                        // `qty`= '$qty',
+                        // `PriceProduct`= '$priceproduct',
+                        // `textProductDetail`= '$textproductdetail',
+                        // `id_type`= '$idtype',
+                        // `id_story`= '$idstory'
+                        // WHERE `id_product` = '".$_GET['idproduct']."'";
+                    
+                        // mysqli_query($connect,$sql);
+                        // mysqli_close($connect);
+                        // header("Location: index.php");
+                    }
+            ?>
             </div>
         </div>
     </div> <!--col-md-12 col-sm-12 col-xs-12-->
 </div><!--row-->
+<!-- <script type="text/javascript">
+    document.getElementById("form").innerHTML = window.location.pathname;
+</script> -->
 <div class="clearfix"></div>

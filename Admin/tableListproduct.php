@@ -24,7 +24,11 @@
                                         <td><?php echo $row['NameProduct']; ?></td>
                                         <td><?php echo $row['Status']; ?></td>
                                         <td><?php echo $row['PriceProduct']; ?></td>
-                                        <td><a href="?link=editproduct&&idproduct=<?php echo $row['id_product']; ?>" class="btn btn-info">แก้ไข</a></td>
+                                        <td>
+                                            <a href="?link=editproduct&&idstore=<?php echo $_GET['idstore']; ?>&&idproduct=<?php echo $row['id_product']; ?>" class="btn btn-info">
+                                                แก้ไข
+                                            </a>
+                                        </td>
                                         <td><button ng-click="deleteData(<?php echo $row['id_product']; ?>)" class="btn btn-danger">ลบข้อมูล</button></td>
                                     </tr>
                                     <?php

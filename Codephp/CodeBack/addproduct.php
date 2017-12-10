@@ -2,29 +2,24 @@
     include "../Codephp/connectdb.php";
     if(!empty($_POST['submitinsertproduct'])){
         
-        
         $nameproduct = $_POST['product_name'];
-        $status = "wait";
+        $status = "Stock";
         $priceproduct = $_POST['priceproduct'];
-        $discount = "---";
+        $discount = "0%";
         $tax = "7%";
-        $date = date("Y-m-d h:i:sa");
+        $date = date("Y-m-d");
+        $productDetail = $_POST['productDetail'];
         $textproductdetail = $_POST['message'];
         $idtype = $_POST['SettypeProduct'];
-        $detailproduct = $_POST['detailproduct'];
         $idstore = $_GET['idstore'];
 
 
-        echo $sqlinsertProduct = "INSERT INTO  `Product` (`id_product`, `NameProduct`, `Status`, `PriceProduct`, `discount`, `tax`, `date_input`,
-         `textProductDetail`, `id_type`, `id_store`) VALUES
-         ('0', '$nameproduct', 'Stock', '$priceproduct', '$discount', '$tax', '$date', 
-         '$textproductdetail', '$idtype', '$idstore');";
+        echo $sqlinsertProduct = "INSERT INTO  `Product` (`id_product`, `NameProduct`, `Status`, `PriceProduct`, 
+        `discount`, `tax`, `date_input`, `productDetail`, `textProductDetail`, `id_type`, `id_store`) VALUES
+         ('0', '$nameproduct', '$status', '$priceproduct', '$discount', '$tax', '$date', '$productDetail','$textproductdetail', '$idtype', '$idstore');";
     
         if(mysqli_query($connect,$sqlinsertProduct)){ echo "Complete insert product";}
 
-
-
-        
 
         for ($i=0; $i < count($_POST['quant']); $i++) { 
             $qty[] = $_POST['quant'][$i];
@@ -70,7 +65,7 @@
             if(mysqli_query($connect,$sqlinsertimgdetail))
             { 
                 echo "complete insert detailproduct".$i;
-                echo "<script type='text/javascript'>window.location='./PageStore.php?idstore=$idstore'</script>";
+                // echo "<script type='text/javascript'>window.location='./index.php'</script>";
             } 
 
         }

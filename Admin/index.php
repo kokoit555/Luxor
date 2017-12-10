@@ -45,6 +45,8 @@
 
     <?php 
     session_start();
+    ob_start();
+    include "./CodeBack/connectdb.php";
     if(empty($_SESSION['Admin_user_name'])){
         header("Location: login.php");
     } 
@@ -158,7 +160,7 @@
         </footer>
         <!-- /footer content -->
         
-
+    <?php ob_end_flush(); ?>
     <!-- jQuery -->
     <script src="./vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
