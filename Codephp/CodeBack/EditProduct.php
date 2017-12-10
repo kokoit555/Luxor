@@ -1,5 +1,7 @@
 <?php
 
+include "../Codephp/connectdb.php";
+
 if(!empty($_GET['idproduct'])){
 
     $selectdataproduct = "SELECT * FROM `Product` WHERE `id_product` = '".$_GET['idproduct']."';";

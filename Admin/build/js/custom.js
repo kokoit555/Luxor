@@ -2505,6 +2505,7 @@ if (typeof NProgress != 'undefined') {
 	   
 		/* DATA TABLES */
 			
+			
 			function init_DataTables() {
 				
 				console.log('run_datatables');
