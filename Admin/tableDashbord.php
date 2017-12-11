@@ -1,4 +1,51 @@
- <!-- page content -->
+        <!-- top tiles -->
+        <div class="row tile_count">
+                    <?php
+                        $selecttotaluser = "SELECT COUNT(`id_user`) countitem FROM `user_member`";
+                        $queryttotaluser = mysqli_query($connect,$selecttotaluser);
+                        $rowttotaluser = mysqli_fetch_array($queryttotaluser);
+
+                        $selecttotalstore = "SELECT COUNT(`id_store`) countitem FROM `store`";
+                        $queryttotalstore = mysqli_query($connect,$selecttotalstore);
+                        $rowtotalstore = mysqli_fetch_array($queryttotalstore);
+
+                        $selecttotalorder = "SELECT COUNT(`id_order`) countitem FROM `order_product`";
+                        $queryttotalorder = mysqli_query($connect,$selecttotalorder);
+                        $rowtotalorder = mysqli_fetch_array($queryttotalorder);
+
+                        $selecttotalproduct = "SELECT COUNT(`id_product`) countitem FROM `product`";
+                        $querytotalproduct = mysqli_query($connect,$selecttotalproduct);
+                        $rowtotalproduct = mysqli_fetch_array($querytotalproduct);
+                    ?>
+                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                        <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
+                        <div class="count"><?php echo $rowttotaluser['countitem']; ?></div>
+                        <!-- <span class="count_bottom"><i class="green">4% </i> From last Week</span> -->
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                        <span class="count_top"><i class="fa fa-clock-o"></i> Total Store</span>
+                        <div class="count"><?php echo $rowtotalstore['countitem']; ?></div>
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                        <span class="count_top"><i class="fa fa-user"></i> Total Order</span>
+                        <div class="count green"><?php echo $rowtotalorder['countitem']; ?></div>
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                        <span class="count_top"><i class="fa fa-user"></i> Total Product</span>
+                        <div class="count"><?php echo $rowtotalproduct['countitem']; ?></div>
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                        <span class="count_top"><i class="fa fa-user"></i> Total ??</span>
+                        <div class="count"><?php echo $rowttotaluser['countitem']; ?></div>
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                        <span class="count_top"><i class="fa fa-user"></i> Total ??</span>
+                        <div class="count"><?php echo $rowttotaluser['countitem']; ?></div>  
+                    </div>
+                </div> <!-- /top tiles -->
+            <div class="clearfix"></div>
+        
+        <!-- page content -->
             <div class="clearfix"></div>
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -27,7 +74,6 @@
                             </thead>
                             <tbody>
                             <?php
-                                include "../Codephp/connectdb.php";
                                 $select = "SELECT * FROM `Order_product` op
                                             INNER JOIN User_member um ON um.id_user = op.id_user
                                             Order By op.id_order desc;";

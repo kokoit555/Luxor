@@ -1,4 +1,5 @@
-                        <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                        <div ng-app="ListProduct" ng-controller="UserListProduct">
+                        <table id="datatable-responsive"  class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
                                     <th>id</th>
@@ -38,3 +39,4 @@
                             ?>
                             </tbody>
                         </table>
+                    </div>

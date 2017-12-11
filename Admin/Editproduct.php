@@ -54,19 +54,19 @@
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">ลายสินค้า*<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-9">
-                                <input name="input-file-img-product-thumb[]" type="file" class="form-control" required="required">
+                                <input name="input-file-img-product-thumb[]" type="file" accept="image/png, image/jpeg , image/jpg" class="form-control" required="required">
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">รูปสินค้า*<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-9">
-                                <input name="input-file-img-product[]" type="file" class="form-control" required="required">
+                                <input name="input-file-img-product[]" type="file" accept="image/png, image/jpeg , image/jpg" class="form-control" required="required">
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">จำนวนสินค้า*<span class="required">*</span></label>
                             <div class="col-md-6 col-sm-6 col-xs-9">
-                                <input value="<?php echo $qty[0]; ?>" type="number" name="quant[]" class="form-control" placeholder="ใส่เฉพาะตัวเลขเท่านั้น" min="1" max="999" data-validate-minmax="5,999" required="required">
+                                <input value="" type="number" accept="image/png, image/jpeg , image/jpg" name="quant[]" class="form-control" placeholder="ใส่เฉพาะตัวเลขเท่านั้น" min="1" max="999" data-validate-minmax="5,999" required="required">
                             </div>
                         </div>
                         <div id="addimgproduct"></div> -->
@@ -110,7 +110,7 @@
                         $textproductdetail = $_POST['message'];
                         $idtype = $_POST['SettypeProduct'];
                         
-                    
+                        echo "สวัสดี";
                         // $sql = "UPDATE `Product` SET 
                         // `NameProduct`='$nameproduct',
                         // `qty`= '$qty',
@@ -123,7 +123,13 @@
                         // mysqli_query($connect,$sql);
                         // mysqli_close($connect);
                         // header("Location: index.php");
-                    }
+                }
+                else if(empty($_POST['submiteditproduct'])){
+                    echo "เช็คในหน้านี้";
+                }
+                else if(isset($_POST['submiteditproduct'])){
+                    echo "ยังมีค่า";
+                }
             ?>
             </div>
         </div>

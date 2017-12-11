@@ -18,14 +18,14 @@
         $password = MD5(mysqli_escape_string($connect,$_POST['password'])); 
 
         
-        $target_dir = "avatar/";
+        $target_dir = "images/avatar/";
         $basenameproduct1 = basename($_FILES["input-file-preview"]["name"]);
         $target_file = $target_dir . $basenameproduct1;
         $uploadOk = 1;
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         $check = getimagesize($_FILES["input-file-preview"]["tmp_name"]);
         ///////////////////////////////////////////
-        echo $sqlinsertstore = "INSERT INTO `store` (`id_store`, `NameStore`, `AvatarStore`, `AddressStore`, `TelStore`, `CityStore`, `StateStore`, `ZipStore`, `CountryStore`, `EmailStore`, `Password`, `textStory`, `nameAccountStore`, `numberStorebank`, `namebank`) ) VALUES
+        echo $sqlinsertstore = "INSERT INTO `store` (`id_store`, `NameStore`, `AvatarStore`, `AddressStore`, `TelStore`, `CityStore`, `StateStore`, `ZipStore`, `CountryStore`, `EmailStore`, `Password`, `textStory`, `nameAccountStore`, `numberStorebank`, `namebank`) VALUES
                                 (0, '$namestore', '$target_file', '$address','$telephone', '$city', '$state', '$zip', '$country','$email', '$password', '$storytextstore','$nameAccountStore','$numberStorebank','$namebank');";
         ///////////////////////////////////////////
 
@@ -34,7 +34,7 @@
         if($imageFileType != "jpg" && $imageFileType != "png") { echo "Sorry, only JPG,PNG files are allowed."; $uploadOk = 0;}
         if ($uploadOk == 0) {echo "Sorry, your file was not uploaded.";} 
         else {
-            if (move_uploaded_file($_FILES["input-file-preview"]["tmp_name"], "../".$target_file) && mysqli_query($connect,$sqlinsertstore)) { 
+            if (move_uploaded_file($_FILES["input-file-preview"]["tmp_name"], "../".$target_file) && ($query = mysqli_query($connect,$sqlinsertstore))) { 
                 echo "complete input Database";
             }    
             else {echo "Sorry, there was an error uploading your file.";}
@@ -43,7 +43,7 @@
         mysqli_close($connect);
 
         if($query){
-            echo "<script type='text/javascript'>window.location='./Liststore.php'</script>";
+            echo "<script type='text/javascript'>window.location='./index.php?link=liststore'</script>";
             // header("Location: ./Admin.php");
         }
     }

@@ -1,6 +1,6 @@
 <?php
 
-    if(!empty($_POST['submit'])){
+    if(!empty($_POST['submitinsertproduct'])){
         $nameproduct = $_POST['product_name'];
         $status = "Stock";
         $priceproduct = $_POST['priceproduct'];
@@ -24,7 +24,7 @@
             $qty[] = $_POST['quant'][$i];
             $sqlinsertimg = "";
 
-            $target_dir = "images/";
+            $target_dir = "images/product/";
             $basenameproduct = basename($_FILES["input-file-img-product"]["name"][$i]);
             $target_file = $target_dir . $basenameproduct;
             $uploadOk = 1;
@@ -41,8 +41,8 @@
             if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType_thumb != "jpg" && $imageFileType_thumb != "png") { $uploadOk = 0;}
             if ($uploadOk == 0) {echo "Sorry, your file was not uploaded.";} 
             else {
-                if (move_uploaded_file($_FILES["input-file-img-product"]["tmp_name"][$i], "./".$target_file) &&
-                    move_uploaded_file($_FILES["input-file-img-product-thumb"]["tmp_name"][$i], "./".$target_file_thumb)){echo "The file has been uploaded.";}    
+                if (move_uploaded_file($_FILES["input-file-img-product"]["tmp_name"][$i], "../".$target_file) &&
+                    move_uploaded_file($_FILES["input-file-img-product-thumb"]["tmp_name"][$i], "../".$target_file_thumb)){echo "The file has been uploaded.";}    
                 else {echo "Sorry, there was an error uploading your file.";}
             }
 
@@ -64,17 +64,12 @@
             if(mysqli_query($connect,$sqlinsertimgdetail))
             { 
                 echo "complete insert detailproduct".$i;
-                // echo "<script type='text/javascript'>window.location='./index.php'</script>";
+                $idstore = $_GET['idstore'];
+                echo "<script type='text/javascript'>window.location='./index.php?link=listproduct&&idstore=$idstore'</script>";
             } 
 
         }
         mysqli_close($connect);
-    }
-    else if(is_null($_POST['submit'])) { echo "เป็นที่ไร?";}
-    else if(empty($_POST['submit'])) { echo "เช็คว่างไหม?";}
-    else if(isset($_POST['submit'])) { echo "อีกรอบครับ?";}
-    else{
-        echo "งงครับ";
     }
 
     

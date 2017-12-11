@@ -54,13 +54,13 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">ลายสินค้า*</label>
                                     <div class="col-md-6 col-sm-6 col-xs-9">
-                                        <input name="input-file-img-product-thumb[]" type="file" class="form-control">
+                                        <input name="input-file-img-product-thumb[]" accept="image/png, image/jpeg , image/jpg" type="file" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">รูปสินค้า*</label>
                                     <div class="col-md-6 col-sm-6 col-xs-9">
-                                        <input name="input-file-img-product[]" type="file" class="form-control">
+                                        <input name="input-file-img-product[]"  accept="image/png, image/jpeg , image/jpg" type="file" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -76,7 +76,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12">ข้อมูลสินค้า</label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input id="email" name="detailproduct" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
+                                    <input id="email" name="productDetail" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
                                     </div>
                                 </div>
                                 <!-- Message body -->
@@ -89,7 +89,7 @@
                                 <!-- Form actions -->
                                 <div class="form-group">
                                     <div class="col-md-12 text-center">
-                                        <input name="submit" type="submit" class="btn btn-primary btn-lg" value="ส่งข้อมูลสินค้า">
+                                        <input name="submitinsertproduct" type="submit" class="btn btn-primary btn-lg" value="ส่งข้อมูลสินค้า">
                                     </div>
                                 </div>
                         </fieldset>
