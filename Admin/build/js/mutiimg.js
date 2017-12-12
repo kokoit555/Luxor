@@ -17,7 +17,32 @@ function addproduct() {
 
 
 
+var registerstore = angular.module('registerstore',[]);
+app.controller('Formregisterstore',function($scope,$http){
 
+    $scope.deleteData = function(id){
+        $scope.id = id;
+    
+          swal({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!',
+            closeComfirm: false
+          }).then((result) => {
+            if (result.value) {
+                $http.post('./CodeBack/deleteProduct.php',{'id':$scope.id}).then(function(data){
+                    swal("Complete","Delete","success");
+                    window.location.reload();
+                });
+            }
+          });
+
+    }
+
+});
 
     
 var app = angular.module('ListProduct',[]);

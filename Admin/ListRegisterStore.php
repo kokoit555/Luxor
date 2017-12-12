@@ -36,7 +36,7 @@
                                             <td><?php echo $row['TelStore']; ?></td>
                                             <td><?php echo $row['EmailStore']; ?></td>
                                             <td><a href="#" class="btn btn-default btn-block">ดูข้อมูล</a></td>
-                                            <td><a href="#" class="btn btn-info btn-block">อนุมัติข้อมูล</a></td>
+                                            <td><a href="" class="btn btn-info btn-block">อนุมัติข้อมูล</a></td>
                                         </tr>
                                     <?php
                                     }
