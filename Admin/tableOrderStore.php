@@ -20,9 +20,21 @@
                                         WHERE sps.id_store = '$idstore'
                                         ORDER BY op.id_order;";
                             $query = mysqli_query($connect,$select);
-                            
+
+                            if(!empty($_POST['updateshipping'])){
+                               $SetShipping = $_POST['SetShipping'];
+                               $numbertrack = $_POST['numbertrack'];
+                               echo $sqlupdateshipping = "UPDATE `store_product_shipment` SET `Status`= '1',`id_shipping`= '$SetShipping',`ShipCode`= '$numbertrack' 
+                                                    WHERE `id_order` = '1' AND `id_store` = '$idstore'";
+                                
+                               mysqli_query($connect,$sqlupdateshipping);
+                            }
                             if(mysqli_num_rows($query)>0){
                                 while($row = mysqli_fetch_array($query)){
+
+                                    $selectshipping = "SELECT * FROM `store_product_shipment` WHERE `id_order` = '".$row['id_order']."' AND `id_store` = '$idstore'";
+                                    $queryshipping = mysqli_query($connect,$selectshipping);
+                                    $shipping = mysqli_fetch_array($queryshipping);
                                 ?>
                                 <tr>
                                     <td><?php echo $row['id_order']; ?></td>
@@ -50,10 +62,10 @@
                                                     <div class="form-group">
                                                         <label class="control-label col-md-3 col-sm-3 col-xs-12">ชื่อบริษัทขนส่ง*</label>
                                                         <div class="col-md-9 col-sm-9 col-xs-12">
-                                                            <select name="SettypeProduct" class="form-control">
+                                                            <select name="SetShipping" class="form-control">
                                                                 <option >เลือกบริษัทขนส่ง</option>
-                                                                <option value="1">ไปรษณีย์ไทย</option>
-                                                                <option value="2">Kerry</option>
+                                                                <option value="1" <?php if($shipping['id_shipping'] == 1){echo "selected";} ?>>ไปรษณีย์ไทย</option>
+                                                                <option value="2" <?php if($shipping['id_shipping'] == 2){echo "selected";} ?>>Kerry</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -61,7 +73,9 @@
                                                     <div class="form-group">
                                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">เลขรหัสไปรษณีย์*</label>
                                                         <div class="col-md-9 col-sm-9 col-xs-12">
-                                                            <input id="name" name="namestore" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
+                                                            <input id="name" name="numbertrack" type="text" 
+                                                                    value="<?php if($shipping['ShipCode'] != NULL){echo $shipping['ShipCode'];} ?>"
+                                                                    placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control">
                                                         </div>
                                                     </div>
                                                 
@@ -69,7 +83,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                                <input name="updateshipping" type="submit" class="btn btn-primary" value="Save changes">
                                                 </form>
                                             </div>
                                         </div>
@@ -78,7 +92,6 @@
                                 <?php
                                 }
                             }
-                            
                             mysqli_close($connect);
                         ?>
                         </tbody>
