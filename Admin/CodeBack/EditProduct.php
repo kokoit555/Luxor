@@ -1,6 +1,4 @@
 <?php
-
-include "../Codephp/connectdb.php";
 $idstore = $_GET['idstore'];
 if(!empty($_GET['idproduct'])){
 
@@ -24,6 +22,34 @@ if(!empty($_GET['idproduct'])){
         }
     }
 
+}
+
+if(!empty($_POST['submiteditproduct'])){
+    // $nameproduct = $_POST['product_name'];
+    // $qty = $_POST['quant'];
+    // $priceproduct = $_POST['priceproduct'];
+    // $textproductdetail = $_POST['message'];
+    // $idtype = $_POST['SettypeProduct'];
+    // $idstory = $_POST['SetstoryProduct'];
+
+    $nameproduct = $_POST['product_name'];
+    $priceproduct = $_POST['priceproduct'];
+    $productDetail = $_POST['productDetail'];
+    $textproductdetail = $_POST['message'];
+    $idtype = $_POST['SettypeProduct'];
+    
+   
+    $sql = "UPDATE `Product` SET 
+    `NameProduct`='$nameproduct',
+    `PriceProduct`= '$priceproduct',
+    `productDetail` = '$productDetail',
+    `textProductDetail`= '$textproductdetail',
+    `id_type`= '$idtype',
+    WHERE `id_product` = '".$_GET['idproduct']."'";
+
+    mysqli_query($connect,$sql);
+    mysqli_close($connect);
+    header("Location: index.php?link=listproduct&&idstore=$idstore");
 }
 ?>
 

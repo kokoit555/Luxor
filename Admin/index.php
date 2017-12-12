@@ -107,7 +107,9 @@
                         include "./Editstore.php";
                     }else if(!empty($_GET['link']) && $_GET['link'] == "editproduct" && !empty($_GET['idproduct'])){
                         include "./Editproduct.php";
-                    }else{
+                    }else if(!empty($_GET['link']) && $_GET['link'] == "infoorder" && !empty($_GET['idorder'])){
+                        include "./infoorder.php";
+                    }else{ 
                 ?>
                 <?php 
                     include "tableDashbord.php";

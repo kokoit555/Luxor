@@ -22,25 +22,29 @@ if(!empty($_POST['submiteditstore'])){
     $numberStorebank = mysqli_escape_string($connect,$_POST['numberStorebank']); 
     $namebank = mysqli_escape_string($connect,$_POST['namebank']); 
     $storytextstore = mysqli_escape_string($connect,$_POST['storytextstore']);
-    // $email = mysqli_escape_string($connect,$_POST['email']); 
+    $email = mysqli_escape_string($connect,$_POST['email']); 
     // $password = MD5(mysqli_escape_string($connect,$_POST['password'])); 
 
     $sqlupdate = "UPDATE `store` SET 
-    `NameStore` = '',
-    `AvatarStore` = '',
-    `AddressStore` = '',
-    `TelStore` = '',
-    `CityStore` = '',
-    `StateStore` = '',
-    `ZipStore` = '',
-    `CountryStore` = '',
-    `EmailStore` = '',
-    `Password` = '',
-    `textStory` = '',
-    `nameAccountStore` = '',
-    `numberStorebank` = '',
-    `namebank` = '' 
+    `NameStore` = '$namestore',
+    `AddressStore` = '$address',
+    `TelStore` = '$telephone',
+    `CityStore` = '$city',
+    `StateStore` = '$state',
+    `ZipStore` = '$zip',
+    `CountryStore` = '$country',
+    `EmailStore` = '$email',
+    `textStory` = '$storytextstore',
+    `nameAccountStore` = '$nameAccountStore',
+    `numberStorebank` = '$numberStorebank',
+    `namebank` = '$namebank' 
     WHERE `id_store` = '".$_GET['idstore']."'";
+
+    if(mysqli_query($connect,$sqlupdate)){
+        echo "สำเร็จ";
+        $idstore = $_GET['idstore'];
+        header("Location: index.php?link=listproduct&&idstore=$idstore");
+    }
 
 }
 ?>

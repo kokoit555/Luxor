@@ -94,48 +94,8 @@
                         </div>
                 </fieldset>
             </form>
-            <?php 
-
-                if(!empty($_POST['submiteditproduct'])){
-                        // $nameproduct = $_POST['product_name'];
-                        // $qty = $_POST['quant'];
-                        // $priceproduct = $_POST['priceproduct'];
-                        // $textproductdetail = $_POST['message'];
-                        // $idtype = $_POST['SettypeProduct'];
-                        // $idstory = $_POST['SetstoryProduct'];
-                    
-                        $nameproduct = $_POST['product_name'];
-                        $priceproduct = $_POST['priceproduct'];
-                        $productDetail = $_POST['productDetail'];
-                        $textproductdetail = $_POST['message'];
-                        $idtype = $_POST['SettypeProduct'];
-                        
-                        echo "สวัสดี";
-                        // $sql = "UPDATE `Product` SET 
-                        // `NameProduct`='$nameproduct',
-                        // `qty`= '$qty',
-                        // `PriceProduct`= '$priceproduct',
-                        // `textProductDetail`= '$textproductdetail',
-                        // `id_type`= '$idtype',
-                        // `id_story`= '$idstory'
-                        // WHERE `id_product` = '".$_GET['idproduct']."'";
-                    
-                        // mysqli_query($connect,$sql);
-                        // mysqli_close($connect);
-                        // header("Location: index.php");
-                }
-                else if(empty($_POST['submiteditproduct'])){
-                    echo "เช็คในหน้านี้";
-                }
-                else if(isset($_POST['submiteditproduct'])){
-                    echo "ยังมีค่า";
-                }
-            ?>
             </div>
         </div>
     </div> <!--col-md-12 col-sm-12 col-xs-12-->
 </div><!--row-->
-<!-- <script type="text/javascript">
-    document.getElementById("form").innerHTML = window.location.pathname;
-</script> -->
 <div class="clearfix"></div>
