@@ -24,7 +24,7 @@
                                 <tbody>
                                 <?php
                                     
-                                    $select = "SELECT * FROM `formregisterstore`";
+                                    $select = "SELECT * FROM `formRegisterStore`";
                                                 
                                     $query = mysqli_query($connect,$select);
                                     

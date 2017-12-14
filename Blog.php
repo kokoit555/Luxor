@@ -11,9 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="css/footer.css">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/slider.css">
 	<link rel="stylesheet" type="text/css" href="css/style-mobi.css">
-    <link href="css/blog.css" rel="stylesheet">
+    <link href="css/blog.css" rel="stylesheet" type="text/css">
   	<link rel="stylesheet" type="text/css" href="css/media.css">
 	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
 	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>

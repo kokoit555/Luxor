@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">เลขบนบัตร</label>
                         <div class="col-sm-9">
-                        <input type="text" class="form-control" name="cardnumber" placeholder="Debit/Credit Card Number">
+                        <input type="text" class="form-control" OnKeyPress="return chkNumber(this)" maxlength="16" name="cardnumber" placeholder="Debit/Credit Card Number">
                         </div>
                     </div>
                     <div class="form-group">
@@ -61,7 +61,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">เลข CVV</label>
                         <div class="col-sm-3">
-                            <input type="text" class="form-control" name="cvv"  placeholder="Security Code"> 
+                            <input type="password" maxlength="3" OnKeyPress="return chkNumber(this)" class="form-control" name="cvv"  placeholder="Security Code"> 
                         </div>
                     </div>
                     <div class="form-group">
@@ -73,7 +73,19 @@
                     </fieldset>
                 </form>
             </div>
+
+            <script type="text/javascript">
+                function chkNumber(ele)
+                {
+                var vchar = String.fromCharCode(event.keyCode);
+                if ((vchar<'0' || vchar>'9') && (vchar != '.')) return false;
+                ele.onKeyPress=vchar;
+                }
+            </script>
+
             <?php
+            if(!empty($_GET["id_order"])){
+
                 if(!empty($_POST['Submitpayment'])){
                     
                     $idorder = $_GET["id_order"];
@@ -84,7 +96,7 @@
                     $cvv = $_POST['cvv'];
                     $expiryyear = $_POST['expiryyear'];
     
-                    $strSQL = "INSERT INTO `payment` (`id_payment`, `Type_payment`, `Payment_Status`, `DatePayment`, `id_code`) VALUES
+                    $strSQL = "INSERT INTO `Payment` (`id_payment`, `Type_payment`, `Payment_Status`, `DatePayment`, `id_code`) VALUES
                                 ('0', 'VISA', 'pay', '$datepaymenmt', NULL);";
                 
                     $queryinsertOrder = mysqli_query($connect,$strSQL);
@@ -97,23 +109,27 @@
                     $last_paymentid = mysqli_insert_id($connect);
                     
 
-                    $sqlselectidstore = "SELECT * FROM `orderproductdetail` 
-                                            INNER JOIN product ON product.id_product = orderproductdetail.id_product 
-                                            WHERE `orderproductdetail`.`id_order` = '$idorder'";
+                    $sqlselectidstore = "SELECT * FROM `OrderProductDetail` 
+                                            INNER JOIN Product ON Product.id_product = OrderProductDetail.id_product 
+                                            WHERE `OrderProductDetail`.`id_order` = '$idorder'";
 
                     $queryidstore = mysqli_query($connect,$sqlselectidstore);
                     while($row = mysqli_fetch_array($queryidstore)){
 
-                        $strSQL = "INSERT INTO `store_product_shipment` (`id_shipment`, `id_order`, `id_payment`, `Status`, `id_store`, `id_shipping`, `ShipCode`) VALUES 
+                        $strSQL = "INSERT INTO `Store_product_shipment` (`id_shipment`, `id_order`, `id_payment`, `Status`, `id_store`, `id_shipping`, `ShipCode`) VALUES 
                         ('0', '$idorder', '$last_paymentid', '0', '".$row['id_store']."' , NULL, NULL);";
     
                         mysqli_query($connect,$strSQL);
 
                     }
                     mysqli_close($connect);
-                    if($queryidstore){echo "<script> function(){ $('.confirm').show(); $('#pay-form').hide();} </script>";}
-                    
+                    // if($queryidstore){echo "<script> function(){ $('.confirm').show(); $('#pay-form').hide();} </script>";}
+                    header("Location: History.php");
                 }
+            }
+            else{
+                header("Location: index.php");
+            }
             ?>
         </div><!--SHIPPING METHOD END-->
 

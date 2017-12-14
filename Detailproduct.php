@@ -13,10 +13,9 @@
 	<link rel="stylesheet" type="text/css" href="css/footer.css">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/slider.css">
     <link rel="stylesheet" type="text/css" href="css/style-mobi.css">
     <link rel="stylesheet" type="text/css" href="css/media.css">
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" href="css/p_detail.css">
 </head>
@@ -39,7 +38,7 @@
                                 <img style="max-width:100%;" src="images/product/Jai/jai-03.png" />
                             </div>
                              <div class="img-area" id="area-04">
-                                <img style="max-width:100%;" src="imagesimg/product/Jai/jai-04.png" />
+                                <img style="max-width:100%;" src="images/product/Jai/jai-04.png" />
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6" style="border:0px solid gray;padding: 1% 4%;">
@@ -163,8 +162,8 @@
             $("#area-04").hide();
         });
         $("#option4").click(function () {
-                $("#area-04").hide();
-            $("#area-01").show();
+            $("#area-04").show();
+            $("#area-01").hide();
             $("#area-02").hide();
             $("#area-03").hide();
         });

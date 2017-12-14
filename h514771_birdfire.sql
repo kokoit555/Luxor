@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2017 at 07:55 PM
+-- Generation Time: Dec 14, 2017 at 10:37 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -153,7 +153,11 @@ CREATE TABLE `imgproduct` (
 INSERT INTO `imgproduct` (`id_imgProduct`, `Name_img`, `url_img`) VALUES
 (1, 'detailProduct1.png', 'images/'),
 (2, 'detailProduct2.png', 'images/'),
-(3, 'detailProduct3.png', 'images/');
+(3, 'detailProduct3.png', 'images/'),
+(4, 'jai-01.png', 'images/product/'),
+(5, 'jai-02.png', 'images/product/'),
+(6, 'jai-03.png', 'images/product/'),
+(7, 'jai-04.png', 'images/product/');
 
 -- --------------------------------------------------------
 
@@ -176,8 +180,12 @@ CREATE TABLE `imgproductdetail` (
 
 INSERT INTO `imgproductdetail` (`id_imgProductDetail`, `id_product`, `id_imgProduct`, `namethumbProduct`, `urlthumbProduct`, `qty`) VALUES
 (1, 1, 1, '1', 'images/thumbproduct/thumb1.png', '2'),
-(2, 1, 2, '1', 'images/thumbproduct/thumb2.png', '3'),
-(3, 2, 2, '1', 'images/thumbproduct/thumb3.png', '4');
+(2, 1, 2, '2', 'images/thumbproduct/thumb2.png', '3'),
+(3, 2, 3, '1', 'images/thumbproduct/thumb3.png', '4'),
+(4, 3, 4, '1', 'images/thumbproduct/jai-p01.png', '10'),
+(5, 3, 5, '2', 'images/thumbproduct/jai-p02.png', '10'),
+(6, 3, 6, '3', 'images/thumbproduct/jai-p03.png', '10'),
+(7, 3, 7, '4', 'images/thumbproduct/jai-p04.png', '10');
 
 -- --------------------------------------------------------
 
@@ -200,7 +208,8 @@ CREATE TABLE `orderproductdetail` (
 INSERT INTO `orderproductdetail` (`id_orderDetail`, `id_order`, `id_product`, `qty`, `Price`) VALUES
 (1, 1, 1, '1', '4,000'),
 (2, 1, 2, '1', '4,000'),
-(3, 2, 2, '3', '4,000');
+(3, 2, 2, '3', '4,000'),
+(4, 3, 1, '1', '4000');
 
 -- --------------------------------------------------------
 
@@ -228,7 +237,8 @@ CREATE TABLE `order_product` (
 
 INSERT INTO `order_product` (`id_order`, `id_user`, `Date_order`, `Tax`, `Name`, `LastName`, `Tel`, `Address`, `Zip`, `Send_email_order`, `Totalprice`) VALUES
 (1, 1, '2017-12-07', '7%', 'Admin', 'Fumin', '099-999-9999', '555/55 หมู่ 5 หมู่บ้าน 555 ตำบล รารา อำเภอ เมือง จังหวัด กรุงเทพ ประเทศไทย', '10000', 'test@info.com', 8000),
-(2, 1, '2017-12-07', '7%', 'Admin', 'Fumin', '099-999-9999', '555/55 หมู่ 5 หมู่บ้าน 555 ตำบล รารา อำเภอ เมือง จังหวัด กรุงเทพ ประเทศไทย', '10000', 'test@info.com', 4000);
+(2, 1, '2017-12-07', '7%', 'Admin', 'Fumin', '099-999-9999', '555/55 หมู่ 5 หมู่บ้าน 555 ตำบล รารา อำเภอ เมือง จังหวัด กรุงเทพ ประเทศไทย', '10000', 'test@info.com', 4000),
+(3, 1, '2017-12-14', '7%', 'Admin', 'Fumin', '099-999-9999', '555/55 หมู่ 5 หมู่บ้าน 555 ตำบล รารา  อำเภอกรุงเทพ จังหวัดเมือง ประเทศประเทศไทย ', '10000', 'Luxor@info.com', 4000);
 
 -- --------------------------------------------------------
 
@@ -250,7 +260,8 @@ CREATE TABLE `payment` (
 
 INSERT INTO `payment` (`id_payment`, `Type_payment`, `Payment_Status`, `DatePayment`, `id_code`) VALUES
 (1, 'VISA', 'pay', '2017-12-08', NULL),
-(2, 'VISA', 'pay', '2017-12-08', NULL);
+(2, 'VISA', 'pay', '2017-12-08', NULL),
+(3, 'VISA', 'pay', '2017-12-14', NULL);
 
 -- --------------------------------------------------------
 
@@ -278,7 +289,8 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`id_product`, `NameProduct`, `Status`, `PriceProduct`, `discount`, `tax`, `date_input`, `productDetail`, `textProductDetail`, `id_type`, `id_store`) VALUES
 (1, 'กระเป๋า', 'Stock', '4000', '0%', '7%', '2017-12-06', 'กระเป๋านิ่มๆ น่ารักๆ แฝงด้วยลวดลายธรรมชาติปักอย่างประณีต ', 'กระเป๋านิ่มๆ น่ารักๆ แฝงด้วยลวดลายธรรมชาติปักอย่างประณีต คือผ้าฝ้ายย้อมคราม ฝีมือชาวบ้านชุมชนบ้านนางเติ่ง ต.โคกภู อ.ภูพาน จ.สกลนคร มีทั้งเสื้อ กางเกง ผ้าพันคอ ผ้าคลุมไหล่น่ารักๆ ให้เลือก เมื่อรวมกับดีไซน์เรียบง่ายแต่แฝงไว้ด้วยความเก๋ไก๋ รับรองว่าใส่แล้วต้องยืดอกอย่างภูมิใจเพราะสวยไม่ซ้ำใครและได้ช่วยสังคมไปในตัว', 3, 1),
-(2, 'กระเป๋า2', 'Stock', '5000', '10%', '7%', '2017-12-05', 'กระเป๋านิ่มๆ น่ารักๆ แฝงด้วยลวดลายธรรมชาติปักอย่างประณีต ', 'กระเป๋านิ่มๆ น่ารักๆ แฝงด้วยลวดลายธรรมชาติปักอย่างประณีต คือผ้าฝ้ายย้อมคราม ฝีมือชาวบ้านชุมชนบ้านนางเติ่ง ต.โคกภู อ.ภูพาน จ.สกลนคร มีทั้งเสื้อ กางเกง ผ้าพันคอ ผ้าคลุมไหล่น่ารักๆ ให้เลือก เมื่อรวมกับดีไซน์เรียบง่ายแต่แฝงไว้ด้วยความเก๋ไก๋ รับรองว่าใส่แล้วต้องยืดอกอย่างภูมิใจเพราะสวยไม่ซ้ำใครและได้ช่วยสังคมไปในตัว', 6, 1);
+(2, 'กระเป๋า2', 'Stock', '5000', '10%', '7%', '2017-12-05', 'กระเป๋านิ่มๆ น่ารักๆ แฝงด้วยลวดลายธรรมชาติปักอย่างประณีต ', 'กระเป๋านิ่มๆ น่ารักๆ แฝงด้วยลวดลายธรรมชาติปักอย่างประณีต คือผ้าฝ้ายย้อมคราม ฝีมือชาวบ้านชุมชนบ้านนางเติ่ง ต.โคกภู อ.ภูพาน จ.สกลนคร มีทั้งเสื้อ กางเกง ผ้าพันคอ ผ้าคลุมไหล่น่ารักๆ ให้เลือก เมื่อรวมกับดีไซน์เรียบง่ายแต่แฝงไว้ด้วยความเก๋ไก๋ รับรองว่าใส่แล้วต้องยืดอกอย่างภูมิใจเพราะสวยไม่ซ้ำใครและได้ช่วยสังคมไปในตัว', 6, 1),
+(3, 'Jaina', 'Stock', '1250', '0%', '7%', '2017-12-14', 'ขนาดของกระเป๋า (กว้าง x ยาว x สูง) 23 x 30 x 18', 'กระเป๋าสะพาย/ถือ ที่สวยงามมีเอกลักษณ์ ไม่ซ้ำใคร (งานทำเพียงใบเดียว) เป็นกระเป๋าที่สามารถใช้งานได้ทั้งวัน ใบนี้ทำจาก ผ้าไหมมัดหมี่และหนังวัวแท้สีน้ำเงิน มีสายสะพายซึ่งสามารถปรับความสั้นยาวและถอดออกได้ หากคุณต้องการกระเป๋าที่ไม่ซ้ำใคร กระเป๋าใบนี้ตอบโจทย์ให้คุณได้ วัสดุภายนอก ตกแต่งด้วย อุปกรณ์สีทอง ด้านหน้ามีโลโก้ Jai แบบแสตมป์จม มีกระเป๋าใส่ของด้านหลังเปิดปิดด้วยแม่เหล็ก ซิปสองทางสีทองอย่างดี วัสดุภายใน กระเป๋าติดซิปสีทองอย่างดี 2 ช่อง มีช่องสำหรับใส่มือถือและบัตรต่างๆ และใช้ซับในหนังกลับสีน้ำเงิน ขนาดของกระเป๋า สูง 23 ยาว 30 กว้าง 18 ซม.', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -366,7 +378,8 @@ CREATE TABLE `store_product_shipment` (
 
 INSERT INTO `store_product_shipment` (`id_shipment`, `id_order`, `id_payment`, `Status`, `id_store`, `id_shipping`, `ShipCode`) VALUES
 (1, 1, 1, '0', 1, NULL, NULL),
-(2, 2, 2, '0', 1, NULL, NULL);
+(2, 2, 2, '0', 1, NULL, NULL),
+(3, 3, 3, '0', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -618,37 +631,37 @@ ALTER TABLE `hotproduct`
 -- AUTO_INCREMENT for table `imgproduct`
 --
 ALTER TABLE `imgproduct`
-  MODIFY `id_imgProduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_imgProduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `imgproductdetail`
 --
 ALTER TABLE `imgproductdetail`
-  MODIFY `id_imgProductDetail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_imgProductDetail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `orderproductdetail`
 --
 ALTER TABLE `orderproductdetail`
-  MODIFY `id_orderDetail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_orderDetail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `order_product`
 --
 ALTER TABLE `order_product`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id_payment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_payment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `review`
@@ -672,7 +685,7 @@ ALTER TABLE `store`
 -- AUTO_INCREMENT for table `store_product_shipment`
 --
 ALTER TABLE `store_product_shipment`
-  MODIFY `id_shipment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_shipment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `subemail`

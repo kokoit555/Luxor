@@ -57,8 +57,8 @@
             $idproduct = mysqli_fetch_array(mysqli_query($connect,$selectidproduct));
             $idimgproduct = mysqli_fetch_array(mysqli_query($connect,$selectidimg));
     
-            $namethumb = $idproduct['id_product'] . $idimgproduct['id_imgProduct'] .($i+1);
-            $sqlinsertimgdetail = "INSERT INTO `imgproductdetail` (`id_imgProductDetail`, `id_product`, `id_imgProduct`, `namethumbProduct`, `urlthumbProduct`, `qty`) VALUES
+            $namethumb = $i+1;
+            $sqlinsertimgdetail = "INSERT INTO `IMGProductDetail` (`id_imgProductDetail`, `id_product`, `id_imgProduct`, `namethumbProduct`, `urlthumbProduct`, `qty`) VALUES
              ('0', '".$idproduct['id_product']."', '".$idimgproduct['id_imgProduct']."', '$namethumb', '$target_file_thumb', '".$qty[$i]."');";
             
             if(mysqli_query($connect,$sqlinsertimgdetail))

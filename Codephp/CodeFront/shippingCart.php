@@ -81,7 +81,7 @@
                 $iduser = $_SESSION['idnumLoginWebsite'];
                 $dateinput = date("Y-m-d H:i:s");
 
-                $strSQL = "INSERT INTO `order_product` (`id_order`, `id_user`, `Date_order`, `Tax`, `Name`, `LastName`, `Tel`, `Address`, `Zip`, `Send_email_order`, `Totalprice`) 
+                $strSQL = "INSERT INTO `Order_product` (`id_order`, `id_user`, `Date_order`, `Tax`, `Name`, `LastName`, `Tel`, `Address`, `Zip`, `Send_email_order`, `Totalprice`) 
                             VALUES('0', '$iduser', '$dateinput', '7%', '$first_name','$last_name', '$txtTel'
                                     , '$address"." อำเภอ"."$state"." จังหวัด"."$city"." ประเทศ"."$country', '$zip_code', '$txtEmail', '$totalprice');";
 
@@ -98,7 +98,7 @@
                 {
                     if($_SESSION["cartproductID"][$i] != "")
                     {
-                            echo $strSQL = "INSERT INTO `orderproductdetail` (`id_orderDetail`, `id_order`, `id_product`, `qty`, `Price`) VALUES 
+                            echo $strSQL = "INSERT INTO `OrderProductDetail` (`id_orderDetail`, `id_order`, `id_product`, `qty`, `Price`) VALUES 
                                         ('0', '$last_orderid', '".$_SESSION['cartproductID'][$i]."', '".$_SESSION['cartproductQTY'][$i]."', '".$_SESSION['PriceProduct'][$i]."');";
                             mysqli_query($connect,$strSQL);
                     }

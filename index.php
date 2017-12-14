@@ -12,7 +12,6 @@
 	<link rel="stylesheet" type="text/css" href="css/footer.css">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/slider.css">
 	<link rel="stylesheet" type="text/css" href="css/style-mobi.css">
   	<link rel="stylesheet" type="text/css" href="css/media.css">
 	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
@@ -63,8 +62,8 @@
 					<div class="rio-promos">
 						<?php 
 							$sqlqueryhotproduct = "SELECT * FROM `hotproduct` hp
-													INNER JOIN product p ON p.id_product = hp.id_product
-													INNER JOIN store s ON p.id_store = s.id_store";
+													INNER JOIN Product p ON p.id_product = hp.id_product
+													INNER JOIN Store s ON p.id_store = s.id_store";
 							$queryproduct = mysqli_query($connect,$sqlqueryhotproduct);
 							if(!empty($queryproduct))
 							{
@@ -218,7 +217,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type='text/javascript' src="js/jquery.mycart.min.js"></script>
-	<script type="text/javascript" src="js/slider.js"></script>
 	<script type="text/javascript" src="slick/slick.min.js"></script>
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> -->
 	<script type='text/javascript' src="js/app.js"></script>

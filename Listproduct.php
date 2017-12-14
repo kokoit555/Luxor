@@ -8,20 +8,21 @@
 	<title>Luxor Fabric</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/footer.css">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/slider.css">
-    <link rel="stylesheet" type="text/css" href="css/style-mobi.css">
-    <link rel="stylesheet" type="text/css" href="css/media.css">
-    <link href="css/p_list.css" rel="stylesheet" type="text/css">
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/style-mobi.css">
+  <link rel="stylesheet" type="text/css" href="css/media.css">
+  <link href="css/p_list.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
 </head>
 <body>
-	<?php require './header.php' ?>
+  <?php 
+    include 'Codephp/connectdb.php';
+    require './header.php' 
+  ?>
 	<div class="navbar navbar-default visible-xs">
         <div class="container-fluid">
             <button class="btn btn-default navbar-btn" data-toggle="collapse" data-target="#filter-sidebar">
@@ -57,73 +58,6 @@
           </a>
         </div>
       </div>
-      
-      <div>
-        <h4 data-toggle="collapse" data-target="#group-2">
-          <!-- <i class="fa fa-fw fa-caret-down parent-expanded"></i> -->
-          <!-- <i class="fa fa-fw fa-caret-right parent-collapsed"></i> -->
-          หัวข้อ
-        </h4>
-        <div id="group-2" class="list-group collapse in">
-          <a class="list-group-item" href="#">
-            <span class="badge">3</span> ตัวเลือก
-          </a>
-          <a class="list-group-item" href="#">
-            <span class="badge">3</span> ตัวเลือก
-          </a>
-          <a class="list-group-item" href="#">
-            <span class="badge">3</span> ตัวเลือก
-          </a>
-          <a class="list-group-item" href="#">
-            <span class="badge">3</span> ตัวเลือก
-          </a>
-        </div>
-      </div>
-      
-      <div>
-        <h4 data-toggle="collapse" data-target="#group-3"> 
-          <!-- <i class="fa fa-fw fa-caret-down parent-expanded"></i> -->
-          <!-- <i class="fa fa-fw fa-caret-right parent-collapsed"></i> -->
-          หัวข้อ
-        </h4>
-        <div id="group-3" class="list-group collapse in">
-          <a class="list-group-item" href="#">
-            <span class="badge">3</span> ตัวเลือก
-          </a>
-          <a class="list-group-item" href="#">
-            <span class="badge">3</span> ตัวเลือก
-          </a>
-          <a class="list-group-item" href="#">
-            <span class="badge">3</span> ตัวเลือก
-          </a>
-          <a class="list-group-item" href="#">
-            <span class="badge">3</span> ตัวเลือก
-          </a>
-        </div>
-      </div>
-      
-      <div>
-        <h4 data-toggle="collapse" data-target="#group-4">
-          <!-- <i class="fa fa-fw fa-caret-down parent-expanded"></i> -->
-          <!-- <i class="fa fa-fw fa-caret-right parent-collapsed"></i> -->
-          หัวข้อ
-        </h4>
-        <div id="group-4" class="list-group collapse in">
-          <a class="list-group-item" href="#">
-            <span class="badge">3</span> ตัวเลือก
-          </a>
-          <a class="list-group-item" href="#">
-            <span class="badge">3</span> ตัวเลือก
-          </a>
-          <a class="list-group-item" href="#">
-            <span class="badge">3</span> ตัวเลือก
-          </a>
-          <a class="list-group-item" href="#">
-            <span class="badge">3</span> ตัวเลือก
-          </a>
-        </div>
-      </div>
-      
     </div>
 
     <!-- table container -->
@@ -138,6 +72,16 @@
         </div>
     </div>
     <div id="products" class="row list-group">
+
+    <?php 
+      
+      $selectListproduct = "SELECT * FROM `Product` p
+                            INNER JOIN IMGProductDetail ipd ON ipd.id_product = p.id_product AND ipd.namethumbProduct = '1'
+                            INNER JOIN IMGProduct ip ON ip.id_imgProduct = ipd.id_imgProduct";
+
+
+    ?>
+    <!-- เริ่มสินค้า -->
         <div class="item col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="thumbnail">
               <figure class="snip1268">
@@ -156,42 +100,7 @@
             </figure>
             </div>
         </div>
-        <div class="item  col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <div class="thumbnail">
-              <figure class="snip1268">
-              <div class="image">
-                <img class="img-responsive center-block" src="./images/product/Jai/jai-02.png" alt="sq-sample4"/>
-                <div class="icons">
-                  <a href="#"><i class="ion-star"></i></a>
-                  <a href="./Detailproduct.php"> <i class="ion-search "></i><span class="detail">ดูเพิ่มเติม</span></a>
-                  <a href="#"> <i class="ion-share"></i></a>
-                </div>
-                <a href="#" class="add-to-cart">Add to Cart</a>
-              </div>
-              <figcaption>
-            <div class="caption"><p class="title">Jai Bags ผ้าทอมือ หนังวัวแท้<br> สีดำ</p><p class="price CRed">580 บาท</p></div>
-              </figcaption>
-            </figure>
-            </div>
-        </div>
-        <div class="item col-xs-12 col-sm-4 col-md-4 col-lg-4">
-            <div class="thumbnail">
-                <figure class="snip1268">
-              <div class="image">
-                <img  class="img-responsive center-block"  src="./images/product/Jai/jai-03.png" alt="sq-sample4"/>
-                <div class="icons">
-                  <a href="#"><i class="ion-star"></i></a>
-                  <a href="./Detailproduct.php"> <i class="ion-search "></i><span class="detail">ดูเพิ่มเติม</span></a>
-                  <a href="#"> <i class="ion-share"></i></a>
-                </div>
-                <a href="#" class="add-to-cart">Add to Cart</a>
-              </div>
-              <figcaption>
-                <div class="caption"><p class="title">Larinn by double p รองเท้า<br>จากผ้าทอมือ</p><p class="price CRed">580 บาท</p></div>
-              </figcaption>
-            </figure>
-            </div>
-        </div>
+    <!-- จบสินค้า -->
         
     </div>
 </div>
@@ -201,9 +110,13 @@
 
 
     <?php require 'footer.php' ?>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script type='text/javascript' src="js/jquery.mycart.min.js"></script>
+        <script type="text/javascript" src="slick/slick.min.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> -->
+        <script type='text/javascript' src="js/app.js"></script>
         <script>
             $(document).ready(function() {
                 $('#list').click(function(event){

@@ -1,19 +1,19 @@
         <!-- top tiles -->
         <div class="row tile_count">
                     <?php
-                        $selecttotaluser = "SELECT COUNT(`id_user`) countitem FROM `user_member`";
+                        $selecttotaluser = "SELECT COUNT(`id_user`) countitem FROM `User_member`";
                         $queryttotaluser = mysqli_query($connect,$selecttotaluser);
                         $rowttotaluser = mysqli_fetch_array($queryttotaluser);
 
-                        $selecttotalstore = "SELECT COUNT(`id_store`) countitem FROM `store`";
+                        $selecttotalstore = "SELECT COUNT(`id_store`) countitem FROM `Store`";
                         $queryttotalstore = mysqli_query($connect,$selecttotalstore);
                         $rowtotalstore = mysqli_fetch_array($queryttotalstore);
 
-                        $selecttotalorder = "SELECT COUNT(`id_order`) countitem FROM `order_product`";
+                        $selecttotalorder = "SELECT COUNT(`id_order`) countitem FROM `Order_product`";
                         $queryttotalorder = mysqli_query($connect,$selecttotalorder);
                         $rowtotalorder = mysqli_fetch_array($queryttotalorder);
 
-                        $selecttotalproduct = "SELECT COUNT(`id_product`) countitem FROM `product`";
+                        $selecttotalproduct = "SELECT COUNT(`id_product`) countitem FROM `Product`";
                         $querytotalproduct = mysqli_query($connect,$selecttotalproduct);
                         $rowtotalproduct = mysqli_fetch_array($querytotalproduct);
                     ?>
