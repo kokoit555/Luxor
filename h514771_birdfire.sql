@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2017 at 07:25 PM
+-- Generation Time: Dec 14, 2017 at 07:55 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `h514771_birdfire`
 --
+CREATE DATABASE IF NOT EXISTS `h514771_birdfire` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `h514771_birdfire`;
 
 -- --------------------------------------------------------
 
