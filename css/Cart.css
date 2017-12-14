@@ -1,35 +1,60 @@
-.table>tbody>tr>td, .table>tfoot>tr>td{
-  vertical-align: middle;
+section#viewcart {margin: 15% 0;}
+section#checkout {margin: 15% 0;}
+section#address {margin: 15% 0;}
+.panel-info>.panel-heading {
+  color: #464646;
+  background-color: #ffebc9;
+  border-color: #ffebc9;
 }
-@media screen and (max-width: 600px) {
-  table#cart tbody td .form-control{
-  width:20%;
-  display: inline !important;
+.panel-info {
+  border-color: #ffecc9;
 }
-
-.actions .btn{
-  width:36%;
-  margin:1.5em 0;
+.panel-contant {height: auto; min-height: 230px;}
+.btn-more{
+  color: #4e4e4e;
+  background-color: #ffbd45;
+  border-color: #ffcd72;
+  font-size: 16px!important;
 }
-
-.actions .btn-info{
-  float:left;
+#address  .form-group {
+  margin-bottom: 5px;
+  float: left;
+  width: 100%;
 }
-.actions .btn-danger{
-  float:right;
+#address .panel-body {
+  padding: 0;
+  margin-bottom: 6%;
 }
-
-table#cart thead { display: none; }
-table#cart tbody td { display: block; padding: .6rem;}
-table#cart tbody tr td:first-child { background: #333; color: #fff; }
-table#cart tbody td:before {
-  content: attr(data-th); font-weight: bold;
-  display: inline-block; width: 8rem;
+#address .col-md-6.col-xs-12 {
+  margin: 0.5% 0;
 }
-
-
-
-table#cart tfoot td{display:block; }
-table#cart tfoot td .btn{display:block;}
-
+#address .form-control {
+  display: block;
+  width: 100%;
+  height: 38px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  -webkit-box-shadow: 3px 2px 0px rgba(0,0,0,.075);
+  box-shadow: 3px 2px 0px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+@media screen and (max-width: 767px){
+.table-responsive {
+  width: 100%;
+  margin-bottom: 15px;
+  overflow-y: hidden;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  border: none;
+}
+section#viewcart {margin-top: 20%;}
+section#checkout {margin-top: 20%;}
+section#address {margin-top: 20%;}
 }

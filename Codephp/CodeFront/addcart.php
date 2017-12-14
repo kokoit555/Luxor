@@ -2,14 +2,12 @@
 
     if(!empty($_POST['addproducttocart'])){
 
-        $dirimg = $row['url_img']."".$row['Name_img'];
-        $idproduct = $row['id_product'];
-        $nameproduct = $row['NameProduct'];
-        $priceproduct = $row['PriceProduct'];
+        $idproduct = $_POST['id_product'];
+        $nameproduct = $_POST['NameProduct'];
+        $priceproduct = $_POST['PriceProduct'];
         $qtyproduct = $_POST['qtyproduct'];
         
         if(empty($_SESSION['cartproductID'])){
-            $_SESSION['cartproductIMG'][] = $dirimg;
             $_SESSION['cartproductID'][] = $idproduct;
             $_SESSION['cartproductNAME'][] = $nameproduct;
             $_SESSION['PriceProduct'][]= $priceproduct;
@@ -25,7 +23,6 @@
             }
             else
             {
-                $_SESSION['cartproductIMG'][] = $dirimg;
                 $_SESSION['cartproductID'][] = $idproduct;
                 $_SESSION['cartproductNAME'][] = $nameproduct;
                 $_SESSION['PriceProduct'][]= $priceproduct;

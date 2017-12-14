@@ -12,5 +12,7 @@
     if(!$connect){
         echo "<script> alert('เชื่อมต่อDatabaseไม่ได้');</script>";
     }
+    ob_start();
+    session_start();
 
 ?>

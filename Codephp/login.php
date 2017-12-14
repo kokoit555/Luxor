@@ -16,6 +16,15 @@
 
             $_SESSION['idnumLoginWebsite'] = $row['id_user'];
             $_SESSION['nameLoginWebsite'] = $row['Name']." ".$row['LastName'];
+            $_SESSION['NameUser'] = $row['Name'];
+            $_SESSION['LastNameUser'] = $row['LastName'];
+            $_SESSION['EmailUser'] = $row['Email'];
+            $_SESSION['TelUser'] = $row['Tel'];
+            $_SESSION['AddressUser'] = $row['Address'];
+            $_SESSION['CityUser'] = $row['City'];
+            $_SESSION['StateUser'] = $row['State'];
+            $_SESSION['CountryUser'] = $row['Country'];
+            $_SESSION['ZipUser'] = $row['Zip'];
             // $_SESSION['idnumLoginWebsite'] = "admin";
             // $_SESSION['nameLoginWebsite'] = "admin";
         }
@@ -27,6 +36,6 @@
          echo "<script> alert('ไม่สำเร็จ');</script>";
      }
 
-     include "disconnect.php";
+     mysqli_close($connect);
 
 ?>

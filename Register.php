@@ -3,21 +3,29 @@
 
 <head>
 	<title>LuxorFabric</title>
-	<link rel="icon" type="image/png" href="images/logo.png" />
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/logo.png" />
     <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/footer.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/insertproduct.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/footer.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/slider.css">
+	<link rel="stylesheet" type="text/css" href="css/style-mobi.css">
+  	<link rel="stylesheet" type="text/css" href="css/media.css">
+      <link rel="stylesheet" type="text/css" href="css/insertproduct.css">
     <link rel="stylesheet" type="text/css" href="css/sweetalert2.min.css">
-	<script type="text/javascript" src="js/angular.min.js"></script>
-	<script type="text/javascript" src="js/app.js"></script>
-	<script type="text/javascript" src="js/sweetalert2.min.js"></script>
+	<!-- <script type="text/javascript" src="js/jquery.min.js"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/sweetalert2.min.js"></script>
+	<script type="text/javascript" src="js/slider.js"></script>
+	<script type="text/javascript" src="slick/slick.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 </head>
 
 <body>
@@ -28,7 +36,7 @@
 
 	<div id="wrapper">
 		<?php include "header.php"; ?>
-		<section class="Story">
+		<div class="container-fluid" style="padding: 5% 0;">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12 col-md-12">
@@ -36,8 +44,9 @@
                                 <div class="col-md-12">
                                     <form class="form-horizontal" method="post" enctype="multipart/form-data">
                                         <fieldset>
-                                            <legend class="text-center">สมัครสมาชิก</legend>
-                                            &nbsp
+                                            <legend class="text-center">ลงทะเบียนสมาชิกใหม่</legend>
+                                            <h4 class="text-center">สมัครสมาชิก</h4>
+                                             &nbsp
                                             <!-- ชื่อสินค้า-->
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label" for="name">ชื่อจริง</label>
@@ -120,7 +129,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
 		<?php include "footer.php"; ?>
 
 	</div>
