@@ -79,29 +79,37 @@
                             INNER JOIN IMGProductDetail ipd ON ipd.id_product = p.id_product AND ipd.namethumbProduct = '1'
                             INNER JOIN IMGProduct ip ON ip.id_imgProduct = ipd.id_imgProduct";
 
-
+      $queryListproduct = mysqli_query($connect,$selectListproduct);
+      while($row = mysqli_fetch_array($queryListproduct)){
     ?>
     <!-- เริ่มสินค้า -->
         <div class="item col-xs-12 col-sm-4 col-md-4 col-lg-4">
             <div class="thumbnail">
               <figure class="snip1268">
               <div class="image">
-                <img class="img-responsive center-block" src="./images/product/Jai/jai-01.png" alt="sq-sample4"/>
+                <img class="img-responsive center-block" src="./<?php echo $row['url_img'].$row['Name_img']; ?>" alt="รูปสินค้า"/>
                 <div class="icons">
                   <a href="#"><i class="ion-star"></i></a>
-                  <a href="./Detailproduct.php"> <i class="ion-search "></i><span class="detail">ดูเพิ่มเติม</span></a>
+                  <a href="./Detailproduct.php?idproduct=<?php echo $row['id_product']; ?>"> <i class="ion-search "></i><span class="detail">ดูเพิ่มเติม</span></a>
                   <a href="#"> <i class="ion-share"></i></a>
                 </div>
-                <a href="#" class="add-to-cart">Add to Cart</a>
+                <form method="POST">
+                  <input name="id_product" type="hidden" value="<?php echo $row['id_product']; ?>">
+									<input name="NameProduct" type="hidden" value="<?php echo $row['NameProduct']; ?>">
+									<input name="PriceProduct" type="hidden" value="<?php echo $row['PriceProduct'];?>">
+									<input name="qtyproduct" type="hidden" value="1">
+                  <input type="submit" name="addproducttocart" class="add-to-cart" value="Add to Cart">
+                </form>
               </div>
               <figcaption>
-               <div class="caption"><p class="title">ภูคราม เสื้อปักลายธรรมชาติ<br>สีมัดย้อม</p><p class="price CRed">1,150 บาท</p></div>
+               <div class="caption"><p class="title"><?php echo $row['NameProduct']; ?><br><?php echo $row['productDetail']; ?></p><p class="price CRed"><?php echo number_format($row['PriceProduct']); ?> บาท</p></div>
               </figcaption>
             </figure>
             </div>
         </div>
     <!-- จบสินค้า -->
-        
+    <?php } ?>
+    <?php include "./Codephp/CodeFront/addcart.php"; ?>
     </div>
 </div>
 
