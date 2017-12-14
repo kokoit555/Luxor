@@ -24,7 +24,7 @@
                 <td data-th="Product"><?php echo $name; ?> </td>
                 <td data-th="Price"><?php echo number_format($price); ?> บาท</td>
                 <td data-th="Quantity">
-                    <input type="number" name="updateqty" class="form-control text-center" value="<?php echo $qty; ?>" min="1" max="999">
+                    <input type="number" name="updateqty[]" class="form-control text-center" value="<?php echo $qty; ?>" min="1" max="999">
                 </td>
                 <td class="actions" data-th="" style="text-align:center;">
                     <a href="./Codephp/CodeFront/deletecart.php?slotdelete=<?php echo $i; ?>" class="btn btn-danger btn-sm"><span class="fa fa-trash-o" aria-hidden="true"></span></a>								
@@ -36,4 +36,20 @@
         }
     }
 ?>
+<script type="text/javascript">
+
+        const numInputs = document.querySelectorAll('input[type=number]')
+            numInputs.forEach(
+                function (input) {
+                        input.addEventListener('change', function (e) {
+                            if (e.target.value == '') {
+                                e.target.value = 1
+                            }
+                            else if(e.target.value == '0'){
+                                e.target.value = 1
+                            }
+                        })
+                    }
+                )
+</script>
     

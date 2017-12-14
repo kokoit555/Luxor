@@ -2,6 +2,14 @@
     <div class="table-responsive panel-contant">
         <h4>รายการสั่งซื้อ</h4>
         <table class="table">
+                        <tbody>
+                            <tr>
+                                <td style="border:0;">id</td>
+                                <td style="border:0;">ชื่อสินค้า</td>
+                                <td style="border:0;">ราคา</td>
+                                <td style="border:0;">จำนวน</td>
+                                <td class="text-right" style="border:0;">รวม</td>
+                            </tr>
            <?php   
                 $totalprice = 0;
                 if(!empty($_SESSION['cartproductID'])){
@@ -16,15 +24,7 @@
                         $totalprice += $price;
                         if($_SESSION['cartproductID'] != ""){
             ?>
-                        <tbody>
-                            <tr>
-                                <td style="border:0;">id</td>
-                                <td style="border:0;">ชื่อสินค้า</td>
-                                <td style="border:0;">ราคา</td>
-                                <td style="border:0;">จำนวน</td>
-                                <td class="text-right" style="border:0;">รวม</td>
-                                
-                            </tr>
+                        
                             <tr>
                                 <td><?=$id;?></td>
                                 <td><?=$name;?></td>

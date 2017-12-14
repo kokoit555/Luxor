@@ -98,8 +98,8 @@
                 {
                     if($_SESSION["cartproductID"][$i] != "")
                     {
-                            $strSQL = "INSERT INTO `orderproductdetail` (`id_orderDetail`, `id_order`, `id_product`, `qty`, `Price`) VALUES 
-                                        ('0', '$last_orderid', '".$_SESSION['cartproductID']."', '".$_SESSION['cartproductQTY']."', '".$_SESSION['PriceProduct']."');";
+                            echo $strSQL = "INSERT INTO `orderproductdetail` (`id_orderDetail`, `id_order`, `id_product`, `qty`, `Price`) VALUES 
+                                        ('0', '$last_orderid', '".$_SESSION['cartproductID'][$i]."', '".$_SESSION['cartproductQTY'][$i]."', '".$_SESSION['PriceProduct'][$i]."');";
                             mysqli_query($connect,$strSQL);
                     }
                 }

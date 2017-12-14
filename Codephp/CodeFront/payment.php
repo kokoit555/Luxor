@@ -74,9 +74,7 @@
                 </form>
             </div>
             <?php
-                if(!empty($_POST['Submitpayment']) && !empty($_POST['cardholdername']) 
-                    &&!empty($_POST['cardnumber']) &&!empty($_POST['expirymonth'])
-                    &&!empty($_POST['cvv']) &&!empty($_POST['expiryyear'])){
+                if(!empty($_POST['Submitpayment'])){
                     
                     $idorder = $_GET["id_order"];
                     $datepaymenmt = date("Y-m-d H:i:s");
@@ -100,8 +98,8 @@
                     
 
                     $sqlselectidstore = "SELECT * FROM `orderproductdetail` 
-                                            INNER JOIN product ON product.id_product = orderproductdetail.id_order 
-                                            WHERE orderproductdetail.id_order = '$idorder'";
+                                            INNER JOIN product ON product.id_product = orderproductdetail.id_product 
+                                            WHERE `orderproductdetail`.`id_order` = '$idorder'";
 
                     $queryidstore = mysqli_query($connect,$sqlselectidstore);
                     while($row = mysqli_fetch_array($queryidstore)){
@@ -113,8 +111,8 @@
 
                     }
                     mysqli_close($connect);
+                    if($queryidstore){echo "<script> function(){ $('.confirm').show(); $('#pay-form').hide();} </script>";}
                     
-                    // echo "<script> function(){ $('.confirm').show(); $('#pay-form').hide();} </script>";
                 }
             ?>
         </div><!--SHIPPING METHOD END-->
