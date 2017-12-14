@@ -23,7 +23,7 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                    include "../Codephp/connectdb.php";
+                                    
                                     $select = "SELECT * FROM `formregisterstore`";
                                                 
                                     $query = mysqli_query($connect,$select);

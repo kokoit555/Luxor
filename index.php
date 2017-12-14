@@ -16,7 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style-mobi.css">
   	<link rel="stylesheet" type="text/css" href="css/media.css">
 	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+	<!-- <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/> -->
 </head>
 
 <body>
@@ -72,7 +72,7 @@
 								{
 						?>
 									<div class="item">
-										<form method="post">
+										<form method="post" id="setfocus">
 											<figure class="snip1268">
 												<div class="image">
 													<img class="img-responsive center-block" src="./<?php echo $row['urlimg'];?>" alt="sq-sample4"/>
@@ -90,10 +90,10 @@
 														</div>
 													</figcaption>
 													<input name="id_product" type="hidden" value="<?php echo $row['id_product']; ?>">
-													<input name="NameProduct" type="hidden" value="<?php echo $row['NameStore']; ?>">
+													<input name="NameProduct" type="hidden" value="<?php echo $row['NameProduct']; ?>">
 													<input name="PriceProduct" type="hidden" value="<?php echo $row['PriceProduct'];?>">
 													<input name="qtyproduct" type="hidden" value="1">
-													<input name="addproducttocart" type="submit" class="add-to-cart my-cart-btn" value="Add to Cart">
+													<input name="addproducttocart"  type="submit" class="add-to-cart my-cart-btn" value="Add to Cart">
 											</figure>
 										</form>
 									</div> <!--item-->
@@ -217,11 +217,19 @@
 	<!-- <script type="text/javascript" src="js/jquery.min.js"></script> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type='text/javascript' src="js/jquery.mycart.min.js"></script>
 	<script type="text/javascript" src="js/slider.js"></script>
 	<script type="text/javascript" src="slick/slick.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-	<script type='text/javascript' src="js/jquery.mycart.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> -->
 	<script type='text/javascript' src="js/app.js"></script>
+	
+	<script type="text/javascript">
+	
+	// $('#setfocus').click(function() {
+	// 	window.location.hash = '#sec-b';
+	// });
+
+	</script>
 	
 </body>
 

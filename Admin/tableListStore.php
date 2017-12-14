@@ -22,8 +22,6 @@
                  </thead>
                  <tbody>
                  <?php
-                    include "../Codephp/connectdb.php";
-
                     $select = "SELECT * FROM `Store` s order by `id_store`";
                     $query = mysqli_query($connect,$select);
                     

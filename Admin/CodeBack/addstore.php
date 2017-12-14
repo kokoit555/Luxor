@@ -1,5 +1,4 @@
 <?php
-    include "../Codephp/connectdb.php";
     if(!empty($_POST['submitinsertstore'])){
         
 

@@ -1,71 +1,58 @@
 
-
-  $(function () {
-    var goToCartIcon = function($addTocartBtn){
-      var $cartIcon = $(".my-cart-icon");
-      var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
-      $addTocartBtn.prepend($image);
-      var position = $cartIcon.position();
-      $image.animate({
-        top: position.top,
-        left: position.left
-      }, 500 , "linear", function() {
-        $image.remove();
-      });
-    }
-
-    $('.my-cart-btn').myCart({
-      currencySymbol: '฿',
-      classCartIcon: 'my-cart-icon',
-      classCartBadge: 'my-cart-badge',
-      classProductQuantity: 'my-product-quantity',
-      classProductRemove: 'my-product-remove',
-      classCheckoutCart: 'my-cart-checkout',
-      affixCartIcon: true,
-      showCheckoutModal: true,
-       numberOfDecimals: 2,
-      clickOnAddToCart: function($addTocart){
-        goToCartIcon($addTocart);
-      },
-      clickOnCartIcon: function($cartIcon, products, totalPrice, totalQuantity) {
-        console.log("cart icon clicked", $cartIcon, products, totalPrice, totalQuantity);
-      },
-        checkoutCart: function(products, totalPrice, totalQuantity) {
-        var checkoutString = "Total Price: " + totalPrice + "\nTotal Quantity: " + totalQuantity;
-        checkoutString += "\n\n id \t name \t summary \t price \t quantity \t image path";
-        $.each(products, function(){
-          checkoutString += ("\n " + this.id + " \t " + this.name + " \t " + this.summary + " \t " + this.price + " \t " + this.quantity + " \t " + this.image);
+$(function () {
+  
+      var goToCartIcon = function($addTocartBtn){
+        var $cartIcon = $(".my-cart-icon");
+        var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
+        $addTocartBtn.prepend($image);
+        var position = $cartIcon.position();
+        $image.animate({
+          top: position.top,
+          left: position.left
+        }, 500 , "linear", function() {
+          $image.remove();
         });
-        $.ajax({
-        type: "POST",
-        url: "viewcart.php",
-        data:  { 'checkoutString': checkoutString } , 
-        cache: false,
-
-        success: function(){
-            alert("Order Submitted");
-        }
-     });
-
-        alert(checkoutString)
-        console.log("checking out", products, totalPrice, totalQuantity);
-      }
-     // checkoutCart: function(products, totalPrice, totalQuantity) {
-      //  console.log("checking out", products, totalPrice, totalQuantity);
-      //},
-      // getDiscountPrice: function(products, totalPrice, totalQuantity) {
-      //   console.log("calculating discount", products, totalPrice, totalQuantity);
-      //   return totalPrice * 0.5;
-      // }
+}
+$('.my-cart-btn').myCart({
+  currencySymbol: '$',
+  classCartIcon: 'my-cart-icon',
+  classCartBadge: 'my-cart-badge',
+  classProductQuantity: 'my-product-quantity',
+  classProductRemove: 'my-product-remove',
+  classCheckoutCart: 'my-cart-checkout',
+  affixCartIcon: true,
+  showCheckoutModal: true,
+  
+  clickOnAddToCart: function($addTocart){
+    goToCartIcon($addTocart);
+  },
+  afterAddOnCart: function(products, totalPrice, totalQuantity) {
+    console.log("afterAddOnCart", products, totalPrice, totalQuantity);
+  },
+  clickOnCartIcon: function($cartIcon, products, totalPrice, totalQuantity) {
+    console.log("cart icon clicked", $cartIcon, products, totalPrice, totalQuantity);
+  },
+  checkoutCart: function(products, totalPrice, totalQuantity) {
+    var checkoutString = "Total Price: " + totalPrice + "\nTotal Quantity: " + totalQuantity;
+    $.each(products, function(){
+        shoppingcart(this.id, this.quantity, this.price * this.quantity);
     });
+    console.log("checking out", products, totalPrice, totalQuantity);
+  },
+  getDiscountPrice: function(products, totalPrice, totalQuantity) {
+    console.log("calculating discount", products, totalPrice, totalQuantity);
+    return totalPrice * 0.99;
+  }
+});
 
-  });
+});
+
 
 $('.rio-promos').slick({
   dots: false,
   autoplay: true,
-        autoplaySpeed: 2000,
-        arrows: false,
+  autoplaySpeed: 2000,
+  arrows: false,
   infinite: false,
   speed: 300,
   slidesToShow: 3,
@@ -134,6 +121,10 @@ $('.rio-promos').slick({
       }
     }
   ]
+});
+
+$('.rio-promos').each(function(){
+  $(this).find('.slick-slide').addClass('slick-current');
 });
 
     /* Demo purposes only */

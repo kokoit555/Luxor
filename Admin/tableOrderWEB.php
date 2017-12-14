@@ -12,7 +12,6 @@
                         </thead>
                         <tbody>
                         <?php
-                            include "../Codephp/connectdb.php";
                             $idstore = $_GET['idstore'];
                             $select = "SELECT * FROM `Order_product` op
                                         INNER JOIN User_member um ON um.id_user = op.id_user

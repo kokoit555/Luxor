@@ -94,7 +94,7 @@ footer {
 footer ul li a {color: white}
 footer ul li a p {
     text-align: left;
-    font-size: 10px;
+    font-size: 16px;
     line-height: 0.75em;
     font-weight: 300;
 }
@@ -106,7 +106,7 @@ footer .col-lg-6.h-100.text-center.text-lg-left.my-auto {
 footer p.text-muted.small.mb-4.mb-lg-0 {
     color: #d6c5c9;
     font-weight: 100;
-    font-size: 10px;
+    font-size: 14px;
 }
 .contant-b {background-color: white; height: auto;}
 .jumbotron{

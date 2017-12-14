@@ -16,6 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="css/slider.css">
     <link rel="stylesheet" type="text/css" href="css/style-mobi.css">
     <link rel="stylesheet" type="text/css" href="css/media.css">
+    <link href="css/p_list.css" rel="stylesheet" type="text/css">
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
 </head>
@@ -37,8 +38,8 @@
 		<h3>หมวดหมู่สินค้า</h3>
       <div>
         <h4 data-toggle="collapse" data-target="#group-1">
-          <i class="fa fa-fw fa-caret-down parent-expanded"></i>
-          <i class="fa fa-fw fa-caret-right parent-collapsed"></i>
+          <!-- <i class="fa fa-fw fa-caret-down parent-expanded"></i> -->
+          <!-- <i class="fa fa-fw fa-caret-right parent-collapsed"></i> -->
           หัวข้อ
         </h4>
         <div id="group-1" class="list-group collapse in">
@@ -59,8 +60,8 @@
       
       <div>
         <h4 data-toggle="collapse" data-target="#group-2">
-          <i class="fa fa-fw fa-caret-down parent-expanded"></i>
-          <i class="fa fa-fw fa-caret-right parent-collapsed"></i>
+          <!-- <i class="fa fa-fw fa-caret-down parent-expanded"></i> -->
+          <!-- <i class="fa fa-fw fa-caret-right parent-collapsed"></i> -->
           หัวข้อ
         </h4>
         <div id="group-2" class="list-group collapse in">
@@ -81,8 +82,8 @@
       
       <div>
         <h4 data-toggle="collapse" data-target="#group-3"> 
-          <i class="fa fa-fw fa-caret-down parent-expanded"></i>
-          <i class="fa fa-fw fa-caret-right parent-collapsed"></i>
+          <!-- <i class="fa fa-fw fa-caret-down parent-expanded"></i> -->
+          <!-- <i class="fa fa-fw fa-caret-right parent-collapsed"></i> -->
           หัวข้อ
         </h4>
         <div id="group-3" class="list-group collapse in">
@@ -103,8 +104,8 @@
       
       <div>
         <h4 data-toggle="collapse" data-target="#group-4">
-          <i class="fa fa-fw fa-caret-down parent-expanded"></i>
-          <i class="fa fa-fw fa-caret-right parent-collapsed"></i>
+          <!-- <i class="fa fa-fw fa-caret-down parent-expanded"></i> -->
+          <!-- <i class="fa fa-fw fa-caret-right parent-collapsed"></i> -->
           หัวข้อ
         </h4>
         <div id="group-4" class="list-group collapse in">

@@ -53,7 +53,7 @@
   -webkit-transition: all 0.2s ease-in-out;
   text-decoration: none;
   font-family: OpenSansRegular, Arial, sans-serif;
-  font-size: 13px;
+  font-size: 18px;
   color: rgb(255, 255, 255);
   padding-bottom: 5px;
 
@@ -99,7 +99,7 @@ border-top: 1px solid #ffbd44;
   padding: 0px 15px;
   border-right: 1px solid #ffbd44;
   font-family: 'OpenSansRegular', Arial, sans-serif;
-  font-size: 13px;
+  font-size: 18px;
   color: rgb(255, 255, 255);
   padding: 0 12px;
   
@@ -126,7 +126,7 @@ border-top: 1px solid #ffbd44;
   margin-top: -5px;
 }
 #final-footer{
-  font-size: 11px;
+  font-size: 16px;
     color: rgb(255, 255, 255);
 }
 #final-footer i{
@@ -162,7 +162,7 @@ border-top: 1px solid #ffbd44;
          <div class="col-md-3 col-xs-4 footer-box">
           <ul class="main list-unstyled ">
             <li><a href=""><p class="CYell">ติดต่อ</p></a></li>
-            <li><a href=""><p style="line-height: 1.2em;font-weight: 100; font-size: 8px;">City Campus เมืองทองธานี
+            <li><a href=""><p style="line-height: 1.2em;font-weight: 100; font-size: 16px;">City Campus เมืองทองธานี
               ต. ปากเกร็ด อ. ปากเกร็ด 
               นนทบุรี 11120
               luxorfabric@info.com</p></a></li>

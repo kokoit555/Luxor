@@ -4,7 +4,7 @@
     <!--SHIPPING METHOD-->
         <div class="panel-body">
             <div class="col-sm-8 col-xs-12" id="pay-form">
-                <form class="form-horizontal">
+                <form class="form-horizontal" method="POST">
                     <fieldset>
                     <legend>ชำระเงิน</legend>
                     <div class="form-group">
@@ -78,7 +78,7 @@
                     &&!empty($_POST['cardnumber']) &&!empty($_POST['expirymonth'])
                     &&!empty($_POST['cvv']) &&!empty($_POST['expiryyear'])){
                     
-                    $idorder = $_GET["OrderID"];
+                    $idorder = $_GET["id_order"];
                     $datepaymenmt = date("Y-m-d H:i:s");
                     $cardholdername = $_POST['cardholdername'];
                     $cardnumber = $_POST['cardnumber'];

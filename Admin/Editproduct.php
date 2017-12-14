@@ -8,7 +8,7 @@
             </div>
             <div class="x_content">
                 <br/>
-                <?php include "../Codephp/CodeBack/EditProduct.php"; ?>
+                <?php include "./CodeBack/EditProduct.php"; ?>
                 <form id="form" class="form-horizontal" method="post" enctype="multipart/form-data">
                 <fieldset>
                     <!-- ชื่อสินค้า-->

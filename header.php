@@ -1,5 +1,5 @@
 
-				<nav class="navbar navbar-default noborder navbar-fixed-top GRed Cusnav">
+				<nav class="navbar navbar-default noborder GRed Cusnav">
 				<div class="container">
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -28,7 +28,9 @@
 						</ul>
 							<ul class="nav navbar-nav navbar-right">
 							<li>
-								<a href="Cartproduct.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i> ตะกร้าสินค้า</a>
+								<a href="Cartproduct.php" ><i class="fa fa-shopping-cart" aria-hidden="true"> <span class="badge badge-notify">
+									<?php if(!empty($_SESSION['cartproductID'])){ echo count($_SESSION['cartproductID']);} 
+											else{ echo "0"; } ?></span></i></a>
 							</li>
 							<?php
 							if(isset($_SESSION['idnumLoginWebsite']))

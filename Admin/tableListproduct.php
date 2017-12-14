@@ -12,7 +12,6 @@
                             </thead>
                             <tbody>
                             <?php
-                                include "../Codephp/connectdb.php";
                                 $idstore = $_GET['idstore'];
                                 $select = "SELECT * FROM `Product` p WHERE id_store = '$idstore' order by `id_product`";
                                 $query = mysqli_query($connect,$select);
