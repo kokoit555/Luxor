@@ -23,16 +23,15 @@
     include 'Codephp/connectdb.php';
     require './header.php' 
   ?>
-	<div class="navbar navbar-default visible-xs">
+	    <div class="navbar navbar-default visible-xs">
         <div class="container-fluid">
             <button class="btn btn-default navbar-btn" data-toggle="collapse" data-target="#filter-sidebar">
                 <i class="fa fa-tasks"></i> Toggle Sidebar
             </button>
         </div>
-    </div>
-
-<div class="container">
+      </div><!-- navbar navbar-default visible-xs -->
 <style>a#list {display: none;}</style>
+<div class="container">
   <div class="row">
     <!-- filter sidebar -->
     <div id="filter-sidebar" class="col-xs-6 col-sm-3 visible-sm visible-md visible-lg collapse sliding-sidebar">
@@ -56,6 +55,26 @@
           <a class="list-group-item" href="#">
             <span class="badge">3</span> ตัวเลือก
           </a>
+        </div>
+        <div id="group-/" class="list-group collapse in">
+          <div class="checkbox">
+            <label><input type="checkbox" value="">Option 1</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="">Option 1</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="">Option 1</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="">Option 1</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="">Option 1</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" value="">Option 1</label>
+          </div>
         </div>
       </div>
     </div>
