@@ -71,13 +71,13 @@
 								{
 						?>
 									<div class="item">
-										<form method="post" id="setfocus">
+										<form method="post">
 											<figure class="snip1268">
 												<div class="image">
-													<img class="img-responsive center-block" src="./<?php echo $row['urlimg'];?>" alt="sq-sample4"/>
+													<img style="height:250px;" class="img-responsive center-block" src="./<?php echo $row['urlimg'];?>" alt="sq-sample4"/>
 													<div class="icons">
 														<a href="#"><i class="ion-star"></i></a>
-														<a href="#"> <i class="ion-search "></i><span class="detail">ดูเพิ่มเติม</span></a>
+														<a href="Detailproduct.php"> <i class="ion-search "></i><span class="detail">ดูเพิ่มเติม</span></a>
 														<a href="#"> <i class="ion-share"></i></a>
 													</div>
 													<figcaption>
@@ -104,7 +104,7 @@
 					</div><!--rio-promos-->
 				</div> <!--sliderbox-->
 				<div class="row">
-					<a href="#" class="btn btn-primary btn-all GRed col-md-offset-5 col-md-2 col-sm-offset-5 col-sm-2 col-xs-offset-4 col-xs-5  noborder">ดูสินค้าทั้งหมด</a>
+					<a href="./Listproduct.php" class="btn btn-primary btn-all GRed col-md-offset-5 col-md-2 col-sm-offset-5 col-sm-2 col-xs-offset-4 col-xs-5  noborder">ดูสินค้าทั้งหมด</a>
 				</div>
 			</div>
 		</div>

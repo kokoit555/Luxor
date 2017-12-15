@@ -83,7 +83,7 @@
       while($row = mysqli_fetch_array($queryListproduct)){
     ?>
     <!-- เริ่มสินค้า -->
-        <div class="item col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4">
             <div class="thumbnail">
               <figure class="snip1268">
               <div class="image">

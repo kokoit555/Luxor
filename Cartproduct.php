@@ -58,6 +58,9 @@
 					else if(!empty($_GET['Cart_Status']) && $_GET['Cart_Status'] == "payment" && !empty($_GET['id_order'])){
 						include "./Codephp/CodeFront/payment.php";
 					}
+					else if(!empty($_GET['Cart_Status']) && $_GET['Cart_Status'] == "confirm" && !empty($_GET['id_order'])){
+						include "./Codephp/CodeFront/confirmcart.php";
+					}
 					else if(empty($_GET['Cart_Status'])){
 				?>
 				<div class="container">

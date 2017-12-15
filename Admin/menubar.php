@@ -27,12 +27,14 @@
       <li>
         <a href="index.php"><i class="fa fa-home"></i>Home</a>
       </li>
-      <li><a><i class="fa fa-edit"></i>จัดการข้อมูล<span class="fa fa-chevron-down"></span></a>
+      <!-- <li><a><i class="fa fa-edit"></i>จัดการข้อมูล<span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
           <li><a href="?link=liststore">รายชื่อร้านค้า</a></li>
           <li><a href="?link=listRegisterStore">ข้อมูลสมัครร้านค้า</a></li>
         </ul>
-      </li>
+      </li> -->
+      <li><a href="?link=liststore">รายชื่อร้านค้า</a></li>
+      <li><a href="?link=listRegisterStore">ข้อมูลสมัครร้านค้า</a></li>
       <li>
         <a href="logout.php"><i class="fa fa-sign-out"></i>Log Out</a>
       </li>

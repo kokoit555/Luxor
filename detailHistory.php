@@ -24,10 +24,10 @@
 
   </head>
 <body>
-  <?php include'header.php' ?>
+  <?php include 'Codephp/connectdb.php'; ?>
 <?php
-include 'connect.inc.php';
-$strSQL = "SELECT * FROM orders WHERE OrderID = '".$_GET["OrderID"]."' ";
+     include "header.php";
+$strSQL = "SELECT * FROM `order_product` WHERE id_order = '".$_GET["id_order"]."' ";
 $objQuery = mysqli_query($objCon,$strSQL);
 $objResult = $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 ?>

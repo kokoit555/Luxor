@@ -123,8 +123,8 @@
 
                     }
                     mysqli_close($connect);
-                    // if($queryidstore){echo "<script> function(){ $('.confirm').show(); $('#pay-form').hide();} </script>";}
-                    header("Location: History.php");
+                    
+                    header("Location: ?Cart_Status=confirm&&id_order=".$idorder);
                 }
             }
             else{
@@ -133,15 +133,7 @@
             ?>
         </div><!--SHIPPING METHOD END-->
 
-        <div class="row">
-            <div class="confirm" style="display:none;">
-                <p class="text-center">ระบบได้ทำการรับคำสั่งซื้อเรียบร้อยแล้ว.ตรวจสอบเลขที่การสั่งซื้อได้ที่นี่</p>
-                <div class="col-xs-offset-5 col-xs-4">
-                    <!-- <a id="hideconfirm" class="btn btn-default col-xs-offset-4 col-xs-5 center-block noborder btn-next" href="view_order.php?OrderID="></a> -->
-                    <a class="btn btn-default col-xs-offset-4 col-xs-5 center-block noborder btn-next" href="DetailHistory.php?OrderID=<?php echo "#ใบสั่งซื้อ"+$_GET["OrderID"];?>">ยืนยัน</a>
-                </div>
-            </div>
-        </div>
+       
         <!-- end confirm -->
     </div> <!--id pay-->
 </div>
