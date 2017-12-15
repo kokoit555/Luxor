@@ -53,8 +53,8 @@
                             $iduser = $_SESSION['idnumLoginWebsite'];
 
                             $select = "SELECT op.id_order op_id_order ,op.Name, op.Date_order , op.Totalprice , sps.id_shipment , sps.Status
-                                        FROM `Order_product` op
-                                        LEFT JOIN Store_product_shipment sps ON sps.id_order = op.id_order
+                                        FROM `order_product` op
+                                        LEFT JOIN store_product_shipment sps ON sps.id_order = op.id_order
                                         WHERE op.id_user = '$iduser'
                                         ORDER BY op.id_order;";
                                         

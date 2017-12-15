@@ -1,7 +1,7 @@
 /* Large desktops and laptops */
 @media (min-width: 1200px) {
 	.video-caption.center-block {
-    margin: 20% 0;
+    margin: 15% 0;
 }
 
 }
@@ -18,6 +18,7 @@
  .video-caption.center-block {
     margin: 20%;
 }
+
 }
 
 /* Landscape phones and portrait tablets */
@@ -27,6 +28,15 @@
 
 /* Portrait phones and smaller */
 @media (max-width: 480px) {
+    #sec-a button.btn.btn-default.dropdown-toggle , #sec-a input.form-control{
+    height: 35px!important;
+    font-size: 12px!important;
+}
+.btn-next {
+    padding: 5%;
+    font-size: 14px;
+}
+section#viewcart {margin-top: 5%!important;}
 	.navbar-collapse {
     padding-right: 15px;
     padding-left: 15px;
@@ -54,8 +64,14 @@
 	    width: 100000pc;
 	    max-width: 100%;
 	    position: absolute;
-	    top: -7px;
+	    top: -2px;
 	}
+
+    div#sec-b {
+        padding-bottom: 7%;
+    }    #sec-d a.btn.btn-primary.btn-all.btn-log.noborder {
+        margin: 3% 25%;
+    }
 	#sec-a .video-caption.center-block {
     margin-top: 12%;
 	}
@@ -77,10 +93,13 @@
     line-height: 1.25em;
 	}
 	#sec-c button.btn.btn-primary.btn-all.GRed.col-md-offset-5.col-md-2.noborder {
-    width: 90%;
-    margin: 3% 5%;
-    padding: 3%;
+    width: 50%;
+    margin: 2% 25%;
+    padding: 2%;
 	}
+    img.line-height {
+    width: 70%;
+    }
 	#sec-d h2.CWhite {
 	    font-size: 22px;
 	    text-align: center;
@@ -107,7 +126,7 @@
 	}
 	footer ul li a p {
     text-align: left;
-    font-size: 9px;
+    font-size: 14px;
     line-height: 1.75em;
     font-weight: 300;
     margin: 0;

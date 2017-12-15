@@ -32,6 +32,93 @@
 		<div id="wrapper">
 			<?php include "header.php";?>
 			<section id="viewcart">
+				<?php 
+					if(!empty($_GET['Cart_Status']) && $_GET['Cart_Status'] == "checkout"){
+						?>
+							<div class="container" style="margin-bottom:3%;">
+								<ul class="nav nav-wizard">
+									<li class="disabled">
+										<a href="#step1" data-toggle="tab">รายการสั่งซื้อ</a>
+									</li>
+									<li class="active">
+										<a href="#step2" data-toggle="tab">สรุปรายการสั่งซื้อ</a>
+									</li>
+									<li class="disabled">
+										<a href="#step3" data-toggle="tab">ชำระเงิน</a>
+									</li>
+									<li class="disabled">
+										<a href="#step4" data-toggle="tab">ยินยันการสั่งซื้อ</a>
+									</li>
+								</ul>
+							</div>
+						<?php
+						include "./Codephp/CodeFront/checkout.php";
+					}
+					else if(!empty($_GET['Cart_Status']) && $_GET['Cart_Status'] == "shipping"){
+						?>
+							<div class="container" style="margin-bottom:3%;">
+								<ul class="nav nav-wizard">
+									<li class="disabled">
+										<a href="#step1" data-toggle="tab">รายการสั่งซื้อ</a>
+									</li>
+									<li class="disabled">
+										<a href="#step2" data-toggle="tab">สรุปรายการสั่งซื้อ</a>
+									</li>
+									<li class="active">
+										<a href="#step3" data-toggle="tab">ชำระเงิน</a>
+									</li>
+									<li class="disabled">
+										<a href="#step4" data-toggle="tab">ยินยันการสั่งซื้อ</a>
+									</li>
+								</ul>
+							</div>
+						<?php
+						include "./Codephp/CodeFront/shippingCart.php";
+					}
+					else if(!empty($_GET['Cart_Status']) && $_GET['Cart_Status'] == "payment" && !empty($_GET['id_order'])){
+						?>
+							<div class="container" style="margin-bottom:3%;">
+								<ul class="nav nav-wizard">
+									<li class="disabled">
+										<a href="#step1" data-toggle="tab">รายการสั่งซื้อ</a>
+									</li>
+									<li class="disabled">
+										<a href="#step2" data-toggle="tab">สรุปรายการสั่งซื้อ</a>
+									</li>
+									<li class="disabled">
+										<a href="#step3" data-toggle="tab">ชำระเงิน</a>
+									</li>
+									<li class="active">
+										<a href="#step4" data-toggle="tab">ยินยันการสั่งซื้อ</a>
+									</li>
+								</ul>
+							</div>
+						<?php
+						include "./Codephp/CodeFront/payment.php";
+					}
+					else if(!empty($_GET['Cart_Status']) && $_GET['Cart_Status'] == "confirm" && !empty($_GET['id_order'])){
+						?>
+							<div class="container" style="margin-bottom:3%;">
+								<ul class="nav nav-wizard">
+									<li class="disabled">
+										<a href="#step1" data-toggle="tab">รายการสั่งซื้อ</a>
+									</li>
+									<li class="disabled">
+										<a href="#step2" data-toggle="tab">สรุปรายการสั่งซื้อ</a>
+									</li>
+									<li class="disabled">
+										<a href="#step3" data-toggle="tab">ชำระเงิน</a>
+									</li>
+									<li class="active">
+										<a href="#step4" data-toggle="tab">ยินยันการสั่งซื้อ</a>
+									</li>
+								</ul>
+							</div>
+						<?php
+						include "./Codephp/CodeFront/confirmcart.php";
+					}
+					else if(empty($_GET['Cart_Status'])){
+				?>
 				<div class="container" style="margin-bottom:3%;">
 					<ul class="nav nav-wizard">
 						<li class="active">
@@ -48,21 +135,6 @@
 						</li>
 					</ul>
 				</div>
-				<?php 
-					if(!empty($_GET['Cart_Status']) && $_GET['Cart_Status'] == "checkout"){
-						include "./Codephp/CodeFront/checkout.php";
-					}
-					else if(!empty($_GET['Cart_Status']) && $_GET['Cart_Status'] == "shipping"){
-						include "./Codephp/CodeFront/shippingCart.php";
-					}
-					else if(!empty($_GET['Cart_Status']) && $_GET['Cart_Status'] == "payment" && !empty($_GET['id_order'])){
-						include "./Codephp/CodeFront/payment.php";
-					}
-					else if(!empty($_GET['Cart_Status']) && $_GET['Cart_Status'] == "confirm" && !empty($_GET['id_order'])){
-						include "./Codephp/CodeFront/confirmcart.php";
-					}
-					else if(empty($_GET['Cart_Status'])){
-				?>
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-12">
@@ -74,7 +146,7 @@
 												<h5><span class="fa fa-cart-arrow-down" aria-hidden="true"></span> ตะกร้าสินค้า</h5>
 											</div>
 											<div class="col-xs-6">
-												<a type="button" class="btn btn-primary btn-sm btn-block btn-more" href="index.php">
+												<a type="button" class="btn btn-primary btn-sm btn-block btn-more" href="Listproduct.php">
 													<span class="fa fa-arrow-left" aria-hidden="true"></span> ดูสินค้าเพิ่มเติม
 												</a>
 											</div>
@@ -120,13 +192,6 @@
 			<?php include "footer.php"; ?>
 		</div>
 		<!-- wrapper -->
-	<script>
-		window.onload = function() {
-    if(!window.location.hash) {
-        window.location = window.location + '#loaded';
-        window.location.reload();
-    }
-	</script>
 </body>
 
 </html>

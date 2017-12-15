@@ -1,208 +1,252 @@
-<!-- <footer class="footer-site">
-			<div class="container">
-				<div class="sitemap">
-					<ul>
-						<li class="link-sitemap">
-							<a href="">เกี่ยวกับเรา</a>
-						</li>
-						<li class="link-sitemap">
-							<a href="">เริ่มต้นขายสินค้า</a>
-						</li>
-						<li class="link-sitemap">
-							<a href="">คู่มือสำหรับร้านค้า</a>
-						</li>
-						<li class="link-sitemap">
-							<a href="">ปัญหาที่พบบ่อย</a>
-						</li>
-					</ul>
-				</div>
-				<div class="social-wrapper">
-					<ul>
-						<li class="icon-style">
-							<a href="#">
-							<i class="fa fa-facebook"></i>
-						</a>
-						</li>
-						<li class="icon-style">
-							<a href="#">
-							<i class="fa fa-youtube"></i>
-						</a>
-						</li>
-						<li class="icon-style">
-							<a href="#">
-							<i class="fa fa-instagram"></i>
-						</a>
-						</li>
-					</ul>
-				</div>
-				<div class="subscribe-email">
-					<form>
-						<input type="email" id="email" />
-						<label for="email">Subscribe Input email address</label>
-						<button id="button">OK</button>
-					</form>
-					<script src="js/footer.js"></script>
-				</div>
-			</div>
-</footer> -->
 <style>
-  .foot-links a, .foot-links p{
-  display: block;
-   color: rgb(63, 63, 63);
-  transition: all 0.2s ease-in-out;
-  -webkit-transition: all 0.2s ease-in-out;
-  text-decoration: none;
-  font-family: OpenSansRegular, Arial, sans-serif;
-  font-size: 18px;
-  color: rgb(255, 255, 255);
-  padding-bottom: 5px;
-
-  
-}
-.foot-links img{
-  padding-top: 5px;
-}
-#footer{
-    background: rgb(165, 33, 65);
-    border-top: 1px solid rgb(165, 33, 65);
-  margin-top: -2px;
-  padding-top: 30px;
-  padding-bottom: 30px;
- }
-.foot-header{
-  font-family: OpenSansBold, Arial, sans-serif;
-  font-size: 18px;
-  color: rgb(255, 255, 255);
+  .footer1 {
+  padding-top: 40px;
+  padding-right: 0;
   padding-bottom: 20px;
- 
-}
-  
-#footer .container{
-  max-width: 1100px;
-}
-#bottom-footer{
-  margin-bottom: 20px;
-border-top: 1px solid #ffbd44;
-    border-bottom: 1px solid #ffbd44;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-#bottom-footer a{
-    text-decoration: none;
-  color: rgb(255, 255, 255);
-  -webkit-transition: all .2s ease-in-out;
-  -moz-transition: all .2s ease-in-out;
-  -o-transition: all .2s ease-in-out;
-  -ms-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
-  font-size: 12px;
-  padding: 0px 15px;
-  border-right: 1px solid #ffbd44;
-  font-family: 'OpenSansRegular', Arial, sans-serif;
-  font-size: 18px;
-  color: rgb(255, 255, 255);
-  padding: 0 12px;
-  
-}
-#bottom-footer .phone img{
-  margin-right: 7px;
-}
-#bottom-footer .phone .red{
-  font-size: 22px;
-  margin-top: -7px;
-  font-family: 'OpenSansRegular', Arial, sans-serif;
-  font-size: 18px!important;
-  color:rgb(255, 255, 255);
-  position: relative;
-  top: -5px;
- 
-}
-#bottom-footer .phone .red small{
-  font-family: 'OpenSansRegular', Arial, sans-serif;
-  font-size: 12px!important;
-  display: block;
-  color:rgb(255, 255, 255);
- 
-  margin-top: -5px;
-}
-#final-footer{
-  font-size: 16px;
-    color: rgb(255, 255, 255);
-}
-#final-footer i{
-  font-size: auto;
-}
-.container-fluid.foo {
-    background-color: #8c132f;
-    color: white!important;
-    padding: 1%;
+  padding-left: 0;/*  border-top-width: 4px;
+  border-top-style: solid;
+  border-top-color: #003;*/
 }
 
+
+
+.title-widget {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1;
+  position: relative;
+  text-transform: uppercase;
+  font-family: 'Fjalla One', sans-serif;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 25px;
+  margin-left: 0;
+  padding-left: 28px;
+}
+
+.title-widget::before {
+    background-color: #ea5644;
+    content: "";
+    height: 22px;
+    left: 0px;
+    position: absolute;
+    top: -2px;
+    width: 5px;
+}
+
+
+
+.widget_nav_menu ul {
+    list-style: outside none none;
+    padding-left: 0;
+}
+
+.widget_archive ul li {
+    background-color: rgba(0, 0, 0, 0.3);
+    content: "";
+    height: 3px;
+    left: 0;
+    position: absolute;
+    top: 7px;
+    width: 3px;
+}
+
+
+.widget_nav_menu ul li {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 20px;
+  position: relative;
+    text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    margin-bottom: 7px;
+    padding-bottom: 7px;
+  width:95%;
+}
+
+
+
+.title-median {
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 20px;
+    margin: 0 0 15px;
+    text-transform: uppercase;
+  font-family: 'Fjalla One', sans-serif;
+}
+
+.footerp p {font-family: 'Gudea', sans-serif; }
+
+
+#social:hover {
+          -webkit-transform:scale(1.1); 
+-moz-transform:scale(1.1); 
+-o-transform:scale(1.1); 
+      }
+      #social {
+        -webkit-transform:scale(0.8);
+                /* Browser Variations: */
+-moz-transform:scale(0.8);
+-o-transform:scale(0.8); 
+-webkit-transition-duration: 0.5s; 
+-moz-transition-duration: 0.5s;
+-o-transition-duration: 0.5s;
+      }           
+/* 
+    Only Needed in Multi-Coloured Variation 
+                                               */
+      .social-fb:hover {
+        color: #3B5998;
+      }
+      .social-tw:hover {
+        color: #4099FF;
+      }
+      .social-gp:hover {
+        color: #d34836;
+      }
+      .social-em:hover {
+        color: #f39c12;
+      }
+      .nomargin { margin:0px; padding:0px;}
+
+
+
+
+
+.footer-bottom {
+    background-color:#710b24;
+    min-height: 30px;
+    width: 100%;
+}
+.copyright {
+    color: #fff;
+    line-height: 30px;
+    min-height: 30px;
+    padding: 7px 0;
+}
+.design {
+    color: #fff;
+    line-height: 30px;
+    min-height: 30px;
+    padding: 7px 0;
+    text-align: right;
+}
+.design a {
+    color: #fff;
+}
+
+
+/************************************************************
+*************************Footer******************************
+*************************************************************/
 </style>
- <footer class="footer bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 h-100 text-center text-lg-left my-auto">
-        <div class="col-md-3 col-xs-4 footer-box">
-          <ul class="main list-unstyled ">
-            <li><a href=""><p>หน้าหลัก</p></a></li>
-            <li><a href=""><p>สินค้า</p></a></li>
-            <li><a href=""><p>เกี่ยวกับเรา</p></a></li>
-            <li><a href=""><p>บทความ</p></a></li>
-            <li><a href=""><p>ติดต่อเรา</p></a></li>
-          </ul>
-        </div>
-        <div class="col-md-3 col-xs-4 footer-box">
-          <ul class="main list-unstyled ">
-            <li><a href=""><p>เริ่มต้นขายของที่นี่</p></a></li>
-            <li><a href=""><p>สมัครสมาชิก</p></a></li>
-            <li><a href=""><p>เข้าสู่ระบบ</p></a></li>
-          </ul>
-        </div>
-         <div class="col-md-3 col-xs-4 footer-box">
-          <ul class="main list-unstyled ">
-            <li><a href=""><p class="CYell">ติดต่อ</p></a></li>
-            <li><a href=""><p style="line-height: 1.2em;font-weight: 100; font-size: 16px;">City Campus เมืองทองธานี
-              ต. ปากเกร็ด อ. ปากเกร็ด 
+<!--footer-->
+<footer class="footer1">
+<div class="container">
+
+<div class="row"><!-- row -->
+            
+                <div class="col-lg-4 col-md-4"><!-- widgets column left -->
+                <ul class="list-unstyled clear-margins"><!-- widgets -->
+                        
+                          <li class="widget-container widget_nav_menu"><!-- widgets list -->
+                    
+                                <!-- <h1 class="title-widget">Useful links</h1> -->
+                                
+                                <ul>
+                                  <li><a  href="index.php"><i class="fa fa-angle-double-right"></i> หน้าหลัก</a></li>
+                                    <li><a  href="Listproduct.php"><i class="fa fa-angle-double-right"></i> สินค้า</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i> เกี่ยวกับเรา</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i> บทความ</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i> ติดต่อเรา</a></li>
+                                    </ul>
+              </li>
+                        </ul>
+                </div><!-- widgets column left end -->
+
+                <div class="col-lg-4 col-md-4"><!-- widgets column left -->
+
+                <ul class="list-unstyled clear-margins"><!-- widgets -->
+
+                          <li class="widget-container widget_nav_menu"><!-- widgets list -->
+
+                             <!--    <h1 class="title-widget">Useful links</h1> -->
+                                                                <ul>
+                  <li><a  href="#"><i class="fa fa-angle-double-right"></i>  เริ่มต้นขายของที่นี่</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i> สมัครสมาชิก</a></li>
+                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  เข้าสู่ระบบ</a></li>
+
+                                </ul>
+              </li>
+                        </ul>
+                </div><!-- widgets column left end -->
+                <div class="col-lg-4 col-md-4"><!-- widgets column center -->
+
+                        <ul class="list-unstyled clear-margins"><!-- widgets -->
+                          <li class="widget-container widget_recent_news"><!-- widgets list -->
+                                <h1 class="title-widget">ข้อมูลติดต่อ </h1>
+                                <div class="footerp"> 
+                                <h2 class="title-median"> City Campus เมืองทองธานี.</h2>
+                                <p>ต. ปากเกร็ด อ. ปากเกร็ด 
               นนทบุรี 11120
-              luxorfabric@info.com</p></a></li>
-          </ul>
+             </p>
+                                <p><b>Email :</b> <a href="#"> luxorfabric@info.com</a></p>
+                           <!--      <p><b>Helpline Numbers </b> -->
+
+  <!--   <b style="color:#ffc106;">(8AM to 10PM):</b>  +91-8130890090, +91-8130190010  </p>
+    <p><b>Corp Office / Postal Address</b></p>
+    <p><b>Phone Numbers : </b>7042827160, </p>
+    <p> 011-27568832, 9868387223</p> -->
+                                </div>
+                                <div class="social-icons">
+                                  <ul class="nomargin">
+                <a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+              <a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+              <a href="https://plus.google.com/+Bootsnipp-page"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+              <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
+                                    </ul>
+                                </div>
+                        </li>
+                          </ul>
+                       </div>
+                </div>
+</div>
+</footer>
+<!--header-->
+
+<div class="footer-bottom">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-xs-12 ">
+
+        <div class="copyright text-center">
+
+        &copy; Luxor Fabric 2017. All Rights Reserved
+
         </div>
-        <div class="col-md-12 col-sm-12 col-xs-12 hidden-md hidden-lg subscribe">
-          <p style="font-size: 12px; color:#5a071c;font-weight: 600;">สมัครรับข่าวสาร</p>
-          <div class="col-md-6 col-xs-6 col-sm-6">
-          <ul class="list-inline mb-0">
-         <li class="list-inline-item mr-3">
-           <a href="#">
-             <i style="color:#5a071c;" class="fa fa-facebook fa-1x fa-fw"></i>
-           </a>
-         </li>
-         <li class="list-inline-item mr-3">
-           <a href="#">
-             <i style="color:#5a071c;" class="fa fa-twitter fa-1x fa-fw"></i>
-           </a>
-         </li>
-         <li class="list-inline-item">
-           <a href="#">
-             <i style="color:#5a071c;" class="fa fa-instagram fa-1x fa-fw"></i>
-           </a>
-         </li>
-       </ul>
-     </div>
-    <div class="col-lg-6">
-    <div class="input-group">
-      <input type="text" class="form-control inputsub" placeholder="กรอกอีเมล...">
-      <span class="input-group-btn">
-        <button class="btn btn-default btnsuv" type="button">สมัคร</button>
-      </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
+
       </div>
-            <p class="text-muted small mb-4 mb-lg-0 col-md-12 col-xs-12 col-sm-12">&copy; Luxor Fabric 2017. All Rights Reserved.</p>
-          </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
+        <div class="design">
+
+        <!--    <a href="#">Franchisee </a> |  <a target="_blank" href="http://www.webenlance.com">Web Design & Development by Webenlance</a> -->
+
         </div>
+
       </div>
-    </footer>
+
+    </div>
+
+  </div>
+
+</div>
+ 
 
 
 		<?php ob_end_flush();?>

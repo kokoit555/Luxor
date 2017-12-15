@@ -7,15 +7,15 @@
     
     $nameurlimg = "";
     $nameurlthumbimg = "";
-    $sqldelete1 = "DELETE FROM `IMGProductDetail` WHERE `id_product` = '".$id."'; ";
-    $sqldelete2 = "DELETE FROM `Product` WHERE `id_product` = '".$id."';";
-    $selectimg = "SELECT `id_imgProduct`,`id_product`,`urlthumbProduct` FROM `IMGProductDetail` WHERE `id_product` = '".$id."'; ";
+    $sqldelete1 = "DELETE FROM `imgproductdetail` WHERE `id_product` = '".$id."'; ";
+    $sqldelete2 = "DELETE FROM `product` WHERE `id_product` = '".$id."';";
+    $selectimg = "SELECT `id_imgProduct`,`id_product`,`urlthumbProduct` FROM `imgproductdetail` WHERE `id_product` = '".$id."'; ";
     $sqldelete3 = array();
 
     if($queryselectidimg = mysqli_query($connect,$selectimg)){
         while($row = mysqli_fetch_array($queryselectidimg)){
-            $selecturlimg = "SELECT * FROM `IMGProduct` WHERE `id_imgProduct` = '".$row['id_imgProduct']."';";
-            $sqldelete3[] = "DELETE FROM `IMGProduct` WHERE `id_imgProduct` = '".$row['id_imgProduct']."'; ";
+            $selecturlimg = "SELECT * FROM `imgproduct` WHERE `id_imgProduct` = '".$row['id_imgProduct']."';";
+            $sqldelete3[] = "DELETE FROM `imgproduct` WHERE `id_imgProduct` = '".$row['id_imgProduct']."'; ";
 
             echo $nameurlthumbimg = "../../".$row['urlthumbProduct'];
             unlink("$nameurlthumbimg");

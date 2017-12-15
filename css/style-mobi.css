@@ -2,7 +2,7 @@
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 .noborder {border-radius: 0!important;}
 html , body {font-family: 'Kanit', sans-serif;background-color: white; overflow-x:hidden }
-
+.text-black {color: black;}
 /*body { padding-top: 70px; }*/
 #login-dp {
     min-width: 300px;
@@ -20,6 +20,12 @@ html , body {font-family: 'Kanit', sans-serif;background-color: white; overflow-
     color: #eccb5e;
     background-color: transparent;
 }
+ul.nav-wizard {
+    background-color: #ffffff!important;
+    border: none!important; 
+  }
+/*.btn  {width: auto;}*/
+  ul.nav-wizard li {width: 25%!important;}
 .navbar-brand {
   padding: 0px;
 }
@@ -71,11 +77,15 @@ html , body {font-family: 'Kanit', sans-serif;background-color: white; overflow-
     font-weight: 500;
     background-color: white;
     border-radius: 0;
+    height: 50px;
+    font-size: 16px;
 }
 #sec-a input.form-control {
     border-radius: 0;
     border-color: #e9bd20;
     margin-left: 3px;
+    height: 50px;
+    font-size: 16px;
 }
 #sec-a h2.text-center ,h4.text-center.center-block {
     color: white;
@@ -91,7 +101,10 @@ footer {
     padding: 6% 0;
     font-weight: 200;
 }
-footer ul li a {color: white}
+footer ul li a {color: white ;
+    font-weight: 300;
+    font-size: 15px;
+}
 footer ul li a p {
     text-align: left;
     font-size: 16px;
@@ -121,7 +134,7 @@ background-color: transparent!important;
     position: absolute;
     top: 0;
         background-color: rgba(0, 0, 0, 0.3);
-    height: 100%!important;
+    height: 99%!important;
 }
 #video-background { 
 /*   position: fixed;
@@ -646,7 +659,7 @@ ul.nav-wizard li {
   line-height: 46px;
 }
 ul.nav-wizard li a {
-  color: #428bca;
+  color: #a62041;
   padding: 0;
 }
 ul.nav-wizard li a:hover {
@@ -734,4 +747,38 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li a:focus {
 .btn-next{
   padding: 2%;
     font-size: 16px;
+}
+.bade-cart {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-color: #6b2522;
+    border-radius: 30px;
+    position: absolute;
+    left: 50%;
+    bottom: 35%;
+}
+i.fa.fa-shopping-cart {
+    position: relative;
+    font-size: 25px;
+    margin: 0;
+    padding: 0;
+}
+ul.nav-wizard li.active:after {
+    border-left: 16px solid #a62041;
+}
+ul.nav-wizard li.active {
+    color: #ffbd45;
+    background: #a62041;
+}
+ul.nav-wizard li.active a, ul.nav-wizard li.active a:active, ul.nav-wizard li.active a:visited, ul.nav-wizard li.active a:focus {
+    color: #ffbd45;
+    background: #a62041;
 }

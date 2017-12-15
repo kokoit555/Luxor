@@ -5,14 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/png" href="images/logo.png" />
-	<title>Luxor Fabric</title>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <title>Luxor Fabric</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/footer.css">
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/footer.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style-mobi.css">
   <link rel="stylesheet" type="text/css" href="css/media.css">
   <link href="css/p_list.css" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
     include 'Codephp/connectdb.php';
     require './header.php' 
   ?>
-	    <div class="navbar navbar-default visible-xs">
+      <div class="navbar navbar-default visible-xs">
         <div class="container-fluid">
             <button class="btn btn-default navbar-btn" data-toggle="collapse" data-target="#filter-sidebar">
                 <i class="fa fa-tasks"></i> Toggle Sidebar
@@ -35,14 +35,35 @@
   <div class="row">
     <!-- filter sidebar -->
     <div id="filter-sidebar" class="col-xs-6 col-sm-3 visible-sm visible-md visible-lg collapse sliding-sidebar">
-		<h3>หมวดหมู่สินค้า</h3>
+    <h3>หมวดหมู่สินค้า</h3>
       <div>
-        <h4 data-toggle="collapse" data-target="#group-1">
-          <!-- <i class="fa fa-fw fa-caret-down parent-expanded"></i> -->
-          <!-- <i class="fa fa-fw fa-caret-right parent-collapsed"></i> -->
-          หัวข้อ
-        </h4>
         <div id="group-1" class="list-group collapse in">
+          <div class="panel panel-default">
+            <div class="panel-heading">ค้นหาตามประเภท</div>
+            <div class="panel-body">
+                <div class="checkbox">
+                  <label><input type="checkbox" name="cc"  >Option 1</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" name="cc"  >Option 1</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" name="cc"  >Option 1</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" name="cc"  >Option 1</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" name="cc"  >Option 1</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" name="cc"  >Option 1</label>
+                </div>
+            </div> <!--panel-body-->
+          </div><!--panel panel-default-->
+        </div><!--list-group collapse-->
+
+        <div id="group-2" class="list-group collapse in">
           <a class="list-group-item" href="#">
             <span class="badge">3</span> ตัวเลือก
           </a>
@@ -56,26 +77,7 @@
             <span class="badge">3</span> ตัวเลือก
           </a>
         </div>
-        <div id="group-/" class="list-group collapse in">
-          <div class="checkbox">
-            <label><input type="checkbox" value="">Option 1</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" value="">Option 1</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" value="">Option 1</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" value="">Option 1</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" value="">Option 1</label>
-          </div>
-          <div class="checkbox">
-            <label><input type="checkbox" value="">Option 1</label>
-          </div>
-        </div>
+
       </div>
     </div>
 
@@ -94,9 +96,9 @@
 
     <?php 
       
-      $selectListproduct = "SELECT * FROM `Product` p
-                            INNER JOIN IMGProductDetail ipd ON ipd.id_product = p.id_product AND ipd.namethumbProduct = '1'
-                            INNER JOIN IMGProduct ip ON ip.id_imgProduct = ipd.id_imgProduct";
+      $selectListproduct = "SELECT * FROM `product` p
+                            INNER JOIN imgproductDetail ipd ON ipd.id_product = p.id_product AND ipd.namethumbProduct = '1'
+                            INNER JOIN imgproduct ip ON ip.id_imgProduct = ipd.id_imgProduct";
 
       $queryListproduct = mysqli_query($connect,$selectListproduct);
       while($row = mysqli_fetch_array($queryListproduct)){
@@ -114,10 +116,10 @@
                 </div>
                 <form method="POST">
                   <input name="id_product" type="hidden" value="<?php echo $row['id_product']; ?>">
-									<input name="NameProduct" type="hidden" value="<?php echo $row['NameProduct']; ?>">
+                  <input name="NameProduct" type="hidden" value="<?php echo $row['NameProduct']; ?>">
                   <input name="PriceProduct" type="hidden" value="<?php echo $row['PriceProduct'];?>">
                   <input name="thumb" type="hidden" value="1">
-									<input name="qtyproduct" type="hidden" value="1">
+                  <input name="qtyproduct" type="hidden" value="1">
                   <input type="submit" name="addproducttocart" class="add-to-cart" value="Add to Cart">
                 </form>
               </div>

@@ -13,9 +13,9 @@
                         <tbody>
                         <?php
                             $idstore = $_GET['idstore'];
-                            $select = "SELECT * FROM `Order_product` op
-                                        INNER JOIN User_member um ON um.id_user = op.id_user
-                                        INNER JOIN Store_product_shipment sps ON sps.id_order = op.id_order
+                            $select = "SELECT * FROM `order_product` op
+                                        INNER JOIN user_member um ON um.id_user = op.id_user
+                                        INNER JOIN store_product_shipment sps ON sps.id_order = op.id_order
                                         WHERE sps.id_store = '$idstore'
                                         ORDER BY op.id_order;";
                             $query = mysqli_query($connect,$select);
@@ -23,7 +23,7 @@
                             if(!empty($_POST['updateshipping'])){
                                $SetShipping = $_POST['SetShipping'];
                                $numbertrack = $_POST['numbertrack'];
-                               $sqlupdateshipping = "UPDATE `Store_product_shipment` SET `Status`= '1',`id_shipping`= '$SetShipping',`ShipCode`= '$numbertrack' 
+                               $sqlupdateshipping = "UPDATE `store_product_shipment` SET `Status`= '1',`id_shipping`= '$SetShipping',`ShipCode`= '$numbertrack' 
                                                     WHERE `id_order` = '1' AND `id_store` = '$idstore'";
                                 
                                mysqli_query($connect,$sqlupdateshipping);
@@ -31,7 +31,7 @@
                             if(mysqli_num_rows($query)>0){
                                 while($row = mysqli_fetch_array($query)){
 
-                                    $selectshipping = "SELECT * FROM `Store_product_shipment` WHERE `id_order` = '".$row['id_order']."' AND `id_store` = '$idstore'";
+                                    $selectshipping = "SELECT * FROM `store_product_shipment` WHERE `id_order` = '".$row['id_order']."' AND `id_store` = '$idstore'";
                                     $queryshipping = mysqli_query($connect,$selectshipping);
                                     $shipping = mysqli_fetch_array($queryshipping);
                                 ?>

@@ -24,7 +24,7 @@
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         $check = getimagesize($_FILES["input-file-preview"]["tmp_name"]);
         ///////////////////////////////////////////
-        echo $sqlinsertstore = "INSERT INTO `Store` (`id_store`, `NameStore`, `AvatarStore`, `AddressStore`, `TelStore`, `CityStore`, `StateStore`, `ZipStore`, `CountryStore`, `EmailStore`, `Password`, `textStory`, `nameAccountStore`, `numberStorebank`, `namebank`) VALUES
+        echo $sqlinsertstore = "INSERT INTO `store` (`id_store`, `NameStore`, `AvatarStore`, `AddressStore`, `TelStore`, `CityStore`, `StateStore`, `ZipStore`, `CountryStore`, `EmailStore`, `Password`, `textStory`, `nameAccountStore`, `numberStorebank`, `namebank`) VALUES
                                 (0, '$namestore', '$target_file', '$address','$telephone', '$city', '$state', '$zip', '$country','$email', '$password', '$storytextstore','$nameAccountStore','$numberStorebank','$namebank');";
         ///////////////////////////////////////////
 

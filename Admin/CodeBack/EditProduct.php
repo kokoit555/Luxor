@@ -2,12 +2,12 @@
 $idstore = $_GET['idstore'];
 if(!empty($_GET['idproduct'])){
 
-    $selectdataproduct = "SELECT * FROM `Product` WHERE `id_product` = '".$_GET['idproduct']."';";
+    $selectdataproduct = "SELECT * FROM `product` WHERE `id_product` = '".$_GET['idproduct']."';";
     if($query = mysqli_query($connect,$selectdataproduct)){
         $rowitem = mysqli_fetch_array($query);
     }
     if($rowitem['id_product'] != null){
-        $img = "SELECT * FROM `IMGProductDetail` WHERE `id_product` = '".$_GET['idproduct']."'; ";
+        $img = "SELECT * FROM `imgproductdetail` WHERE `id_product` = '".$_GET['idproduct']."'; ";
 
         if($result = mysqli_query($connect,$img)){
             while($row = mysqli_fetch_array($result)){
@@ -39,7 +39,7 @@ if(!empty($_POST['submiteditproduct'])){
     $idtype = $_POST['SettypeProduct'];
     
    
-    $sql = "UPDATE `Product` SET 
+    $sql = "UPDATE `product` SET 
     `NameProduct`='$nameproduct',
     `PriceProduct`= '$priceproduct',
     `productDetail` = '$productDetail',

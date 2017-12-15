@@ -22,7 +22,7 @@
                  </thead>
                  <tbody>
                  <?php
-                    $select = "SELECT * FROM `Store` s order by `id_store`";
+                    $select = "SELECT * FROM `store` s order by `id_store`";
                     $query = mysqli_query($connect,$select);
                     
                     if(mysqli_num_rows($query)>0){

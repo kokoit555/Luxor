@@ -96,7 +96,7 @@
                     $cvv = $_POST['cvv'];
                     $expiryyear = $_POST['expiryyear'];
     
-                    $strSQL = "INSERT INTO `Payment` (`id_payment`, `Type_payment`, `Payment_Status`, `DatePayment`, `id_code`) VALUES
+                    $strSQL = "INSERT INTO `payment` (`id_payment`, `Type_payment`, `Payment_Status`, `DatePayment`, `id_code`) VALUES
                                 ('0', 'VISA', 'pay', '$datepaymenmt', NULL);";
                 
                     $queryinsertOrder = mysqli_query($connect,$strSQL);
@@ -109,14 +109,14 @@
                     $last_paymentid = mysqli_insert_id($connect);
                     
 
-                    $sqlselectidstore = "SELECT * FROM `OrderProductDetail` 
-                                            INNER JOIN Product ON Product.id_product = OrderProductDetail.id_product 
-                                            WHERE `OrderProductDetail`.`id_order` = '$idorder'";
+                    $sqlselectidstore = "SELECT * FROM `orderproductdetail` 
+                                            INNER JOIN product ON product.id_product = orderproductdetail.id_product 
+                                            WHERE `orderproductdetail`.`id_order` = '$idorder'";
 
                     $queryidstore = mysqli_query($connect,$sqlselectidstore);
                     while($row = mysqli_fetch_array($queryidstore)){
 
-                        $strSQL = "INSERT INTO `Store_product_shipment` (`id_shipment`, `id_order`, `id_payment`, `Status`, `id_store`, `id_shipping`, `ShipCode`) VALUES 
+                        $strSQL = "INSERT INTO `store_product_shipment` (`id_shipment`, `id_order`, `id_payment`, `Status`, `id_store`, `id_shipping`, `ShipCode`) VALUES 
                         ('0', '$idorder', '$last_paymentid', '0', '".$row['id_store']."' , NULL, NULL);";
     
                         mysqli_query($connect,$strSQL);

@@ -4,7 +4,7 @@
 
     if(!empty($_GET['id_product'])){
         
-        $idproduct = mysqli_escape_string($connect,$_GET['id_product']); 
+        $idproduct = $_GET['id_product']; 
 
         $selecturlimg = "";
 

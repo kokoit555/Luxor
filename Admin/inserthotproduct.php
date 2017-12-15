@@ -4,8 +4,7 @@
      <div class="col-md-12 col-sm-12 col-xs-12">
          <div class="x_panel">
              <div class="x_title">
-                 <h2>รายชื่อร้านค้า</h2>
-                 <a class="btn btn-primary pull-right" href="?link=insertstore" >Insert Store</a>
+                 <h2>รายชื่อสินค้าแนะนำ</h2>
              <div class="clearfix"></div>
          </div>
          <div class="x_content">
@@ -13,15 +12,16 @@
                  <thead>
                      <tr>
                         <th>ID</th>
-                        <th>name Store</th>
-                        <th>Telephone</th>
-                        <th>email</th>
+                        <th>ชื่อสินค้า</th>
+                        <th>ราคาสินค้า</th>
+                        <th>รายละเอียดสินค้า</th>
                         <th>Add to Hot</th>
                      </tr>
                  </thead>
                  <tbody>
                  <?php
-                    $select = "SELECT * FROM `Product` p order by `id_product`";
+                    $select = "SELECT p.id_product , p.NameProduct , p.PriceProduct , p.productDetail , h.id_product checkhot FROM `product` p
+                                LEFT JOIN hotproduct h ON h.id_product = p.id_product";
                     $query = mysqli_query($connect,$select);
                     
                     if(mysqli_num_rows($query)>0){
@@ -32,7 +32,11 @@
                             <td><?php echo $row['NameProduct']; ?></td>
                             <td><?php echo $row['PriceProduct']; ?></td>
                             <td><?php echo $row['productDetail']; ?></td>
-                            <td><a href="./CodeBack/addhotproduct.php?id_product=<?php echo $row['id_product']; ?>" class="btn btn-info btn-block">Add to Hot</a></td>
+                            <?php if(empty($row['checkhot'])){ ?>
+                                <td><a href="./CodeBack/addhotproduct.php?id_product=<?php echo $row['id_product']; ?>" class="btn btn-info btn-block">Add to Hot</a></td>
+                            <?php }else{ ?>
+                                <td><a href="#" class="btn btn-danger btn-block">DeleteHot</a></td>
+                            <?php } ?>
                         </tr>
                         <?php
                         }

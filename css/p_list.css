@@ -143,6 +143,10 @@
     -webkit-transform: translate3D(0, 0, 0);
             transform: translate3D(0, 0, 0);
     box-shadow: 1px 0 0 rgba(0, 0, 0, 0.05), 2px 0 0 rgba(0, 0, 0, 0.05), 3px 0 0 rgba(0, 0, 0, 0.05);
+    width: 80%;
+    background-color: #f8f8f8;
+    top: 25%;
+    height: 100pc;
   }
 }
 .parent-collapsed {
@@ -157,5 +161,5 @@
 }
 /* custom */
 .product-grid-box {
-    margin: 7% 0px;
+    margin: 6% 0px;
 }

@@ -71,7 +71,7 @@
             $user = mysqli_escape_string($connect,$_POST['useradminnameemail']);
             $pass = mysqli_escape_string($connect,$_POST['useradminpassword']);
 
-            echo $select = "SELECT * FROM `AdminLuxor` WHERE `username` = '$user' AND `password` = md5('$pass');";
+            echo $select = "SELECT * FROM `adminluxor` WHERE `username` = '$user' AND `password` = md5('$pass');";
 
             if($query = mysqli_query($connect,$select)){
               $row = mysqli_fetch_array($query);

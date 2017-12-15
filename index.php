@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<title>LuxorFabric</title>
 	<meta charset="utf-8">
@@ -15,14 +14,10 @@
 	<link rel="stylesheet" type="text/css" href="css/style-mobi.css">
   	<link rel="stylesheet" type="text/css" href="css/media.css">
 	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-	<!-- <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/> -->
 </head>
 
 <body>
-
-	<?php
-		include 'Codephp/connectdb.php';
-	?>
+	<?php include 'Codephp/connectdb.php';?>
 
 	<div id="wrapper">
 		<?php include "header.php"; ?>
@@ -57,13 +52,13 @@
 		<div class="container-fluid contant-b" id="sec-b">
 			<div class="container">
 				<h2 class="text-center CRed ">สินค้าแนะนำ</h2>
-				<h4 class="text-center center-block"><img class=" img-responsive center-block" src="images/line.png" alt=""></h4>
+				<h4 class="text-center center-block"><img class="line-height img-responsive center-block" src="images/line.png" alt=""></h4>
 				<div class="sliderbox">
 					<div class="rio-promos">
 						<?php 
 							$sqlqueryhotproduct = "SELECT * FROM `hotproduct` hp
-													INNER JOIN Product p ON p.id_product = hp.id_product
-													INNER JOIN Store s ON p.id_store = s.id_store";
+													INNER JOIN product p ON p.id_product = hp.id_product
+													INNER JOIN store s ON p.id_store = s.id_store";
 							$queryproduct = mysqli_query($connect,$sqlqueryhotproduct);
 							if(!empty($queryproduct))
 							{
@@ -77,6 +72,7 @@
 													<img style="height:250px;" class="img-responsive center-block" src="./<?php echo $row['urlimg'];?>" alt="sq-sample4"/>
 													<div class="icons">
 														<a href="#"><i class="fa fa-star"></i></a>
+														<!-- <a href="Detailproduct.php"> <i class="fa fa-search"></i><span class="detail">ดูเพิ่มเติม</span></a> -->
 														<a href="Detailproduct.php?idproduct=<?php echo $row['id_product']; ?>"> <i class="fa fa-search"></i><span class="detail">ดูเพิ่มเติม</span></a>
 														<a href="#"> <i class="fa fa-share-square-o"></i></a>
 													</div>
@@ -115,7 +111,7 @@
 			<div class="container-fluid contant-c" id="sec-c">
 				<div class="container">
 					<h2 class="text-center CRed ">ร้านค้าแนะนำ</h2>
-						<h4 class="text-center center-block"><img class=" img-responsive center-block" src="img/line.png" alt=""></h4>
+						<h4 class="text-center center-block"><img class="line-height img-responsive center-block" src="images/line.png" alt=""></h4>
 						<h4 class="text-center">หากคุณมีสินค้าไอเดีย เรามีพื้นที่ให้คุณนำเสนอ <span class="CRed"><a class="CRed" href="">เริ่มต้นขายสินค้าได้ที่นี่</a></span></h4>
 				</div>
 				<div class="slider center">
@@ -150,7 +146,7 @@
 		<div class="container-fluid contant-e" id="sec-e" style="background-color:white;">
 			<div class="container">
 				<h2 class="text-center CRed ">ขั้นตอนการสั่งซื้อ</h2>
-				<h4 class="text-center center-block"><img class=" img-responsive center-block" src="images/line.png" alt=""></h4>
+				<h4 class="text-center center-block"><img class="line-height img-responsive center-block" src="images/line.png" alt=""></h4>
 				<div class="row">
 					<div class="col-md-12 process-block">
 						<img class="img-responsive center-block hidden-xs visible-sm visible-md visible-lg" src="images/Desktop_Process.png" alt="">
@@ -166,7 +162,7 @@
 			<div class="container">
 				<h2 class="text-center CRed ">เอกลักษณ์ของผ้าไทยตามท้องถิ่น </h2>
 				<h4 class="text-center" style="color:#999999;">ความพิเศษของผ้าทอไทยที่มีลักษณะเฉพาะตัว</h4>
-					<h4 class="text-center center-block"><img class=" img-responsive center-block" src="images/line.png" alt=""></h4>
+					<h4 class="text-center center-block"><img class="line-height img-responsive center-block" src="images/line.png" alt=""></h4>
 			</div>
 			<div class="row nopadding">
 				<div class="col-md-12 nopadding">

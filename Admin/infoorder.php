@@ -3,11 +3,11 @@
         $idorder = $_GET['idorder'];
 
         $sqlinfoOrder =  "SELECT op.id_order,um.Name, op.Date_order , p.NameProduct, opd.qty , opd.Price , op.Totalprice  , sps.Status 
-                            FROM `Order_product` op 
-                            INNER JOIN User_member um ON um.id_user = op.id_user 
-                            INNER JOIN Store_product_shipment sps ON sps.id_order = op.id_order 
-                            INNER JOIN OrderProductDetail opd ON opd.id_order = op.id_order 
-                            INNER JOIN Product p ON p.id_product = opd.id_product
+                            FROM `order_product` op 
+                            INNER JOIN user_member um ON um.id_user = op.id_user 
+                            INNER JOIN store_product_shipment sps ON sps.id_order = op.id_order 
+                            INNER JOIN orderproductdetail opd ON opd.id_order = op.id_order 
+                            INNER JOIN product p ON p.id_product = opd.id_product
                             WHERE op.id_order = '$idorder'";
 
         $queryOrder = mysqli_query($connect,$sqlinfoOrder);

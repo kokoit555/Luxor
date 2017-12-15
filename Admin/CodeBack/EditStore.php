@@ -2,7 +2,7 @@
 
 if(!empty($_GET['idstore'])){
 
-    $selectdataproduct = "SELECT * FROM `Store` WHERE `id_store` = '".$_GET['idstore']."';";
+    $selectdataproduct = "SELECT * FROM `store` WHERE `id_store` = '".$_GET['idstore']."';";
 
     if($query = mysqli_query($connect,$selectdataproduct)){
         $rowitem = mysqli_fetch_array($query);
@@ -25,7 +25,7 @@ if(!empty($_POST['submiteditstore'])){
     $email = mysqli_escape_string($connect,$_POST['email']); 
     // $password = MD5(mysqli_escape_string($connect,$_POST['password'])); 
 
-    $sqlupdate = "UPDATE `Store` SET 
+    $sqlupdate = "UPDATE `store` SET 
     `NameStore` = '$namestore',
     `AddressStore` = '$address',
     `TelStore` = '$telephone',

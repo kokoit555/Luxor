@@ -13,7 +13,7 @@
         $idstore = $_GET['idstore'];
 
 
-        echo $sqlinsertProduct = "INSERT INTO  `Product` (`id_product`, `NameProduct`, `Status`, `PriceProduct`, 
+        echo $sqlinsertProduct = "INSERT INTO  `product` (`id_product`, `NameProduct`, `Status`, `PriceProduct`, 
         `discount`, `tax`, `date_input`, `productDetail`, `textProductDetail`, `id_type`, `id_store`) VALUES
          ('0', '$nameproduct', '$status', '$priceproduct', '$discount', '$tax', '$date', '$productDetail','$textproductdetail', '$idtype', '$idstore');";
     
@@ -46,19 +46,19 @@
                 else {echo "Sorry, there was an error uploading your file.";}
             }
 
-            $sqlinsertimg = "INSERT INTO `IMGProduct` (`id_imgProduct`, `Name_img`, `url_img`) VALUES 
+            $sqlinsertimg = "INSERT INTO `imgproduct` (`id_imgProduct`, `Name_img`, `url_img`) VALUES 
             ('0', '$basenameproduct', '$target_dir');";
 
             if(mysqli_query($connect,$sqlinsertimg)){echo "insert img complete ".($i);}
 
-            $selectidproduct = "SELECT `id_product` FROM `Product` order by `id_product` DESC LIMIT 1";
-            $selectidimg = "SELECT `id_imgProduct` FROM `IMGProduct` order by `id_imgProduct` DESC LIMIT 1";
+            $selectidproduct = "SELECT `id_product` FROM `product` order by `id_product` DESC LIMIT 1";
+            $selectidimg = "SELECT `id_imgProduct` FROM `imgproduct` order by `id_imgProduct` DESC LIMIT 1";
     
             $idproduct = mysqli_fetch_array(mysqli_query($connect,$selectidproduct));
             $idimgproduct = mysqli_fetch_array(mysqli_query($connect,$selectidimg));
     
             $namethumb = $i+1;
-            $sqlinsertimgdetail = "INSERT INTO `IMGProductDetail` (`id_imgProductDetail`, `id_product`, `id_imgProduct`, `namethumbProduct`, `urlthumbProduct`, `qty`) VALUES
+            $sqlinsertimgdetail = "INSERT INTO `imgproductdetail` (`id_imgProductDetail`, `id_product`, `id_imgProduct`, `namethumbProduct`, `urlthumbProduct`, `qty`) VALUES
              ('0', '".$idproduct['id_product']."', '".$idimgproduct['id_imgProduct']."', '$namethumb', '$target_file_thumb', '".$qty[$i]."');";
             
             if(mysqli_query($connect,$sqlinsertimgdetail))

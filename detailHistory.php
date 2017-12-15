@@ -106,11 +106,6 @@ section#fins {margin-top: 5%;}
       <td><?=$objResult["Address"]." ".$objResult["Zip"];?></td>
     </tr>
     <tr>
-      <td></td>
-    <td >
-  </td>
-    </tr>
-    <tr>
       <td>เบอร์โทรศัพท์</td>
       <td><?=$objResult["Tel"];?></td>
     </tr>
@@ -168,13 +163,15 @@ while($objResult2 = mysqli_fetch_array($objQuery2,MYSQLI_ASSOC))
 mysqli_close($connect);
 ?>
  <br>
-</div>
-  <div class="row">
+
+   <div class="row" style="margin-top: 5%;">
   <div class="col-md-12">
     <a class="btn btn-default col-xs-6 center-block noborder btn-next" href="./index.php">กลับหน้าหลัก</a>
     <a class="btn btn-default col-xs-6 center-block noborder btn-next" href="./Listproduct.php">เลือกดูสินค้าเพิ่มเติม</a>
   </div>
   </div>
+</div>
+
 </div>
 </section>
 <?php include 'footer.php' ?>

@@ -7,12 +7,12 @@
 <link rel="icon" type="image/png" href="images/logo.png" />
     <title>Luxor Fabric</title>
     <!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/footer.css">
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style-mobi.css">
     <link rel="stylesheet" type="text/css" href="css/media.css">
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -28,12 +28,12 @@
         ?>
             <div class="container-fluid product-details">
                 <div class="container">
-                	<div class="row">
+                    <div class="row">
                         <?php 
                             if(!empty($_GET['idproduct'])){
                                 $idproduct = $_GET['idproduct'];
-                                $sqlproduct = "SELECT * FROM `Product` p 
-                                                INNER JOIN Store s on s.id_store = p.id_store
+                                $sqlproduct = "SELECT * FROM `product` p 
+                                                INNER JOIN store s on s.id_store = p.id_store
                                                 WHERE p.id_product = '$idproduct'";
                                 $queryproduct = mysqli_query($connect,$sqlproduct);
                                 $row = mysqli_fetch_array($queryproduct);
@@ -44,7 +44,7 @@
                                 while($data = mysqli_fetch_array($querythumbproduct)){
                                     $thumb[] = $data['urlthumbProduct'];
                                     $thumbname[] = $data['namethumbProduct'];
-                                    // $idimgproduct = ;
+
                                     $sqlimg = "SELECT * FROM `imgproduct` WHERE `id_imgProduct` = '".$data['id_imgProduct']."'";
                                     $queryimg = mysqli_query($connect,$sqlimg);
                                     while($getimg = mysqli_fetch_array($queryimg)){
@@ -79,18 +79,17 @@
                                     <div>
 
                                     <?php for ($i=0; $i < count($thumb); $i++) { ?>
-                                        <div class="attr" id="option<?php echo $i+1; ?>" style="width:50px;height:auto;">
-                                            <img data-id="<?php echo $thumbname[$i]; ?>" class="img-responsive center-block"src="<?php echo $thumb[$i]; ?>" alt="">
-                                        </div>
+                                        <a class="attr <?php if($i==0){echo "active";} ?>" id="option<?php echo $i+1; ?>" style="width:50px;height:auto;">
+                                            <img class="thumb-img img-responsive center-block" data-id="<?php echo $thumbname[$i]; ?>" src="<?php echo $thumb[$i]; ?>" alt="">
+                                        </a>
                                     <?php } ?>
-
                                     </div>
                                 </div>
                                 <div class="section" style="padding-bottom:20px;">
                                     <h4 class="title-attr"><small>จำนวน</small></h4>
                                     <div>
                                         <div class="btn-minus noborder"><span class="glyphicon glyphicon-minus"></span></div>
-                                        <input value="1" name="qtyproduct"/>
+                                        <input type="text" value="1" name="qtyproduct" OnKeyPress="return chkNumber(this)"/>
                                         <div class="btn-plus noborder"><span class="glyphicon glyphicon-plus"></span></div>
                                     </div>
                                 </div>
@@ -105,10 +104,11 @@
                                     <input type="hidden" name="thumb" value="">
                                     <!-- ส่วนดึงมาจาก div ลายผ้า-->
 
-                                    <input class="btn GRed btn-addtocart" type="submit" value="เลือกใส่ตะกร้า"> 
+                                    <input class="btn GRed btn-addtocart" name="addproducttocart" type="submit" value="เลือกใส่ตะกร้า"> 
                                     <h6><a href="#"><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span> เพิ่มในรายการโปรด </a></h6>
                                 </div>
                             </form>
+                            <?php include "./Codephp/CodeFront/addcart.php"; ?>
                             </div>
                             <div class="col-xs-12">
                                 <ul class="menu-items nav nav-tabs">
@@ -173,6 +173,14 @@
                     $(".section > div > input").val("1");
                 }
             })                        
+
+
+        $("img.thumb-img").click(function () {
+            var myj = $(this).attr("data-id");
+            // console.log(myj);
+            var checkj = $('input[name="thumb"]').val(myj);
+            console.log(checkj);
+        });
 
         $("#option1").click(function () {
             $("#area-01").show();
@@ -277,6 +285,13 @@
         });
 
     });
+
+    function chkNumber(ele)
+                {
+                var vchar = String.fromCharCode(event.keyCode);
+                if ((vchar<'0' || vchar>'9') && (vchar != '.')) return false;
+                ele.onKeyPress=vchar;
+                }
         </script>
     </body>
 </html>

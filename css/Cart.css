@@ -1,6 +1,6 @@
-section#viewcart {margin: 15% 0;}
-section#checkout {margin: 15% 0;}
-section#address {margin: 15% 0;}
+section#viewcart {margin: 5% 0;}
+section#checkout {margin: 5% 0;}
+section#address {margin: 5% 0;}
 .panel-info>.panel-heading {
   color: #464646;
   background-color: #ffebc9;
@@ -8,6 +8,7 @@ section#address {margin: 15% 0;}
 }
 .panel-info {
   border-color: #ffecc9;
+  margin: 5% 0;
 }
 .panel-contant {height: auto; min-height: 230px;}
 .btn-more{
@@ -46,6 +47,38 @@ section#address {margin: 15% 0;}
   -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
+div#confirm {
+    height: 50%;
+    overflow: hidden;
+}
+div#confirm .container {
+    margin: 8% auto;
+}
+div#confirm a.btn.btn-default.center-block.noborder.btn-conf {
+    width: 30%;
+}
+.txt-tab {padding-left: 2%;}
+h3.visible-xs.text-center {
+    margin: 8% 0;
+}
+li.pass.disabled {
+    background-color: #ffbd44;
+    color: #a52141;
+}
+ul.nav-wizard li.pass:before {
+    position: absolute;
+    display: block;
+    border: 24px solid transparent;
+    border-left: 16px solid #ffbd44;
+    border-right: 0;
+    top: -1px;
+    z-index: 99;
+    content: '';
+    right: -15px;
+}
+.nav-wizard>li.disabled>a {
+    color: #a52141;
+}
 @media screen and (max-width: 767px){
 .table-responsive {
   width: 100%;
@@ -57,4 +90,12 @@ section#address {margin: 15% 0;}
 section#viewcart {margin-top: 20%;}
 section#checkout {margin-top: 20%;}
 section#address {margin-top: 20%;}
+.confirm {
+    width: 75%;
+    margin: 0 15%;
+}
+div.confirm p.text-center {
+    font-size: 12px;
+    line-height: 1.75em;
+}
 }
