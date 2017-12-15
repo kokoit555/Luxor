@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2017 at 06:09 PM
+-- Generation Time: Dec 15, 2017 at 06:22 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -198,6 +198,7 @@ CREATE TABLE `orderproductdetail` (
   `id_orderDetail` int(11) NOT NULL,
   `id_order` int(11) NOT NULL,
   `id_product` int(11) NOT NULL,
+  `namethumbProduct` int(11) NOT NULL,
   `qty` varchar(10) NOT NULL,
   `Price` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -206,11 +207,11 @@ CREATE TABLE `orderproductdetail` (
 -- Dumping data for table `orderproductdetail`
 --
 
-INSERT INTO `orderproductdetail` (`id_orderDetail`, `id_order`, `id_product`, `qty`, `Price`) VALUES
-(1, 1, 1, '1', '4,000'),
-(2, 1, 2, '1', '4,000'),
-(3, 2, 2, '3', '4,000'),
-(4, 3, 1, '1', '4000');
+INSERT INTO `orderproductdetail` (`id_orderDetail`, `id_order`, `id_product`, `namethumbProduct`, `qty`, `Price`) VALUES
+(1, 1, 1, 1, '1', '4,000'),
+(2, 1, 2, 1, '1', '4,000'),
+(3, 2, 2, 1, '3', '4,000'),
+(4, 3, 1, 1, '1', '4000');
 
 -- --------------------------------------------------------
 
