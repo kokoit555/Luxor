@@ -46,10 +46,10 @@
                             $iduser = $_SESSION['idnumLoginWebsite'];
 
                             $select = "SELECT * FROM `Order_product` op
-                                        INNER JOIN User_member um ON um.id_user = op.id_user
                                         LEFT JOIN Store_product_shipment sps ON sps.id_order = op.id_order
                                         WHERE op.id_user = '$iduser'
                                         ORDER BY op.id_order;";
+                                        
                             $query = mysqli_query($connect,$select);
 
                             if(mysqli_num_rows($query)>0){
