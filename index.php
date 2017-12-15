@@ -77,7 +77,7 @@
 													<img style="height:250px;" class="img-responsive center-block" src="./<?php echo $row['urlimg'];?>" alt="sq-sample4"/>
 													<div class="icons">
 														<a href="#"><i class="fa fa-star"></i></a>
-														<a href="Detailproduct.php"> <i class="fa fa-search"></i><span class="detail">ดูเพิ่มเติม</span></a>
+														<a href="Detailproduct.php?idproduct=<?php echo $row['id_product']; ?>"> <i class="fa fa-search"></i><span class="detail">ดูเพิ่มเติม</span></a>
 														<a href="#"> <i class="fa fa-share-square-o"></i></a>
 													</div>
 													<figcaption>
