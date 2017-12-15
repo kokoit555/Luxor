@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 15, 2017 at 07:55 AM
+-- Generation Time: Dec 15, 2017 at 01:46 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.5.38
 
@@ -168,7 +168,7 @@ CREATE TABLE `imgproductdetail` (
   `id_product` int(11) NOT NULL,
   `id_imgProduct` int(11) NOT NULL,
   `namethumbProduct` varchar(1) NOT NULL,
-  `urlthumbProduct` text NOT NULL,
+  `urlthumbProduct` int(11) NOT NULL,
   `qty` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -177,13 +177,13 @@ CREATE TABLE `imgproductdetail` (
 --
 
 INSERT INTO `imgproductdetail` (`id_imgProductDetail`, `id_product`, `id_imgProduct`, `namethumbProduct`, `urlthumbProduct`, `qty`) VALUES
-(1, 1, 1, '1', 'images/thumbproduct/thumb1.png', '2'),
-(2, 1, 2, '2', 'images/thumbproduct/thumb2.png', '3'),
-(3, 2, 3, '1', 'images/thumbproduct/thumb3.png', '4'),
-(4, 3, 4, '1', 'images/thumbproduct/jai-p01.png', '10'),
-(5, 3, 5, '2', 'images/thumbproduct/jai-p02.png', '10'),
-(6, 3, 6, '3', 'images/thumbproduct/jai-p03.png', '10'),
-(7, 3, 7, '4', 'images/thumbproduct/jai-p04.png', '10');
+(1, 1, 1, '1', 0, '2'),
+(2, 1, 2, '2', 0, '3'),
+(3, 2, 3, '1', 0, '4'),
+(4, 3, 4, '1', 0, '10'),
+(5, 3, 5, '2', 0, '10'),
+(6, 3, 6, '3', 0, '10'),
+(7, 3, 7, '4', 0, '10');
 
 -- --------------------------------------------------------
 
@@ -195,6 +195,7 @@ CREATE TABLE `orderproductdetail` (
   `id_orderDetail` int(11) NOT NULL,
   `id_order` int(11) NOT NULL,
   `id_product` int(11) NOT NULL,
+  `namethumbProduct` int(11) NOT NULL,
   `qty` varchar(10) NOT NULL,
   `Price` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -203,12 +204,12 @@ CREATE TABLE `orderproductdetail` (
 -- Dumping data for table `orderproductdetail`
 --
 
-INSERT INTO `orderproductdetail` (`id_orderDetail`, `id_order`, `id_product`, `qty`, `Price`) VALUES
-(1, 1, 1, '1', '4,000'),
-(2, 1, 2, '1', '4,000'),
-(3, 2, 2, '3', '4,000'),
-(4, 3, 1, '1', '4000'),
-(5, 4, 1, '1', '4000');
+INSERT INTO `orderproductdetail` (`id_orderDetail`, `id_order`, `id_product`, `namethumbProduct`, `qty`, `Price`) VALUES
+(1, 1, 1, 1, '1', '4,000'),
+(2, 1, 2, 1, '1', '4,000'),
+(3, 2, 2, 0, '3', '4,000'),
+(4, 3, 1, 1, '1', '4000'),
+(5, 4, 1, 0, '1', '4000');
 
 -- --------------------------------------------------------
 

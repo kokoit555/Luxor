@@ -99,6 +99,8 @@
                         </div>
                     </div>
                 <?php
+                    }else if(!empty($_GET['link']) && $_GET['link'] == "hotproduct"){
+                        include "./inserthotproduct.php";
                     }else if(!empty($_GET['link']) && $_GET['link'] == "insertstore"){
                         include "./insertstore.php";
                     }else if(!empty($_GET['link']) && $_GET['link'] == "insertproduct" && !empty($_GET['idstore'])){
@@ -210,7 +212,7 @@
     <script src="./vendors/raphael/raphael.min.js"></script>
     <script src="./vendors/morris.js/morris.min.js"></script>
     <!-- Custom Theme Scripts -->
-    <script src="./build/js/custom.min.js"></script>
+    <script src="./build/js/custom.js"></script>
 	<!-- Muti Product -->
     <script src="./build/js/mutiimg.js"></script>
   </body>

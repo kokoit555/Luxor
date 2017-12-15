@@ -96,7 +96,8 @@
                 <form method="POST">
                   <input name="id_product" type="hidden" value="<?php echo $row['id_product']; ?>">
 									<input name="NameProduct" type="hidden" value="<?php echo $row['NameProduct']; ?>">
-									<input name="PriceProduct" type="hidden" value="<?php echo $row['PriceProduct'];?>">
+                  <input name="PriceProduct" type="hidden" value="<?php echo $row['PriceProduct'];?>">
+                  <input name="thumb" type="hidden" value="1">
 									<input name="qtyproduct" type="hidden" value="1">
                   <input type="submit" name="addproducttocart" class="add-to-cart" value="Add to Cart">
                 </form>

@@ -14,8 +14,8 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style-mobi.css">
   	<link rel="stylesheet" type="text/css" href="css/media.css">
-	<!-- <script type="text/javascript" src="js/jquery.min.js"></script> -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="slick/slick.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
@@ -28,12 +28,12 @@
 <?php
      include "header.php";
 $strSQL = "SELECT * FROM `order_product` WHERE id_order = '".$_GET["id_order"]."' ";
-$objQuery = mysqli_query($objCon,$strSQL);
+$objQuery = mysqli_query($connect,$strSQL);
 $objResult = $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 ?>
 <style>
   
-  section#fins {margin: 15% 0;}
+  section#fins {margin: 5% 0;}
 #address  .form-group {
     margin-bottom: 5px;
     float: left;
@@ -78,7 +78,7 @@ $objResult = $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
     -ms-overflow-style: -ms-autohiding-scrollbar;
     border: none;
 }
-section#fins {margin-top: 20%;}
+section#fins {margin-top: 5%;}
 }
 </style>
 <section id="fins">
@@ -89,31 +89,25 @@ section#fins {margin-top: 20%;}
     <tr>
       <td>OrderID</td>
       <td>
-	  #<?=$objResult["OrderID"];?></td>
+	  #<?=$objResult["id_order"];?></td>
     </tr>
     <tr>
       <td >ชื่อ</td>
       <td >
-	  <?=$objResult["first_name"];?></td>
+	  <?=$objResult["Name"];?></td>
     </tr>
     <td >นามสกุล</td>
       <td >
-    <?=$objResult["last_name"];?></td>
+    <?=$objResult["LastName"];?></td>
     </tr>
 
     <tr>
       <td>ที่อยู่การจัดส่ง</td>
-      <td><?=$objResult["Address"];?></td>
+      <td><?=$objResult["Address"]." ".$objResult["Zip"];?></td>
     </tr>
     <tr>
       <td></td>
     <td >
-    <?=$objResult["Country"];?>,
-    
-    <?=$objResult["State"];?>
-,   
-    <?=$objResult["City"];?>,
-    <?=$objResult["zip_code"];?>
   </td>
     </tr>
     <tr>
@@ -122,7 +116,7 @@ section#fins {margin-top: 20%;}
     </tr>
     <tr>
       <td>อีเมล</td>
-      <td><?=$objResult["Email"];?></td>
+      <td><?=$objResult["Send_email_order"];?></td>
     </tr>
   </table>
 </div>
@@ -142,22 +136,25 @@ section#fins {margin-top: 20%;}
 $Total = 0;
 $SumTotal = 0;
 
-$strSQL2 = "SELECT * FROM orders_detail WHERE OrderID = '".$_GET["OrderID"]."' ";
-$objQuery2 = mysqli_query($objCon,$strSQL2);
+$strSQL2 = "SELECT * FROM orderproductdetail WHERE id_order = '".$_GET["id_order"]."';";
+$objQuery2 = mysqli_query($connect,$strSQL2);
 
 while($objResult2 = mysqli_fetch_array($objQuery2,MYSQLI_ASSOC))
 {
-		$strSQL3 = "SELECT * FROM product WHERE ProductID = '".$objResult2["ProductID"]."' ";
-		$objQuery3 = mysqli_query($objCon,$strSQL3);
+		$strSQL3 = "SELECT * FROM `product` 
+                INNER JOIN imgproductdetail ipd ON ipd.id_product = product.id_product
+                WHERE product.id_product = '".$objResult2["id_product"]."' AND ipd.namethumbProduct = '".$objResult2["namethumbProduct"]."'";
+
+		$objQuery3 = mysqli_query($connect,$strSQL3);
 		$objResult3 = $objResult = mysqli_fetch_array($objQuery3,MYSQLI_ASSOC);
-		$Total = $objResult2["Qty"] * $objResult3["Price"];
+		$Total = $objResult2["qty"] * $objResult3["PriceProduct"];
 		$SumTotal = $SumTotal + $Total;
 	  ?>
 	  <tr>
-		<td><?=$objResult2["ProductID"];?></td>
-		<td><?=$objResult3["ProductName"];?></td>
-		<td><?=$objResult3["Price"];?></td>
-		<td><?=$objResult2["Qty"];?></td>
+		<td><?=$objResult2["id_product"];?></td>
+		<td><?=$objResult3["NameProduct"];?></td>
+		<td><?=$objResult3["PriceProduct"];?></td>
+		<td><?=$objResult2["qty"];?></td>
 		<td><?=number_format($Total,2);?></td>
 	  </tr>
 	  <?php
@@ -168,14 +165,14 @@ while($objResult2 = mysqli_fetch_array($objQuery2,MYSQLI_ASSOC))
 รวมทั้งหมด <?php echo number_format($SumTotal,2);?>฿
 
 <?php
-mysqli_close($objCon);
+mysqli_close($connect);
 ?>
  <br>
 </div>
   <div class="row">
   <div class="col-md-12">
     <a class="btn btn-default col-xs-6 center-block noborder btn-next" href="./index.php">กลับหน้าหลัก</a>
-    <a class="btn btn-default col-xs-6 center-block noborder btn-next" href="./index.php">เลือกดูสินค้าเพิ่มเติม</a>
+    <a class="btn btn-default col-xs-6 center-block noborder btn-next" href="./Listproduct.php">เลือกดูสินค้าเพิ่มเติม</a>
   </div>
   </div>
 </div>

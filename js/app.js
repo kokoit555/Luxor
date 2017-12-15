@@ -1,7 +1,4 @@
 
-
-
-
 $('.rio-promos').slick({
   dots: false,
   autoplay: true,

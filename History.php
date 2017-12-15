@@ -15,7 +15,13 @@
 	<link rel="stylesheet" type="text/css" href="css/style-mobi.css">
   	<link rel="stylesheet" type="text/css" href="css/media.css">
 	<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-	<!-- <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/> -->
+    <!-- <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/> -->
+    <!-- Datatables -->
+    <link href="./Admin/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="./Admin/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="./Admin/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="./Admin/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="./Admin/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -29,7 +35,8 @@
 		<div class="container">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                        <table id="datatable-responsive2" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                        <h4 class="text-center">ประวัติ</h4>
+                        <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>รหัสออเดอร์</th>
@@ -37,7 +44,7 @@
                                 <th>วันที่สั่ง</th>
                                 <th>ราคาทั้งหมด</th>
                                 <th>สถานะการจ่ายเงิน</th>
-                                <th> </th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,7 +52,8 @@
                             
                             $iduser = $_SESSION['idnumLoginWebsite'];
 
-                            $select = "SELECT * FROM `Order_product` op
+                            $select = "SELECT op.id_order op_id_order ,op.Name, op.Date_order , op.Totalprice , sps.id_shipment , sps.Status
+                                        FROM `Order_product` op
                                         LEFT JOIN Store_product_shipment sps ON sps.id_order = op.id_order
                                         WHERE op.id_user = '$iduser'
                                         ORDER BY op.id_order;";
@@ -56,7 +64,7 @@
                                 while($row = mysqli_fetch_array($query)){
                                 ?>
                                 <tr>
-                                    <td><?php echo $row['id_order']; ?></td>
+                                    <td><?php echo $row['op_id_order']; ?></td>
                                     <td><?php echo $row['Name']; ?></td>
                                     <td><?php echo $row['Date_order']; ?></td>
                                     <td><?php echo number_format($row['Totalprice']); ?></td>
@@ -67,7 +75,19 @@
                                             } 
                                             else{ echo "ยังไม่ได้ชำระเงิน";}
                                         ?></td>
-                                    <td></td>
+                                    <td>
+                                        <?php 
+                                            if(empty($row['id_shipment'])){
+                                            ?>
+                                                <a href="Cartproduct.php?Cart_Status=payment&&id_order=<?php echo $row['op_id_order']; ?>" class="btn btn-warning btn-block">ชำระเงิน</a>
+                                            <?php
+                                            }else if(!empty($row['id_shipment'])){
+                                            ?>
+                                                <a href="./detailHistory.php?id_order=<?php echo $row['op_id_order']; ?>" class="btn btn-info btn-block">ดูใบเสร็จ</a>
+                                            <?php
+                                            }
+                                        ?>
+                                    </td>
                                 </tr>
                                 <?php
                                 }
@@ -86,21 +106,32 @@
 
 	</div>
 	<!-- wrapper -->
-	<!-- <script type="text/javascript" src="js/jquery.min.js"></script> -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type='text/javascript' src="js/jquery.mycart.min.js"></script>
 	<script type="text/javascript" src="slick/slick.min.js"></script>
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> -->
-	<script type='text/javascript' src="js/app.js"></script>
-	
-	<script type="text/javascript">
-	
-	// $('#setfocus').click(function() {
-	// 	window.location.hash = '#sec-b';
-	// });
-
-	</script>
+    <script type='text/javascript' src="js/app.js"></script>
+     <!-- Datatables -->
+    <script src="./Admin/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="./Admin/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="./Admin/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="./Admin/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="./Admin/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="./Admin/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="./Admin/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="./Admin/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="./Admin/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="./Admin/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="./Admin/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="./Admin/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="./Admin/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="./Admin/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="./Admin/vendors/pdfmake/build/vfs_fonts.js"></script>
+    
+    <!-- Custom Theme Scripts -->
+    <script src="./Admin/build/js/custom.js"></script>
 	
 </body>
 

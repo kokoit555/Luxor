@@ -5,6 +5,7 @@
         $idproduct = $_POST['id_product'];
         $nameproduct = $_POST['NameProduct'];
         $priceproduct = $_POST['PriceProduct'];
+        $thumb = $_POST['thumb'];
         $qtyproduct = $_POST['qtyproduct'];
         
         if(empty($_SESSION['cartproductID'])){
@@ -12,6 +13,7 @@
             $_SESSION['cartproductNAME'][] = $nameproduct;
             $_SESSION['PriceProduct'][]= $priceproduct;
             $_SESSION['cartproductQTY'][] = $qtyproduct;
+            $_SESSION['thumb'][] = $thumb;
         }
         else{
 
@@ -27,6 +29,7 @@
                 $_SESSION['cartproductNAME'][] = $nameproduct;
                 $_SESSION['PriceProduct'][]= $priceproduct;
                 $_SESSION['cartproductQTY'][] = $qtyproduct;
+                $_SESSION['thumb'][] = $thumb;
             }
         }
     }

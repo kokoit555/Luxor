@@ -38,7 +38,10 @@
 								// echo "<script> alert('". $_SESSION['idnumLoginWebsite']."');</script>";
 								?>
 								<li>
-									<a href="Codephp/logout.php" style="color: #2E2EFE;">ออกจากระบบ</a>
+									<a href="History.php">ประวัติการสั่งซื้อ</a>
+								</li>
+								<li>
+									<a href="Codephp/logout.php">ออกจากระบบ</a>
 								</li>
 								<?php
 							}

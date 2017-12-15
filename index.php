@@ -76,9 +76,9 @@
 												<div class="image">
 													<img style="height:250px;" class="img-responsive center-block" src="./<?php echo $row['urlimg'];?>" alt="sq-sample4"/>
 													<div class="icons">
-														<a href="#"><i class="ion-star"></i></a>
-														<a href="Detailproduct.php"> <i class="ion-search "></i><span class="detail">ดูเพิ่มเติม</span></a>
-														<a href="#"> <i class="ion-share"></i></a>
+														<a href="#"><i class="fa fa-star"></i></a>
+														<a href="Detailproduct.php"> <i class="fa fa-search"></i><span class="detail">ดูเพิ่มเติม</span></a>
+														<a href="#"> <i class="fa fa-share-square-o"></i></a>
 													</div>
 													<figcaption>
 														<div class="caption">
@@ -91,6 +91,7 @@
 													<input name="id_product" type="hidden" value="<?php echo $row['id_product']; ?>">
 													<input name="NameProduct" type="hidden" value="<?php echo $row['NameProduct']; ?>">
 													<input name="PriceProduct" type="hidden" value="<?php echo $row['PriceProduct'];?>">
+													<input name="thumb" type="hidden" value="1">
 													<input name="qtyproduct" type="hidden" value="1">
 													<input name="addproducttocart"  type="submit" class="add-to-cart my-cart-btn" value="Add to Cart">
 											</figure>
@@ -213,8 +214,8 @@
 
 	</div>
 	<!-- wrapper -->
-	<!-- <script type="text/javascript" src="js/jquery.min.js"></script> -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type='text/javascript' src="js/jquery.mycart.min.js"></script>
 	<script type="text/javascript" src="slick/slick.min.js"></script>

@@ -15,8 +15,7 @@ function addproduct() {
        $('.removeclass'+rid).remove();
 }
 
-
-
+/*
 var registerstore = angular.module('registerstore',[]);
 app.controller('Formregisterstore',function($scope,$http){
 
@@ -42,7 +41,7 @@ app.controller('Formregisterstore',function($scope,$http){
 
     }
 
-});
+});*/
 
     
 var app = angular.module('ListProduct',[]);
