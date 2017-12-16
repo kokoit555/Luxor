@@ -97,7 +97,7 @@
     <?php 
       
       $selectListproduct = "SELECT * FROM `product` p
-                            INNER JOIN imgproductDetail ipd ON ipd.id_product = p.id_product AND ipd.namethumbProduct = '1'
+                            INNER JOIN imgproductdetail ipd ON ipd.id_product = p.id_product AND ipd.namethumbProduct = '1'
                             INNER JOIN imgproduct ip ON ip.id_imgProduct = ipd.id_imgProduct";
 
       $queryListproduct = mysqli_query($connect,$selectListproduct);
