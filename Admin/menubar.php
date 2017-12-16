@@ -35,7 +35,7 @@
       </li> -->
       <li><a href="?link=liststore"> <i class="fa fa-shopping-bag"></i>รายชื่อร้านค้า</a></li>
       <li><a href="?link=listRegisterStore"><i class="fa fa-registered"></i>ข้อมูลสมัครร้านค้า</a></li>
-      <li><a href="?link=hotproduct"><i class="fa fa-pencil-square-o"></i>เพิ่มสินค้าแนะนำ</a></li>
+      <!-- <li><a href="?link=hotproduct"><i class="fa fa-pencil-square-o"></i>เพิ่มสินค้าแนะนำ</a></li> -->
       <li>
         <a href="logout.php"><i class="fa fa-sign-out"></i>Log Out</a>
       </li>

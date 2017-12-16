@@ -28,259 +28,79 @@
            <div class="row">
               <div class="col-lg-6 col-md-6">
              <aside>
-                <img class="img-responsive center-block" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqHPHvKb9jLuEhh-RVyp2NJg4qMPHtTrzhFtq1_PWAIliv2ZXk" class="img-responsive">
+                <img class="img-responsive center-block" src="./images/blog1.jpg" class="img-responsive">
                 <div class="content-title">
                 <div class="text-center">
-                <h3><a href="#">หัวข้อบทความ</a></h3>
+                <h3><a href="detailBlog.php">ชุดผ้าไทยสไตล์ชาวดอย</a></h3>
                 </div>
                 </div>
                 <div class="content-footer">
-                <img class="img-responsive center-block" class="user-small-img" src="https://www.w3schools.com/w3css/img_avatar3.png">
-                <span style="font-size: 16px;color: #fff;">ชื่อร้านค้า</span>
+                <span style="font-size: 16px;color: #fff;"><a href="#">Humblehug</a></span>
                 <span class="pull-right">
                 <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 30</a>
                 <a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-heart"></i> 20</a>                  
                 </span>
-                    <div class="user-ditels">
-                    <div class="user-img"><img class="img-responsive center-block" src="https://www.w3schools.com/w3css/img_avatar3.png" class="img-responsive"></div>
-                        <span class="user-full-ditels">
-                        <h3>ชื่อร้านค้า</h3>
-                        </span>
-                        <div class="social-icon">
-                        <a href="#"><i class="fa fa-facebook" data-toggle="tooltip" data-placement="bottom" title="Facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter" data-toggle="tooltip" data-placement="bottom" title="Twitter"></i></a>
-                        <a href="#"><i class="fa fa-google-plus" data-toggle="tooltip" data-placement="bottom" title="Google Plus"></i></a>
-                        <a href="#"><i class="fa fa-youtube" data-toggle="tooltip" data-placement="bottom" title="Youtube"></i></a>
-                        <a href="#"><i class="fa fa-github" data-toggle="tooltip" data-placement="bottom" title="Github"></i></a>               
-                    </div>
-                    </div>
+                   
                 </div>
              </aside>
             </div>
                
                <div class="col-lg-6 col-md-6">
              <aside>
-                <img class="img-responsive center-block" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqHPHvKb9jLuEhh-RVyp2NJg4qMPHtTrzhFtq1_PWAIliv2ZXk" class="img-responsive">
+                <img class="img-responsive center-block" src="./images/blog2.jpg" alt="เช็คๆ" class="img-responsive">
                 <div class="content-title">
                 <div class="text-center">
-                <h3><a href="#">หัวข้อบทความ</a></h3>
+                <h3><a href="detailBlog.php">เสื้อคอกระเช้า</a></h3>
                 </div>
                 </div>
                 <div class="content-footer">
-                <img class="img-responsive center-block" class="user-small-img" src="https://www.w3schools.com/w3css/img_avatar3.png">
-                <span style="font-size: 16px;color: #fff;">ชื่อร้านค้า</span>
+                <span style="font-size: 16px;color: #fff;"><a href="#">พาฝัน สราญรมย์</a></span>
                 <span class="pull-right">
                 <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 30</a>
                 <a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-heart"></i> 20</a>                  
                 </span>
-                    <div class="user-ditels">
-                    <div class="user-img"><img class="img-responsive center-block" src="https://www.w3schools.com/w3css/img_avatar3.png" class="img-responsive"></div>
-                        <span class="user-full-ditels">
-                        <h3>ชื่อร้านค้า</h3>
-                        </span>
-                        <div class="social-icon">
-                        <a href="#"><i class="fa fa-facebook" data-toggle="tooltip" data-placement="bottom" title="Facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter" data-toggle="tooltip" data-placement="bottom" title="Twitter"></i></a>
-                        <a href="#"><i class="fa fa-google-plus" data-toggle="tooltip" data-placement="bottom" title="Google Plus"></i></a>
-                        <a href="#"><i class="fa fa-youtube" data-toggle="tooltip" data-placement="bottom" title="Youtube"></i></a>
-                        <a href="#"><i class="fa fa-github" data-toggle="tooltip" data-placement="bottom" title="Github"></i></a>               
-                    </div>
-                    </div>
+                  
                 </div>
              </aside>
             </div>       
                
                <div class="col-lg-6 col-md-6">
              <aside>
-                <img class="img-responsive center-block" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqHPHvKb9jLuEhh-RVyp2NJg4qMPHtTrzhFtq1_PWAIliv2ZXk" class="img-responsive">
+                <img class="img-responsive center-block" src="./images/blog5.jpg" class="img-responsive">
                 <div class="content-title">
                 <div class="text-center">
-                <h3><a href="#">หัวข้อบทความ</a></h3>
+                <h3><a href="detailBlog.php">ชุดสไตล์ชาวดอยสีสันสวยงาม</a></h3>
                 </div>
                 </div>
                 <div class="content-footer">
-                <img class="img-responsive center-block" class="user-small-img" src="https://www.w3schools.com/w3css/img_avatar3.png">
-                <span style="font-size: 16px;color: #fff;">ชื่อร้านค้า</span>
+                <span style="font-size: 16px;color: #fff;"><a href="#">peemai28</a></span>
                 <span class="pull-right">
                 <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 30</a>
                 <a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-heart"></i> 20</a>                  
                 </span>
-                    <div class="user-ditels">
-                    <div class="user-img"><img class="img-responsive center-block" src="https://www.w3schools.com/w3css/img_avatar3.png" class="img-responsive"></div>
-                        <span class="user-full-ditels">
-                        <h3>ชื่อร้านค้า</h3>
-                        </span>
-                        <div class="social-icon">
-                        <a href="#"><i class="fa fa-facebook" data-toggle="tooltip" data-placement="bottom" title="Facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter" data-toggle="tooltip" data-placement="bottom" title="Twitter"></i></a>
-                        <a href="#"><i class="fa fa-google-plus" data-toggle="tooltip" data-placement="bottom" title="Google Plus"></i></a>
-                        <a href="#"><i class="fa fa-youtube" data-toggle="tooltip" data-placement="bottom" title="Youtube"></i></a>
-                        <a href="#"><i class="fa fa-github" data-toggle="tooltip" data-placement="bottom" title="Github"></i></a>               
-                    </div>
-                    </div>
+                    
                 </div>
              </aside>
             </div>       
                
                <div class="col-lg-6 col-md-6">
              <aside>
-                <img class="img-responsive center-block" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqHPHvKb9jLuEhh-RVyp2NJg4qMPHtTrzhFtq1_PWAIliv2ZXk" class="img-responsive">
+                <img class="img-responsive center-block" src="./images/blog4.jpg" class="img-responsive">
                 <div class="content-title">
                 <div class="text-center">
-                <h3><a href="#">หัวข้อบทความ</a></h3>
+                <h3><a href="detailBlog.php">แฟชั่น “ผ้าไทย” เปรี้ยว ชิค สไตล์สาวรุ่นใหม่</a></h3>
                 </div>
                 </div>
                 <div class="content-footer">
-                <img class="img-responsive center-block" class="user-small-img" src="https://www.w3schools.com/w3css/img_avatar3.png">
-                <span style="font-size: 16px;color: #fff;">ชื่อร้านค้า</span>
+                <span style="font-size: 16px;color: #fff;"><a href="#">hathaiphat_thaidress</a></span>
                 <span class="pull-right">
                 <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 30</a>
                 <a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-heart"></i> 20</a>                  
                 </span>
-                    <div class="user-ditels">
-                    <div class="user-img"><img class="img-responsive center-block" src="https://www.w3schools.com/w3css/img_avatar3.png" class="img-responsive"></div>
-                        <span class="user-full-ditels">
-                        <h3>ชื่อร้านค้า</h3>
-                        </span>
-                        <div class="social-icon">
-                        <a href="#"><i class="fa fa-facebook" data-toggle="tooltip" data-placement="bottom" title="Facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter" data-toggle="tooltip" data-placement="bottom" title="Twitter"></i></a>
-                        <a href="#"><i class="fa fa-google-plus" data-toggle="tooltip" data-placement="bottom" title="Google Plus"></i></a>
-                        <a href="#"><i class="fa fa-youtube" data-toggle="tooltip" data-placement="bottom" title="Youtube"></i></a>
-                        <a href="#"><i class="fa fa-github" data-toggle="tooltip" data-placement="bottom" title="Github"></i></a>               
-                    </div>
-                    </div>
+                   
                 </div>
              </aside>
-            </div>       
-               
-               <div class="col-lg-6 col-md-6">
-             <aside>
-                <img class="img-responsive center-block" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqHPHvKb9jLuEhh-RVyp2NJg4qMPHtTrzhFtq1_PWAIliv2ZXk" class="img-responsive">
-                <div class="content-title">
-                <div class="text-center">
-                <h3><a href="#">หัวข้อบทความ</a></h3>
-                </div>
-                </div>
-                <div class="content-footer">
-                <img class="img-responsive center-block" class="user-small-img" src="https://www.w3schools.com/w3css/img_avatar3.png">
-                <span style="font-size: 16px;color: #fff;">ชื่อร้านค้า</span>
-                <span class="pull-right">
-                <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 30</a>
-                <a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-heart"></i> 20</a>                  
-                </span>
-                    <div class="user-ditels">
-                    <div class="user-img"><img class="img-responsive center-block" src="https://www.w3schools.com/w3css/img_avatar3.png" class="img-responsive"></div>
-                        <span class="user-full-ditels">
-                        <h3>ชื่อร้านค้า</h3>
-                        </span>
-                        <div class="social-icon">
-                        <a href="#"><i class="fa fa-facebook" data-toggle="tooltip" data-placement="bottom" title="Facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter" data-toggle="tooltip" data-placement="bottom" title="Twitter"></i></a>
-                        <a href="#"><i class="fa fa-google-plus" data-toggle="tooltip" data-placement="bottom" title="Google Plus"></i></a>
-                        <a href="#"><i class="fa fa-youtube" data-toggle="tooltip" data-placement="bottom" title="Youtube"></i></a>
-                        <a href="#"><i class="fa fa-github" data-toggle="tooltip" data-placement="bottom" title="Github"></i></a>               
-                    </div>
-                    </div>
-                </div>
-             </aside>
-            </div>       
-               
-               <div class="col-lg-6 col-md-6">
-             <aside>
-                <img class="img-responsive center-block" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqHPHvKb9jLuEhh-RVyp2NJg4qMPHtTrzhFtq1_PWAIliv2ZXk" class="img-responsive">
-                <div class="content-title">
-                <div class="text-center">
-                <h3><a href="#">หัวข้อบทความ</a></h3>
-                </div>
-                </div>
-                <div class="content-footer">
-                <img class="img-responsive center-block" class="user-small-img" src="https://www.w3schools.com/w3css/img_avatar3.png">
-                <span style="font-size: 16px;color: #fff;">ชื่อร้านค้า</span>
-                <span class="pull-right">
-                <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 30</a>
-                <a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-heart"></i> 20</a>                  
-                </span>
-                    <div class="user-ditels">
-                    <div class="user-img"><img class="img-responsive center-block" src="https://www.w3schools.com/w3css/img_avatar3.png" class="img-responsive"></div>
-                        <span class="user-full-ditels">
-                        <h3>ชื่อร้านค้า</h3>
-                        </span>
-                        <div class="social-icon">
-                        <a href="#"><i class="fa fa-facebook" data-toggle="tooltip" data-placement="bottom" title="Facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter" data-toggle="tooltip" data-placement="bottom" title="Twitter"></i></a>
-                        <a href="#"><i class="fa fa-google-plus" data-toggle="tooltip" data-placement="bottom" title="Google Plus"></i></a>
-                        <a href="#"><i class="fa fa-youtube" data-toggle="tooltip" data-placement="bottom" title="Youtube"></i></a>
-                        <a href="#"><i class="fa fa-github" data-toggle="tooltip" data-placement="bottom" title="Github"></i></a>               
-                    </div>
-                    </div>
-                </div>
-             </aside>
-            </div>       
-               
-               <div class="col-lg-6 col-md-6">
-             <aside>
-                <img class="img-responsive center-block" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqHPHvKb9jLuEhh-RVyp2NJg4qMPHtTrzhFtq1_PWAIliv2ZXk" class="img-responsive">
-                <div class="content-title">
-                <div class="text-center">
-                <h3><a href="#">หัวข้อบทความ</a></h3>
-                </div>
-                </div>
-                <div class="content-footer">
-                <img class="img-responsive center-block" class="user-small-img" src="https://www.w3schools.com/w3css/img_avatar3.png">
-                <span style="font-size: 16px;color: #fff;">ชื่อร้านค้า</span>
-                <span class="pull-right">
-                <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 30</a>
-                <a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-heart"></i> 20</a>                  
-                </span>
-                    <div class="user-ditels">
-                    <div class="user-img"><img class="img-responsive center-block" src="https://www.w3schools.com/w3css/img_avatar3.png" class="img-responsive"></div>
-                        <span class="user-full-ditels">
-                        <h3>ชื่อร้านค้า</h3>
-                        </span>
-                        <div class="social-icon">
-                        <a href="#"><i class="fa fa-facebook" data-toggle="tooltip" data-placement="bottom" title="Facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter" data-toggle="tooltip" data-placement="bottom" title="Twitter"></i></a>
-                        <a href="#"><i class="fa fa-google-plus" data-toggle="tooltip" data-placement="bottom" title="Google Plus"></i></a>
-                        <a href="#"><i class="fa fa-youtube" data-toggle="tooltip" data-placement="bottom" title="Youtube"></i></a>
-                        <a href="#"><i class="fa fa-github" data-toggle="tooltip" data-placement="bottom" title="Github"></i></a>               
-                    </div>
-                    </div>
-                </div>
-             </aside>
-            </div>       
-               
-               <div class="col-lg-6 col-md-6">
-             <aside>
-                <img class="img-responsive center-block" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqHPHvKb9jLuEhh-RVyp2NJg4qMPHtTrzhFtq1_PWAIliv2ZXk" class="img-responsive">
-                <div class="content-title">
-                <div class="text-center">
-                <h3><a href="#">หัวข้อบทความ</a></h3>
-                </div>
-                </div>
-                <div class="content-footer">
-                <img class="img-responsive center-block" class="user-small-img" src="https://www.w3schools.com/w3css/img_avatar3.png">
-                <span style="font-size: 16px;color: #fff;">ชื่อร้านค้า</span>
-                <span class="pull-right">
-                <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 30</a>
-                <a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-heart"></i> 20</a>                  
-                </span>
-                    <div class="user-ditels">
-                    <div class="user-img"><img class="img-responsive center-block" src="https://www.w3schools.com/w3css/img_avatar3.png" class="img-responsive"></div>
-                        <span class="user-full-ditels">
-                        <h3>ชื่อร้านค้า</h3>
-                        </span>
-                        <div class="social-icon">
-                        <a href="#"><i class="fa fa-facebook" data-toggle="tooltip" data-placement="bottom" title="Facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter" data-toggle="tooltip" data-placement="bottom" title="Twitter"></i></a>
-                        <a href="#"><i class="fa fa-google-plus" data-toggle="tooltip" data-placement="bottom" title="Google Plus"></i></a>
-                        <a href="#"><i class="fa fa-youtube" data-toggle="tooltip" data-placement="bottom" title="Youtube"></i></a>
-                        <a href="#"><i class="fa fa-github" data-toggle="tooltip" data-placement="bottom" title="Github"></i></a>               
-                    </div>
-                    </div>
-                </div>
-             </aside>
-            </div>  
+            </div>      
            </div>
           </div>
            
@@ -292,7 +112,7 @@
                     <ul>
                      <li class="recent-post">
                         <div class="post-img">
-                         <img class="img-responsive center-block" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqHPHvKb9jLuEhh-RVyp2NJg4qMPHtTrzhFtq1_PWAIliv2ZXk" class="img-responsive">
+                         <img class="img-responsive center-block" src="./images/recent1.png" class="img-responsive">
                          </div>
                          <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
                          <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
@@ -301,7 +121,7 @@
                         
                         <li class="recent-post">
                         <div class="post-img">
-                         <img class="img-responsive center-block" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqHPHvKb9jLuEhh-RVyp2NJg4qMPHtTrzhFtq1_PWAIliv2ZXk" class="img-responsive">
+                         <img class="img-responsive center-block" src="./images/recent2.png" class="img-responsive">
                          </div>
                          <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
                          <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
@@ -310,7 +130,7 @@
                         
                         <li class="recent-post">
                         <div class="post-img">
-                         <img class="img-responsive center-block" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqHPHvKb9jLuEhh-RVyp2NJg4qMPHtTrzhFtq1_PWAIliv2ZXk" class="img-responsive">
+                         <img class="img-responsive center-block" src="./images/recent3.png" class="img-responsive">
                          </div>
                          <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
                          <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
@@ -319,7 +139,7 @@
                         
                         <li class="recent-post">
                         <div class="post-img">
-                         <img class="img-responsive center-block" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqHPHvKb9jLuEhh-RVyp2NJg4qMPHtTrzhFtq1_PWAIliv2ZXk" class="img-responsive">
+                         <img class="img-responsive center-block" src="./images/recent4.png" class="img-responsive">
                          </div>
                          <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
                          <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
@@ -337,7 +157,7 @@
                    <div class="panel">
                      <li class="recent-post">
                       <div class="post-img">
-                       <img class="img-responsive center-block" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqHPHvKb9jLuEhh-RVyp2NJg4qMPHtTrzhFtq1_PWAIliv2ZXk" class="img-responsive">
+                       <img class="img-responsive center-block" src="./images/recent3.png" class="img-responsive">
                         </div>
                        <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
                       <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
@@ -351,7 +171,7 @@
                    <div class="panel">
                      <li class="recent-post">
                       <div class="post-img">
-                       <img class="img-responsive center-block" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqHPHvKb9jLuEhh-RVyp2NJg4qMPHtTrzhFtq1_PWAIliv2ZXk" class="img-responsive">
+                       <img class="img-responsive center-block" src="./images/recent1.png" class="img-responsive">
                         </div>
                        <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
                       <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
@@ -365,7 +185,7 @@
                    <div class="panel">
                      <li class="recent-post">
                       <div class="post-img">
-                       <img class="img-responsive center-block" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqHPHvKb9jLuEhh-RVyp2NJg4qMPHtTrzhFtq1_PWAIliv2ZXk" class="img-responsive">
+                       <img class="img-responsive center-block" src="./images/recent4.png" class="img-responsive">
                         </div>
                        <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
                       <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
@@ -379,7 +199,7 @@
                    <div class="panel">
                      <li class="recent-post">
                       <div class="post-img">
-                       <img class="img-responsive center-block" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqHPHvKb9jLuEhh-RVyp2NJg4qMPHtTrzhFtq1_PWAIliv2ZXk" class="img-responsive">
+                       <img class="img-responsive center-block" src="./images/recent2.png" class="img-responsive">
                         </div>
                        <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
                       <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>

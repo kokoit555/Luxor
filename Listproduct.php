@@ -42,22 +42,22 @@
             <div class="panel-heading">ค้นหาตามประเภท</div>
             <div class="panel-body">
                 <div class="checkbox">
-                  <label><input type="checkbox" name="cc"  >Option 1</label>
+                  <label><input type="checkbox" name="type1"  >เสื้อผ้า</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" name="cc"  >Option 1</label>
+                  <label><input type="checkbox" name="type2"  >กางเกง</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" name="cc"  >Option 1</label>
+                  <label><input type="checkbox" name="type3"  >เครื่องประดับ</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" name="cc"  >Option 1</label>
+                  <label><input type="checkbox" name="type4"  >ของฝาก</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" name="cc"  >Option 1</label>
+                  <label><input type="checkbox" name="type5"  >ผ้าพันคอ</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" name="cc"  >Option 1</label>
+                  <label><input type="checkbox" name="type6"  >อื่น ๆ</label>
                 </div>
             </div> <!--panel-body-->
           </div><!--panel panel-default-->
@@ -65,16 +65,16 @@
 
         <div id="group-2" class="list-group collapse in">
           <a class="list-group-item" href="#">
-            <span class="badge">3</span> ตัวเลือก
+            <i class="fa fa-sort-amount-desc"></i> เรียงลำดับราคา มาก ไป น้อย
           </a>
           <a class="list-group-item" href="#">
-            <span class="badge">3</span> ตัวเลือก
+            <i class="fa fa-sort-amount-asc"></i> เรียงลำดับราคา น้อย ไป มาก
           </a>
           <a class="list-group-item" href="#">
-            <span class="badge">3</span> ตัวเลือก
+            <i class="fa fa-calendar"></i> เรียงลำดับวันที่ลง มาก ไป น้อย
           </a>
           <a class="list-group-item" href="#">
-            <span class="badge">3</span> ตัวเลือก
+            <i class="fa fa-calendar"></i> เรียงลำดับวันที่ลง น้อย ไป มาก
           </a>
         </div>
 

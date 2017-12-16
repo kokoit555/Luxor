@@ -1,4 +1,12 @@
 
+				<style>
+					@media (max-width: 767px){
+						.navbar-default .navbar-nav .open .dropdown-menu>li>a{
+							color:#fff;
+						}
+					}
+				</style>
+
 				<nav class="navbar navbar-default noborder GRed Cusnav">
 				<div class="container">
 					<div class="navbar-header">
@@ -37,11 +45,22 @@
 							{
 								// echo "<script> alert('". $_SESSION['idnumLoginWebsite']."');</script>";
 								?>
-								<li style="margin-right:0;">
-									<a href="History.php">ประวัติการสั่งซื้อ</a>
-								</li>
-								<li style="margin-right:0;">
-									<a href="Codephp/logout.php">ออกจากระบบ</a>
+								
+								
+
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['nameLoginWebsite']; ?><span class="caret"></span></a>
+									<ul class="dropdown-menu">
+										<li style="margin-right:0;">
+											<a href="#">ข้อมูลส่วนตัว</a>
+										</li>
+										<li style="margin-right:0;">
+											<a href="History.php">ประวัติการสั่งซื้อ</a>
+										</li>
+										<li style="margin-right:0;">
+											<a href="Codephp/logout.php">ออกจากระบบ</a>
+										</li>
+									</ul>
 								</li>
 								<?php
 							}

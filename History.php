@@ -32,10 +32,10 @@
 
 	<div id="wrapper">
 		<?php include "header.php"; ?>
-		<div class="container">
+		<div class="container" style="margin-top:5%;margin-bottom:5%;">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                        <h4 class="text-center">ประวัติ</h4>
+                        <h4 class="text-center">ประวัติการสั่งซื้อ</h4>
                         <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                         <thead>
                             <tr>
@@ -43,6 +43,7 @@
                                 <th>ชื่อผู้สั่ง</th>
                                 <th>วันที่สั่ง</th>
                                 <th>ราคาทั้งหมด</th>
+                                <th>การขนส่ง</th>
                                 <th>สถานะการจ่ายเงิน</th>
                                 <th></th>
                             </tr>
@@ -52,7 +53,7 @@
                             
                             $iduser = $_SESSION['idnumLoginWebsite'];
 
-                            $select = "SELECT op.id_order op_id_order ,op.Name, op.Date_order , op.Totalprice , sps.id_shipment , sps.Status
+                            $select = "SELECT op.id_order op_id_order ,op.Name, op.Date_order , op.Totalprice , sps.id_shipment , sps.Status , sps.id_shipping 
                                         FROM `order_product` op
                                         LEFT JOIN store_product_shipment sps ON sps.id_order = op.id_order
                                         WHERE op.id_user = '$iduser'
@@ -67,7 +68,8 @@
                                     <td><?php echo $row['op_id_order']; ?></td>
                                     <td><?php echo $row['Name']; ?></td>
                                     <td><?php echo $row['Date_order']; ?></td>
-                                    <td><?php echo number_format($row['Totalprice']); ?></td>
+                                    <td><?php echo number_format($row['Totalprice']); ?> บาท</td>
+                                    <td><?php if(empty($row['id_shipping'])){echo "รอการจัดส่ง";} ?></td>
                                     <td><?php 
                                             if(!empty($row['id_shipment'])){
                                                 if($row['Status'] == '1'){echo "Success";}

@@ -8,11 +8,11 @@
 
         $selecturlimg = "";
 
-        $urlimg = mysqli_escape_string($connect,$_POST['urlimg']); 
+        // $urlimg = mysqli_escape_string($connect,$_POST['urlimg']); 
 
     
-        $sqlinserthot = "INSERT INTO `hotproduct`(`id_hotproduct`, `id_product`, `urlimg`) 
-                                VALUES ('0','$idproduct','$urlimg')";
+        // $sqlinserthot = "INSERT INTO `hotproduct`(`id_hotproduct`, `id_product`, `urlimg`) 
+        //                         VALUES ('0','$idproduct','$urlimg')";
 
         // $query = mysqli_query($connect,$sqlinserthot);
         

@@ -56,9 +56,15 @@
 				<div class="sliderbox">
 					<div class="rio-promos">
 						<?php 
-							$sqlqueryhotproduct = "SELECT * FROM `hotproduct` hp
-													INNER JOIN product p ON p.id_product = hp.id_product
-													INNER JOIN store s ON p.id_store = s.id_store";
+							// $sqlqueryhotproduct = "SELECT * FROM `hotproduct` hp
+							// 						INNER JOIN product p ON p.id_product = hp.id_product
+							// 						INNER JOIN store s ON p.id_store = s.id_store";
+							$sqlqueryhotproduct = "SELECT * FROM `product` p
+													INNER JOIN store s ON s.id_store = p.id_store
+													INNER JOIN imgproductdetail ipd ON ipd.id_product = p.id_product AND ipd.namethumbProduct = '1'
+													INNER JOIN imgproduct ip ON ip.id_imgProduct = ipd.id_imgProduct
+													ORDER BY p.id_product desc LIMIT 3";
+
 							$queryproduct = mysqli_query($connect,$sqlqueryhotproduct);
 							if(!empty($queryproduct))
 							{
@@ -69,7 +75,7 @@
 										<form method="post">
 											<figure class="snip1268">
 												<div class="image">
-													<img style="height:250px;" class="img-responsive center-block" src="./<?php echo $row['urlimg'];?>" alt="sq-sample4"/>
+													<img style="height:250px;" class="img-responsive center-block" src="./<?php echo $row['url_img'].$row['Name_img'];?>" alt="sq-sample4"/>
 													<div class="icons">
 														<a href="#"><i class="fa fa-star"></i></a>
 														<!-- <a href="Detailproduct.php"> <i class="fa fa-search"></i><span class="detail">ดูเพิ่มเติม</span></a> -->
@@ -80,7 +86,7 @@
 														<div class="caption">
 															<p class="title">
 																<h4><?php echo $row['NameProduct']." : ร้าน ".$row['NameStore']; ?></h2>
-																<p class="price CRed"><?php echo $row['PriceProduct'];?></p>
+																<p class="price CRed"><?php echo number_format($row['PriceProduct']);;?> บาท</p>
 															</p>
 														</div>
 													</figcaption>
