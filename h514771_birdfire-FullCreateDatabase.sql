@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
+-- version 4.5.2
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 15, 2017 at 06:22 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.10
+-- Host: localhost
+-- Generation Time: Dec 16, 2017 at 05:28 AM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.5.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -126,15 +124,6 @@ CREATE TABLE `hotproduct` (
   `urlimg` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `hotproduct`
---
-
-INSERT INTO `hotproduct` (`id_hotproduct`, `id_product`, `urlimg`) VALUES
-(1, 1, 'images/detailProduct1.png'),
-(2, 2, 'images/detailProduct2.png'),
-(3, 3, 'images/product/jai-01.png');
-
 -- --------------------------------------------------------
 
 --
@@ -152,9 +141,6 @@ CREATE TABLE `imgproduct` (
 --
 
 INSERT INTO `imgproduct` (`id_imgProduct`, `Name_img`, `url_img`) VALUES
-(1, 'detailProduct1.png', 'images/'),
-(2, 'detailProduct2.png', 'images/'),
-(3, 'detailProduct3.png', 'images/'),
 (4, 'jai-01.png', 'images/product/'),
 (5, 'jai-02.png', 'images/product/'),
 (6, 'jai-03.png', 'images/product/'),
@@ -180,9 +166,6 @@ CREATE TABLE `imgproductdetail` (
 --
 
 INSERT INTO `imgproductdetail` (`id_imgProductDetail`, `id_product`, `id_imgProduct`, `namethumbProduct`, `urlthumbProduct`, `qty`) VALUES
-(1, 1, 1, '1', 'images/thumbproduct/thumb1.png', '2'),
-(2, 1, 2, '2', 'images/thumbproduct/thumb2.png', '3'),
-(3, 2, 3, '1', 'images/thumbproduct/thumb3.png', '4'),
 (4, 3, 4, '1', 'images/thumbproduct/jai-p01.png', '10'),
 (5, 3, 5, '2', 'images/thumbproduct/jai-p02.png', '10'),
 (6, 3, 6, '3', 'images/thumbproduct/jai-p03.png', '10'),
@@ -202,16 +185,6 @@ CREATE TABLE `orderproductdetail` (
   `qty` varchar(10) NOT NULL,
   `Price` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `orderproductdetail`
---
-
-INSERT INTO `orderproductdetail` (`id_orderDetail`, `id_order`, `id_product`, `namethumbProduct`, `qty`, `Price`) VALUES
-(1, 1, 1, 1, '1', '4,000'),
-(2, 1, 2, 1, '1', '4,000'),
-(3, 2, 2, 1, '3', '4,000'),
-(4, 3, 1, 1, '1', '4000');
 
 -- --------------------------------------------------------
 
@@ -233,15 +206,6 @@ CREATE TABLE `order_product` (
   `Totalprice` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `order_product`
---
-
-INSERT INTO `order_product` (`id_order`, `id_user`, `Date_order`, `Tax`, `Name`, `LastName`, `Tel`, `Address`, `Zip`, `Send_email_order`, `Totalprice`) VALUES
-(1, 1, '2017-12-07', '7%', 'Admin', 'Fumin', '099-999-9999', '555/55 หมู่ 5 หมู่บ้าน 555 ตำบล รารา อำเภอ เมือง จังหวัด กรุงเทพ ประเทศไทย', '10000', 'test@info.com', 8000),
-(2, 1, '2017-12-07', '7%', 'Admin', 'Fumin', '099-999-9999', '555/55 หมู่ 5 หมู่บ้าน 555 ตำบล รารา อำเภอ เมือง จังหวัด กรุงเทพ ประเทศไทย', '10000', 'test@info.com', 4000),
-(3, 1, '2017-12-14', '7%', 'Admin', 'Fumin', '099-999-9999', '555/55 หมู่ 5 หมู่บ้าน 555 ตำบล รารา  อำเภอกรุงเทพ จังหวัดเมือง ประเทศประเทศไทย ', '10000', 'Luxor@info.com', 4000);
-
 -- --------------------------------------------------------
 
 --
@@ -255,15 +219,6 @@ CREATE TABLE `payment` (
   `DatePayment` date NOT NULL,
   `id_code` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `payment`
---
-
-INSERT INTO `payment` (`id_payment`, `Type_payment`, `Payment_Status`, `DatePayment`, `id_code`) VALUES
-(1, 'VISA', 'pay', '2017-12-08', NULL),
-(2, 'VISA', 'pay', '2017-12-08', NULL),
-(3, 'VISA', 'pay', '2017-12-14', NULL);
 
 -- --------------------------------------------------------
 
@@ -356,7 +311,7 @@ CREATE TABLE `store` (
 --
 
 INSERT INTO `store` (`id_store`, `NameStore`, `AvatarStore`, `AddressStore`, `TelStore`, `CityStore`, `StateStore`, `ZipStore`, `CountryStore`, `EmailStore`, `Password`, `textStory`, `nameAccountStore`, `numberStorebank`, `namebank`) VALUES
-(1, 'ภูคราม', 'avatar/bhukram.jpg', '555/55 หมู่ 5 ชุมชน 555', '099-999-9999', 'ชุมชน', 'จังหวัด', '10000', 'ประเทศไทย', 'store@info.com', 'MD5(\'1234\')', '<h3>“ภูคราม” ผ้าฝ้ายปักลวดลายธรรมชาติ</h3><p> เป็นผลิตประเภทสิ่งทอ งานหัตถกรรมทำมือ และส่วนใหญ่เป็นผลิตภัณฑ์จากธรรมชาติ โดยการใช้ครามธรรมชาติ และใช้ฝ้ายทอมือเป็นหลัก โดยได้ทำงานกับกลุ่มชาวบ้าน ตำบลโคกภู จังหวัดสกลนคร กลุ่มเล็กๆ ที่ใช้เวลาว่างมาทอผ้า การทอผ้าใช้อารมณ์ทอแบบสบายๆ ไม่เครียด ถ้าหากเครียดจะไม่ทำ ดังนั้นผ้าของกลุ่มผู้ครามจะเป็นผ้าที่ถักทอขึ้นด้วยความสุข</p><h3>แรงบันดาลใจ (Inspiration)</h3><p>เริ่มจากประสบการณ์การทำงานที่ผ่านมาล้วนทำงานในส่วนของชุมชนมีการกระตุ้นและพัฒนาชุมชนอื่นๆ ทำให้อยากกลับมาทำที่ชุมชนของบ้านเกิดตนเอง ซึ่งมีการพัฒนาน้อย ประจวบเหมาะกับป้ากลุ่มเล็กในชุมชนมีการกลับมาทอผ้า โดยไม่มีใครมาสนับสนุน ไม่มีตลาด จึงได้เริ่มเข้าไปหาตลาดให้ ขายให้ และทำให้เรามีรายได้อีกส่วนนึงด้วย หลังจากนั้นได้มาศึกษาการทำผ้าฝ้ายย้อมคราม ทำให้เห็นขั้นตอนทั้งหมดในการที่มีขั้นตอนการทำที่ยากและมีหลายขั้นตอน ต้นทุนต่างๆไม่สัมพันธ์กับราคาจึงอยากเป็นส่วนในการช่วยเหลือ รวมทั้งหากกลุ่มนี้เริ่มต้นได้ดี ก็อยากขยายไปสู่ชุมชนอื่นๆมีภาวะเช่นเดียวกัน</p><h3>สู่การเปลี่ยนแปลง (Social Impact)</h3><li>สร้างอาชีพและเพิ่มรายได้ภายในครอบครัวแก่คนในชุมชน</li><li>เป็นการรื้อฟื้นและอนุรักษ์วิถีดั่งเดิม เช่น การทอผ้า เลี้ยงคราม ปลูกฝ้าย ปลูกคราม เป็นต้น</li><li>ลดการเดินทางขายแรงงานในเมืองหลวง</li><li>พัฒนาคุณภาพชีวิตของคนในชุมชน</li> <li>เกิดการรวมกลุ่มของคนในชุมชน มีการแลกเปลี่ยน นำไปสู่แนวทางพัฒนาคุณภาพชีวิตด้วยตัวเอง</li><li>ชาวบ้านได้มีโอกาสในการใช้ความคิดสร้างสรรค์ระหว่างการทำงาน</li><li>สร้างอาชีพให้แก่กลุ่มคนรุ่นใหม่</li>', 'ภูคราม', '0000000000', 'krungthai');
+(1, 'ภูคราม', 'avatar/bhukram.jpg', '555/55 หมู่ 5 ชุมชน 555', '099-999-9999', 'ชุมชน', 'จังหวัด', '10000', 'ประเทศไทย', 'store@info.com', 'MD5(''1234'')', '<h3>“ภูคราม” ผ้าฝ้ายปักลวดลายธรรมชาติ</h3><p> เป็นผลิตประเภทสิ่งทอ งานหัตถกรรมทำมือ และส่วนใหญ่เป็นผลิตภัณฑ์จากธรรมชาติ โดยการใช้ครามธรรมชาติ และใช้ฝ้ายทอมือเป็นหลัก โดยได้ทำงานกับกลุ่มชาวบ้าน ตำบลโคกภู จังหวัดสกลนคร กลุ่มเล็กๆ ที่ใช้เวลาว่างมาทอผ้า การทอผ้าใช้อารมณ์ทอแบบสบายๆ ไม่เครียด ถ้าหากเครียดจะไม่ทำ ดังนั้นผ้าของกลุ่มผู้ครามจะเป็นผ้าที่ถักทอขึ้นด้วยความสุข</p><h3>แรงบันดาลใจ (Inspiration)</h3><p>เริ่มจากประสบการณ์การทำงานที่ผ่านมาล้วนทำงานในส่วนของชุมชนมีการกระตุ้นและพัฒนาชุมชนอื่นๆ ทำให้อยากกลับมาทำที่ชุมชนของบ้านเกิดตนเอง ซึ่งมีการพัฒนาน้อย ประจวบเหมาะกับป้ากลุ่มเล็กในชุมชนมีการกลับมาทอผ้า โดยไม่มีใครมาสนับสนุน ไม่มีตลาด จึงได้เริ่มเข้าไปหาตลาดให้ ขายให้ และทำให้เรามีรายได้อีกส่วนนึงด้วย หลังจากนั้นได้มาศึกษาการทำผ้าฝ้ายย้อมคราม ทำให้เห็นขั้นตอนทั้งหมดในการที่มีขั้นตอนการทำที่ยากและมีหลายขั้นตอน ต้นทุนต่างๆไม่สัมพันธ์กับราคาจึงอยากเป็นส่วนในการช่วยเหลือ รวมทั้งหากกลุ่มนี้เริ่มต้นได้ดี ก็อยากขยายไปสู่ชุมชนอื่นๆมีภาวะเช่นเดียวกัน</p><h3>สู่การเปลี่ยนแปลง (Social Impact)</h3><li>สร้างอาชีพและเพิ่มรายได้ภายในครอบครัวแก่คนในชุมชน</li><li>เป็นการรื้อฟื้นและอนุรักษ์วิถีดั่งเดิม เช่น การทอผ้า เลี้ยงคราม ปลูกฝ้าย ปลูกคราม เป็นต้น</li><li>ลดการเดินทางขายแรงงานในเมืองหลวง</li><li>พัฒนาคุณภาพชีวิตของคนในชุมชน</li> <li>เกิดการรวมกลุ่มของคนในชุมชน มีการแลกเปลี่ยน นำไปสู่แนวทางพัฒนาคุณภาพชีวิตด้วยตัวเอง</li><li>ชาวบ้านได้มีโอกาสในการใช้ความคิดสร้างสรรค์ระหว่างการทำงาน</li><li>สร้างอาชีพให้แก่กลุ่มคนรุ่นใหม่</li>', 'ภูคราม', '0000000000', 'krungthai');
 
 -- --------------------------------------------------------
 
@@ -373,15 +328,6 @@ CREATE TABLE `store_product_shipment` (
   `id_shipping` int(11) DEFAULT NULL,
   `ShipCode` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `store_product_shipment`
---
-
-INSERT INTO `store_product_shipment` (`id_shipment`, `id_order`, `id_payment`, `Status`, `id_store`, `id_shipping`, `ShipCode`) VALUES
-(1, 1, 1, '0', 1, NULL, NULL),
-(2, 2, 2, '0', 1, NULL, NULL),
-(3, 3, 3, '0', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -598,115 +544,96 @@ ALTER TABLE `user_member`
 --
 ALTER TABLE `adminluxor`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `codepromotion`
 --
 ALTER TABLE `codepromotion`
   MODIFY `id_Code` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `favoruite`
 --
 ALTER TABLE `favoruite`
   MODIFY `id_Favoruite` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `formregisterstore`
 --
 ALTER TABLE `formregisterstore`
   MODIFY `id_formRegisterStore` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
   MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `hotproduct`
 --
 ALTER TABLE `hotproduct`
   MODIFY `id_hotproduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `imgproduct`
 --
 ALTER TABLE `imgproduct`
   MODIFY `id_imgProduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT for table `imgproductdetail`
 --
 ALTER TABLE `imgproductdetail`
   MODIFY `id_imgProductDetail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT for table `orderproductdetail`
 --
 ALTER TABLE `orderproductdetail`
   MODIFY `id_orderDetail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `order_product`
 --
 ALTER TABLE `order_product`
   MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
   MODIFY `id_payment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
   MODIFY `id_Review` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `shipping`
 --
 ALTER TABLE `shipping`
   MODIFY `id_Shipping` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `store`
 --
 ALTER TABLE `store`
   MODIFY `id_store` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `store_product_shipment`
 --
 ALTER TABLE `store_product_shipment`
   MODIFY `id_shipment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `subemail`
 --
 ALTER TABLE `subemail`
   MODIFY `id_subemail` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `typeproduct`
 --
 ALTER TABLE `typeproduct`
   MODIFY `id_typeProduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `user_member`
 --
 ALTER TABLE `user_member`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- Constraints for dumped tables
 --
@@ -779,7 +706,6 @@ ALTER TABLE `store_product_shipment`
   ADD CONSTRAINT `store_product_shipment_ibfk_2` FOREIGN KEY (`id_shipping`) REFERENCES `shipping` (`id_Shipping`),
   ADD CONSTRAINT `store_product_shipment_ibfk_3` FOREIGN KEY (`id_payment`) REFERENCES `payment` (`id_payment`),
   ADD CONSTRAINT `store_product_shipment_ibfk_4` FOREIGN KEY (`id_store`) REFERENCES `store` (`id_store`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
