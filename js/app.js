@@ -120,3 +120,27 @@ $(document).ready(function () {
 function nextTab(elem) {
     $(elem).next().find('a[data-toggle="tab"]').click();
 }
+
+
+
+var app = angular.module("ListProduct",[]);
+app.controller("UserListProduct",function($scope,$http){
+    $scope.displayListProduct = function(){
+        $http.get("Codephp/CodeFront/listproduct.php").then(function(response){
+            $scope.listproduct = response.data.records;
+        })
+    }
+    $scope.currentPage = 0;
+    $scope.pageSize = 10;
+    $scope.data = [];
+    $scope.numberOfPages=function(){
+        return Math.ceil($scope.listproduct.length/$scope.pageSize);                
+    }
+});
+
+app.filter('startFrom', function() {
+  return function(input, start) {
+      start = +start; //parse to int
+      return input.slice(start);
+  }
+});
