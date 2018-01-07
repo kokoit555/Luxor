@@ -42,22 +42,22 @@
             <div class="panel-heading">ค้นหาตามประเภท</div>
             <div class="panel-body" ng-model="filterType">
                 <div class="checkbox">
-                  <label><input type="checkbox" >เสื้อผ้า</label>
+                  <label><input type="checkbox" ng-click = "filterType = '1'">เสื้อผ้า</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" >กางเกง</label>
+                  <label><input type="checkbox" ng-click = "filterType = '2'">กางเกง</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" >เครื่องประดับ</label>
+                  <label><input type="checkbox" ng-click = "filterType = '3'">เครื่องประดับ</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" >ของฝาก</label>
+                  <label><input type="checkbox" ng-click = "filterType = '4'">ของฝาก</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" >ผ้าพันคอ</label>
+                  <label><input type="checkbox" ng-click = "filterType = '5'">ผ้าพันคอ</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" >อื่น ๆ</label>
+                  <label><input type="checkbox" ng-click = "filterType = '6'">อื่น ๆ</label>
                 </div>
             </div> <!--panel-body-->
           </div><!--panel panel-default-->
@@ -94,7 +94,7 @@
     <div id="products" class="row list-group">
 
     <!-- เริ่มสินค้า -->
-        <div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4" ng-repeat="x in listproduct | filter : filterType | orderBy: orderList | startFrom:currentPage*pageSize | limitTo:12">
+        <div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4" ng-repeat="x in listproduct | filter: filterType | orderBy: orderList | startFrom:currentPage*pageSize | limitTo:12">
             <div class="thumbnail">
               <figure class="snip1268">
               <div class="image">
@@ -133,7 +133,7 @@
     <nav data-pagination>
         <a href="#" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1"><i class="ion-chevron-left"></i></a>
         <ul>
-            <li class="current"><a href="#">{{currentPage+1}} / {{numberOfPages()}}</a></li>
+            <li>{{currentPage+1}} / {{numberOfPages()}}</li>
         </ul>
         <a href="#" ng-disabled="currentPage >= listproduct.length/pageSize - 1" ng-click="currentPage=currentPage+1"><i class="ion-chevron-right"></i></a>
     </nav>
