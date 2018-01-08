@@ -5,7 +5,7 @@
 
         // $Total = 0;
         // $SumTotal = 0;
-        // print_r($_SESSION['PriceProduct']);
+        //print_r($_SESSION['cartproductNAME']);
         // echo str_replace("," ,"",$_SESSION['PriceProduct'][0]);
         for ($i=0; $i < count($_SESSION['cartproductID']); $i++) { 
             

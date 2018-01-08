@@ -37,43 +37,47 @@
     <div id="filter-sidebar" class="col-xs-6 col-sm-3 visible-sm visible-md visible-lg collapse sliding-sidebar">
     <h3>หมวดหมู่สินค้า</h3>
       <div>
+        <div class="form-group">
+          <label>ค้นหาชื่อสินค้า</label>
+          <input class="form-control" type="text" ng-model="searchname">
+        </div>
         <div id="group-1" class="list-group collapse in">
           <div class="panel panel-default">
             <div class="panel-heading">ค้นหาตามประเภท</div>
-            <div class="panel-body" ng-model="filterType">
+            <div class="panel-body">
                 <div class="checkbox">
-                  <label><input type="checkbox" ng-click = "filterType = '1'">เสื้อผ้า</label>
+                  <label><input type="checkbox" ng-model="filterType.idtype1">เสื้อผ้า</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" ng-click = "filterType = '2'">กางเกง</label>
+                  <label><input type="checkbox" ng-model="filterType.idtype2">กางเกง</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" ng-click = "filterType = '3'">เครื่องประดับ</label>
+                  <label><input type="checkbox" ng-model="filterType.idtype3">เครื่องประดับ</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" ng-click = "filterType = '4'">ของฝาก</label>
+                  <label><input type="checkbox" ng-model="filterType.idtype4">ของฝาก</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" ng-click = "filterType = '5'">ผ้าพันคอ</label>
+                  <label><input type="checkbox" ng-model="filterType.idtype5">ผ้าพันคอ</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" ng-click = "filterType = '6'">อื่น ๆ</label>
+                  <label><input type="checkbox" ng-model="filterType.idtype6">อื่น ๆ</label>
                 </div>
             </div> <!--panel-body-->
           </div><!--panel panel-default-->
         </div><!--list-group collapse-->
 
         <div id="group-2" class="list-group collapse in" ng-model="orderList">
-          <a class="list-group-item" href="#" ng-click="orderList = 'priceproduct'">
+          <a class="list-group-item" href="#" ng-click="orderList = '-priceproduct'">
             <i class="fa fa-sort-amount-desc"></i> เรียงลำดับราคา มาก ไป น้อย
           </a>
-          <a class="list-group-item" href="#" ng-click="orderList = '-priceproduct'">
+          <a class="list-group-item" href="#" ng-click="orderList = 'priceproduct'">
             <i class="fa fa-sort-amount-asc"></i> เรียงลำดับราคา น้อย ไป มาก
           </a>
-          <a class="list-group-item" href="#" ng-click="orderList = 'dateinput'" >
+          <a class="list-group-item" href="#" ng-click="orderList = '-dateinput'" >
             <i class="fa fa-calendar"></i> เรียงลำดับวันที่ลง มาก ไป น้อย
           </a>
-          <a class="list-group-item" href="#" ng-click="orderList = '-dateinput'">
+          <a class="list-group-item" href="#" ng-click="orderList = 'dateinput'">
             <i class="fa fa-calendar"></i> เรียงลำดับวันที่ลง น้อย ไป มาก
           </a>
         </div>
@@ -94,7 +98,8 @@
     <div id="products" class="row list-group">
 
     <!-- เริ่มสินค้า -->
-        <div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4" ng-repeat="x in listproduct | filter: filterType | orderBy: orderList | startFrom:currentPage*pageSize | limitTo:12">
+        <div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4" ng-repeat="x in listproduct | filter:{nameproduct: searchname}
+                                                                          | orderBy: orderList | startFrom:currentPage*pageSize | limitTo:12">
             <div class="thumbnail">
               <figure class="snip1268">
               <div class="image">
@@ -120,8 +125,6 @@
             </div>
         </div>
     <!-- จบสินค้า -->
-    <?php include "./Codephp/CodeFront/addcart.php"; ?>
-
     <!-- <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
         Previous
     </button>
@@ -142,7 +145,7 @@
 
   </div>
 </div>
-
+<?php include "./Codephp/CodeFront/addcart.php"; ?>
 
     <?php require 'footer.php' ?>
 

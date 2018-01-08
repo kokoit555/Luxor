@@ -1,5 +1,4 @@
 <?php
-
     if(!empty($_POST['addproducttocart'])){
 
         $idproduct = $_POST['id_product'];
@@ -9,11 +8,11 @@
         $qtyproduct = $_POST['qtyproduct'];
         
         if(empty($_SESSION['cartproductID'])){
-            $_SESSION['cartproductID'][] = $idproduct;
-            $_SESSION['cartproductNAME'][] = $nameproduct;
-            $_SESSION['PriceProduct'][]= $priceproduct;
-            $_SESSION['cartproductQTY'][] = $qtyproduct;
-            $_SESSION['thumb'][] = $thumb;
+           $_SESSION['cartproductID'][] = $idproduct;
+           $_SESSION['cartproductNAME'][] = $nameproduct;
+           $_SESSION['PriceProduct'][]= $priceproduct;
+           $_SESSION['cartproductQTY'][] = $qtyproduct;
+           $_SESSION['thumb'][] = $thumb;
         }
         else{
 
@@ -32,5 +31,8 @@
                 $_SESSION['thumb'][] = $thumb;
             }
         }
+    }
+    else{
+        echo "GGGG";
     }
 ?>
