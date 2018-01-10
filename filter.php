@@ -110,12 +110,13 @@
                   <a href="#"> <i class="ion-share"></i></a>
                 </div>
                 <form method="POST">
-                  <input name="id_product" type="hidden" value="{{x.id}}">
-                  <input name="NameProduct" type="hidden" value="{{x.nameproduct}}">
-                  <input name="PriceProduct" type="hidden" value="{{x.priceproduct}}">
-                  <input name="thumb" type="hidden" value="1">
-                  <input name="qtyproduct" type="hidden" value="1">
-                  <input type="submit" name="addproducttocart" class="add-to-cart" value="Add to Cart">
+                  <input name="idproduct" type="hidden" >
+                  <input name="NameProduct" type="hidden" >
+                  <input name="PriceProduct" type="hidden" >
+                  <input name="thumb" type="hidden" >
+                  <input name="qtyproduct" type="hidden" >
+                 
+                  <input type="submit" name="addproducttocart" class="add-to-cart" value="Add to Cart" ng-click="insertcart()">
                 </form>
               </div>
               <figcaption>

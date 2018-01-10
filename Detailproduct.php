@@ -44,6 +44,7 @@
                                 while($data = mysqli_fetch_array($querythumbproduct)){
                                     $thumb[] = $data['urlthumbProduct'];
                                     $thumbname[] = $data['namethumbProduct'];
+                                    $qtyproduct[] = $data['qty'];
 
                                     $sqlimg = "SELECT * FROM `imgproduct` WHERE `id_imgProduct` = '".$data['id_imgProduct']."'";
                                     $queryimg = mysqli_query($connect,$sqlimg);
@@ -88,8 +89,9 @@
                                 <div class="section" style="padding-bottom:20px;">
                                     <h4 class="title-attr"><small>จำนวน</small></h4>
                                     <div>
+                                    
                                         <div class="btn-minus noborder"><span class="glyphicon glyphicon-minus"></span></div>
-                                        <input type="text" value="1" name="qtyproduct" OnKeyPress="return chkNumber(this)"/>
+                                            <input type="text" value="1" name="qtyproduct" max="" OnKeyPress="return chkNumber(this)"/>
                                         <div class="btn-plus noborder"><span class="glyphicon glyphicon-plus"></span></div>
                                     </div>
                                 </div>
@@ -179,6 +181,7 @@
             var myj = $(this).attr("data-id");
             // console.log(myj);
             var checkj = $('input[name="thumb"]').val(myj);
+
             console.log(checkj);
         });
 
