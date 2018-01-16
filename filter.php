@@ -46,22 +46,22 @@
             <div class="panel-heading">ค้นหาตามประเภท</div>
             <div class="panel-body">
                 <div class="checkbox">
-                  <label><input type="checkbox" ng-model="filterType.idtype1">เสื้อผ้า</label>
+                  <label><input type="checkbox" name="filterCheckbox" value="1" ng-model="filterType.idtype1" ng-click="updateTypeFilter()">เสื้อผ้า</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" ng-model="filterType.idtype2">กางเกง</label>
+                  <label><input type="checkbox" name="filterCheckbox" value="2" ng-model="filterType.idtype2" ng-click="updateTypeFilter()">กางเกง</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" ng-model="filterType.idtype3">เครื่องประดับ</label>
+                  <label><input type="checkbox" name="filterCheckbox" value="3" ng-model="filterType.idtype3" ng-click="updateTypeFilter()">เครื่องประดับ</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" ng-model="filterType.idtype4">ของฝาก</label>
+                  <label><input type="checkbox" name="filterCheckbox" value="4" ng-model="filterType.idtype4" ng-click="updateTypeFilter()">ของฝาก</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" ng-model="filterType.idtype5">ผ้าพันคอ</label>
+                  <label><input type="checkbox" name="filterCheckbox" value="5" ng-model="filterType.idtype5" ng-click="updateTypeFilter()">ผ้าพันคอ</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" ng-model="filterType.idtype6">อื่น ๆ</label>
+                  <label><input type="checkbox" name="filterCheckbox" value="6" ng-model="filterType.idtype6" ng-click="updateTypeFilter()"> อื่น ๆ</label>
                 </div>
             </div> <!--panel-body-->
           </div><!--panel panel-default-->
@@ -98,8 +98,9 @@
     <div id="products" class="row list-group">
 
     <!-- เริ่มสินค้า -->
-        <div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4" ng-repeat="x in listproduct | filter:{nameproduct: searchname}
-                                                                          | orderBy: orderList | startFrom:currentPage*pageSize | limitTo:12">
+        <div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4" 
+              ng-repeat="x in listproduct | filter:{nameproduct: searchname}
+                          | orderBy: orderList">
             <div class="thumbnail">
               <figure class="snip1268">
               <div class="image">
@@ -109,14 +110,22 @@
                   <a href="./Detailproduct.php?idproduct={{x.id}}"> <i class="ion-search "></i><span class="detail">ดูเพิ่มเติม</span></a>
                   <a href="#"> <i class="ion-share"></i></a>
                 </div>
-                <form method="POST">
+                <!-- <form method="POST">
                   <input name="idproduct" type="hidden" >
-                  <input name="NameProduct" type="hidden" >
-                  <input name="PriceProduct" type="hidden" >
-                  <input name="thumb" type="hidden" >
-                  <input name="qtyproduct" type="hidden" >
+                  <input name="NameProduct" type="hidden">
+                  <input name="PriceProduct" type="hidden">
+                  <input name="thumb" type="hidden">
+                  <input name="qtyproduct" type="hidden">
                  
                   <input type="submit" name="addproducttocart" class="add-to-cart" value="Add to Cart" ng-click="insertcart()">
+                </form> -->
+                <form method="POST" action="filter.php">
+                  <input name="idproduct" type="hidden" value="{{x.id}}">
+                  <input name="NameProduct" type="hidden" value="{{x.nameproduct}}">
+                  <input name="PriceProduct" type="hidden" value="{{x.priceproduct}}">
+                  <input name="thumb" type="hidden" value="1">
+                  <input name="qtyproduct" type="hidden" value="1">
+                  <input type="submit" name="addproducttocart" class="add-to-cart" value="Add to Cart" ><!--ng-click="insertcart()"-->
                 </form>
               </div>
               <figcaption>
@@ -126,21 +135,15 @@
             </div>
         </div>
     <!-- จบสินค้า -->
-    <!-- <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
-        Previous
-    </button>
-        {{currentPage+1}}/{{numberOfPages()}}
-    <button ng-disabled="currentPage >= listproduct.length/pageSize - 1" ng-click="currentPage=currentPage+1">
-        Next
-    </button> -->
+    
     </div>
-    <nav data-pagination>
-        <a href="#" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1"><i class="ion-chevron-left"></i></a>
+    <!-- <nav data-pagination>
+        <a href="#" ng-disabled="currentPage <= 0" ng-click="currentPage=currentPage-1"><i class="ion-chevron-left"></i></a>
         <ul>
             <li>{{currentPage+1}} / {{numberOfPages()}}</li>
         </ul>
         <a href="#" ng-disabled="currentPage >= listproduct.length/pageSize - 1" ng-click="currentPage=currentPage+1"><i class="ion-chevron-right"></i></a>
-    </nav>
+    </nav> -->
 
 </div>
 
@@ -153,7 +156,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type='text/javascript' src="js/angular.min.js"></script>
-        <script type='text/javascript' src="js/dirPagination.js"></script>
         <script type='text/javascript' src="js/jquery.mycart.min.js"></script>
         <script type="text/javascript" src="slick/slick.min.js"></script>
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> -->

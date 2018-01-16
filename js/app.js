@@ -127,7 +127,9 @@ var app = angular.module("ListProduct",[]);
 app.controller("UserListProduct",function($scope,$http){
     $scope.displayListProduct = function(){
         $http.get("Codephp/CodeFront/listproduct.php").then(function(response){
-            $scope.listproduct = response.data.records;
+          $scope.masterListProdut = response.data.records;  
+          $scope.listproduct = $scope.masterListProdut; 
+          
         })
     }
     $scope.currentPage = 0;
@@ -135,6 +137,33 @@ app.controller("UserListProduct",function($scope,$http){
     $scope.data = [];
     $scope.numberOfPages=function(){
         return Math.ceil($scope.listproduct.length/$scope.pageSize);                
+    }
+
+    $scope.insertcart = function(){
+      $http.post("Codephp/CodeFront/addcartangular.php",{'idproduct':$scope.idproduct , 'NameProduct':$scope.NameProduct, 'PriceProduct':$scope.PriceProduct, 'thumb':$scope.thumb, 'qtyproduct':$scope.qtyproduct})
+          .then(function(data){
+              $scope.idproduct = null;
+              $scope.NameProduct = null;
+              $scope.PriceProduct = null;
+              $scope.thumb = null;
+              $scope.qtyproduct = null;
+          })
+    }
+    $scope.updateTypeFilter = function(){
+      $scope.listproduct = $scope.masterListProdut;
+      var criteria = [];
+      for (let i = 1; i <= 6; i ++) {
+        let checkBox = document.querySelector("input[name='filterCheckbox'][value='" + i +"']");
+        if (checkBox.checked){
+          criteria.push(i);
+        } 
+      }
+
+      if (criteria.length > 0) {
+        $scope.listproduct = $scope.listproduct.filter((e)=>{
+          return  criteria.indexOf(parseInt(e.idtype)) != -1; 
+        });
+      }
     }
 });
 

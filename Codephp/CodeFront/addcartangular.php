@@ -5,11 +5,11 @@
         $data = json_decode(file_get_contents("php://input"));
 
         if(count($data) > 0){
-            echo $idproduct = $data->idproduct;
-            echo $nameproduct = $data->NameProduct;
-            echo $priceproduct = $data->PriceProduct;
-            echo $thumb = $data->thumb;
-            echo $qtyproduct = $data->qtyproduct;
+            $idproduct = $data->idproduct;
+            $nameproduct = $data->NameProduct;
+            $priceproduct = $data->PriceProduct;
+            $thumb = $data->thumb;
+            $qtyproduct = $data->qtyproduct;
         }
         else{
             echo "ไม่มีค่า";

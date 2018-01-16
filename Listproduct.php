@@ -115,7 +115,7 @@
                   <a href="#"> <i class="ion-share"></i></a>
                 </div>
                 <form method="POST">
-                  <input name="id_product" type="hidden" value="<?php echo $row['id_product']; ?>">
+                  <input name="idproduct" type="hidden" value="<?php echo $row['id_product']; ?>">
                   <input name="NameProduct" type="hidden" value="<?php echo $row['NameProduct']; ?>">
                   <input name="PriceProduct" type="hidden" value="<?php echo $row['PriceProduct'];?>">
                   <input name="thumb" type="hidden" value="1">

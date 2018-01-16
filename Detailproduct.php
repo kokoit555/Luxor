@@ -98,7 +98,7 @@
                                 <h4 class="title-price"><small>ราคา</small></h4>
                                 <h3 style="margin-top:0px;"><?php echo number_format($row['PriceProduct']); ?> บาท</h3>
                                 <div class="section" style="padding-bottom:20px;">
-                                    <input type="hidden" name="id_product" value="<?php echo  $row['id_product']; ?>">
+                                    <input type="hidden" name="id_product" value="<?php echo  $row['idproduct']; ?>">
                                     <input type="hidden" name="NameProduct" value="<?php echo  $row['NameProduct']; ?>">
                                     <input type="hidden" name="PriceProduct" value="<?php echo  $row['PriceProduct']; ?>">
 
