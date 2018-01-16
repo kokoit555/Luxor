@@ -132,23 +132,16 @@ app.controller("UserListProduct",function($scope,$http){
           
         })
     }
-    $scope.currentPage = 0;
-    $scope.pageSize = 10;
-    $scope.data = [];
-    $scope.numberOfPages=function(){
-        return Math.ceil($scope.listproduct.length/$scope.pageSize);                
-    }
-
-    $scope.insertcart = function(){
-      $http.post("Codephp/CodeFront/addcartangular.php",{'idproduct':$scope.idproduct , 'NameProduct':$scope.NameProduct, 'PriceProduct':$scope.PriceProduct, 'thumb':$scope.thumb, 'qtyproduct':$scope.qtyproduct})
-          .then(function(data){
-              $scope.idproduct = null;
-              $scope.NameProduct = null;
-              $scope.PriceProduct = null;
-              $scope.thumb = null;
-              $scope.qtyproduct = null;
-          })
-    }
+    // $scope.insertcart = function(){
+    //   $http.post("Codephp/CodeFront/addcartangular.php",{'idproduct':$scope.idproduct , 'NameProduct':$scope.NameProduct, 'PriceProduct':$scope.PriceProduct, 'thumb':$scope.thumb, 'qtyproduct':$scope.qtyproduct})
+    //       .then(function(data){
+    //           $scope.idproduct = null;
+    //           $scope.NameProduct = null;
+    //           $scope.PriceProduct = null;
+    //           $scope.thumb = null;
+    //           $scope.qtyproduct = null;
+    //       })
+    // }
     $scope.updateTypeFilter = function(){
       $scope.listproduct = $scope.masterListProdut;
       var criteria = [];
@@ -165,8 +158,13 @@ app.controller("UserListProduct",function($scope,$http){
         });
       }
     }
-});
 
+    $scope.currentPage = 0;
+    $scope.pageSize = 12;
+    $scope.numberOfPages=function(){
+        return Math.ceil($scope.listproduct.length/$scope.pageSize);                
+    }
+});
 app.filter('startFrom', function() {
   return function(input, start) {
       start = +start; //parse to int

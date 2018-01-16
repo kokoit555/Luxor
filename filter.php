@@ -137,13 +137,14 @@
     <!-- จบสินค้า -->
     
     </div>
-    <!-- <nav data-pagination>
-        <a href="#" ng-disabled="currentPage <= 0" ng-click="currentPage=currentPage-1"><i class="ion-chevron-left"></i></a>
-        <ul>
-            <li>{{currentPage+1}} / {{numberOfPages()}}</li>
-        </ul>
-        <a href="#" ng-disabled="currentPage >= listproduct.length/pageSize - 1" ng-click="currentPage=currentPage+1"><i class="ion-chevron-right"></i></a>
-    </nav> -->
+
+    <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+        <
+    </button>
+          {{currentPage+1}}/{{numberOfPages()}}
+    <button ng-disabled="currentPage >= numberOfPages()-1" ng-click="currentPage=currentPage+1">
+        >
+    </button>
 
 </div>
 
