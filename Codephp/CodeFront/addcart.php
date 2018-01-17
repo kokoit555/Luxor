@@ -1,17 +1,19 @@
 <?php
+
     if(!empty($_POST['addproducttocart'])){
 
-         $idproduct = $_POST['idproduct'];
-         $nameproduct = $_POST['NameProduct'];
-         $priceproduct = $_POST['PriceProduct'];
-         $thumb = $_POST['thumb'];
-         $qtyproduct = $_POST['qtyproduct'];
-         $pkey = $idproduct. "_". $thumb;     
-         
-         if(empty($_SESSION["$pkey"])){
-           
-           $_SESSION['p_key'][] = ["id"=>$idproduct, "name"=>$nameproduct];
-          
+        $idproduct = $_POST['idproduct'];
+        $nameproduct = $_POST['NameProduct'];
+        $priceproduct = $_POST['PriceProduct'];
+        $thumb = $_POST['thumb'];
+        $qtyproduct = $_POST['qtyproduct'];
+        
+        if(empty($_SESSION['cartproductID'])){
+            $_SESSION['cartproductID'][] = $idproduct;
+            $_SESSION['cartproductNAME'][] = $nameproduct;
+            $_SESSION['PriceProduct'][]= $priceproduct;
+            $_SESSION['cartproductQTY'][] = $qtyproduct;
+            $_SESSION['thumb'][] = $thumb;
         }
         else{
 
@@ -19,12 +21,16 @@
 
             if((string)$key != "")
             {
-                $keythumb = array_search($thumb, $_SESSION["thumb"]);
-
-                $_SESSION["cartproductQTY"][$key] = $_SESSION["cartproductQTY"][$key] + $qtyproduct;
+                 $_SESSION["cartproductQTY"][$key] = $_SESSION["cartproductQTY"][$key] + $qtyproduct;
             }
-            
+            else
+            {
+                $_SESSION['cartproductID'][] = $idproduct;
+                $_SESSION['cartproductNAME'][] = $nameproduct;
+                $_SESSION['PriceProduct'][]= $priceproduct;
+                $_SESSION['cartproductQTY'][] = $qtyproduct;
+                $_SESSION['thumb'][] = $thumb;
+            }
         }
     }
-   
 ?>

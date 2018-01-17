@@ -91,14 +91,22 @@
                                     <div>
                                     
                                         <div class="btn-minus noborder"><span class="glyphicon glyphicon-minus"></span></div>
-                                            <input type="text" value="1" name="qtyproduct" max="" OnKeyPress="return chkNumber(this)"/>
+                                            <?php 
+                                                for ($i=0; $i < count($thumb); $i++) {
+                                            ?>
+                                                <input type="hidden" value="<?php echo $qtyproduct[$i]; ?>" class="limitqtyproduct<?php echo $i+1;?>"/>
+                                            <?php
+                                                }
+                                            ?>
+                                            
+                                            <input type="text" value="1" name="qtyproduct" class="qtyproduct" OnKeyPress="return chkNumber(this)" disabled/>
                                         <div class="btn-plus noborder"><span class="glyphicon glyphicon-plus"></span></div>
                                     </div>
                                 </div>
                                 <h4 class="title-price"><small>ราคา</small></h4>
                                 <h3 style="margin-top:0px;"><?php echo number_format($row['PriceProduct']); ?> บาท</h3>
                                 <div class="section" style="padding-bottom:20px;">
-                                    <input type="hidden" name="id_product" value="<?php echo  $row['idproduct']; ?>">
+                                    <input type="hidden" name="idproduct" value="<?php echo  $row['idproduct']; ?>">
                                     <input type="hidden" name="NameProduct" value="<?php echo  $row['NameProduct']; ?>">
                                     <input type="hidden" name="PriceProduct" value="<?php echo  $row['PriceProduct']; ?>">
 
@@ -157,22 +165,45 @@
                 $(this).addClass("active");
             })
 
+            var x = document.getElementsByClassName("attr");
+            for (var i = 1; i <= x.length; i++) {
+                if($("#option"+i).hasClass("active")){
+                    var now = $(".section > div > .qtyproduct").val();
+                    var limitqty = $(".limitqtyproduct"+(i)).val();
+                    if(now > limitqty){
+                        $(".section > div > .qtyproduct").val("1");
+                    }
+                }
+            }
+
+
             //-- Click on QUANTITY
             $(".btn-minus").on("click",function(){
-                var now = $(".section > div > input").val();
+                var now = $(".section > div > .qtyproduct").val();
                 if ($.isNumeric(now)){
-                    if (parseInt(now) -1 > 0){ now--;}
-                    $(".section > div > input").val(now);
+                    if (parseInt(now) -1 > 0){ 
+                        now--;
+                    }
+                    $(".section > div > .qtyproduct").val(now);
                 }else{
-                    $(".section > div > input").val("1");
+                    $(".section > div > .qtyproduct").val("1");
                 }
             })            
             $(".btn-plus").on("click",function(){
-                var now = $(".section > div > input").val();
+                var now = $(".section > div > .qtyproduct").val();
+                var x = document.getElementsByClassName("attr");
+                for (var i = 1; i <= x.length; i++) {
+                    if($("#option"+i).hasClass("active")){
+                        var limitqty = $(".limitqtyproduct"+(i)).val();
+                    }
+                }
                 if ($.isNumeric(now)){
-                    $(".section > div > input").val(parseInt(now)+1);
+                    if(parseInt(now) < limitqty){
+                        now++;
+                    }
+                    $(".section > div > .qtyproduct").val(now);
                 }else{
-                    $(".section > div > input").val("1");
+                    $(".section > div > .qtyproduct").val("1");
                 }
             })                        
 
@@ -195,6 +226,7 @@
             $("#area-07").hide();
             $("#area-08").hide();
             $("#area-09").hide();
+            $(".section > div > .qtyproduct").val("1");
         });
 
         $("#option2").click(function () {
@@ -207,6 +239,7 @@
             $("#area-07").hide();
             $("#area-08").hide();
             $("#area-09").hide();
+            $(".section > div > .qtyproduct").val("1");
         });
 
         $("#option3").click(function () {
@@ -219,6 +252,7 @@
             $("#area-07").hide();
             $("#area-08").hide();
             $("#area-09").hide();
+            $(".section > div > .qtyproduct").val("1");
         });
         $("#option4").click(function () {
             $("#area-01").hide();
@@ -230,6 +264,7 @@
             $("#area-07").hide();
             $("#area-08").hide();
             $("#area-09").hide();
+            $(".section > div > .qtyproduct").val("1");
         });
         $("#option5").click(function () {
             $("#area-01").hide();
@@ -241,6 +276,7 @@
             $("#area-07").hide();
             $("#area-08").hide();
             $("#area-09").hide();
+            $(".section > div > .qtyproduct").val("1");
         });
         $("#option6").click(function () {
             $("#area-01").hide();
@@ -252,6 +288,7 @@
             $("#area-07").hide();
             $("#area-08").hide();
             $("#area-09").hide();
+            $(".section > div > .qtyproduct").val("1");
         });
         $("#option7").click(function () {
             $("#area-01").hide();
@@ -263,6 +300,7 @@
             $("#area-07").show();
             $("#area-08").hide();
             $("#area-09").hide();
+            $(".section > div > .qtyproduct").val("1");
         });
         $("#option8").click(function () {
             $("#area-01").hide();
@@ -274,6 +312,7 @@
             $("#area-07").hide();
             $("#area-08").show();
             $("#area-09").hide();
+            $(".section > div > .qtyproduct").val("1");
         });
         $("#option9").click(function () {
             $("#area-01").hide();
@@ -285,16 +324,16 @@
             $("#area-07").hide();
             $("#area-08").hide();
             $("#area-09").show();
+            $(".section > div > .qtyproduct").val("1");
         });
 
     });
 
-    function chkNumber(ele)
-                {
-                var vchar = String.fromCharCode(event.keyCode);
-                if ((vchar<'0' || vchar>'9') && (vchar != '.')) return false;
-                ele.onKeyPress=vchar;
-                }
+    function chkNumber(ele){
+        var vchar = String.fromCharCode(event.keyCode);
+        if ((vchar<'0' || vchar>'9') && (vchar != '.')){return false;}
+        ele.onKeyPress=vchar;
+    }
         </script>
     </body>
 </html>

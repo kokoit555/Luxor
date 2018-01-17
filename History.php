@@ -46,6 +46,7 @@
                                 <th>การขนส่ง</th>
                                 <th>สถานะการจ่ายเงิน</th>
                                 <th></th>
+                                <th>ยืนยันการรับของ</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -70,13 +71,15 @@
                                     <td><?php echo $row['Date_order']; ?></td>
                                     <td><?php echo number_format($row['Totalprice']); ?> บาท</td>
                                     <td><?php if(empty($row['id_shipping'])){echo "รอการจัดส่ง";} ?></td>
-                                    <td><?php 
+                                    <td>
+                                        <?php 
                                             if(!empty($row['id_shipment'])){
                                                 if($row['Status'] == '1'){echo "Success";}
                                                 else if($row['Status'] == '0'){echo "Pedding";}
                                             } 
                                             else{ echo "ยังไม่ได้ชำระเงิน";}
-                                        ?></td>
+                                        ?>
+                                    </td>
                                     <td>
                                         <?php 
                                             if(empty($row['id_shipment'])){
@@ -88,6 +91,17 @@
                                                 <a href="./detailHistory.php?id_order=<?php echo $row['op_id_order']; ?>" class="btn btn-info btn-block">ดูใบเสร็จ</a>
                                             <?php
                                             }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php 
+                                            if(!empty($row['id_shipping'])){
+                                                echo "ยืนยันการรับของ";
+                                            }else{
+                                               ?>
+                                               <button class="btn btn-success btn-block" disabled>ยืนยันการรับของ</button>
+                                               <?php
+                                            } 
                                         ?>
                                     </td>
                                 </tr>
