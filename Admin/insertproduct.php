@@ -18,6 +18,16 @@
                                     <input id="name" name="product_name" type="text" placeholder="ตัวอักษรภาษาไทยหรือภาษาอังกฤษเท่านั้น" class="form-control"><!--required="required"-->
                                 </div>
                             </div>
+                            <!-- ชนิดของสินค้า-->
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">ประเภทสินค้า*</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select name="checkCustomize" class="form-control">
+                                        <option value="0">ธรรมดา</option>
+                                        <option value="1">เลือกลายได้</option>
+                                    </select>
+                                </div>
+                            </div>
                             <!-- ประเภทสินค้า-->
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">ประเภทสินค้า*</label>
@@ -44,6 +54,8 @@
                                 <h3 class="text-center">
                                     รูปสินค้าและจำนวนสินค้า
                                 </h3>
+
+                                
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12"></label>
                                     <div class="col-md-6 col-sm-6 col-xs-9">
@@ -70,6 +82,9 @@
                                     </div>
                                 </div>
                                 <div id="addimgproduct"></div>
+
+
+
                                 &nbsp
                                 <h4 class="text-center">รายละเอียดสินค้า</h4>
                                 &nbsp

@@ -26,19 +26,17 @@
                     
                     if(mysqli_num_rows($query)>0){
                         while($row = mysqli_fetch_array($query)){
+                            if($row['checkhot'] != null){
                         ?>
                         <tr>
                             <td><?php echo $row['id_product']; ?></td>
                             <td><?php echo $row['NameProduct']; ?></td>
                             <td><?php echo $row['PriceProduct']; ?></td>
                             <td><?php echo $row['productDetail']; ?></td>
-                            <?php if(empty($row['checkhot'])){ ?>
-                                <td><a href="./CodeBack/addhotproduct.php?id_product=<?php echo $row['id_product']; ?>" class="btn btn-info btn-block">Add to Hot</a></td>
-                            <?php }else{ ?>
-                                <td><a href="#" class="btn btn-danger btn-block">DeleteHot</a></td>
-                            <?php } ?>
+                            <td><a href="#" class="btn btn-danger btn-block">DeleteHot</a></td>
                         </tr>
                         <?php
+                            }
                         }
                     }
 

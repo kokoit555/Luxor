@@ -41,6 +41,22 @@
           <label>ค้นหาชื่อสินค้า</label>
           <input class="form-control" type="text" ng-model="searchname">
         </div>
+        <div id="group-3" class="list-group collapse in">
+          <div class="panel panel-default">
+            <div class="panel-heading">เลือกสินค้าที่ตกแต่งได้</div>
+            <div class="panel-body">
+                <div class="checkbox">
+                  <label><input type="checkbox" name="filterCustomize" value="0" ng-model="Customize.customize1" ng-click="updateCustomizeFilter()">สินค้าธรรมดา</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox"<?php if(!empty($_POST['sendCheckCustomize'])){ echo "checked='checked'";}?> name="filterCustomize" value="1" ng-model="Customize.customize2" ng-click="updateCustomizeFilter()">สินค้าตกแต่งได้</label>
+                </div>
+            </div> <!--panel-body-->
+          </div><!--panel panel-default-->
+        </div><!--list-group collapse-->
+
+        
+
         <div id="group-1" class="list-group collapse in">
           <div class="panel panel-default">
             <div class="panel-heading">ค้นหาตามประเภท</div>
@@ -88,7 +104,7 @@
     <!-- table container -->
     <div class="col-sm-9 product-grid-box">
         <div class="well well-sm">
-            <strong>Category Title</strong>
+            <strong><a href="Listproduct.php">สินค้าทั้งหมด</a></strong>
             <div class="btn-group">
                 <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
                 </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span

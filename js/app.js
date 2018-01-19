@@ -129,19 +129,8 @@ app.controller("UserListProduct",function($scope,$http){
         $http.get("Codephp/CodeFront/listproduct.php").then(function(response){
           $scope.masterListProdut = response.data.records;  
           $scope.listproduct = $scope.masterListProdut; 
-          
         })
     }
-    // $scope.insertcart = function(){
-    //   $http.post("Codephp/CodeFront/addcartangular.php",{'idproduct':$scope.idproduct , 'NameProduct':$scope.NameProduct, 'PriceProduct':$scope.PriceProduct, 'thumb':$scope.thumb, 'qtyproduct':$scope.qtyproduct})
-    //       .then(function(data){
-    //           $scope.idproduct = null;
-    //           $scope.NameProduct = null;
-    //           $scope.PriceProduct = null;
-    //           $scope.thumb = null;
-    //           $scope.qtyproduct = null;
-    //       })
-    // }
     $scope.updateTypeFilter = function(){
       $scope.listproduct = $scope.masterListProdut;
       var criteria = [];
@@ -155,6 +144,22 @@ app.controller("UserListProduct",function($scope,$http){
       if (criteria.length > 0) {
         $scope.listproduct = $scope.listproduct.filter((e)=>{
           return  criteria.indexOf(parseInt(e.idtype)) != -1; 
+        });
+      }
+    }
+
+    $scope.updateCustomizeFilter = function(){
+      $scope.listproduct = $scope.masterListProdut;
+      var criteria = [];
+      for (let i = 0; i < 2; i ++) {
+        let checkBox = document.querySelector("input[name='filterCustomize'][value='" + i +"']");
+        if (checkBox.checked){
+          criteria.push(i);
+        } 
+      }
+      if (criteria.length > 0) {
+        $scope.listproduct = $scope.listproduct.filter((e)=>{
+          return  criteria.indexOf(parseInt(e.checkCustomize)) != -1; 
         });
       }
     }

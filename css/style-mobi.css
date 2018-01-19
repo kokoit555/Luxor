@@ -80,13 +80,20 @@ ul.nav-wizard {
     height: 50px;
     font-size: 16px;
 }
-#sec-a input.form-control {
+
+#sec-a .input-group{
+    width: 100%;
+}
+
+#sec-a input.form-control{
     border-radius: 0;
     border-color: #e9bd20;
     margin-left: 3px;
     height: 50px;
     font-size: 16px;
 }
+
+
 #sec-a h2.text-center ,h4.text-center.center-block {
     color: white;
 }

@@ -32,17 +32,19 @@
 						<h2 class="text-center ">เเหล่งรวมผลิตภัณฑ์จาก
 							<span class="CYell">ผ้าทอไทย</span>
 						</h2>
-						<h4 class="text-center center-block">ค้นหาสินค้าเเละร้านค้าได้ที่นี่</h4>
+						<h4 class="text-center center-block">สามารถค้นหาสินค้าได้ที่นี่</h4>
 						<div class="seach col-md-6 col-md-offset-3">
 							<div class="input-group">
-								<div class="input-group-btn">
-									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ค้นหาทั้งหมด <span class="caret"></span></button>
-									<ul class="dropdown-menu">
-										<li><a href="#">ค้นหาสินค้า</a></li>
-										<li><a href="#">คเ้นหาร้านค้า</a></li>
-									</ul>
-								</div><!-- /btn-group -->
-								<input type="text" class="form-control" aria-label="..." placeholder="ระบุคำที่ต้องการค้นหา">
+								<form method="POST">
+									<input type="text" name="textsearchProduct" class="form-control" style="width: 75%;" aria-label="..." placeholder="ระบุคำที่ต้องการค้นหา">
+									<input type="submit" name="submitsearchProduct" class="form-control" style="width: 20%;" aria-label="..." value="ค้นหา">
+								</form>
+								<?php 
+									if(!empty($_POST['submitsearchProduct'])){
+										$_SESSION['textsearchProduct'] = $_POST['textsearchProduct'];
+										header("Location: Listproduct.php");
+									}
+								?>
 							</div><!-- /input-group -->
 						</div>
 					</div>
@@ -59,11 +61,17 @@
 							// $sqlqueryhotproduct = "SELECT * FROM `hotproduct` hp
 							// 						INNER JOIN product p ON p.id_product = hp.id_product
 							// 						INNER JOIN store s ON p.id_store = s.id_store";
-							$sqlqueryhotproduct = "SELECT * FROM `product` p
-													INNER JOIN store s ON s.id_store = p.id_store
-													INNER JOIN imgproductdetail ipd ON ipd.id_product = p.id_product AND ipd.namethumbProduct = '1'
-													INNER JOIN imgproduct ip ON ip.id_imgProduct = ipd.id_imgProduct
-													ORDER BY p.id_product desc LIMIT 3";
+							// $sqlqueryhotproduct = "SELECT * FROM `product` p
+							// 						INNER JOIN store s ON s.id_store = p.id_store
+							// 						INNER JOIN imgproductdetail ipd ON ipd.id_product = p.id_product AND ipd.namethumbProduct = '1'
+							// 						INNER JOIN imgproduct ip ON ip.id_imgProduct = ipd.id_imgProduct
+							// 						ORDER BY p.id_product desc LIMIT 3";
+
+							$sqlqueryhotproduct = "SELECT * FROM `hotproduct` hp
+													INNER JOIN product p ON p.id_product = hp.id_product
+													INNER JOIN imgproductdetail ipdt ON ipdt.id_product = p.id_product
+													INNER JOIN imgproduct ip ON ipdt.id_imgProduct = ip.id_imgProduct
+													WHERE ipdt.namethumbProduct = '1'";
 
 							$queryproduct = mysqli_query($connect,$sqlqueryhotproduct);
 							if(!empty($queryproduct))
@@ -85,7 +93,7 @@
 													<figcaption>
 														<div class="caption">
 															<p class="title">
-																<h4><?php echo $row['NameProduct']." : ร้าน ".$row['NameStore']; ?></h2>
+																<h4><?php echo $row['NameProduct']; ?></h2>
 																<p class="price CRed"><?php echo number_format($row['PriceProduct']);;?> บาท</p>
 															</p>
 														</div>
@@ -141,7 +149,11 @@
 						<div class="col-md-6 col-sm-6">
 							<h2 class="CWhite">เลือกลายผ้าไตล์ที่คุณชอบ</h2>
 							<h5 class="CWhite">สามารถเลือกลายผ้า เเละสินค้าที่ชอบ ปรับเเต่ง <span style="width:100%;">ให้เป็นสไตล์คุณ ได้เเล้วที่นี่</span></h5>
-							<a href="#" class="btn btn-primary btn-all btn-log   noborder">ปรับแต่งสินค้าของคุณ</a>
+							<!-- <a href="#" class="btn btn-primary btn-all btn-log   noborder">ปรับแต่งสินค้าของคุณ</a> -->
+
+							<form action="Listproduct.php" method="POST">
+								<input type="submit" name="sendCheckCustomize" value="ปรับแต่งสินค้าของคุณ" class="btn btn-primary btn-all btn-log   noborder"/>
+							</form>
 						</div>
 						<div class="col-md-6 col-sm-6 pull-right"><img class="img-responsive" src="images/Pro1.png" alt=""></div>
 					</div>

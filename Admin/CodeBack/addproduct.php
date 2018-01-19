@@ -14,8 +14,8 @@
 
 
         echo $sqlinsertProduct = "INSERT INTO  `product` (`id_product`, `NameProduct`, `Status`, `PriceProduct`, 
-        `discount`, `tax`, `date_input`, `productDetail`, `textProductDetail`, `id_type`, `id_store`) VALUES
-         ('0', '$nameproduct', '$status', '$priceproduct', '$discount', '$tax', '$date', '$productDetail','$textproductdetail', '$idtype', '$idstore');";
+        `discount`, `tax`, `date_input`, `productDetail`, `textProductDetail`, `checkCustomize`, `id_type`, `id_store`) VALUES
+         ('0', '$nameproduct', '$status', '$priceproduct', '$discount', '$tax', '$date', '$productDetail','$textproductdetail','1' ,'$idtype', '$idstore');";
     
         if(mysqli_query($connect,$sqlinsertProduct)){ echo "Complete insert product";}
 
@@ -23,8 +23,10 @@
         for ($i=0; $i < count($_POST['quant']); $i++) { 
             $qty[] = $_POST['quant'][$i];
             $sqlinsertimg = "";
-
+            
             $target_dir = "images/product/";
+            // $Str_file = explode(".",$_FILES["input-file-img-product"]["name"][$i]);
+            // $new_name="ทดสอบ_upload.".$Str_file[1];
             $basenameproduct = basename($_FILES["input-file-img-product"]["name"][$i]);
             $target_file = $target_dir . $basenameproduct;
             $uploadOk = 1;
@@ -38,12 +40,20 @@
             $check_thumb = getimagesize($_FILES["input-file-img-product-thumb"]["tmp_name"][$i]);
     
             if($check !== false && $check_thumb !== false) {$uploadOk = 1;}  else {$uploadOk = 0;}
-            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType_thumb != "jpg" && $imageFileType_thumb != "png") { $uploadOk = 0;}
+            if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "JPG" && $imageFileType != "PNG" 
+                && $imageFileType_thumb != "jpg" && $imageFileType_thumb != "png" && $imageFileType_thumb != "JPG" && $imageFileType_thumb != "PNG") 
+            { $uploadOk = 0;}
+
             if ($uploadOk == 0) {echo "Sorry, your file was not uploaded.";} 
-            else {
+            else if($uploadOk == 1){
                 if (move_uploaded_file($_FILES["input-file-img-product"]["tmp_name"][$i], "../".$target_file) &&
-                    move_uploaded_file($_FILES["input-file-img-product-thumb"]["tmp_name"][$i], "../".$target_file_thumb)){echo "The file has been uploaded.";}    
-                else {echo "Sorry, there was an error uploading your file.";}
+                    move_uploaded_file($_FILES["input-file-img-product-thumb"]["tmp_name"][$i], "../".$target_file_thumb))
+                {
+                    echo "The file has been uploaded.";
+                }    
+            }
+            else{
+                echo "Error";
             }
 
             $sqlinsertimg = "INSERT INTO `imgproduct` (`id_imgProduct`, `Name_img`, `url_img`) VALUES 
@@ -58,7 +68,7 @@
             $idimgproduct = mysqli_fetch_array(mysqli_query($connect,$selectidimg));
     
             $namethumb = $i+1;
-            $sqlinsertimgdetail = "INSERT INTO `imgproductdetail` (`id_imgProductDetail`, `id_product`, `id_imgProduct`, `namethumbProduct`, `urlthumbProduct`, `qty`) VALUES
+            echo $sqlinsertimgdetail = "INSERT INTO `imgproductdetail` (`id_imgProductDetail`, `id_product`, `id_imgProduct`, `namethumbProduct`, `urlthumbProduct`, `qty`) VALUES
              ('0', '".$idproduct['id_product']."', '".$idimgproduct['id_imgProduct']."', '$namethumb', '$target_file_thumb', '".$qty[$i]."');";
             
             if(mysqli_query($connect,$sqlinsertimgdetail))

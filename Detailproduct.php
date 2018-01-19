@@ -70,23 +70,23 @@
                             <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6" style="border:0px solid gray;padding: 1% 4%;">
                             <form method="POST">
                                 <h3><?php echo $row['NameProduct']; ?></h3>
-                                <h5 style="color:#a52141">ร้าน : <a href="#"><?php echo $row['NameStore']; ?></a> · <small style="color:#a52141"><!--(5054 รีวิว)--></small></h5>
                                 <div class="section">
                                     <br>
                                 <div class="caption">
                                     <p><?php echo $row['productDetail']; ?></p>
                                 </div>
-                                    <h4 class="title-attr" style="margin-top:5px;" ><small>สี / ลวดลาย</small></h4>
-                                    <div>
-
+                                <?php if($row['checkCustomize'] == '1'){?>
+                                <h4 class="title-attr" style="margin-top:5px;" ><small>สี / ลวดลาย</small></h4>
+                                <div>
                                     <?php for ($i=0; $i < count($thumb); $i++) { ?>
                                         <a class="attr <?php if($i==0){echo "active";} ?>" id="option<?php echo $i+1; ?>" style="width:50px;height:auto;">
                                             <img class="thumb-img img-responsive center-block" data-id="<?php echo $thumbname[$i]; ?>" src="<?php echo $thumb[$i]; ?>" alt="">
                                         </a>
                                     <?php } ?>
-                                    </div>
                                 </div>
-                                <div class="section" style="padding-bottom:20px;">
+                                <?php } ?>
+                            </div>
+                            <div class="section" style="padding-bottom:20px;">
                                     <h4 class="title-attr"><small>จำนวน</small></h4>
                                     <div>
                                     

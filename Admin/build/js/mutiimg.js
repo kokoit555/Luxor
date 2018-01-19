@@ -61,7 +61,7 @@ app.controller('UserListProduct',function($scope,$http){
           }).then((result) => {
             if (result.value) {
                 $http.post('./CodeBack/deleteProduct.php',{'id':$scope.id}).then(function(data){
-                    swal("Complete","Delete","success");
+                    //swal("Complete","Delete","success");
                     window.location.reload();
                 });
             }
@@ -89,7 +89,7 @@ store.controller('UserListStore',function($scope,$http){
           }).then((result) => {
             if (result.value) {
                 $http.post('../Codephp/CodeBack/deleteStore.php',{'id':$scope.id}).then(function(data){
-                    swal("Complete","Delete","success");
+                    //swal("Complete","Delete","success");
                     window.location.reload();
                 });
             }
