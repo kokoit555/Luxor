@@ -129,16 +129,26 @@
 						<h4 class="text-center">หากคุณมีสินค้าไอเดีย เรามีพื้นที่ให้คุณนำเสนอ <span class="CRed"><a class="CRed" href="">เริ่มต้นขายสินค้าได้ที่นี่</a></span></h4>
 				</div>
 				<div class="slider center">
-					<div><h3><img src="images/shop/shop-1.png" alt=""></h3></div>
+					<!-- <div><h3><img src="images/shop/shop-1.png" alt=""></h3></div>
 					<div><h3><img src="images/shop/shop-2.png" alt=""></h3></div>
 					<div><h3><img src="images/shop/shop-3.png" alt=""></h3></div>
 					<div><h3><img src="images/shop/shop-4.png" alt=""></h3></div>
 					<div><h3><img src="images/shop/shop-5.png" alt=""></h3></div>
-					<div><h3><img src="images/shop/shop-3.png" alt=""></h3></div>
+					<div><h3><img src="images/shop/shop-3.png" alt=""></h3></div> -->
+					<?php 
+						$sqlStore = "SELECT * FROM `store`";
+						$queryStore = mysqli_query($connect,$sqlStore);
+						
+						while($Store = mysqli_fetch_array($queryStore)){
+						?>
+							<div><h3><a href="DetailStore.php?idstore=<?php echo $Store['id_store']; ?>"><img src="<?php echo $Store['AvatarStore']; ?>" alt=""></h3></a></div>
+						<?php
+						}
+					?>
 				</div>
-				<div class="row">
+				<!-- <div class="row">
 					<button class="btn btn-primary btn-all GRed col-md-offset-5 col-md-2 col-sm-offset-5 col-sm-2 col-xs-offset-4 col-xs-5  noborder">ดูร้านค้าทั้งหมด</button>
-				</div>
+				</div> -->
 			</div>
 		</div>
 
@@ -184,7 +194,7 @@
 			</div>
 			<div class="row nopadding">
 				<div class="col-md-12 nopadding">
-					<div class="col-md-3 col-sm-3 col-xs-6 nopadding">
+					<!-- <div class="col-md-3 col-sm-3 col-xs-6 nopadding">
 						<div class="thumbnail">
 							<div class="img"><img class="img-responsive" src="images/blog/Thumb_Blog_1.png" alt=""></div>
 							<div class="caption">
@@ -192,39 +202,30 @@
 								<p class="sub">สกลนคร >></p>
 							</div>
 						</div>
-					</div>
-					<div class="col-md-3 col-sm-3 col-xs-6 nopadding">
-						<div class="thumbnail">
-							<div class="img"><img class="img-responsive" src="images/blog/Thumb_Blog_2.png" alt=""></div>
-							<div class="caption">
-								<p class="title">การทอผ้าของไทย</p>
-								<p class="sub">อุบลราชธานี >></p>
+					</div> -->
+					<?php 
+						$sqlBlog = "SELECT * FROM `blog` order by id_blog desc LIMIT 4";
+						$queryBlog = mysqli_query($connect,$sqlBlog);
+						while($blog = mysqli_fetch_array($queryBlog)){
+						?>
+							<div class="col-md-3 col-sm-3 col-xs-6 nopadding">
+								<div class="thumbnail">
+									<a href="DetailBlog.php?idblog=<?php echo $blog['id_blog']; ?>" style="text-decoration:none;">
+										<div class="img"><img class="img-responsive" src="<?php echo $blog['img_blog']; ?>" alt=""></div>
+										<div class="caption">
+											<p class="title"><?php echo $blog['titleBlog']; ?></p>
+										</div>
+									</a>
+								</div>
 							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-3 col-xs-6 nopadding">
-						<div class="thumbnail">
-							<div class="img"><img class="img-responsive" src="images/blog/Thumb_Blog_3.png" alt=""></div>
-							<div class="caption">
-								<p class="title">การทำผ้าฝ้าย</p>
-								<p class="sub">นราธิวาส >></p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-3 col-xs-6 nopadding">
-						<div class="thumbnail">
-							<div class="img"><img class="img-responsive" src="images/blog/Thumb_Blog_4.png" alt=""></div>
-							<div class="caption">
-								<p class="title">ผ้าทอลาวโซ่ง </p>
-								<p class="sub">อุบลราชธานี >></p>
-							</div>
-						</div>
-					</div>
+						<?php
+						}
+					?>
 				</div>
 			</div>
 		</div>
 
-		<?php include "footer.php"; ?>
+		<?php include "footer.php"; mysqli_close(); ?>
 
 	</div>
 	<!-- wrapper -->

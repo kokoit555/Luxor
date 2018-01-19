@@ -10,12 +10,13 @@
         $productDetail = $_POST['productDetail'];
         $textproductdetail = $_POST['message'];
         $idtype = $_POST['SettypeProduct'];
+        $Customize = $_POST['checkCustomize'];
         $idstore = $_GET['idstore'];
 
 
         echo $sqlinsertProduct = "INSERT INTO  `product` (`id_product`, `NameProduct`, `Status`, `PriceProduct`, 
         `discount`, `tax`, `date_input`, `productDetail`, `textProductDetail`, `checkCustomize`, `id_type`, `id_store`) VALUES
-         ('0', '$nameproduct', '$status', '$priceproduct', '$discount', '$tax', '$date', '$productDetail','$textproductdetail','1' ,'$idtype', '$idstore');";
+         ('0', '$nameproduct', '$status', '$priceproduct', '$discount', '$tax', '$date', '$productDetail','$textproductdetail','$Customize' ,'$idtype', '$idstore');";
     
         if(mysqli_query($connect,$sqlinsertProduct)){ echo "Complete insert product";}
 

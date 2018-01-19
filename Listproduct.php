@@ -46,10 +46,10 @@
             <div class="panel-heading">เลือกสินค้าที่ตกแต่งได้</div>
             <div class="panel-body">
                 <div class="checkbox">
-                  <label><input type="checkbox" name="filterCustomize" value="0" ng-model="Customize.customize1" ng-click="updateCustomizeFilter()">สินค้าธรรมดา</label>
+                  <label><input type="checkbox" name="filterCustomize" value="0" ng-click="updateCustomizeFilter()">สินค้าธรรมดา</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox"<?php if(!empty($_POST['sendCheckCustomize'])){ echo "checked='checked'";}?> name="filterCustomize" value="1" ng-model="Customize.customize2" ng-click="updateCustomizeFilter()">สินค้าตกแต่งได้</label>
+                  <label><input type="checkbox" name="filterCustomize" value="1" ng-click="updateCustomizeFilter()">สินค้าตกแต่งได้</label>
                 </div>
             </div> <!--panel-body-->
           </div><!--panel panel-default-->
@@ -62,22 +62,22 @@
             <div class="panel-heading">ค้นหาตามประเภท</div>
             <div class="panel-body">
                 <div class="checkbox">
-                  <label><input type="checkbox" name="filterCheckbox" value="1" ng-model="filterType.idtype1" ng-click="updateTypeFilter()">เสื้อผ้า</label>
+                  <label><input type="checkbox" name="filterCheckbox" value="1" ng-click="updateTypeFilter()">เสื้อผ้า</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" name="filterCheckbox" value="2" ng-model="filterType.idtype2" ng-click="updateTypeFilter()">กางเกง</label>
+                  <label><input type="checkbox" name="filterCheckbox" value="2" ng-click="updateTypeFilter()">กางเกง</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" name="filterCheckbox" value="3" ng-model="filterType.idtype3" ng-click="updateTypeFilter()">เครื่องประดับ</label>
+                  <label><input type="checkbox" name="filterCheckbox" value="3" ng-click="updateTypeFilter()">เครื่องประดับ</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" name="filterCheckbox" value="4" ng-model="filterType.idtype4" ng-click="updateTypeFilter()">ของฝาก</label>
+                  <label><input type="checkbox" name="filterCheckbox" value="4" ng-click="updateTypeFilter()">ของฝาก</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" name="filterCheckbox" value="5" ng-model="filterType.idtype5" ng-click="updateTypeFilter()">ผ้าพันคอ</label>
+                  <label><input type="checkbox" name="filterCheckbox" value="5" ng-click="updateTypeFilter()">ผ้าพันคอ</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" name="filterCheckbox" value="6" ng-model="filterType.idtype6" ng-click="updateTypeFilter()"> อื่น ๆ</label>
+                  <label><input type="checkbox" name="filterCheckbox" value="6" ng-click="updateTypeFilter()"> อื่น ๆ</label>
                 </div>
             </div> <!--panel-body-->
           </div><!--panel panel-default-->

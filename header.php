@@ -36,9 +36,13 @@
 						</ul>
 							<ul class="nav navbar-nav navbar-right">
 							<li style="margin-right:0;">
-								<a href="Cartproduct.php" ><i class="fa fa-shopping-cart" aria-hidden="true"> <span class="badge badge-notify bade-cart">
-									<?php if(!empty($_SESSION['cartproductID'])){ echo count($_SESSION['cartproductID']);} 
-											else{ echo "0"; } ?></span></i></a>
+								<a href="Cartproduct.php" ><i class="fa fa-shopping-cart" aria-hidden="true"> 
+									<?php if(!empty($_SESSION['cartproductID'])){ ?>
+										<span class="badge badge-notify bade-cart">
+											!
+										</span>
+									<?php } ?>
+								</i></a>
 							</li>
 							<?php
 							if(isset($_SESSION['idnumLoginWebsite']))

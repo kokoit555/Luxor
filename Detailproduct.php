@@ -75,14 +75,12 @@
                                 <div class="caption">
                                     <p><?php echo $row['productDetail']; ?></p>
                                 </div>
-                                <?php if($row['checkCustomize'] == '1'){?>
-                                <h4 class="title-attr" style="margin-top:5px;" ><small>สี / ลวดลาย</small></h4>
+                                <h4 class="title-attr" style="margin-top:5px; <?php if($row['checkCustomize'] == '0'){echo "display:none;";}?>"><small>สี / ลวดลาย</small></h4>
                                 <div>
                                     <?php for ($i=0; $i < count($thumb); $i++) { ?>
-                                        <a class="attr <?php if($i==0){echo "active";} ?>" id="option<?php echo $i+1; ?>" style="width:50px;height:auto;">
+                                        <a class="attr <?php if($i==0){echo "active";} ?>" id="option<?php echo $i+1; ?>" style="width:50px;height:auto;<?php if($row['checkCustomize'] == '0'){echo "display:none;";}?>">
                                             <img class="thumb-img img-responsive center-block" data-id="<?php echo $thumbname[$i]; ?>" src="<?php echo $thumb[$i]; ?>" alt="">
                                         </a>
-                                    <?php } ?>
                                 </div>
                                 <?php } ?>
                             </div>
@@ -113,8 +111,20 @@
                                     <!-- ส่วนดึงมาจาก div ลายผ้า-->
                                     <input type="hidden" name="thumb" value="">
                                     <!-- ส่วนดึงมาจาก div ลายผ้า-->
-
-                                    <input class="btn GRed btn-addtocart" name="addproducttocart" type="submit" value="เลือกใส่ตะกร้า"> 
+                                    <?php 
+                                        for ($i=0; $i < count($thumb); $i++) { 
+                                            if($qtyproduct[$i] <= 0){
+                                            ?>
+                                                <button class="btn GRed btn-addtocart" id="addproducttocart<?php echo $i+1; ?>" disabled >Sold Out</button>
+                                            <?php 
+                                            }
+                                            else{
+                                            ?>
+                                                <input class="btn GRed btn-addtocart" name="addproducttocart" id="addproducttocart<?php echo $i+1; ?>" type="submit" value="เลือกใส่ตะกร้า">
+                                            <?php
+                                            }
+                                        } 
+                                    ?>
                                     <h6><a href="#"><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span> เพิ่มในรายการโปรด </a></h6>
                                 </div>
                             </form>
@@ -176,6 +186,33 @@
                 }
             }
 
+            var check1 = true;
+            for (var i = 1; i <= x.length; i++) {
+                if(check1 == true && i == 1){
+                    $("#area-01").show();
+                    $("#area-02").hide();
+                    $("#area-03").hide();
+                    $("#area-04").hide();
+                    $("#area-05").hide();
+                    $("#area-06").hide();
+                    $("#area-07").hide();
+                    $("#area-08").hide();
+                    $("#area-09").hide();
+
+                    $("#addproducttocart1").show();
+                    $("#addproducttocart2").hide();
+                    $("#addproducttocart3").hide();
+                    $("#addproducttocart4").hide();
+                    $("#addproducttocart5").hide();
+                    $("#addproducttocart6").hide();
+                    $("#addproducttocart7").hide();
+                    $("#addproducttocart8").hide();
+                    $("#addproducttocart9").hide();
+                    
+                    check1 = false;
+                }
+            }
+
 
             //-- Click on QUANTITY
             $(".btn-minus").on("click",function(){
@@ -226,6 +263,17 @@
             $("#area-07").hide();
             $("#area-08").hide();
             $("#area-09").hide();
+
+            $("#addproducttocart1").show();
+            $("#addproducttocart2").hide();
+            $("#addproducttocart3").hide();
+            $("#addproducttocart4").hide();
+            $("#addproducttocart5").hide();
+            $("#addproducttocart6").hide();
+            $("#addproducttocart7").hide();
+            $("#addproducttocart8").hide();
+            $("#addproducttocart9").hide();
+
             $(".section > div > .qtyproduct").val("1");
         });
 
@@ -239,6 +287,17 @@
             $("#area-07").hide();
             $("#area-08").hide();
             $("#area-09").hide();
+
+            $("#addproducttocart1").hide();
+            $("#addproducttocart2").show();
+            $("#addproducttocart3").hide();
+            $("#addproducttocart4").hide();
+            $("#addproducttocart5").hide();
+            $("#addproducttocart6").hide();
+            $("#addproducttocart7").hide();
+            $("#addproducttocart8").hide();
+            $("#addproducttocart9").hide();
+
             $(".section > div > .qtyproduct").val("1");
         });
 
@@ -252,6 +311,17 @@
             $("#area-07").hide();
             $("#area-08").hide();
             $("#area-09").hide();
+
+            $("#addproducttocart1").hide();
+            $("#addproducttocart2").hide();
+            $("#addproducttocart3").show();
+            $("#addproducttocart4").hide();
+            $("#addproducttocart5").hide();
+            $("#addproducttocart6").hide();
+            $("#addproducttocart7").hide();
+            $("#addproducttocart8").hide();
+            $("#addproducttocart9").hide();
+
             $(".section > div > .qtyproduct").val("1");
         });
         $("#option4").click(function () {
@@ -264,6 +334,17 @@
             $("#area-07").hide();
             $("#area-08").hide();
             $("#area-09").hide();
+
+            $("#addproducttocart1").hide();
+            $("#addproducttocart2").hide();
+            $("#addproducttocart3").hide();
+            $("#addproducttocart4").show();
+            $("#addproducttocart5").hide();
+            $("#addproducttocart6").hide();
+            $("#addproducttocart7").hide();
+            $("#addproducttocart8").hide();
+            $("#addproducttocart9").hide();
+            
             $(".section > div > .qtyproduct").val("1");
         });
         $("#option5").click(function () {
@@ -276,6 +357,17 @@
             $("#area-07").hide();
             $("#area-08").hide();
             $("#area-09").hide();
+
+            $("#addproducttocart1").hide();
+            $("#addproducttocart2").hide();
+            $("#addproducttocart3").hide();
+            $("#addproducttocart4").hide();
+            $("#addproducttocart5").show();
+            $("#addproducttocart6").hide();
+            $("#addproducttocart7").hide();
+            $("#addproducttocart8").hide();
+            $("#addproducttocart9").hide();
+            
             $(".section > div > .qtyproduct").val("1");
         });
         $("#option6").click(function () {
@@ -288,6 +380,17 @@
             $("#area-07").hide();
             $("#area-08").hide();
             $("#area-09").hide();
+
+            $("#addproducttocart1").hide();
+            $("#addproducttocart2").hide();
+            $("#addproducttocart3").hide();
+            $("#addproducttocart4").hide();
+            $("#addproducttocart5").hide();
+            $("#addproducttocart6").show();
+            $("#addproducttocart7").hide();
+            $("#addproducttocart8").hide();
+            $("#addproducttocart9").hide();
+            
             $(".section > div > .qtyproduct").val("1");
         });
         $("#option7").click(function () {
@@ -300,6 +403,17 @@
             $("#area-07").show();
             $("#area-08").hide();
             $("#area-09").hide();
+
+            $("#addproducttocart1").hide();
+            $("#addproducttocart2").hide();
+            $("#addproducttocart3").hide();
+            $("#addproducttocart4").hide();
+            $("#addproducttocart5").hide();
+            $("#addproducttocart6").hide();
+            $("#addproducttocart7").show();
+            $("#addproducttocart8").hide();
+            $("#addproducttocart9").hide();
+            
             $(".section > div > .qtyproduct").val("1");
         });
         $("#option8").click(function () {
@@ -312,6 +426,17 @@
             $("#area-07").hide();
             $("#area-08").show();
             $("#area-09").hide();
+
+            $("#addproducttocart1").hide();
+            $("#addproducttocart2").hide();
+            $("#addproducttocart3").hide();
+            $("#addproducttocart4").hide();
+            $("#addproducttocart5").hide();
+            $("#addproducttocart6").hide();
+            $("#addproducttocart7").hide();
+            $("#addproducttocart8").show();
+            $("#addproducttocart9").hide();
+            
             $(".section > div > .qtyproduct").val("1");
         });
         $("#option9").click(function () {
@@ -324,6 +449,17 @@
             $("#area-07").hide();
             $("#area-08").hide();
             $("#area-09").show();
+
+            $("#addproducttocart1").hide();
+            $("#addproducttocart2").hide();
+            $("#addproducttocart3").hide();
+            $("#addproducttocart4").hide();
+            $("#addproducttocart5").hide();
+            $("#addproducttocart6").hide();
+            $("#addproducttocart7").hide();
+            $("#addproducttocart8").hide();
+            $("#addproducttocart9").show();
+            
             $(".section > div > .qtyproduct").val("1");
         });
 

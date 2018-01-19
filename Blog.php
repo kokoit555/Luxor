@@ -18,7 +18,11 @@
 	<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 </head>
 <body>
-<?php include "header.php" ?>
+    <?php 
+      include 'Codephp/connectdb.php'; 
+      include "header.php";
+    ?>
+
 <div id="blog">
     <section id="blog-section" >
      <div class="container">
@@ -26,81 +30,28 @@
        <div class="row">
          <div class="col-lg-8">
            <div class="row">
-              <div class="col-lg-6 col-md-6">
-             <aside>
-                <img class="img-responsive center-block" src="./images/blog1.jpg" class="img-responsive">
-                <div class="content-title">
-                <div class="text-center">
-                <h3><a href="detailBlog.php">ชุดผ้าไทยสไตล์ชาวดอย</a></h3>
-                </div>
-                </div>
-                <div class="content-footer">
-                <span style="font-size: 16px;color: #fff;"><a href="#">Humblehug</a></span>
-                <span class="pull-right">
-                <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 30</a>
-                <a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-heart"></i> 20</a>                  
-                </span>
-                   
-                </div>
-             </aside>
-            </div>
+
+              <?php 
+                $sqlBlog = "SELECT * FROM `blog` order by id_blog desc";
+                $queryBlog = mysqli_query($connect,$sqlBlog);
+                while($blog = mysqli_fetch_array($queryBlog)){
+                ?>
+                  <div class="col-lg-6 col-md-6">
+                    <aside>
+                      <img class="img-responsive center-block" src="./<?php echo $blog['img_blog']; ?>" class="img-responsive">
+                      <div class="content-title">
+                        <div class="text-center">
+                          <h3><a href="detailBlog.php?idblog=<?php echo $blog['id_blog']; ?>"><?php echo mb_substr($blog['titleBlog'],0,25,'UTF-8')."..."; ?></a></h3>
+                        </div>
+                      </div>
+                    </aside>
+                  </div> 
+                <?php
+                }
+              ?>    
                
-               <div class="col-lg-6 col-md-6">
-             <aside>
-                <img class="img-responsive center-block" src="./images/blog2.jpg" alt="เช็คๆ" class="img-responsive">
-                <div class="content-title">
-                <div class="text-center">
-                <h3><a href="detailBlog.php">เสื้อคอกระเช้า</a></h3>
-                </div>
-                </div>
-                <div class="content-footer">
-                <span style="font-size: 16px;color: #fff;"><a href="#">พาฝัน สราญรมย์</a></span>
-                <span class="pull-right">
-                <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 30</a>
-                <a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-heart"></i> 20</a>                  
-                </span>
-                  
-                </div>
-             </aside>
-            </div>       
-               
-               <div class="col-lg-6 col-md-6">
-             <aside>
-                <img class="img-responsive center-block" src="./images/blog5.jpg" class="img-responsive">
-                <div class="content-title">
-                <div class="text-center">
-                <h3><a href="detailBlog.php">ชุดสไตล์ชาวดอยสีสันสวยงาม</a></h3>
-                </div>
-                </div>
-                <div class="content-footer">
-                <span style="font-size: 16px;color: #fff;"><a href="#">peemai28</a></span>
-                <span class="pull-right">
-                <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 30</a>
-                <a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-heart"></i> 20</a>                  
-                </span>
-                    
-                </div>
-             </aside>
-            </div>       
-               
-               <div class="col-lg-6 col-md-6">
-             <aside>
-                <img class="img-responsive center-block" src="./images/blog4.jpg" class="img-responsive">
-                <div class="content-title">
-                <div class="text-center">
-                <h3><a href="detailBlog.php">แฟชั่น “ผ้าไทย” เปรี้ยว ชิค สไตล์สาวรุ่นใหม่</a></h3>
-                </div>
-                </div>
-                <div class="content-footer">
-                <span style="font-size: 16px;color: #fff;"><a href="#">hathaiphat_thaidress</a></span>
-                <span class="pull-right">
-                <a href="#" data-toggle="tooltip" data-placement="left" title="Comments"><i class="fa fa-comments" ></i> 30</a>
-                <a href="#" data-toggle="tooltip" data-placement="right" title="Loved"><i class="fa fa-heart"></i> 20</a>                  
-                </span>
-                   
-                </div>
-             </aside>
-            </div>      
+                
+
            </div>
           </div>
            
@@ -149,89 +100,6 @@
                     </ul>
                    </div>
                  </div>
-             
-             <div class="widget-sidebar">
-              <h2 class="title-widget-sidebar">// ARCHIVES</h2>
-                <div class="last-post">
-                  <button class="accordion">21/4/2016</button>
-                   <div class="panel">
-                     <li class="recent-post">
-                      <div class="post-img">
-                       <img class="img-responsive center-block" src="./images/recent3.png" class="img-responsive">
-                        </div>
-                       <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                      <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                    </li>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                 </div>
-                </div>                 
-                 <hr>
-                 <div class="last-post">
-                  <button class="accordion">5/7/2016</button>
-                   <div class="panel">
-                     <li class="recent-post">
-                      <div class="post-img">
-                       <img class="img-responsive center-block" src="./images/recent1.png" class="img-responsive">
-                        </div>
-                       <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                      <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                    </li>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                 </div>
-                </div>
-                 <hr>
-                 <div class="last-post">
-                  <button class="accordion">15/9/2016</button>
-                   <div class="panel">
-                     <li class="recent-post">
-                      <div class="post-img">
-                       <img class="img-responsive center-block" src="./images/recent4.png" class="img-responsive">
-                        </div>
-                       <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                      <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                    </li>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                 </div>
-                </div>
-                 <hr>
-                 <div class="last-post">
-                  <button class="accordion">2/3/2017</button>
-                   <div class="panel">
-                     <li class="recent-post">
-                      <div class="post-img">
-                       <img class="img-responsive center-block" src="./images/recent2.png" class="img-responsive">
-                        </div>
-                       <a href="#"><h5>Excepteur sint occaecat cupi non proident laborum.</h5></a>
-                      <p><small><i class="fa fa-calendar" data-original-title="" title=""></i> 30 Juni 2014</small></p>
-                    </li>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.   Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                 </div>
-                </div>
-             </div>
-             
-        <!--=====================
-               CATEGORIES
-          ======================-->
-             <div class="widget-sidebar">
-              <h2 class="title-widget-sidebar">// CATEGORIES</h2>
-                 <button class="categories-btn">Audio</button>
-                 <button class="categories-btn">Blog</button>
-                 <button class="categories-btn">Gallery</button>
-                 <button class="categories-btn">Images</button>
-             </div>  
-             
-              <!--=====================
-                    NEWSLATTER
-             ======================-->
-<div class="widget-sidebar">
- <h2 class="title-widget-sidebar">// NEWSLATTER</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ut .</p>  
-<div class="input-group">
-      <span class="input-group-addon"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
-      <input id="email" type="text" class="form-control" name="email" placeholder="Email">
-    </div>
-    <button type="button" class="btn btn-warning">Warning</button>
-             </div>
              </div>
            </div>
          </div>

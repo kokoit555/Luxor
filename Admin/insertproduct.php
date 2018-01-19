@@ -20,9 +20,9 @@
                             </div>
                             <!-- ชนิดของสินค้า-->
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">ประเภทสินค้า*</label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">ต้องการให้ปรับแต่งได้ไหม*</label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select name="checkCustomize" class="form-control">
+                                    <select name="checkCustomize" id="selectedCustomize" class="form-control">
                                         <option value="0">ธรรมดา</option>
                                         <option value="1">เลือกลายได้</option>
                                     </select>
@@ -56,7 +56,7 @@
                                 </h3>
 
                                 
-                                <div class="form-group">
+                                <div class="form-group" id="addMoreThumb">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12"></label>
                                     <div class="col-md-6 col-sm-6 col-xs-9">
                                         <button class="btn btn-info btn-block" type="button" onclick="addproduct();"> + เพิ่มลายสินค้า</button>

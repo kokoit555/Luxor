@@ -29,39 +29,14 @@ h3.site-title {
     position: relative;
     margin-bottom: 1.5em;
 }
-h3.site-title:before {
-    content: "";
-    background: #03A9F4;
-    width: 6%;
-    height: 2px;
-    position: absolute;
-    right: 63%;
-    top: 51%;
-}
-h3.site-title:after {
-    content: "";
-    background: #03A9F4;
-    width: 6%;
-    height: 2px;
-    position: absolute;
-    right: 32%;
-    top: 51%;
-}
 
 .welcome-grid {
     text-align: left;
 }
-.welcome-grid h5 {
-    font-size: 2.5em;
-    color: #000;
-    text-transform: capitalize;
-    line-height: 1.3;
-    letter-spacing: 1px;
-}
 .welcome-grid p {
     font-size: 1.2em;
     color: #545151;
-    margin: 1em 0 1.5em;
+    /* margin: 1em 0 1.5em; */
 }
 .welcome-grid ul li {
     color: #777;
@@ -86,6 +61,11 @@ h3.site-title:after {
     padding: 0 0 0 0.5em;
 }
 
+#welcome img{
+    width: 100%;
+    margin-bottom: 2em;
+}
+
 .section{
     margin-top: 5%;
     margin-bottom: 5%;
@@ -97,30 +77,25 @@ h3.site-title:after {
 	<div id="wrapper">
 		<?php include "header.php"; ?>
 
+        <?php 
+			$sqlBlog = "SELECT * FROM `blog` WHERE id_blog = '".$_GET['idblog']."'";
+			$queryBlog = mysqli_query($connect,$sqlBlog);
+			$blog = mysqli_fetch_array($queryBlog);
+        ?>
+
         <div id="blog">
             <section id="blog-section">
                 <div class="container">
                         <div class="welcome section" id="welcome">
                             <div class="container">
-                                <h3 class="site-title">Welcome</h3>
+                                <h3 class="site-title"><?php echo $blog['titleBlog']; ?></h3>
                                 <div class="about-top w3ls-agile">
-                                    <div class="col-md-6 red">
-                                        <img class="img-responsive" src="./images/blog4.jpg" alt="">
-                                        <div class="welcome-img">
-                                            <div class="col-md-6 col-xs-6 welcome-img1">
-                                                <img class="img-responsive" src="./images/blog5.jpg" alt="">
-                                            </div>
-                                            <div class="col-md-6 col-xs-6 welcome-img2">
-                                                <img class="img-responsive" src="./images/blog6.jpg" alt="">
-                                            </div>
-                                            <div class="clearfix"> </div>
-                                        </div>
+                                    <div class="col-md-12 red">
+                                        <img class="img-responsive" src="./<?php echo $blog['img_blog']; ?>" alt="">
                                     </div>
-                                    <div class="col-md-6 come">
+                                    <div class="col-md-12 come">
                                         <div class=" welcome-grid">
-                                            <h5>ชุดผ้าไทยสไตล์ชาวดอย</h5>
-                                            <p>ชุดชาวดอย ผลิตภัณฑ์ที่ทุนเดิมมีสีสันสุดน่ารักเนื้อผ้านิ่ม  มีลักษณะเป็นผ้าฝ้ายปักลวดลายด้วยด้ายสีสันต่างๆ ซึ่งตอนนี้ก็มีวัยรุ่นหลายคนที่หาชุดสไตล์นี้มาใส่ นอกจากจะมีสีสันที่น่ารักแล้ว เขายังทำออกมาหลากหลายสไตล์อีกด้วย ทั้งเสื้อแขนสั้น แขนกุด กระโปรง ชุดเดรส จะสั้นหรือจะยาวชุดชาวดอยก็มีหมด</p>
-                                            <p>ความหลากหลายของผ้าชาวเขา ไม่ได้มีแค่รูปแบบของเสื้อนะคะ ขึ้นชื่อว่ามีสีสันจัดจ้าน แน่นอนว่าเขายังมีโทนสีให้เพื่อนๆได้เลือกอีกด้วย แถมยังมีไอเท็มอื่นๆมาเป็น  Accessories เติมเต็มความเป็นชาวพื้นบ้านแบบน่ารักๆไปอีก</p>
+                                            <p><?php echo $blog['textBlog']; ?></p>
                                         </div>
                                     </div>
                                     <div class="clearfix"> </div>
