@@ -208,12 +208,12 @@
 						$queryBlog = mysqli_query($connect,$sqlBlog);
 						while($blog = mysqli_fetch_array($queryBlog)){
 						?>
-							<div class="col-md-3 col-sm-3 col-xs-6 nopadding">
+							<div class="col-md-3 col-sm-3 col-xs-12 nopadding">
 								<div class="thumbnail">
-									<a href="DetailBlog.php?idblog=<?php echo $blog['id_blog']; ?>" style="text-decoration:none;">
+									<a href="detailBlog.php?idblog=<?php echo $blog['id_blog']; ?>" style="text-decoration:none;">
 										<div class="img"><img class="img-responsive" src="<?php echo $blog['img_blog']; ?>" alt=""></div>
 										<div class="caption">
-											<p class="title"><?php echo $blog['titleBlog']; ?></p>
+											<p class="title" style="text-shadow: black 0.1em 0.1em 0.2em;"><?php echo mb_substr($blog['titleBlog'],0,25,'UTF-8')."...";?></p>
 										</div>
 									</a>
 								</div>

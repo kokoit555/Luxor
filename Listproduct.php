@@ -153,15 +153,13 @@
     <!-- จบสินค้า -->
     
     </div>
-
-    <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
-        <
-    </button>
-          {{currentPage+1}}/{{numberOfPages()}}
-    <button ng-disabled="currentPage >= numberOfPages()-1" ng-click="currentPage=currentPage+1">
-        >
-    </button>
-
+      <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
+          <
+      </button>
+            {{currentPage+1}}/{{numberOfPages()}}
+      <button ng-disabled="currentPage >= numberOfPages()-1" ng-click="currentPage=currentPage+1">
+          >
+      </button>
 </div>
 
   </div>

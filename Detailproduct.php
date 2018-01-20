@@ -81,14 +81,14 @@
                                         <a class="attr <?php if($i==0){echo "active";} ?>" id="option<?php echo $i+1; ?>" style="width:50px;height:auto;<?php if($row['checkCustomize'] == '0'){echo "display:none;";}?>">
                                             <img class="thumb-img img-responsive center-block" data-id="<?php echo $thumbname[$i]; ?>" src="<?php echo $thumb[$i]; ?>" alt="">
                                         </a>
+                                    <?php } ?>
                                 </div>
-                                <?php } ?>
                             </div>
                             <div class="section" style="padding-bottom:20px;">
                                     <h4 class="title-attr"><small>จำนวน</small></h4>
-                                    <div>
+                                <div>
                                     
-                                        <div class="btn-minus noborder"><span class="glyphicon glyphicon-minus"></span></div>
+                                    <div class="btn-minus noborder"><span class="glyphicon glyphicon-minus"></span></div>
                                             <?php 
                                                 for ($i=0; $i < count($thumb); $i++) {
                                             ?>
@@ -98,9 +98,10 @@
                                             ?>
                                             
                                             <input type="text" value="1" name="qtyproduct" class="qtyproduct" OnKeyPress="return chkNumber(this)" disabled/>
-                                        <div class="btn-plus noborder"><span class="glyphicon glyphicon-plus"></span></div>
-                                    </div>
+                                    <div class="btn-plus noborder"><span class="glyphicon glyphicon-plus"></span></div>
+                                        
                                 </div>
+                            </div>
                                 <h4 class="title-price"><small>ราคา</small></h4>
                                 <h3 style="margin-top:0px;"><?php echo number_format($row['PriceProduct']); ?> บาท</h3>
                                 <div class="section" style="padding-bottom:20px;">

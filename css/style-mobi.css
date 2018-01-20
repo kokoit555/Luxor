@@ -173,7 +173,7 @@ background-color: transparent!important;
   height: 320px;
   max-height: 320px;
 }*/
-.snip1268 .image {padding: 7% 0; background-color: #f1f1f1 ;height: 300px;}
+.snip1268 .image {padding: 7% 0; background-color: #fefefe ;height: 300px;}
 
 .rio-promos .item-block img {padding: 15%}
 /*.rio-promos .item-block .caption {padding: 5% 0;}
@@ -493,7 +493,6 @@ background-color: transparent!important;
     color: #e5b620;
     font-size: 20px;
     font-weight: 600;
-    text-shadow: 3px 4px 3px rgba(0,0,0,1);
 }
 input.inputsub::placeholder {
   color: #5a071c;
@@ -515,7 +514,7 @@ input.inputsub::placeholder {
   text-align: center;
   background-color: #ffffff;
   line-height: 1.6em;
-  box-shadow: 1px 3px 3px #ccc;
+  box-shadow: 1px 3px 3px #fefefe;
 }
 .snip1268 * {
   -webkit-box-sizing: border-box;
@@ -550,6 +549,7 @@ input.inputsub::placeholder {
 .snip1268 .icons a {
   width: 32.5%;
   background: #ffffff;
+  border:1px solid rgba(0,0,0,.1)
 }
 .snip1268 .icons a:hover {
   background: #000000;
