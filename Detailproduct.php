@@ -97,7 +97,7 @@
                                                 }
                                             ?>
                                             
-                                            <input type="text" value="1" name="qtyproduct" class="qtyproduct" OnKeyPress="return chkNumber(this)" disabled/>
+                                            <input type="text" value="1" name="qtyproduct" class="qtyproduct" OnKeyPress="return chkNumber(this)"/>
                                     <div class="btn-plus noborder"><span class="glyphicon glyphicon-plus"></span></div>
                                         
                                 </div>
@@ -105,7 +105,7 @@
                                 <h4 class="title-price"><small>ราคา</small></h4>
                                 <h3 style="margin-top:0px;"><?php echo number_format($row['PriceProduct']); ?> บาท</h3>
                                 <div class="section" style="padding-bottom:20px;">
-                                    <input type="hidden" name="idproduct" value="<?php echo  $row['idproduct']; ?>">
+                                    <input type="hidden" name="idproduct" value="<?php echo  $row['id_product']; ?>">
                                     <input type="hidden" name="NameProduct" value="<?php echo  $row['NameProduct']; ?>">
                                     <input type="hidden" name="PriceProduct" value="<?php echo  $row['PriceProduct']; ?>">
 
@@ -114,7 +114,7 @@
                                     <!-- ส่วนดึงมาจาก div ลายผ้า-->
                                     <?php 
                                         for ($i=0; $i < count($thumb); $i++) { 
-                                            if($qtyproduct[$i] <= 0){
+                                            if($qtyproduct[$i] == 0){
                                             ?>
                                                 <button class="btn GRed btn-addtocart" id="addproducttocart<?php echo $i+1; ?>" disabled >Sold Out</button>
                                             <?php 
