@@ -10,12 +10,12 @@
          
          if(empty($_SESSION['cartProduct'])){
            
-           $_SESSION['cartProduct'][] = ["idProduct"=>$idproduct, "nameProduct"=>$nameproduct, "priceProduct"=>$priceproduct];
+           $_SESSION['cartProduct'][] = ["idProduct"=>$idproduct, "nameProduct"=>$nameproduct, "priceProduct"=>$priceproduct, "thumb"=>$thumb, "qtyproduct"=>$qtyproduct];
           
         }
         else{
 
-            $new = array_combine(array_keys($gg), array_column($gg, 'id'));
+            $new = array_combine(array_keys($_SESSION['cartProduct']), array_column($_SESSION['cartProduct'], 'idProduct'));
             
             $key = array_search('$idproduct', $_SESSION['cartProduct']);
 
