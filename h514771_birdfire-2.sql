@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.15
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 20, 2018 at 10:42 AM
--- Server version: 5.6.25
--- PHP Version: 5.3.29
+-- Generation Time: Feb 05, 2018 at 03:35 PM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.5.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `h514771_birdfire`
 --
+CREATE DATABASE IF NOT EXISTS `h514771_birdfire` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `h514771_birdfire`;
 
 -- --------------------------------------------------------
 
@@ -26,11 +28,11 @@ SET time_zone = "+00:00";
 -- Table structure for table `adminluxor`
 --
 
-CREATE TABLE IF NOT EXISTS `adminluxor` (
+CREATE TABLE `adminluxor` (
   `id_admin` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `adminluxor`
@@ -45,13 +47,13 @@ INSERT INTO `adminluxor` (`id_admin`, `username`, `password`) VALUES
 -- Table structure for table `blog`
 --
 
-CREATE TABLE IF NOT EXISTS `blog` (
+CREATE TABLE `blog` (
   `id_blog` int(11) NOT NULL,
   `titleBlog` varchar(255) NOT NULL,
   `textBlog` text NOT NULL,
   `img_blog` text NOT NULL,
   `id_admin` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `blog`
@@ -69,11 +71,11 @@ INSERT INTO `blog` (`id_blog`, `titleBlog`, `textBlog`, `img_blog`, `id_admin`) 
 -- Table structure for table `codepromotion`
 --
 
-CREATE TABLE IF NOT EXISTS `codepromotion` (
+CREATE TABLE `codepromotion` (
   `id_Code` int(11) NOT NULL,
   `CodePromotion` varchar(12) NOT NULL,
   `MatchPercen` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `codepromotion`
@@ -88,7 +90,7 @@ INSERT INTO `codepromotion` (`id_Code`, `CodePromotion`, `MatchPercen`) VALUES
 -- Table structure for table `favoruite`
 --
 
-CREATE TABLE IF NOT EXISTS `favoruite` (
+CREATE TABLE `favoruite` (
   `id_Favoruite` int(11) NOT NULL,
   `id_product` int(11) NOT NULL,
   `id_user` int(11) NOT NULL
@@ -100,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `favoruite` (
 -- Table structure for table `formregisterstore`
 --
 
-CREATE TABLE IF NOT EXISTS `formregisterstore` (
+CREATE TABLE `formregisterstore` (
   `id_formRegisterStore` int(11) NOT NULL,
   `NameStore` varchar(255) NOT NULL,
   `AvatarStore` varchar(50) NOT NULL,
@@ -113,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `formregisterstore` (
   `EmailStore` varchar(100) NOT NULL,
   `Password` varchar(100) NOT NULL,
   `textStory` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `formregisterstore`
@@ -128,19 +130,19 @@ INSERT INTO `formregisterstore` (`id_formRegisterStore`, `NameStore`, `AvatarSto
 -- Table structure for table `hotproduct`
 --
 
-CREATE TABLE IF NOT EXISTS `hotproduct` (
+CREATE TABLE `hotproduct` (
   `id_hotproduct` int(11) NOT NULL,
   `id_product` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `hotproduct`
 --
 
 INSERT INTO `hotproduct` (`id_hotproduct`, `id_product`) VALUES
-(7, 3),
-(9, 10),
-(8, 35);
+(2, 5),
+(1, 6),
+(3, 7);
 
 -- --------------------------------------------------------
 
@@ -148,11 +150,11 @@ INSERT INTO `hotproduct` (`id_hotproduct`, `id_product`) VALUES
 -- Table structure for table `imgproduct`
 --
 
-CREATE TABLE IF NOT EXISTS `imgproduct` (
+CREATE TABLE `imgproduct` (
   `id_imgProduct` int(11) NOT NULL,
   `Name_img` varchar(100) NOT NULL,
   `url_img` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `imgproduct`
@@ -171,21 +173,12 @@ INSERT INTO `imgproduct` (`id_imgProduct`, `Name_img`, `url_img`) VALUES
 (17, 'c2-2.png', 'images/product/'),
 (18, 'c3-2.png', 'images/product/'),
 (19, 'c4-2.png', 'images/product/'),
-(26, '01.jpg', 'images/product/'),
-(40, 'ac04.jpg', 'images/product/'),
-(41, 'ac05.jpg', 'images/product/'),
-(42, 'ac06.jpg', 'images/product/'),
-(43, 'ac06.jpg', 'images/product/'),
-(45, 'ac12.jpg', 'images/product/'),
-(46, 'ac14.jpg', 'images/product/'),
-(47, 'ac016.jpg', 'images/product/'),
-(48, 'ac017.jpg', 'images/product/'),
-(51, '06.jpg', 'images/product/'),
-(52, '01.jpg', 'images/product/'),
-(53, '02.jpg', 'images/product/'),
-(54, '03.jpg', 'images/product/'),
-(55, '04.jpg', 'images/product/'),
-(56, '05.jpg', 'images/product/');
+(20, 'b1-2.png', 'images/product/'),
+(21, 'b2-2.png', 'images/product/'),
+(22, 'b3-2.png', 'images/product/'),
+(23, 'b4-2.png', 'images/product/'),
+(25, 'pro11-2.png', 'images/product/'),
+(26, '01.jpg', 'images/product/');
 
 -- --------------------------------------------------------
 
@@ -193,14 +186,14 @@ INSERT INTO `imgproduct` (`id_imgProduct`, `Name_img`, `url_img`) VALUES
 -- Table structure for table `imgproductdetail`
 --
 
-CREATE TABLE IF NOT EXISTS `imgproductdetail` (
+CREATE TABLE `imgproductdetail` (
   `id_imgProductDetail` int(11) NOT NULL,
   `id_product` int(11) NOT NULL,
   `id_imgProduct` int(11) NOT NULL,
   `namethumbProduct` varchar(1) NOT NULL,
   `urlthumbProduct` text NOT NULL,
   `qty` varchar(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `imgproductdetail`
@@ -219,21 +212,12 @@ INSERT INTO `imgproductdetail` (`id_imgProductDetail`, `id_product`, `id_imgProd
 (17, 6, 17, '2', 'images/thumbproduct/c2-1.jpg', '15'),
 (18, 6, 18, '3', 'images/thumbproduct/c3-1.jpg', '15'),
 (19, 6, 19, '4', 'images/thumbproduct/c4-1.jpg', '15'),
-(26, 10, 26, '1', 'images/thumbproduct/01.jpg', '100'),
-(40, 24, 40, '1', 'images/thumbproduct/ac04.jpg', '1'),
-(41, 25, 41, '1', 'images/thumbproduct/ac05.jpg', '1'),
-(42, 26, 42, '1', 'images/thumbproduct/ac06.jpg', '1'),
-(43, 27, 43, '1', 'images/thumbproduct/ac06.jpg', '1'),
-(45, 29, 45, '1', 'images/thumbproduct/ac12.jpg', '1'),
-(46, 30, 46, '1', 'images/thumbproduct/ac14.jpg', '1'),
-(47, 31, 47, '1', 'images/thumbproduct/ac016.jpg', '1'),
-(48, 32, 48, '1', 'images/thumbproduct/ac017.jpg', '1'),
-(51, 35, 51, '1', 'images/thumbproduct/06.jpg', '1'),
-(52, 36, 52, '1', 'images/thumbproduct/01.jpg', '1'),
-(53, 37, 53, '1', 'images/thumbproduct/02.jpg', '1'),
-(54, 38, 54, '1', 'images/thumbproduct/03.jpg', '1'),
-(55, 39, 55, '1', 'images/thumbproduct/04.jpg', '1'),
-(56, 40, 56, '1', 'images/thumbproduct/05.jpg', '1');
+(20, 7, 20, '1', 'images/thumbproduct/b1-1.jpg', '12'),
+(21, 7, 21, '2', 'images/thumbproduct/b2-1.jpg', '13'),
+(22, 7, 22, '3', 'images/thumbproduct/b3-1.jpg', '14'),
+(23, 7, 23, '4', 'images/thumbproduct/b4-1.jpg', '15'),
+(25, 9, 25, '1', 'images/thumbproduct/pro11-2.png', '0'),
+(26, 10, 26, '1', 'images/thumbproduct/01.jpg', '100');
 
 -- --------------------------------------------------------
 
@@ -241,14 +225,28 @@ INSERT INTO `imgproductdetail` (`id_imgProductDetail`, `id_product`, `id_imgProd
 -- Table structure for table `orderproductdetail`
 --
 
-CREATE TABLE IF NOT EXISTS `orderproductdetail` (
+CREATE TABLE `orderproductdetail` (
   `id_orderDetail` int(11) NOT NULL,
   `id_order` int(11) NOT NULL,
   `id_product` int(11) NOT NULL,
   `namethumbProduct` int(11) NOT NULL,
   `qty` varchar(10) NOT NULL,
   `Price` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `orderproductdetail`
+--
+
+INSERT INTO `orderproductdetail` (`id_orderDetail`, `id_order`, `id_product`, `namethumbProduct`, `qty`, `Price`) VALUES
+(14, 13, 3, 1, '6', '1250'),
+(15, 14, 3, 3, '4', '1250'),
+(16, 15, 3, 1, '1', '1250'),
+(17, 17, 5, 1, '2', '850'),
+(18, 17, 5, 3, '2', '850'),
+(19, 18, 6, 3, '1', '980'),
+(20, 18, 6, 4, '1', '980'),
+(21, 18, 3, 1, '1', '1250');
 
 -- --------------------------------------------------------
 
@@ -256,7 +254,7 @@ CREATE TABLE IF NOT EXISTS `orderproductdetail` (
 -- Table structure for table `order_product`
 --
 
-CREATE TABLE IF NOT EXISTS `order_product` (
+CREATE TABLE `order_product` (
   `id_order` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `Date_order` date NOT NULL,
@@ -268,7 +266,19 @@ CREATE TABLE IF NOT EXISTS `order_product` (
   `Zip` varchar(10) NOT NULL,
   `Send_email_order` varchar(100) NOT NULL,
   `Totalprice` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `order_product`
+--
+
+INSERT INTO `order_product` (`id_order`, `id_user`, `Date_order`, `Tax`, `Name`, `LastName`, `Tel`, `Address`, `Zip`, `Send_email_order`, `Totalprice`) VALUES
+(13, 3, '2017-12-16', '7%', 'พรเทพ', 'อภิรักษ์ลี้พล', '083546053', '3 พุทธรักษา2 ต.สนามจันทร์  อำเภอนครปฐม จังหวัดเมือง ประเทศไทย ', '73000', 'apiraklypol_p@hotmail.com', 7500),
+(14, 4, '2017-12-16', '7%', 'ซักบ่อย', 'ซักบ่อย', '099-999-9999', '555 อำเภอกรุงเทพมหานคร จังหวัดเมือง ประเทศไทย ', '10400', 'gg@gmail.com', 5000),
+(15, 1, '2018-02-02', '7%', 'Admin', 'Fumin', '099-999-9999', '555/55 หมู่ 5 หมู่บ้าน 555 ตำบล รารา  อำเภอกรุงเทพ จังหวัดเมือง ประเทศประเทศไทย ', '10000', 'Luxor@info.com', 1250),
+(16, 1, '2018-02-02', '7%', 'Admin', 'Fumin', '099-999-9999', '555/55 หมู่ 5 หมู่บ้าน 555 ตำบล รารา  อำเภอกรุงเทพ จังหวัดเมือง ประเทศประเทศไทย ', '10000', 'Luxor@info.com', 1700),
+(17, 1, '2018-02-02', '7%', 'Admin', 'Fumin', '099-999-9999', '555/55 หมู่ 5 หมู่บ้าน 555 ตำบล รารา  อำเภอกรุงเทพ จังหวัดเมือง ประเทศประเทศไทย ', '10000', 'Luxor@info.com', 3400),
+(18, 1, '2018-02-02', '7%', 'Admin', 'Fumin', '099-999-9999', '555/55 หมู่ 5 หมู่บ้าน 555 ตำบล รารา  อำเภอกรุงเทพ จังหวัดเมือง ประเทศประเทศไทย ', '10000', 'Luxor@info.com', 3210);
 
 -- --------------------------------------------------------
 
@@ -276,13 +286,24 @@ CREATE TABLE IF NOT EXISTS `order_product` (
 -- Table structure for table `payment`
 --
 
-CREATE TABLE IF NOT EXISTS `payment` (
+CREATE TABLE `payment` (
   `id_payment` int(11) NOT NULL,
   `Type_payment` varchar(255) NOT NULL,
   `Payment_Status` varchar(255) NOT NULL,
   `DatePayment` date NOT NULL,
   `id_code` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`id_payment`, `Type_payment`, `Payment_Status`, `DatePayment`, `id_code`) VALUES
+(6, 'VISA', 'pay', '2017-12-16', NULL),
+(7, 'VISA', 'pay', '2017-12-16', NULL),
+(8, 'VISA', 'pay', '2017-12-16', NULL),
+(9, 'VISA', 'pay', '2018-02-02', NULL),
+(10, 'VISA', 'pay', '2018-02-02', NULL);
 
 -- --------------------------------------------------------
 
@@ -290,11 +311,11 @@ CREATE TABLE IF NOT EXISTS `payment` (
 -- Table structure for table `product`
 --
 
-CREATE TABLE IF NOT EXISTS `product` (
+CREATE TABLE `product` (
   `id_product` int(11) NOT NULL,
   `NameProduct` varchar(300) NOT NULL,
   `Status` varchar(50) NOT NULL,
-  `PriceProduct` varchar(10) NOT NULL,
+  `PriceProduct` int(13) NOT NULL,
   `discount` varchar(100) NOT NULL,
   `tax` varchar(3) NOT NULL,
   `date_input` date NOT NULL,
@@ -303,31 +324,19 @@ CREATE TABLE IF NOT EXISTS `product` (
   `checkCustomize` varchar(1) NOT NULL,
   `id_type` int(11) NOT NULL,
   `id_store` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product`
 --
 
 INSERT INTO `product` (`id_product`, `NameProduct`, `Status`, `PriceProduct`, `discount`, `tax`, `date_input`, `productDetail`, `textProductDetail`, `checkCustomize`, `id_type`, `id_store`) VALUES
-(3, 'Jaina', 'Stock', '1250', '0%', '7%', '2017-12-14', 'ขนาดของกระเป๋า (กว้าง x ยาว x สูง) 23 x 30 x 18', 'กระเป๋าสะพาย/ถือ ที่สวยงามมีเอกลักษณ์ ไม่ซ้ำใคร (งานทำเพียงใบเดียว) เป็นกระเป๋าที่สามารถใช้งานได้ทั้งวัน ใบนี้ทำจาก ผ้าไหมมัดหมี่และหนังวัวแท้สีน้ำเงิน มีสายสะพายซึ่งสามารถปรับความสั้นยาวและถอดออกได้ หากคุณต้องการกระเป๋าที่ไม่ซ้ำใคร กระเป๋าใบนี้ตอบโจทย์ให้คุณได้ วัสดุภายนอก ตกแต่งด้วย อุปกรณ์สีทอง ด้านหน้ามีโลโก้ Jai แบบแสตมป์จม มีกระเป๋าใส่ของด้านหลังเปิดปิดด้วยแม่เหล็ก ซิปสองทางสีทองอย่างดี วัสดุภายใน กระเป๋าติดซิปสีทองอย่างดี 2 ช่อง มีช่องสำหรับใส่มือถือและบัตรต่างๆ และใช้ซับในหนังกลับสีน้ำเงิน ขนาดของกระเป๋า สูง 23 ยาว 30 กว้าง 18 ซม.', '1', 5, 1),
-(5, 'กระเป๋าเงินจากสีชา', 'Stock', '850', '0%', '7%', '2017-12-16', 'กระเป๋าหนัง มีการประดับโดยใช้ผ้าไทย', 'ซักบ่อยเอ้ย ซักบ่อยๆ ซัก กะ ซัก บ่อย~~~~', '1', 5, 3),
-(6, 'กระเป๋า Jaibangs แดง', 'Stock', '980', '0%', '7%', '2017-12-16', 'ซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อย', 'ซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อย', '1', 5, 2),
-(10, 'ผ้าพันคอ ผ้าลาวครั่ง', 'Stock', '1555', '0%', '7%', '2018-01-20', 'ผ้าพันคอ ลาวครั่ง', 'ศิลปิน OTOP นำเอาภูมิปัญญาที่มีอยู่มาประยุกต์ใช้ให้เกิดการผสมผสานระหว่างลายผ้าแบบโบราณและลายผ้าสมัยใหม่โดยเน้นไปที่การประยุกต์ใช่เส้นฝ้ายผสมไหมที่ขึ้นลายผ้าที่เป็นเอกลักษณ์ มีความโดดเด่นและร่วมสมัย ทำให้คนในชุมชนเกิดความตระหนักและรักที่สืบทอดภูมิปัญญาด้านการทอผ้าและนำมาเป็นอาชีพได้อย่างต่อเนื่อง  ', '0', 3, 6),
-(24, 'Jai bags no.4', 'Stock', '1755', '0%', '7%', '2018-01-20', 'ผลงานการออกแบบล่าสุดของทางร้าน', 'ผลงานการออกแบบล่าสุดของทางร้าน ใช้ผ้าไหมมัดหมี่จากอำเภอชนบท ขอนแก่น ตัดเย็บเข้ากับหนังวัวแท้สีม่วงมะเหมี่ยวเปรี้ยวจี๊ดเพราะมีใบเดียวในโลกา รุ่นนี้คนออกแบบทดสอบคุณภาพสินค้าเอง ทั้งในไทยและต่างประเทศ เหมาะสำหรับถือไปดินเนอร์เก๋ๆหรือไปงานกลางคืน(เที่ยวกลางคืนก็ได้นะ) สวยเก๋ดูดีดูแพง กำลังจะผลิตออกมาเป็นcollection ต่อไป ', '1', 5, 2),
-(25, 'Jai bag no.5', 'Stock', '1555', '0%', '7%', '2018-01-20', 'ผลงานการออกแบบล่าสุดของทางร้าน ', 'ผลงานการออกแบบล่าสุดของทางร้าน ใช้ผ้าไหมมัดหมี่จากอำเภอชนบท ขอนแก่น ตัดเย็บเข้ากับหนังวัวแท้สีม่วงมะเหมี่ยวเปรี้ยวจี๊ดเพราะมีใบเดียวในโลกา รุ่นนี้คนออกแบบทดสอบคุณภาพสินค้าเอง ทั้งในไทยและต่างประเทศ เหมาะสำหรับถือไปดินเนอร์เก๋ๆหรือไปงานกลางคืน(เที่ยวกลางคืนก็ได้นะ) สวยเก๋ดูดีดูแพง กำลังจะผลิตออกมาเป็นcollection ต่อไป ', '1', 5, 2),
-(26, 'Jai bags no.6', 'Stock', '1888', '0%', '7%', '2018-01-20', 'ผลงานการออกแบบล่าสุดของทางร้าน', 'Jai bags no.6 ผลงานการออกแบบล่าสุดของทางร้าน ใช้ผ้าไหมมัดหมี่จากอำเภอชนบท ขอนแก่น ตัดเย็บเข้ากับหนังวัวแท้สีม่วงมะเหมี่ยวเปรี้ยวจี๊ดเพราะมีใบเดียวในโลกา รุ่นนี้คนออกแบบทดสอบคุณภาพสินค้าเอง ทั้งในไทยและต่างประเทศ เหมาะสำหรับถือไปดินเนอร์เก๋ๆหรือไปงานกลางคืน(เที่ยวกลางคืนก็ได้นะ) สวยเก๋ดูดีดูแพง กำลังจะผลิตออกมาเป็นcollection ต่อไป ', '1', 5, 2),
-(27, 'Jai bags no.7', 'Stock', '1500', '0%', '7%', '2018-01-20', 'ผลงานการออกแบบล่าสุดของทางร้าน', 'Jai bags no.6 ผลงานการออกแบบล่าสุดของทางร้าน ใช้ผ้าไหมมัดหมี่จากอำเภอชนบท ขอนแก่น ตัดเย็บเข้ากับหนังวัวแท้สีม่วงมะเหมี่ยวเปรี้ยวจี๊ดเพราะมีใบเดียวในโลกา รุ่นนี้คนออกแบบทดสอบคุณภาพสินค้าเอง ทั้งในไทยและต่างประเทศ เหมาะสำหรับถือไปดินเนอร์เก๋ๆหรือไปงานกลางคืน(เที่ยวกลางคืนก็ได้นะ) สวยเก๋ดูดีดูแพง กำลังจะผลิตออกมาเป็นcollection ต่อไป', '1', 5, 2),
-(29, 'Jai bags no.8', 'Stock', '1900', '0%', '7%', '2018-01-20', 'ผลงานการออกแบบล่าสุดของทางร้าน', 'Jai bags no.8 ผลงานการออกแบบล่าสุดของทางร้าน ใช้ผ้าไหมมัดหมี่จากอำเภอชนบท ขอนแก่น ตัดเย็บเข้ากับหนังวัวแท้สีม่วงมะเหมี่ยวเปรี้ยวจี๊ดเพราะมีใบเดียวในโลกา รุ่นนี้คนออกแบบทดสอบคุณภาพสินค้าเอง ทั้งในไทยและต่างประเทศ เหมาะสำหรับถือไปดินเนอร์เก๋ๆหรือไปงานกลางคืน(เที่ยวกลางคืนก็ได้นะ) สวยเก๋ดูดีดูแพง กำลังจะผลิตออกมาเป็นcollection ต่อไป', '1', 5, 2),
-(30, 'Jai bags no.9', 'Stock', '1400', '0%', '7%', '2018-01-20', 'ผลงานการออกแบบล่าสุดของทางร้าน', 'ผลงานการออกแบบล่าสุดของทางร้าน ใช้ผ้าไหมมัดหมี่จากอำเภอชนบท ขอนแก่น ตัดเย็บเข้ากับหนังวัวแท้สีม่วงมะเหมี่ยวเปรี้ยวจี๊ดเพราะมีใบเดียวในโลกา รุ่นนี้คนออกแบบทดสอบคุณภาพสินค้าเอง ทั้งในไทยและต่างประเทศ เหมาะสำหรับถือไปดินเนอร์เก๋ๆหรือไปงานกลางคืน(เที่ยวกลางคืนก็ได้นะ) สวยเก๋ดูดีดูแพง กำลังจะผลิตออกมาเป็นcollection ต่อไป ', '1', 5, 2),
-(31, 'Jai bags no.10', 'Stock', '1200', '0%', '7%', '2018-01-20', 'ผลงานการออกแบบล่าสุดของทางร้าน', 'ผลงานการออกแบบล่าสุดของทางร้าน ใช้ผ้าไหมมัดหมี่จากอำเภอชนบท ขอนแก่น ตัดเย็บเข้ากับหนังวัวแท้สีม่วงมะเหมี่ยวเปรี้ยวจี๊ดเพราะมีใบเดียวในโลกา รุ่นนี้คนออกแบบทดสอบคุณภาพสินค้าเอง ทั้งในไทยและต่างประเทศ เหมาะสำหรับถือไปดินเนอร์เก๋ๆหรือไปงานกลางคืน(เที่ยวกลางคืนก็ได้นะ) สวยเก๋ดูดีดูแพง กำลังจะผลิตออกมาเป็นcollection ต่อไป ', '1', 5, 2),
-(32, 'Jai bags no.11', 'Stock', '1800', '0%', '7%', '2018-01-20', 'ผลงานการออกแบบล่าสุดของทางร้าน ', 'ผลงานการออกแบบล่าสุดของทางร้าน ใช้ผ้าไหมมัดหมี่จากอำเภอชนบท ขอนแก่น ตัดเย็บเข้ากับหนังวัวแท้สีม่วงมะเหมี่ยวเปรี้ยวจี๊ดเพราะมีใบเดียวในโลกา รุ่นนี้คนออกแบบทดสอบคุณภาพสินค้าเอง ทั้งในไทยและต่างประเทศ เหมาะสำหรับถือไปดินเนอร์เก๋ๆหรือไปงานกลางคืน(เที่ยวกลางคืนก็ได้นะ) สวยเก๋ดูดีดูแพง กำลังจะผลิตออกมาเป็นcollection ต่อไป ', '1', 5, 2),
-(35, 'ผ้าพันคอภูคราม ปักลายดอกไม้ no.2', 'Stock', '1999', '0%', '7%', '2018-01-20', 'ผลงานการออกแบบล่าสุดของทางร้าน', 'ผลงานการออกแบบล่าสุดของทางร้าน ใช้ผ้าไหมมัดหมี่จากอำเภอชนบท ขอนแก่น ตัดเย็บเข้ากับหนังวัวแท้สีม่วงมะเหมี่ยวเปรี้ยวจี๊ดเพราะมีใบเดียวในโลกา รุ่นนี้คนออกแบบทดสอบคุณภาพสินค้าเอง ทั้งในไทยและต่างประเทศ เหมาะสำหรับถือไปดินเนอร์เก๋ๆหรือไปงานกลางคืน(เที่ยวกลางคืนก็ได้นะ) สวยเก๋ดูดีดูแพง กำลังจะผลิตออกมาเป็นcollection ต่อไป ', '1', 3, 1),
-(36, 'ผ้าพันคอ ภูคราม no.1', 'Stock', '1900', '0%', '7%', '2018-01-20', 'สินค้าใหม่ล่าสุด', 'มือปักตั้งแต่วัยรุ่นจนถึงวัยทำงานร่วมพัฒนาลวดลายด้วยกัน ร่วมคิดเทกนิคให้ผ้าพันคอและผ้าคลุมไหล่ใช้ได้ทั้งสองด้าน จนดอกไม้ป่า ดอกหญ้าฤดูร้อน และกลีบบอบบางสารพันฟุ้งกระจายในภูคราม อาจดูดิบซื่อ ตรงไปตรงมา แต่รอยปักเหล่านี้ไม่ใช่แค่ดอกไม้อ่อนหวาน หากซ่อนคำว่าธรรมชาติไว้ในทุกฝีเข็ม', '0', 3, 1),
-(37, 'ผ้าพันคอ ภูคราม no.2', 'Stock', '950', '0%', '7%', '2018-01-20', 'สินค้าใหม่ล่าสุด', 'มือปักตั้งแต่วัยรุ่นจนถึงวัยทำงานร่วมพัฒนาลวดลายด้วยกัน ร่วมคิดเทกนิคให้ผ้าพันคอและผ้าคลุมไหล่ใช้ได้ทั้งสองด้าน จนดอกไม้ป่า ดอกหญ้าฤดูร้อน และกลีบบอบบางสารพันฟุ้งกระจายในภูคราม อาจดูดิบซื่อ ตรงไปตรงมา แต่รอยปักเหล่านี้ไม่ใช่แค่ดอกไม้อ่อนหวาน หากซ่อนคำว่าธรรมชาติไว้ในทุกฝีเข็ม', '0', 3, 1),
-(38, 'ผ้าพันคอ ภูคราม no.3', 'Stock', '999', '0%', '7%', '2018-01-20', 'สินค้าใหม่ล่าสุด', 'มือปักตั้งแต่วัยรุ่นจนถึงวัยทำงานร่วมพัฒนาลวดลายด้วยกัน ร่วมคิดเทกนิคให้ผ้าพันคอและผ้าคลุมไหล่ใช้ได้ทั้งสองด้าน จนดอกไม้ป่า ดอกหญ้าฤดูร้อน และกลีบบอบบางสารพันฟุ้งกระจายในภูคราม อาจดูดิบซื่อ ตรงไปตรงมา แต่รอยปักเหล่านี้ไม่ใช่แค่ดอกไม้อ่อนหวาน หากซ่อนคำว่าธรรมชาติไว้ในทุกฝีเข็ม', '0', 3, 1),
-(39, 'ผ้าพันคอ ภูคราม no.4', 'Stock', '1200', '0%', '7%', '2018-01-20', 'สินค้าใหม่ล่าสุด', 'มือปักตั้งแต่วัยรุ่นจนถึงวัยทำงานร่วมพัฒนาลวดลายด้วยกัน ร่วมคิดเทกนิคให้ผ้าพันคอและผ้าคลุมไหล่ใช้ได้ทั้งสองด้าน จนดอกไม้ป่า ดอกหญ้าฤดูร้อน และกลีบบอบบางสารพันฟุ้งกระจายในภูคราม อาจดูดิบซื่อ ตรงไปตรงมา แต่รอยปักเหล่านี้ไม่ใช่แค่ดอกไม้อ่อนหวาน หากซ่อนคำว่าธรรมชาติไว้ในทุกฝีเข็ม', '0', 3, 1),
-(40, 'ผ้าพันคอ ภูคราม no.5', 'Stock', '1100', '0%', '7%', '2018-01-20', 'สินค้าใหม่ล่าสุด', 'มือปักตั้งแต่วัยรุ่นจนถึงวัยทำงานร่วมพัฒนาลวดลายด้วยกัน ร่วมคิดเทกนิคให้ผ้าพันคอและผ้าคลุมไหล่ใช้ได้ทั้งสองด้าน จนดอกไม้ป่า ดอกหญ้าฤดูร้อน และกลีบบอบบางสารพันฟุ้งกระจายในภูคราม อาจดูดิบซื่อ ตรงไปตรงมา แต่รอยปักเหล่านี้ไม่ใช่แค่ดอกไม้อ่อนหวาน หากซ่อนคำว่าธรรมชาติไว้ในทุกฝีเข็ม', '0', 3, 1);
+(3, 'Jaina', 'Stock', 1250, '0%', '7%', '2017-12-14', 'ขนาดของกระเป๋า (กว้าง x ยาว x สูง) 23 x 30 x 18', 'กระเป๋าสะพาย/ถือ ที่สวยงามมีเอกลักษณ์ ไม่ซ้ำใคร (งานทำเพียงใบเดียว) เป็นกระเป๋าที่สามารถใช้งานได้ทั้งวัน ใบนี้ทำจาก ผ้าไหมมัดหมี่และหนังวัวแท้สีน้ำเงิน มีสายสะพายซึ่งสามารถปรับความสั้นยาวและถอดออกได้ หากคุณต้องการกระเป๋าที่ไม่ซ้ำใคร กระเป๋าใบนี้ตอบโจทย์ให้คุณได้ วัสดุภายนอก ตกแต่งด้วย อุปกรณ์สีทอง ด้านหน้ามีโลโก้ Jai แบบแสตมป์จม มีกระเป๋าใส่ของด้านหลังเปิดปิดด้วยแม่เหล็ก ซิปสองทางสีทองอย่างดี วัสดุภายใน กระเป๋าติดซิปสีทองอย่างดี 2 ช่อง มีช่องสำหรับใส่มือถือและบัตรต่างๆ และใช้ซับในหนังกลับสีน้ำเงิน ขนาดของกระเป๋า สูง 23 ยาว 30 กว้าง 18 ซม.', '1', 5, 1),
+(5, 'กระเป๋าเงินจากสีชา', 'Stock', 800, '0%', '7%', '2017-12-16', 'กระเป๋าหนัง มีการประดับโดยใช้ผ้าไทย', 'ซักบ่อยเอ้ย ซักบ่อยๆ ซัก กะ ซัก บ่อย~~~~', '1', 5, 3),
+(6, 'กระเป๋า Jaibangs แดง', 'Stock', 1240, '0%', '7%', '2017-12-16', 'ซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อย', 'ซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อย', '1', 5, 2),
+(7, 'กระเป๋าหนัง ซักบ่อย ', 'Stock', 1200, '0%', '7%', '2017-12-16', 'ซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อย', 'ซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อยซักบ่อย', '1', 5, 2),
+(9, 'Fff', 'Stock', 1100, '0%', '7%', '2018-01-18', 'adsfsadfsafasfasdfasd', 'asdfsaasasdfsadfasdfasfasfsa', '0', 2, 3),
+(10, 'ผ้าพันคอ ผ้าลาวครั่ง', 'Stock', 1600, '0%', '7%', '2018-01-20', 'ผ้าพันคอ ลาวครั่ง', 'ศิลปิน OTOP นำเอาภูมิปัญญาที่มีอยู่มาประยุกต์ใช้ให้เกิดการผสมผสานระหว่างลายผ้าแบบโบราณและลายผ้าสมัยใหม่โดยเน้นไปที่การประยุกต์ใช่เส้นฝ้ายผสมไหมที่ขึ้นลายผ้าที่เป็นเอกลักษณ์ มีความโดดเด่นและร่วมสมัย ทำให้คนในชุมชนเกิดความตระหนักและรักที่สืบทอดภูมิปัญญาด้านการทอผ้าและนำมาเป็นอาชีพได้อย่างต่อเนื่อง  ', '0', 3, 6);
 
 -- --------------------------------------------------------
 
@@ -335,7 +344,7 @@ INSERT INTO `product` (`id_product`, `NameProduct`, `Status`, `PriceProduct`, `d
 -- Table structure for table `review`
 --
 
-CREATE TABLE IF NOT EXISTS `review` (
+CREATE TABLE `review` (
   `id_Review` int(11) NOT NULL,
   `Comment` varchar(800) NOT NULL,
   `ratepoint` varchar(1) NOT NULL,
@@ -349,10 +358,10 @@ CREATE TABLE IF NOT EXISTS `review` (
 -- Table structure for table `shipping`
 --
 
-CREATE TABLE IF NOT EXISTS `shipping` (
+CREATE TABLE `shipping` (
   `id_Shipping` int(11) NOT NULL,
   `NameShipping` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `shipping`
@@ -368,7 +377,7 @@ INSERT INTO `shipping` (`id_Shipping`, `NameShipping`) VALUES
 -- Table structure for table `store`
 --
 
-CREATE TABLE IF NOT EXISTS `store` (
+CREATE TABLE `store` (
   `id_store` int(11) NOT NULL,
   `NameStore` varchar(255) NOT NULL,
   `AvatarStore` varchar(50) NOT NULL,
@@ -384,7 +393,7 @@ CREATE TABLE IF NOT EXISTS `store` (
   `nameAccountStore` varchar(50) NOT NULL,
   `numberStorebank` varchar(10) NOT NULL,
   `namebank` varchar(80) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `store`
@@ -404,7 +413,7 @@ INSERT INTO `store` (`id_store`, `NameStore`, `AvatarStore`, `AddressStore`, `Te
 -- Table structure for table `store_product_shipment`
 --
 
-CREATE TABLE IF NOT EXISTS `store_product_shipment` (
+CREATE TABLE `store_product_shipment` (
   `id_shipment` int(11) NOT NULL,
   `id_order` int(11) NOT NULL,
   `id_payment` int(11) NOT NULL,
@@ -412,7 +421,19 @@ CREATE TABLE IF NOT EXISTS `store_product_shipment` (
   `id_store` int(11) NOT NULL,
   `id_shipping` int(11) DEFAULT NULL,
   `ShipCode` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `store_product_shipment`
+--
+
+INSERT INTO `store_product_shipment` (`id_shipment`, `id_order`, `id_payment`, `Status`, `id_store`, `id_shipping`, `ShipCode`) VALUES
+(6, 13, 6, '0', 1, NULL, NULL),
+(7, 13, 7, '0', 1, NULL, NULL),
+(8, 14, 8, '0', 1, NULL, NULL),
+(9, 15, 9, '0', 1, NULL, NULL),
+(10, 17, 10, '0', 3, NULL, NULL),
+(11, 17, 10, '0', 3, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -420,7 +441,7 @@ CREATE TABLE IF NOT EXISTS `store_product_shipment` (
 -- Table structure for table `subemail`
 --
 
-CREATE TABLE IF NOT EXISTS `subemail` (
+CREATE TABLE `subemail` (
   `id_subemail` int(11) NOT NULL,
   `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -431,10 +452,10 @@ CREATE TABLE IF NOT EXISTS `subemail` (
 -- Table structure for table `typeproduct`
 --
 
-CREATE TABLE IF NOT EXISTS `typeproduct` (
+CREATE TABLE `typeproduct` (
   `id_typeProduct` int(11) NOT NULL,
   `nameTypeProduct` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `typeproduct`
@@ -454,7 +475,7 @@ INSERT INTO `typeproduct` (`id_typeProduct`, `nameTypeProduct`) VALUES
 -- Table structure for table `user_member`
 --
 
-CREATE TABLE IF NOT EXISTS `user_member` (
+CREATE TABLE `user_member` (
   `id_user` int(11) NOT NULL,
   `Name` varchar(100) NOT NULL,
   `LastName` varchar(100) NOT NULL,
@@ -466,7 +487,7 @@ CREATE TABLE IF NOT EXISTS `user_member` (
   `Country` varchar(100) NOT NULL,
   `Zip` varchar(10) NOT NULL,
   `Password` varchar(255) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_member`
@@ -476,7 +497,10 @@ INSERT INTO `user_member` (`id_user`, `Name`, `LastName`, `Email`, `Tel`, `Addre
 (1, 'Admin', 'Fumin', 'Luxor@info.com', '099-999-9999', '555/55 หมู่ 5 หมู่บ้าน 555 ตำบล รารา ', 'เมือง', 'กรุงเทพ', 'ประเทศไทย', '10000', '81dc9bdb52d04dc20036dbd8313ed055'),
 (2, 'Plammy', 'poohizi', 'pulytest.bigc@gmail.com', '0895412365', '120 Chayangkoon road landchester', 'Fleming Island', 'Alaska', 'สหรัฐอเมริกา', '32003', '81dc9bdb52d04dc20036dbd8313ed055'),
 (3, 'พรเทพ', 'อภิรักษ์ลี้พล', 'apiraklypol_p@hotmail.com', '083546053', '3 พุทธรักษา2 ต.สนามจันทร์ ', 'เมือง', 'นครปฐม', 'ไทย', '73000', '5e558d59cc61acfcd2b037825d938894'),
-(4, 'ซักบ่อย', 'ซักบ่อย', 'gg@gmail.com', '099-999-9999', '555', 'เมือง', 'กรุงเทพมหานคร', 'ไทย', '10400', '81dc9bdb52d04dc20036dbd8313ed055');
+(4, 'ซักบ่อย', 'ซักบ่อย', 'gg@gmail.com', '099-999-9999', '555', 'เมือง', 'กรุงเทพมหานคร', 'ไทย', '10400', '81dc9bdb52d04dc20036dbd8313ed055'),
+(5, 'ดดด', 'ดดด', 'tr@info.com', '0987654665', '5555', 'asdf', 'asdf', 'asdf', '13212', '81dc9bdb52d04dc20036dbd8313ed055'),
+(6, 'Meuymeuy', 'zan', 'Meuyzanmmt@gmail.com', '0956058364', '26 หมู่ 2', 'ที่นี้', 'ที่นั้น', 'ดาโรก้า', '34150', 'eb3776807a4602a52421b2f2f7fbb846'),
+(7, 'maxkaan', 'max', 'ly.gammer@gmail.com', '089222222', '324', 'phunphin', 'surat', 'thai', '84130', 'e10adc3949ba59abbe56e057f20f883e');
 
 --
 -- Indexes for dumped tables
@@ -630,17 +654,17 @@ ALTER TABLE `user_member`
 -- AUTO_INCREMENT for table `adminluxor`
 --
 ALTER TABLE `adminluxor`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id_blog` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id_blog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `codepromotion`
 --
 ALTER TABLE `codepromotion`
-  MODIFY `id_Code` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id_Code` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `favoruite`
 --
@@ -650,42 +674,42 @@ ALTER TABLE `favoruite`
 -- AUTO_INCREMENT for table `formregisterstore`
 --
 ALTER TABLE `formregisterstore`
-  MODIFY `id_formRegisterStore` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id_formRegisterStore` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `hotproduct`
 --
 ALTER TABLE `hotproduct`
-  MODIFY `id_hotproduct` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id_hotproduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `imgproduct`
 --
 ALTER TABLE `imgproduct`
-  MODIFY `id_imgProduct` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=57;
+  MODIFY `id_imgProduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `imgproductdetail`
 --
 ALTER TABLE `imgproductdetail`
-  MODIFY `id_imgProductDetail` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=57;
+  MODIFY `id_imgProductDetail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `orderproductdetail`
 --
 ALTER TABLE `orderproductdetail`
-  MODIFY `id_orderDetail` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+  MODIFY `id_orderDetail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `order_product`
 --
 ALTER TABLE `order_product`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `id_payment` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id_payment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=41;
+  MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `review`
 --
@@ -695,17 +719,17 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `shipping`
 --
 ALTER TABLE `shipping`
-  MODIFY `id_Shipping` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id_Shipping` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `store`
 --
 ALTER TABLE `store`
-  MODIFY `id_store` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id_store` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `store_product_shipment`
 --
 ALTER TABLE `store_product_shipment`
-  MODIFY `id_shipment` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id_shipment` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `subemail`
 --
@@ -715,12 +739,12 @@ ALTER TABLE `subemail`
 -- AUTO_INCREMENT for table `typeproduct`
 --
 ALTER TABLE `typeproduct`
-  MODIFY `id_typeProduct` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id_typeProduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `user_member`
 --
 ALTER TABLE `user_member`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- Constraints for dumped tables
 --
