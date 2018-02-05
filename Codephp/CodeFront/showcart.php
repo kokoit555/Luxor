@@ -1,26 +1,28 @@
 
 <?php 
     $totalprice = 0;
-    if(!empty($_SESSION['cartproductID'])){
+    if(!empty($_SESSION['cartProduct'])){
 
         // $Total = 0;
         // $SumTotal = 0;
         //print_r($_SESSION['cartproductNAME']);
         // echo str_replace("," ,"",$_SESSION['PriceProduct'][0]);
-        for ($i=0; $i < count($_SESSION['cartproductID']); $i++) { 
+        for ($i=0; $i < count($_SESSION['cartProduct']); $i++) { 
             
-            
-            $id = $_SESSION['cartproductID'][$i];
-            $name = $_SESSION['cartproductNAME'][$i];
-            $qty = $_SESSION['cartproductQTY'][$i];
-            $price = str_replace("," ,"",$_SESSION['PriceProduct'][$i]);
-
+            $imgProduct = $_SESSION['cartProduct'][$i]['imgProduct'];
+            $id = $_SESSION['cartProduct'][$i]['idProduct'];
+            $name = $_SESSION['cartProduct'][$i]['nameProduct'];
+            $qty = $_SESSION['cartProduct'][$i]['qtyproduct'];
+            $thumb = $_SESSION['cartProduct'][$i]['thumb'];
+            $price = str_replace("," ,"",$_SESSION['cartProduct'][$i]['priceProduct']);
+            $pkey = $_SESSION['cartProduct'][$i]['NumberListProduct'];
             $price *= $qty;
             $totalprice += $price;
-            if($_SESSION['cartproductID'] != ""){
+            if($_SESSION['cartProduct'][$i]['idProduct'] != ""){
 ?>
             <tbody>
             <tr>
+                <td data-th="pkey"><img style="width:120px;height:100px;" src="<?php echo $imgProduct; ?>" alt="รูปสินค้า"></td>
                 <td data-th="Product"><?php echo $name; ?> </td>
                 <td data-th="Price"><?php echo number_format($price); ?> บาท</td>
                 <td data-th="Quantity">

@@ -24,6 +24,7 @@
             $outp .= '{"id":"'.$row['id_product'].'",';
             $outp .= '"nameproduct":"'.$row['NameProduct'].'",';
             $outp .= '"productDetail":"'.$row['productDetail'].'",';
+            $outp .= '"qtyproduct":"'.$row['qty'].'",';
             $outp .= '"dateinput":"'.$row['date_input'].'",';
             $outp .= '"idtype":"'.$row['id_type'].'",';
             $outp .= '"nameTypeProduct":"'.$row['nameTypeProduct'].'",';

@@ -21,6 +21,19 @@
         
 
         if(mysqli_query($connect,$sqluser)){
+
+            $iduser = mysqli_insert_id($connect);
+            $_SESSION['idnumLoginWebsite'] = $iduser;
+            $_SESSION['nameLoginWebsite'] = $firstname." ".$lastname;
+            $_SESSION['NameUser'] = $firstname;
+            $_SESSION['LastNameUser'] = $lastname;
+            $_SESSION['EmailUser'] = $email;
+            $_SESSION['TelUser'] = $tel;
+            $_SESSION['AddressUser'] = $address;
+            $_SESSION['CityUser'] = $city;
+            $_SESSION['StateUser'] = $state;
+            $_SESSION['CountryUser'] = $country;
+            $_SESSION['ZipUser'] = $zip;
             header("Location:index.php");
         }
 

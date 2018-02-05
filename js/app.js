@@ -164,15 +164,5 @@ app.controller("UserListProduct",function($scope,$http){
       }
     }
 
-    $scope.currentPage = 0;
-    $scope.pageSize = 12;
-    $scope.numberOfPages=function(){
-        return Math.ceil($scope.listproduct.length/$scope.pageSize);                
-    }
-});
-app.filter('startFrom', function() {
-  return function(input, start) {
-      start = +start; //parse to int
-      return input.slice(start);
-  }
+    
 });

@@ -166,7 +166,7 @@ mysqli_close($connect);
 
    <div class="row" style="margin-top: 5%;">
   <div class="col-md-12">
-    <a class="btn btn-default col-xs-6 center-block noborder btn-next" href="./index.php">กลับหน้าหลัก</a>
+    <a class="btn btn-default col-xs-6 center-block noborder btn-next" href="./History.php">ย้อนกลับ</a>
     <a class="btn btn-default col-xs-6 center-block noborder btn-next" href="./Listproduct.php">เลือกดูสินค้าเพิ่มเติม</a>
   </div>
   </div>

@@ -1,20 +1,16 @@
 <?php 
     session_start();
-    // $_SESSION['cartproductID'][$i];
-    // $_SESSION['cartproductNAME'][$i];
-    // $_SESSION['cartproductIMG'][$i];
-    // $_SESSION['cartproductQTY'][$i];
-    // $_SESSION['PriceProduct'][]= $priceproduct;
+    
 
     $slotdelete = $_GET['slotdelete'];
-
-    array_splice($_SESSION['cartproductID'], $slotdelete , 1);
-    array_splice($_SESSION['cartproductNAME'], $slotdelete , 1);
-    array_splice($_SESSION['PriceProduct'], $slotdelete , 1);
-    array_splice($_SESSION['thumb'], $slotdelete , 1);
-    array_splice($_SESSION['cartproductQTY'], $slotdelete , 1);
+    array_splice($_SESSION['cartProduct'], $slotdelete , 1);
+    // array_splice($_SESSION['cartproductID'], $slotdelete , 1);
+    // array_splice($_SESSION['cartproductNAME'], $slotdelete , 1);
+    // array_splice($_SESSION['PriceProduct'], $slotdelete , 1);
+    // array_splice($_SESSION['thumb'], $slotdelete , 1);
+    // array_splice($_SESSION['cartproductQTY'], $slotdelete , 1);
     // unset($_SESSION['cartproductID'][$slotdelete]);
     // print_r($_SESSION['cartproductID']);
 
-    header("Location: ../../Cartproduct.php");
+    header("Location: ../../New_Cartproduct.php");
 ?>

@@ -158,7 +158,10 @@
 										<h4>รายการสินค้า</h4><br/>
 										<div class="table-responsive">
 										<table class="table">
-											<?php include "./Codephp/CodeFront/showcart.php"; ?>
+											<?php 
+												// include "./Codephp/CodeFront/showcart.php";
+												include "./Codephp/CodeFront/showcart.php";
+											 ?>
 										</table>
 									</div>
 										
@@ -172,12 +175,11 @@
 											</table>
 										</div>
 									</form>
-									<br><a href="index.php">กลับหน้าสินค้า</a>
 									<?php
 										if($totalprice > 0)
 										{
 									?>
-										| <a class="btn btn-success col-xs-offset-9 col-xs-3" href="?Cart_Status=checkout">ยืนยันการสั่งซื้อ</a>
+										<a class="btn btn-success col-xs-offset-9 col-xs-3" href="?Cart_Status=checkout">ยืนยัน</a>
 									<?php
 										}
 									?>

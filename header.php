@@ -90,11 +90,11 @@
 														<div class="form-group">
 															<input type="submit" name="submitLoginWeb" class="btn btn-primary btn-block" value="Sign in">
 														</div>
-														<div class="checkbox">
+														<!-- <div class="checkbox">
 															<label>
 															   <input type="checkbox"> <span class="text-black">จดจำเข้าสู่ระบบ</span>
 															   </label>
-														</div>
+														</div> -->
 													</form>
 												</div>
 												<div class="bottom text-center">

@@ -36,7 +36,7 @@
 						<div class="seach col-md-6 col-md-offset-3">
 							<div class="input-group">
 								<form method="POST">
-									<input type="text" name="textsearchProduct" class="form-control" style="width: 75%;" aria-label="..." placeholder="ระบุคำที่ต้องการค้นหา">
+									<input type="text" name="textsearchProduct" class="form-control" style="width: 75%;" aria-label="..." placeholder="ระบุชื่อสินค้าที่ต้องการค้นหา">
 									<input type="submit" name="submitsearchProduct" class="form-control" style="width: 20%;" aria-label="..." value="ค้นหา">
 								</form>
 								<?php 
@@ -129,12 +129,6 @@
 						<h4 class="text-center">หากคุณมีสินค้าไอเดีย เรามีพื้นที่ให้คุณนำเสนอ <span class="CRed"><a class="CRed" href="">เริ่มต้นขายสินค้าได้ที่นี่</a></span></h4>
 				</div>
 				<div class="slider center">
-					<!-- <div><h3><img src="images/shop/shop-1.png" alt=""></h3></div>
-					<div><h3><img src="images/shop/shop-2.png" alt=""></h3></div>
-					<div><h3><img src="images/shop/shop-3.png" alt=""></h3></div>
-					<div><h3><img src="images/shop/shop-4.png" alt=""></h3></div>
-					<div><h3><img src="images/shop/shop-5.png" alt=""></h3></div>
-					<div><h3><img src="images/shop/shop-3.png" alt=""></h3></div> -->
 					<?php 
 						$sqlStore = "SELECT * FROM `store`";
 						$queryStore = mysqli_query($connect,$sqlStore);
@@ -225,7 +219,7 @@
 			</div>
 		</div>
 
-		<?php include "footer.php"; mysqli_close(); ?>
+		<?php include "footer.php"; mysqli_close($connect); ?>
 
 	</div>
 	<!-- wrapper -->

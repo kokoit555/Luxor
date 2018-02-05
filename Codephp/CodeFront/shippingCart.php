@@ -94,21 +94,21 @@
 
                 $last_orderid = mysqli_insert_id($connect);
 
-                for($i=0;$i< count($_SESSION['cartproductID']);$i++)
+                for($i=0;$i< count($_SESSION['cartProduct']);$i++)
                 {
-                    if($_SESSION["cartproductID"][$i] != "")
+                    if($_SESSION["cartProduct"][$i]['NumberListProduct'] != "")
                     {
                             echo $strSQL = "INSERT INTO `orderproductdetail` (`id_orderDetail`, `id_order`, `id_product`, `namethumbProduct`, `qty`, `Price`) VALUES 
-                                        ('0', '$last_orderid', '".$_SESSION['cartproductID'][$i]."', '".$_SESSION['thumb'][$i]."' , '".$_SESSION['cartproductQTY'][$i]."', '".$_SESSION['PriceProduct'][$i]."');";
+                                        ('0', '$last_orderid', 
+                                        '".$_SESSION['cartProduct'][$i]['idProduct']."', 
+                                        '".$_SESSION['cartProduct'][$i]['thumb']."' ,
+                                        '".$_SESSION['cartProduct'][$i]['qtyproduct']."', 
+                                        '".$_SESSION['cartProduct'][$i]['priceProduct']."');";
                             mysqli_query($connect,$strSQL);
                     }
                 }
 
-                unset($_SESSION['thumb']);
-                unset($_SESSION['cartproductID']);
-                unset($_SESSION['cartproductNAME']);
-                unset($_SESSION['PriceProduct']);
-                unset($_SESSION['cartproductQTY']);
+                unset($_SESSION['cartProduct']);
                 mysqli_close($connect);
 
                 header("location: ?Cart_Status=payment&&id_order=".$last_orderid);

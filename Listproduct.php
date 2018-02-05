@@ -83,17 +83,17 @@
           </div><!--panel panel-default-->
         </div><!--list-group collapse-->
 
-        <div id="group-2" class="list-group collapse in" ng-model="orderList">
-          <a class="list-group-item" href="#" ng-click="orderList = '-priceproduct'">
+        <div id="group-2" class="list-group collapse in">
+          <a class="list-group-item" href="#" ng-click="orderList = '-priceproduct';reverse=!reverse">
             <i class="fa fa-sort-amount-desc"></i> เรียงลำดับราคา มาก ไป น้อย
           </a>
-          <a class="list-group-item" href="#" ng-click="orderList = 'priceproduct'">
+          <a class="list-group-item" href="#" ng-click="orderList = 'priceproduct';reverse=!reverse">
             <i class="fa fa-sort-amount-asc"></i> เรียงลำดับราคา น้อย ไป มาก
           </a>
-          <a class="list-group-item" href="#" ng-click="orderList = '-dateinput'" >
+          <a class="list-group-item" href="#" ng-click="orderList = 'dateinput';reverse=false'" >
             <i class="fa fa-calendar"></i> เรียงลำดับวันที่ลง มาก ไป น้อย
           </a>
-          <a class="list-group-item" href="#" ng-click="orderList = 'dateinput'">
+          <a class="list-group-item" href="#" ng-click="orderList = '-dateinput';reverse=false">
             <i class="fa fa-calendar"></i> เรียงลำดับวันที่ลง น้อย ไป มาก
           </a>
         </div>
@@ -116,7 +116,7 @@
     <!-- เริ่มสินค้า -->
         <div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4" 
               ng-repeat="x in listproduct | filter:{nameproduct: searchname}
-                          | orderBy: orderList">
+                          | orderBy:'-priceproduct'">
             <div class="thumbnail">
               <figure class="snip1268">
               <div class="image">
@@ -126,22 +126,14 @@
                   <a href="./Detailproduct.php?idproduct={{x.id}}"> <i class="ion-search "></i><span class="detail">ดูเพิ่มเติม</span></a>
                   <a href="#"> <i class="ion-share"></i></a>
                 </div>
-                <!-- <form method="POST">
-                  <input name="idproduct" type="hidden" >
-                  <input name="NameProduct" type="hidden">
-                  <input name="PriceProduct" type="hidden">
-                  <input name="thumb" type="hidden">
-                  <input name="qtyproduct" type="hidden">
-                 
-                  <input type="submit" name="addproducttocart" class="add-to-cart" value="Add to Cart" ng-click="insertcart()">
-                </form> -->
                 <form method="POST" action="Listproduct.php">
                   <input name="idproduct" type="hidden" value="{{x.id}}">
                   <input name="NameProduct" type="hidden" value="{{x.nameproduct}}">
                   <input name="PriceProduct" type="hidden" value="{{x.priceproduct}}">
                   <input name="thumb" type="hidden" value="1">
                   <input name="qtyproduct" type="hidden" value="1">
-                  <input type="submit" name="addproducttocart" class="add-to-cart" value="Add to Cart" ><!--ng-click="insertcart()"-->
+                  <button class="add-to-cart" style="border-color:#a62041;background-color:#a62041;color:white;" ng-if="x.qtyproduct <= 0"  disabled >Sold Out</button>
+                  <input type="submit" name="addproducttocart" ng-if="x.qtyproduct > 0" class="add-to-cart" value="Add to Cart" >
                 </form>
               </div>
               <figcaption>
@@ -164,7 +156,9 @@
 
   </div>
 </div>
-<?php include "./Codephp/CodeFront/addcart.php"; ?>
+<?php 
+include "./Codephp/CodeFront/addcart.php"; 
+?>
 
     <?php require 'footer.php' ?>
 

@@ -4,7 +4,7 @@
     <!--SHIPPING METHOD-->
         <div class="panel-body">
             <div class="col-sm-8 col-xs-12" id="pay-form">
-                <form class="form-horizontal" method="POST">
+                <form class="form-horizontal" method="POST" autocomplete="off">
                     <fieldset>
                     <legend>ชำระเงิน</legend>
                     <div class="form-group">
@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">เลขบนบัตร</label>
                         <div class="col-sm-9">
-                        <input type="text" class="form-control" OnKeyPress="return chkNumber(this)" maxlength="16" name="cardnumber" placeholder="Debit/Credit Card Number">
+                        <input type="text" class="form-control" OnKeyPress="return chkNumber(this)" onKeyUp="if(this.value*1!=this.value) this.value='';" maxlength="16" name="cardnumber" placeholder="Debit/Credit Card Number">
                         </div>
                     </div>
                     <div class="form-group">
@@ -25,7 +25,6 @@
                         <div class="row">
                             <div class="col-xs-3">
                             <select class="form-control col-sm-2" name="expirymonth" >
-                                <option>เดือน</option>
                                 <option value="01">Jan (01)</option>
                                 <option value="02">Feb (02)</option>
                                 <option value="03">Mar (03)</option>
@@ -42,17 +41,13 @@
                             </div>
                             <div class="col-xs-3">
                             <select class="form-control" name="expiryyear">
-                                <option value="13">2013</option>
-                                <option value="14">2014</option>
-                                <option value="15">2015</option>
-                                <option value="16">2016</option>
-                                <option value="17">2017</option>
-                                <option value="18">2018</option>
-                                <option value="19">2019</option>
-                                <option value="20">2020</option>
-                                <option value="21">2021</option>
-                                <option value="22">2022</option>
-                                <option value="23">2023</option>
+                            <?php
+                            for ($i=0; $i <= 10; $i++) { 
+                            ?>
+                                <option value="<?=substr((date("Y")+$i),2)?>"><?=date("Y")+$i?></option>
+                            <?php
+                                }
+                            ?>
                             </select>
                             </div>
                         </div>
@@ -61,7 +56,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">เลข CVV</label>
                         <div class="col-sm-3">
-                            <input type="password" maxlength="3" OnKeyPress="return chkNumber(this)" class="form-control" name="cvv"  placeholder="Security Code"> 
+                            <input type="password" maxlength="3" OnKeyPress="return chkNumber(this)" onKeyUp="if(this.value*1!=this.value) this.value='';" class="form-control" name="cvv"  placeholder="Security Code"> 
                         </div>
                     </div>
                     <div class="form-group">
@@ -120,6 +115,8 @@
                         ('0', '$idorder', '$last_paymentid', '0', '".$row['id_store']."' , NULL, NULL);";
     
                         mysqli_query($connect,$strSQL);
+
+                        
 
                     }
                     mysqli_close($connect);

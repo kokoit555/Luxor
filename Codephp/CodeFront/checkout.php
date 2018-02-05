@@ -4,7 +4,7 @@
         <table class="table">
                         <tbody>
                             <tr>
-                                <td style="border:0;">id</td>
+                                <td style="border:0;">รูปสินค้า</td>
                                 <td style="border:0;">ชื่อสินค้า</td>
                                 <td style="border:0;">ราคา</td>
                                 <td style="border:0;">จำนวน</td>
@@ -12,29 +12,30 @@
                             </tr>
            <?php   
                 $totalprice = 0;
-                if(!empty($_SESSION['cartproductID'])){
-                    for ($i=0; $i < count($_SESSION['cartproductID']); $i++) 
+                if(!empty($_SESSION['cartProduct'])){
+                    for ($i=0; $i < count($_SESSION['cartProduct']); $i++) 
                     { 
-                        $id = $_SESSION['cartproductID'][$i];
-                        $name = $_SESSION['cartproductNAME'][$i];
-                        $qty = $_SESSION['cartproductQTY'][$i];
-                        $price = str_replace("," ,"",$_SESSION['PriceProduct'][$i]);
-
+                        $imgProduct = $_SESSION['cartProduct'][$i]['imgProduct'];
+                        $id = $_SESSION['cartProduct'][$i]['idProduct'];
+                        $name = $_SESSION['cartProduct'][$i]['nameProduct'];
+                        $qty = $_SESSION['cartProduct'][$i]['qtyproduct'];
+                        $price = str_replace("," ,"",$_SESSION['cartProduct'][$i]['priceProduct']);
+                        $thumb = $_SESSION['cartProduct'][$i]['thumb'];
                         $price *= $qty;
                         $totalprice += $price;
-                        if($_SESSION['cartproductID'] != ""){
+                        
             ?>
                         
                             <tr>
-                                <td><?=$id;?></td>
-                                <td><?=$name;?></td>
-                                <td><?=number_format($price,2);?></td>
-                                <td><?=$qty;?></td>
-                                <td class="text-right"><?=number_format($totalprice,2);?></td>
+                                <td><img style="width:120px;height:100px;" src="<?php echo $imgProduct; ?>" alt="รูปสินค้า"></td>
+                                <td><?php echo $name;?></td>
+                                <td><?php echo number_format($price,2);?></td>
+                                <td><?php echo $qty;?></td>
+                                <td class="text-right"><?php echo number_format($totalprice,2);?></td>
                             </tr>
                         </tbody>
             <?php
-                        }
+                        
                     }
                     $_SESSION['carttotalprice'] = $totalprice;
                 }
@@ -49,7 +50,7 @@
     <br><br>
     <div class="row">
         <div class="col-md-12">
-            <a class=" btn btn-default col-xs-6 center-block noborder btn-next" href="./Cartproduct.php">กลับหน้าตะกร้าสินค้า</a>
+            <a class=" btn btn-default col-xs-6 center-block noborder btn-next" href="./New_Cartproduct.php">กลับหน้าตะกร้าสินค้า</a>
             <a class="btn btn-default col-xs-6 center-block noborder btn-next" <?php if(empty($_SESSION['idnumLoginWebsite'])) {echo "disabled href='#' >กรุณาเข้าสู่ระบบ";}else{echo "href='?Cart_Status=shipping' >ดำเนินการต่อ";} ?></a>
             
         </div>

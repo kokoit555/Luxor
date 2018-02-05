@@ -108,7 +108,6 @@
                                     <input type="hidden" name="idproduct" value="<?php echo  $row['id_product']; ?>">
                                     <input type="hidden" name="NameProduct" value="<?php echo  $row['NameProduct']; ?>">
                                     <input type="hidden" name="PriceProduct" value="<?php echo  $row['PriceProduct']; ?>">
-
                                     <!-- ส่วนดึงมาจาก div ลายผ้า-->
                                     <input type="hidden" name="thumb" value="">
                                     <!-- ส่วนดึงมาจาก div ลายผ้า-->
@@ -129,7 +128,9 @@
                                     <h6><a href="#"><span class="glyphicon glyphicon-heart-empty" style="cursor:pointer;"></span> เพิ่มในรายการโปรด </a></h6>
                                 </div>
                             </form>
-                            <?php include "./Codephp/CodeFront/addcart.php"; ?>
+                            <?php 
+                            include "./Codephp/CodeFront/addcart.php";
+                            ?>
                             </div>
                             <div class="col-xs-12">
                                 <ul class="menu-items nav nav-tabs">
