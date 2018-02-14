@@ -55,8 +55,7 @@
         }
         .ItemDetailOrder .ItemDetailOrder-info .ItemDetailOrder-content p {
             color: #636363;
-            font-size: .9em;
-            font-weight: bold;
+            font-size: 1.2em;
             width: 100%;
         }
         .ItemDetailOrder .ItemDetailOrder-info .ItemDetailOrder-content ul li {
@@ -166,11 +165,10 @@
                 </div>
                 <hr/>
                 <?php 
-                     echo $selectproduct = "SELECT * FROM order_product op
+                    $selectproduct = "SELECT * FROM order_product op
                                 INNER JOIN orderproductdetail opd ON opd.id_order = op.id_order
                                 INNER JOIN product p ON p.id_product = opd.id_product
                                 INNER JOIN store s ON s.id_store = p.id_store
-                                
                                 WHERE op.id_user = '$iduser' AND op.id_order = '$idorder'
                                 ORDER BY op.id_order";
 
@@ -180,24 +178,45 @@
                     <h3>ข้อมูลสินค้า</h3>
                 </div>
                 <div class="container">
-                <?php while($row = mysqli_fetch_array($queryselectproduct)){ ?>
+                <?php 
+                    while($row = mysqli_fetch_array($queryselectproduct)){ 
+                        $showimg = "SELECT * FROM product p 
+                                    INNER JOIN imgproductdetail ipd ON ipd.id_product = p.id_product
+                                    INNER JOIN imgproduct ip ON ip.id_imgProduct = ipd.id_imgProduct
+                                    WHERE p.id_product = '".$row['id_product']."' AND ipd.namethumbProduct = '".$row['namethumbProduct']."'";
+                        $imgproduct = mysqli_fetch_array(mysqli_query($connect,$showimg));
+
+                        $checkshipping = "SELECT op.id_order ,op.Name, op.Date_order , op.Totalprice , sps.id_shipment , sps.id_orderDetail , sps.id_shipping , sps.ShipCode
+                                            FROM order_product op
+                                            LEFT JOIN store_product_shipment sps ON sps.id_order = op.id_order
+                                            INNER JOIN orderproductdetail opd ON opd.id_orderDetail = sps.id_orderDetail
+                                            WHERE op.id_user = '$iduser' AND sps.id_orderDetail = '".$row['id_orderDetail']."'
+                                            ORDER BY op.id_order";
+                        $shipping = mysqli_fetch_array(mysqli_query($connect,$checkshipping));
+                                
+                ?>
                 <div class="row">
                     <div class="ItemDetailOrder">
                         <div class="img-container">
-                            <img src="<?=$row['']?>" alt="รูปสินค้า">
+                            <img src="<?=$imgproduct['url_img'].$imgproduct['Name_img']?>" alt="รูปสินค้า">
                         </div>
                         <div class="ItemDetailOrder-info">
                         <div class="ItemDetailOrder-content">
-                            <h1><?=$row['NameProduct']?></h1>
-                            <p><?=$row['productDetail'];?></p>
-                            <ul>
-                                <li>Lorem ipsum dolor sit ametconsectetu.</li>
-                                <li>adipisicing elit dlanditiis quis ip.</li>
-                                <li>lorem sde glanditiis dars fao.</li>
-                            </ul>
+                            <h1>ชื่อสินค้า : <?=$row['NameProduct']?></h1>
+                            <p>รูปแบบสินค้า : <?=$row['namethumbProduct']?></p>
+                            <p>ชื่อร้านค้า : <?=$row['NameStore']?></p>
+                            <p>จำนวนสินค้า : <?=$row['qty']?></p>
                             <div class="buttons">
-                                <a class="button buy" href="#">Buy</a>
-                                <a class="button add" href="#">Add to Cart</a>
+                                <a href="detailHistory.php?id_order=<?=$idorder?>" class="btn btn-info">รายละเอียดใบเสร็จ</a>
+                                <?php if(!empty($shipping['id_shipping'])){ ?>
+                                    <a class="btn btn-info" href="#">ยืนยันรับของ</a>
+                                <?php 
+                                    }else{
+                                ?>
+                                    <button class="btn btn-danger" disabled>สินค้ายังไม่มีการจัดส่ง</button>
+                                <?php
+                                    } 
+                                ?>
                             </div>
                         </div>
                         </div>

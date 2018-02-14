@@ -19,18 +19,17 @@
          
         if(empty($_SESSION['cartProduct'])){
 
-            $_SESSION['cartProduct'][] = ["NumberListProduct"=>$pkey
+            $_SESSION['cartProduct'][] = array("NumberListProduct"=>$pkey
                                         , "idProduct"=>$idproduct
                                         , "imgProduct" => $cartImg
                                         , "nameProduct"=>$nameproduct
                                         , "priceProduct"=>$priceproduct
                                         , "thumb"=>$thumb
-                                        , "qtyproduct"=>$qtyproduct];
+                                        , "qtyproduct"=>$qtyproduct);
         }
         else{
 
-            $new = array_combine(array_keys($_SESSION['cartProduct'])
-                   , array_column($_SESSION['cartProduct'], 'NumberListProduct'));
+            $new = array_combine(array_keys($_SESSION['cartProduct']) , array_column($_SESSION['cartProduct'], 'NumberListProduct'));
             
             $key = array_search($pkey, $new);
 
@@ -39,13 +38,13 @@
                 $_SESSION['cartProduct'][$key]['qtyproduct'] = $_SESSION['cartProduct'][$key]['qtyproduct'] + $qtyproduct;
             }
             else{
-                $_SESSION['cartProduct'][] = ["NumberListProduct"=>$pkey
+                $_SESSION['cartProduct'][] = array("NumberListProduct"=>$pkey
                                         , "idProduct"=>$idproduct
                                         , "imgProduct" => $cartImg
                                         , "nameProduct"=>$nameproduct
                                         , "priceProduct"=>$priceproduct
                                         , "thumb"=>$thumb
-                                        , "qtyproduct"=>$qtyproduct];
+                                        , "qtyproduct"=>$qtyproduct);
             }
             
         }

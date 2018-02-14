@@ -27,9 +27,10 @@
   <?php include 'Codephp/connectdb.php'; ?>
 <?php
      include "header.php";
-$strSQL = "SELECT * FROM `order_product` WHERE id_order = '".$_GET["id_order"]."' ";
-$objQuery = mysqli_query($connect,$strSQL);
-$objResult = $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
+      $idorder = mysqli_escape_string($connect,$_GET['id_order']);
+      $strSQL = "SELECT * FROM `order_product` WHERE id_order = '$idorder' ";
+      $objQuery = mysqli_query($connect,$strSQL);
+      $objResult = $objResult = mysqli_fetch_array($objQuery,MYSQLI_ASSOC);
 ?>
 <style>
   
@@ -166,7 +167,7 @@ mysqli_close($connect);
 
    <div class="row" style="margin-top: 5%;">
   <div class="col-md-12">
-    <a class="btn btn-default col-xs-6 center-block noborder btn-next" href="./History.php">ย้อนกลับ</a>
+    <a class="btn btn-default col-xs-6 center-block noborder btn-next" href="./DetailOrder.php?id_order=<?=$idorder?>">ย้อนกลับ</a>
     <a class="btn btn-default col-xs-6 center-block noborder btn-next" href="./Listproduct.php">เลือกดูสินค้าเพิ่มเติม</a>
   </div>
   </div>
