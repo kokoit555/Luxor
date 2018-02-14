@@ -43,10 +43,7 @@
                                 <th>ชื่อผู้สั่ง</th>
                                 <th>วันที่สั่ง</th>
                                 <th>ราคาทั้งหมด</th>
-                                <th>การขนส่ง</th>
                                 <th>สถานะการจ่ายเงิน</th>
-                                <th></th>
-                                <th>ยืนยันการรับของ</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -54,58 +51,40 @@
                             
                             $iduser = $_SESSION['idnumLoginWebsite'];
 
-                            $select = "SELECT op.id_order op_id_order ,op.Name, op.Date_order , op.Totalprice , sps.id_shipment , sps.Status , sps.id_shipping 
+                            $select = "SELECT op.id_order ,op.Name, op.Date_order , op.Totalprice , sps.id_shipment
                                         FROM `order_product` op
                                         LEFT JOIN store_product_shipment sps ON sps.id_order = op.id_order
                                         WHERE op.id_user = '$iduser'
                                         ORDER BY op.id_order;";
+                            // $select = "SELECT * FROM `order_product` op";
                                         
                             $query = mysqli_query($connect,$select);
-
+                            $check = true;
+                            $setnum2 = "0";
                             if(mysqli_num_rows($query)>0){
                                 while($row = mysqli_fetch_array($query)){
+                                    $setnum1 = $row['id_order'];
+                                    if($setnum1 == $setnum2){$check = false;}
+                                    else{$setnum2 = $row['id_order'];$check = true;}
+                                    if($check){
                                 ?>
                                 <tr>
-                                    <td><?php echo $row['op_id_order']; ?></td>
+                                    <td><?php echo $row['id_order']; ?></td>
                                     <td><?php echo $row['Name']; ?></td>
                                     <td><?php echo $row['Date_order']; ?></td>
                                     <td><?php echo number_format($row['Totalprice']); ?> บาท</td>
-                                    <td><?php if(empty($row['id_shipping'])){echo "รอการจัดส่ง";} ?></td>
                                     <td>
                                         <?php 
                                             if(!empty($row['id_shipment'])){
-                                                if($row['Status'] == '1'){echo "Success";}
-                                                else if($row['Status'] == '0'){echo "Pedding";}
+                                                echo "<a href='detailOrder.php?id_order=".$row['id_order']."' class='btn btn-info btn-block'>ดูรายละเอียด</a>";
                                             } 
-                                            else{ echo "ยังไม่ได้ชำระเงิน";}
-                                        ?>
-                                    </td>
-                                    <td>
-                                        <?php 
-                                            if(empty($row['id_shipment'])){
-                                            ?>
-                                                <a href="Cartproduct.php?Cart_Status=payment&&id_order=<?php echo $row['op_id_order']; ?>" class="btn btn-warning btn-block">ชำระเงิน</a>
-                                            <?php
-                                            }else if(!empty($row['id_shipment'])){
-                                            ?>
-                                                <a href="./detailHistory.php?id_order=<?php echo $row['op_id_order']; ?>" class="btn btn-info btn-block">ดูใบเสร็จ</a>
-                                            <?php
-                                            }
-                                        ?>
-                                    </td>
-                                    <td>
-                                        <?php 
-                                            if(!empty($row['id_shipping'])){
-                                                echo "ยืนยันการรับของ";
-                                            }else{
-                                               ?>
-                                               <button class="btn btn-success btn-block" disabled>ยืนยันการรับของ</button>
-                                               <?php
-                                            } 
+                                            else{ echo "<a href='Cartproduct.php?Cart_Status=payment&&id_order=".$row['id_order']."' class='btn btn-warning btn-block'>ชำระเงิน</a>";}
                                         ?>
                                     </td>
                                 </tr>
                                 <?php
+                                    }
+                                   
                                 }
                             }
                             mysqli_close($connect);

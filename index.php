@@ -80,7 +80,7 @@
 								{
 						?>
 									<div class="item">
-										<form method="post">
+										<form method="POST">
 											<figure class="snip1268">
 												<div class="image">
 													<img style="height:250px;" class="img-responsive center-block" src="./<?php echo $row['url_img'].$row['Name_img'];?>" alt="sq-sample4"/>
@@ -98,7 +98,7 @@
 															</p>
 														</div>
 													</figcaption>
-													<input name="id_product" type="hidden" value="<?php echo $row['id_product']; ?>">
+													<input name="idproduct" type="hidden" value="<?php echo $row['id_product']; ?>">
 													<input name="NameProduct" type="hidden" value="<?php echo $row['NameProduct']; ?>">
 													<input name="PriceProduct" type="hidden" value="<?php echo $row['PriceProduct'];?>">
 													<input name="thumb" type="hidden" value="1">

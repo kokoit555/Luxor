@@ -158,7 +158,7 @@
                                   <li><a  href="index.php"><i class="fa fa-angle-double-right"></i> หน้าหลัก</a></li>
                                     <li><a  href="Listproduct.php"><i class="fa fa-angle-double-right"></i> สินค้า</a></li>
                                     <li><a  href="#"><i class="fa fa-angle-double-right"></i> เกี่ยวกับเรา</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i> บทความ</a></li>
+                                    <li><a  href="Bolg.php"><i class="fa fa-angle-double-right"></i> บทความ</a></li>
                                     <li><a  href="#"><i class="fa fa-angle-double-right"></i> ติดต่อเรา</a></li>
                                     </ul>
               </li>
@@ -174,8 +174,8 @@
                              <!--    <h1 class="title-widget">Useful links</h1> -->
                                                                 <ul>
                   <li><a  href="#"><i class="fa fa-angle-double-right"></i>  เริ่มต้นขายของที่นี่</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i> สมัครสมาชิก</a></li>
-                                    <li><a  href="#"><i class="fa fa-angle-double-right"></i>  เข้าสู่ระบบ</a></li>
+                                    <li><a  href="Resister.php"><i class="fa fa-angle-double-right"></i> สมัครสมาชิก</a></li>
+                                    <!-- <li><a  href="#"><i class="fa fa-angle-double-right"></i>  เข้าสู่ระบบ</a></li> -->
 
                                 </ul>
               </li>

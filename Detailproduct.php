@@ -59,13 +59,13 @@
                         ?>
                         <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
                             <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 item-photo">
-
+                                <div id="glasscase" class="gc-start">
                                 <?php for ($i=0; $i < count($img); $i++) { ?>
                                     <div class="img-area" id="area-0<?php echo $i+1; ?>">
-                                        <img style="max-width:100%;" src="<?php echo $img[$i]; ?>" />
+                                        <img style="max-width:100%;" data-gc-caption="Your caption text" src="<?php echo $img[$i]; ?>" />
                                     </div>
                                 <?php } ?>
-
+                                </div>
                             </div>
                             <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6" style="border:0px solid gray;padding: 1% 4%;">
                             <form method="POST">
@@ -168,6 +168,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+       
+        
         <script>
    $(document).ready(function(){
             $(".attr,.attr2").on("click",function(){

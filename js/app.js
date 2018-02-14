@@ -129,7 +129,21 @@ app.controller("UserListProduct",function($scope,$http){
         $http.get("Codephp/CodeFront/listproduct.php").then(function(response){
           $scope.masterListProdut = response.data.records;  
           $scope.listproduct = $scope.masterListProdut; 
-        })
+          
+          $scope.current_grid = 1;
+          $scope.data_limit = 3;
+          $scope.filter_data = $scope.masterListProdut.length;
+          $scope.entire_user = $scope.masterListProdut.length;
+          
+        });
+        $scope.page_position = function(page_number) {
+          $scope.current_grid = page_number;
+        };
+        $scope.filter = function() {
+            $timeout(function() {
+                $scope.filter_data = $scope.searched.length;
+            }, 20);
+        };
     }
     $scope.updateTypeFilter = function(){
       $scope.listproduct = $scope.masterListProdut;

@@ -1,35 +1,39 @@
-<?php
-    session_start();
-    // $_SESSION['GG'][] = ["id"=>"1", "name"=>"dd"];
-    // $_SESSION['GG'][] = ["id"=>"2", "name"=>"cc"];
-    // $_SESSION['GG'][] = ["id"=>"3", "name"=>"gg"];
-    // $_SESSION['GG'][] = ["id"=>"4", "name"=>"aa"];
-    // print_r($_SESSION['GG']);
-
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LuxorFabric</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/logo.png" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     
-    
+    <script src="//cdn.quilljs.com/1.3.5/quill.js"></script>
+    <script src="//cdn.quilljs.com/1.3.5/quill.min.js"></script>
 
-    if(empty($_SESSION['GG'])){
-        $_SESSION['GG'][] = ["id"=>"1", "name"=>"cc","qty"=>"1"];
-        $_SESSION['GG'][] = ["id"=>"4", "name"=>"gg","qty"=>"1"];
-    }
-    else{
-        $new = array_combine(array_keys($_SESSION['GG']), array_column($_SESSION['GG'], 'name'));
-        $search = array_search('gg', $new);
+    <!-- Theme included stylesheets -->
+    <link href="//cdn.quilljs.com/1.3.5/quill.snow.css" rel="stylesheet">
+    <link href="//cdn.quilljs.com/1.3.5/quill.bubble.css" rel="stylesheet">
 
-        if((string)$search != "")
-        {
-            $_SESSION['GG'][$search]['qty'] = $_SESSION['GG'][$search]['qty'] + 1;
-        }
-    }
+    <!-- Core build with no theme, formatting, non-essential modules -->
+    <link href="//cdn.quilljs.com/1.3.5/quill.core.css" rel="stylesheet">
+    <script src="//cdn.quilljs.com/1.3.5/quill.core.js"></script>
+</head>
 
-    array_splice($_SESSION['GG'], 0 , 1);
-    
-    print_r($_SESSION['GG']);
+<body>
+	<?php include 'Codephp/connectdb.php';?>
 
-    // for($i=0; $i < count($_SESSION['GG']);$i++){
-    //     echo $_SESSION['GG'][$i]['id']."<br>";
-    // }
 
-    //session_destroy();
-?>
+
+	<?php mysqli_close($connect); ?>
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type='text/javascript' src="js/app.js"></script>
+	
+</body>
+
+</html>

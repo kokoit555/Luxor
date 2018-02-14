@@ -12,5 +12,5 @@
     // unset($_SESSION['cartproductID'][$slotdelete]);
     // print_r($_SESSION['cartproductID']);
 
-    header("Location: ../../New_Cartproduct.php");
+    header("Location: ../../Cartproduct.php");
 ?>

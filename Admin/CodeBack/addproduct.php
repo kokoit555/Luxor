@@ -20,6 +20,7 @@
     
         if(mysqli_query($connect,$sqlinsertProduct)){ echo "Complete insert product";}
 
+        $idproduct = mysqli_insert_id($connect);
 
         for ($i=0; $i < count($_POST['quant']); $i++) { 
             $qty[] = $_POST['quant'][$i];
@@ -28,14 +29,14 @@
             $target_dir = "images/product/";
             // $Str_file = explode(".",$_FILES["input-file-img-product"]["name"][$i]);
             // $new_name="ทดสอบ_upload.".$Str_file[1];
-            $basenameproduct = basename($_FILES["input-file-img-product"]["name"][$i]);
+            $basenameproduct = basename($idproduct.$i);
             $target_file = $target_dir . $basenameproduct;
             $uploadOk = 1;
             $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
             $check = getimagesize($_FILES["input-file-img-product"]["tmp_name"][$i]);
     
             $target_dir_thumb = "images/thumbproduct/";
-            $basenameproduct_thumb = basename($_FILES["input-file-img-product-thumb"]["name"][$i]);
+            $basenameproduct_thumb = basename($idproduct.$i);
             $target_file_thumb = $target_dir_thumb . $basenameproduct_thumb;
             $imageFileType_thumb = pathinfo($target_file_thumb,PATHINFO_EXTENSION);
             $check_thumb = getimagesize($_FILES["input-file-img-product-thumb"]["tmp_name"][$i]);

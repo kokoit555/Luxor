@@ -84,16 +84,16 @@
         </div><!--list-group collapse-->
 
         <div id="group-2" class="list-group collapse in">
-          <a class="list-group-item" href="#" ng-click="orderList = '-priceproduct';reverse=!reverse">
+          <a class="list-group-item" href="#" ng-click="orderList = '-priceproduct';">
             <i class="fa fa-sort-amount-desc"></i> เรียงลำดับราคา มาก ไป น้อย
           </a>
-          <a class="list-group-item" href="#" ng-click="orderList = 'priceproduct';reverse=!reverse">
+          <a class="list-group-item" href="#" ng-click="orderList = 'priceproduct';">
             <i class="fa fa-sort-amount-asc"></i> เรียงลำดับราคา น้อย ไป มาก
           </a>
-          <a class="list-group-item" href="#" ng-click="orderList = 'dateinput';reverse=false'" >
+          <a class="list-group-item" href="#" ng-click="orderList = 'dateinput';" >
             <i class="fa fa-calendar"></i> เรียงลำดับวันที่ลง มาก ไป น้อย
           </a>
-          <a class="list-group-item" href="#" ng-click="orderList = '-dateinput';reverse=false">
+          <a class="list-group-item" href="#" ng-click="orderList = '-dateinput';">
             <i class="fa fa-calendar"></i> เรียงลำดับวันที่ลง น้อย ไป มาก
           </a>
         </div>
@@ -116,7 +116,7 @@
     <!-- เริ่มสินค้า -->
         <div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4" 
               ng-repeat="x in listproduct | filter:{nameproduct: searchname}
-                          | orderBy:'-priceproduct'">
+                          | orderBy:orderList">
             <div class="thumbnail">
               <figure class="snip1268">
               <div class="image">
@@ -137,7 +137,7 @@
                 </form>
               </div>
               <figcaption>
-               <div class="caption"><p class="title">{{x.nameproduct}}<br>{{x.productDetail}}</p><p class="price CRed">{{x.priceproduct | number:0}} บาท</p></div>
+               <div class="caption"><p class="title">{{x.nameproduct}}<br>{{x.productDetail}}</p><p class="price CRed">{{x.priceproduct| number:0}} บาท</p></div>
               </figcaption>
             </figure>
             </div>
@@ -165,7 +165,7 @@ include "./Codephp/CodeFront/addcart.php";
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type='text/javascript' src="js/angular.min.js"></script>
-        <script type='text/javascript' src="js/jquery.mycart.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
         <script type="text/javascript" src="slick/slick.min.js"></script>
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> -->
         <script type='text/javascript' src="js/app.js"></script>

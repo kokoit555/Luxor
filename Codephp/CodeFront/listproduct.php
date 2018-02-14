@@ -30,7 +30,7 @@
             $outp .= '"nameTypeProduct":"'.$row['nameTypeProduct'].'",';
             $outp .= '"checkCustomize":"'.$row['checkCustomize'].'",';
             $outp .= '"urlimg":"'.$row['url_img'].$row['Name_img'].'",';
-            $outp .= '"priceproduct":"'.$row['PriceProduct'].'"}';
+            $outp .= '"priceproduct":'.$row['PriceProduct'].'}';
         }
         $outp = '{"records":['.$outp.']}';
         echo ($outp);

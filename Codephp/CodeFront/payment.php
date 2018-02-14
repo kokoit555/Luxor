@@ -109,6 +109,9 @@
                                             WHERE `orderproductdetail`.`id_order` = '$idorder'";
 
                     $queryidstore = mysqli_query($connect,$sqlselectidstore);
+                    
+
+
                     while($row = mysqli_fetch_array($queryidstore)){
 
                         $strSQL = "INSERT INTO `store_product_shipment` (`id_shipment`, `id_order`, `id_payment`, `Status`, `id_store`, `id_shipping`, `ShipCode`) VALUES 
