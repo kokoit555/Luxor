@@ -48,7 +48,8 @@ function drawChart2() {
   var options = {
     title: 'Company Performance',
     hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-    vAxis: {minValue: 0}
+    vAxis: {minValue: 0},
+    height: 600
   };
 
   var chart = new google.visualization.AreaChart(document.getElementById('chart_div1'));

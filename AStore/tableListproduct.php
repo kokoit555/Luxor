@@ -1,4 +1,5 @@
-                        <div ng-app="ListProduct" ng-controller="UserListProduct">
+<div class="clearfix"></div>
+                        <div ng-app="ListProduct" ng-controller="UserListProduct" >
                         <table id="datatable-responsive3" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
@@ -7,7 +8,6 @@
                                     <th>Status</th>
                                     <th>price</th>
                                     <th>edit</th>
-                                    <th>delete</th>
                                 </tr>
                             </thead>
                             <tbody>

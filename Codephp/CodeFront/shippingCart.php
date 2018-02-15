@@ -68,6 +68,8 @@
         </form>
         <?php 
         if(!empty($_POST['SubmitShipping'])){
+                date_default_timezone_set("Asia/Bangkok");
+
                 $totalprice = $_SESSION['carttotalprice'];
                 $first_name = $_POST['first_name'];
                 $last_name = $_POST['last_name'];
@@ -81,37 +83,46 @@
                 $iduser = $_SESSION['idnumLoginWebsite'];
                 $dateinput = date("Y-m-d H:i:s");
 
+                $id =mysqli_fetch_array(mysqli_query($connect,"Select Max(substr(id_order,-5)+1) as MaxID from order_product"));//เลือกเอาค่า id ที่มากที่สุดในฐานข้อมูลและบวก 1 เข้าไปด้วยเลย
+                $new_id = $id['MaxID'];
+                if($new_id==''){ // ถ้าได้เป็นค่าว่าง หรือ null ก็แสดงว่ายังไม่มีข้อมูลในฐานข้อมูล
+                    $idorder= date("Y").date("m").date("d")."00001";
+                }else{
+                    $idorder = date("Y").date("m").date("d").sprintf("%05d",$new_id);//ถ้าไม่ใช่ค่าว่าง
+                }
+    
+
                 $strSQL = "INSERT INTO `order_product` (`id_order`, `id_user`, `Date_order`, `Tax`, `Name`, `LastName`, `Tel`, `Address`, `Zip`, `Send_email_order`, `Totalprice`) 
-                            VALUES('0', '$iduser', '$dateinput', '7%', '$first_name','$last_name', '$txtTel'
+                            VALUES('$idorder', '$iduser', '$dateinput', '7%', '$first_name','$last_name', '$txtTel'
                                     , '$address"." อำเภอ"."$state"." จังหวัด"."$city"." ประเทศ"."$country', '$zip_code', '$txtEmail', '$totalprice');";
 
-                $queryinsertOrder = mysqli_query($connect,$strSQL);
-                if(!$queryinsertOrder)
-                {
-                    echo $queryinsertOrder->error;
-                    exit();
-                }
+                // $queryinsertOrder = mysqli_query($connect,$strSQL);
+                // if(!$queryinsertOrder)
+                // {
+                //     echo $queryinsertOrder->error;
+                //     exit();
+                // }
 
-                $last_orderid = mysqli_insert_id($connect);
+                // $last_orderid = mysqli_insert_id($connect);
 
-                for($i=0;$i< count($_SESSION['cartProduct']);$i++)
-                {
-                    if($_SESSION["cartProduct"][$i]['NumberListProduct'] != "")
-                    {
-                            echo $strSQL = "INSERT INTO `orderproductdetail` (`id_orderDetail`, `id_order`, `id_product`, `namethumbProduct`, `qty`, `Price`) VALUES 
-                                        ('0', '$last_orderid', 
-                                        '".$_SESSION['cartProduct'][$i]['idProduct']."', 
-                                        '".$_SESSION['cartProduct'][$i]['thumb']."' ,
-                                        '".$_SESSION['cartProduct'][$i]['qtyproduct']."', 
-                                        '".$_SESSION['cartProduct'][$i]['priceProduct']."');";
-                            mysqli_query($connect,$strSQL);
-                    }
-                }
+                // for($i=0;$i< count($_SESSION['cartProduct']);$i++)
+                // {
+                //     if($_SESSION["cartProduct"][$i]['NumberListProduct'] != "")
+                //     {
+                //             echo $strSQL = "INSERT INTO `orderproductdetail` (`id_orderDetail`, `id_order`, `id_product`, `namethumbProduct`, `qty`, `Price`) VALUES 
+                //                         ('0', '$last_orderid', 
+                //                         '".$_SESSION['cartProduct'][$i]['idProduct']."', 
+                //                         '".$_SESSION['cartProduct'][$i]['thumb']."' ,
+                //                         '".$_SESSION['cartProduct'][$i]['qtyproduct']."', 
+                //                         '".$_SESSION['cartProduct'][$i]['priceProduct']."');";
+                //             mysqli_query($connect,$strSQL);
+                //     }
+                // }
 
-                unset($_SESSION['cartProduct']);
-                mysqli_close($connect);
+                // unset($_SESSION['cartProduct']);
+                // mysqli_close($connect);
 
-                header("location: ?Cart_Status=payment&&id_order=".$last_orderid);
+                // header("location: ?Cart_Status=payment&&id_order=".$last_orderid);
         }
         ?>
     </div>
