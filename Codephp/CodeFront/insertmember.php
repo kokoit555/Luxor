@@ -10,8 +10,8 @@
         $country = mysqli_escape_string($connect,$_POST['country']);
         $zip = mysqli_escape_string($connect,$_POST['zip']);
 
-        $email = mysqli_escape_string($connect,$_POST['email']);
-        $passwordcheck = mysqli_escape_string($connect,$_POST['password']);
+        $email = mysqli_escape_string($connect,trim($_POST['email']));
+        $passwordcheck = mysqli_escape_string($connect,trim($_POST['password']));
         $password = md5($passwordcheck);
         
         echo $sqluser = "INSERT INTO `user_member`(`id_user`, `Name`, `LastName`, `Email`,

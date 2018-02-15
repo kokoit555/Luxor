@@ -9,7 +9,7 @@
                 </div>
                 <div class="x_content">
                     <br/>
-                    <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                    <form class="form-horizontal" method="post" enctype="multipart/form-data" autocomplete="off">
                         <fieldset>
                             <!-- ชื่อสินค้า-->
                             <div class="form-group"><!--item -->

@@ -18,16 +18,18 @@
 
         
         $target_dir = "images/avatar/";
-        $basenameproduct1 = basename($_FILES["input-file-preview"]["name"]);
-        $target_file = $target_dir . $basenameproduct1;
+        $basenameproduct1 = $namestore.substr(basename($_FILES["input-file-preview"]["name"]),-4);
+        $target_file = $target_dir.$basenameproduct1;
         $uploadOk = 1;
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         $check = getimagesize($_FILES["input-file-preview"]["tmp_name"]);
+
         ///////////////////////////////////////////
         echo $sqlinsertstore = "INSERT INTO `store` (`id_store`, `NameStore`, `AvatarStore`, `AddressStore`, `TelStore`, `CityStore`, `StateStore`, `ZipStore`, `CountryStore`, `EmailStore`, `Password`, `textStory`, `nameAccountStore`, `numberStorebank`, `namebank`) VALUES
                                 (0, '$namestore', '$target_file', '$address','$telephone', '$city', '$state', '$zip', '$country','$email', '$password', '$storytextstore','$nameAccountStore','$numberStorebank','$namebank');";
         ///////////////////////////////////////////
-
+        
+        
         if($check !== false) {$uploadOk = 1;} 
         else {$uploadOk = 0;}
         if($imageFileType != "jpg" && $imageFileType != "png") { echo "Sorry, only JPG,PNG files are allowed."; $uploadOk = 0;}

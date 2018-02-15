@@ -13,6 +13,11 @@
         $Customize = $_POST['checkCustomize'];
         $idstore = $_GET['idstore'];
 
+        $selectnamestore = "SELECT * FROM store WHERE id_store = $idstore;";
+        $querynamestore = mysqli_query($connect,$select);
+        $namestore = mysqli_fetch_array($query);
+
+        
 
         echo $sqlinsertProduct = "INSERT INTO  `product` (`id_product`, `NameProduct`, `Status`, `PriceProduct`, 
         `discount`, `tax`, `date_input`, `productDetail`, `textProductDetail`, `checkCustomize`, `id_type`, `id_store`) VALUES
@@ -29,15 +34,21 @@
             $target_dir = "images/product/";
             // $Str_file = explode(".",$_FILES["input-file-img-product"]["name"][$i]);
             // $new_name="ทดสอบ_upload.".$Str_file[1];
-            $basenameproduct = basename($idproduct.$i);
-            $target_file = $target_dir . $basenameproduct;
+            echo "<br/>";
+            echo  $basenameproduct = $namestore['NameStore'].$idproduct.$i.substr(basename($_FILES["input-file-img-product"]["name"][$i]),-4);
+            echo "<br/>";
+            echo $target_file = $target_dir . $basenameproduct;
+            echo "<br/>";
             $uploadOk = 1;
             $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
             $check = getimagesize($_FILES["input-file-img-product"]["tmp_name"][$i]);
     
             $target_dir_thumb = "images/thumbproduct/";
-            $basenameproduct_thumb = basename($idproduct.$i);
-            $target_file_thumb = $target_dir_thumb . $basenameproduct_thumb;
+            echo "<br/>";
+            echo $basenameproduct_thumb = $namestore['NameStore'].$idproduct.$i.substr(basename($_FILES["input-file-img-product-thumb"]["name"][$i]),-4);
+            echo "<br/>";
+            echo $target_file_thumb = $target_dir_thumb . $basenameproduct_thumb;
+            echo "<br/>";
             $imageFileType_thumb = pathinfo($target_file_thumb,PATHINFO_EXTENSION);
             $check_thumb = getimagesize($_FILES["input-file-img-product-thumb"]["tmp_name"][$i]);
     
@@ -58,7 +69,7 @@
                 echo "Error";
             }
 
-            $sqlinsertimg = "INSERT INTO `imgproduct` (`id_imgProduct`, `Name_img`, `url_img`) VALUES 
+            echo $sqlinsertimg = "INSERT INTO `imgproduct` (`id_imgProduct`, `Name_img`, `url_img`) VALUES 
             ('0', '$basenameproduct', '$target_dir');";
 
             if(mysqli_query($connect,$sqlinsertimg)){echo "insert img complete ".($i);}

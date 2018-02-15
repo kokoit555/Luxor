@@ -1,4 +1,4 @@
-                        <div ng-app="ListProduct" ng-controller="UserListProduct">
+                    <div ng-app="ListProduct" ng-controller="UserListProduct">
                         <table id="datatable-responsive3" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
