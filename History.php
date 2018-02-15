@@ -76,7 +76,7 @@
                                     <td>
                                         <?php 
                                             if(!empty($row['id_shipment'])){
-                                                echo "<a href='detailOrder.php?id_order=".$row['id_order']."' class='btn btn-info btn-block'>ดูรายละเอียด</a>";
+                                                echo "<a href='DetailOrder.php?id_order=".$row['id_order']."' class='btn btn-info btn-block'>ดูรายละเอียด</a>";
                                             } 
                                             else{ echo "<a href='Cartproduct.php?Cart_Status=payment&&id_order=".$row['id_order']."' class='btn btn-warning btn-block'>ชำระเงิน</a>";}
                                         ?>

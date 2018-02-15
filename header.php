@@ -37,8 +37,8 @@
 							<ul class="nav navbar-nav navbar-right">
 							<li style="margin-right:0;">
 								<a href="Cartproduct.php" ><i class="fa fa-shopping-cart" aria-hidden="true"> 
-									<?php if(!empty($_SESSION['cartproductID'])){ ?>
-										<span class="badge badge-notify bade-cart">
+									<?php if(!empty($_SESSION['cartProduct'])){ ?>
+										<span id="showingcart" class="badge badge-notify bade-cart">
 											!
 										</span>
 									<?php } ?>

@@ -26,68 +26,61 @@
 
 <body>
     <style>
-        .ItemDetailOrder {
-            width: 100%;
-            display: flex;
-            margin: 1em 0;
-            border-radius: 5px;
-            overflow: hidden;
-            box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.25);
-        }
-        .ItemDetailOrder .img-container {
-            flex: 2;
-        }
-        .ItemDetailOrder .img-container img {
-            margin : auto;
-            display: block;
-            width: 300px;
-            height: 250px;
-        }
-        .ItemDetailOrder .ItemDetailOrder-info {
-            background: #fff;
-            flex: 3;
-        }
-        .ItemDetailOrder .ItemDetailOrder-info .ItemDetailOrder-content {
-            padding: .2em 0 .2em 1em;
-        }
-        .ItemDetailOrder .ItemDetailOrder-info .ItemDetailOrder-content h1 {
-            font-size: 1.5em;
-        }
-        .ItemDetailOrder .ItemDetailOrder-info .ItemDetailOrder-content p {
-            color: #636363;
-            font-size: 1.2em;
-            width: 100%;
-        }
-        .ItemDetailOrder .ItemDetailOrder-info .ItemDetailOrder-content ul li {
-            color: #636363;
-            font-size: .9em;
-            margin-left: 0;
-        }
-        .ItemDetailOrder .ItemDetailOrder-info .ItemDetailOrder-content .buttons {
-            padding-top: .4em;
-        }
-        .ItemDetailOrder .ItemDetailOrder-info .ItemDetailOrder-content .buttons .button {
-            text-decoration: none;
-            color: #5e5e5e;
-            font-weight: bold;
-            padding: .3em .65em;
-            border-radius: 2.3px;
-            transition: all .1s ease-in-out;
-        }
-        .ItemDetailOrder .ItemDetailOrder-info .ItemDetailOrder-content .buttons .add {
-            border: 1px #5e5e5e solid;
-        }
-        .ItemDetailOrder .ItemDetailOrder-info .ItemDetailOrder-content .buttons .add:hover {
-            border-color: #6997b6;
-            color: #6997b6;
-        }
-        .ItemDetailOrder .ItemDetailOrder-info .ItemDetailOrder-content .buttons .buy {
-            border: 1px #5e5e5e solid;
-        }
-        .ItemDetailOrder .ItemDetailOrder-info .ItemDetailOrder-content .buttons .buy:hover {
-            border-color: #6997b6;
-            color: #6997b6;
-        }
+       .lib-panel {
+    margin-bottom: 20Px;
+}
+.lib-panel img {
+    width: 70%;
+    background-color: transparent;
+}
+
+.lib-panel .row,
+.lib-panel .col-md-6 {
+    padding: 0;
+    background-color: #FFFFFF;
+}
+
+.lib-row .lib-desc p{
+    font-size: 1.2em;
+
+}
+
+.lib-panel .lib-row {
+    padding: 0 20px 0 20px;
+}
+
+.lib-panel .lib-row.lib-header {
+    background-color: #FFFFFF;
+    font-size: 20px;
+    padding: 10px 20px 0 20px;
+}
+
+.lib-panel .lib-row.lib-header .lib-header-seperator {
+    height: 2px;
+    width: 26px;
+    background-color: #d9d9d9;
+    margin: 7px 0 7px 0;
+}
+
+.lib-panel .lib-row.lib-desc {
+    position: relative;
+    height: 100%;
+    display: block;
+    font-size: 13px;
+}
+.row-margin-bottom {
+    margin-bottom: 20px;
+}
+
+.box-shadow {
+    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
+    
+}
+
+.no-padding {
+    padding: 0;
+}
     </style>
 
 	<?php
@@ -124,7 +117,6 @@
 	<div id="wrapper">
 		<?php include "header.php"; ?>
 		<div class="container" style="margin-bottom:5%;">
-            <div class="row">
                 <div class="page-header">
                     <h3><a href="History.php">< ข้อมูลออเดอร์</a></h3>
                 </div>
@@ -196,35 +188,41 @@
                                 
                 ?>
                 <div class="row">
-                    <div class="ItemDetailOrder">
-                        <div class="img-container">
-                            <img src="<?=$imgproduct['url_img'].$imgproduct['Name_img']?>" alt="รูปสินค้า">
-                        </div>
-                        <div class="ItemDetailOrder-info">
-                        <div class="ItemDetailOrder-content">
-                            <h1>ชื่อสินค้า : <?=$row['NameProduct']?></h1>
-                            <p>รูปแบบสินค้า : <?=$row['namethumbProduct']?></p>
-                            <p>ชื่อร้านค้า : <?=$row['NameStore']?></p>
-                            <p>จำนวนสินค้า : <?=$row['qty']?></p>
-                            <div class="buttons">
-                                <a href="detailHistory.php?id_order=<?=$idorder?>" class="btn btn-info">รายละเอียดใบเสร็จ</a>
-                                <?php if(!empty($shipping['id_shipping'])){ ?>
-                                    <a class="btn btn-info" href="#">ยืนยันรับของ</a>
-                                <?php 
-                                    }else{
-                                ?>
-                                    <button class="btn btn-danger" disabled>สินค้ายังไม่มีการจัดส่ง</button>
-                                <?php
-                                    } 
-                                ?>
+                    <div class="col-md-12 no-padding lib-item" data-category="view">
+                        <div class="lib-panel">
+                            <div class="row box-shadow">
+                                <div class="col-md-6" style="text-align:  center;">
+                                    <img class="lib-img-show" src="<?=$imgproduct['url_img'].$imgproduct['Name_img']?>">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="lib-row lib-header">
+                                        <h3>ชื่อสินค้า : <?=$row['NameProduct']?></h3>
+                                        <div class="lib-header-seperator"></div>
+                                    </div>
+                                    <div class="lib-row lib-desc">
+                                        <h4>รูปแบบสินค้า : <?=$row['namethumbProduct']?></h4>
+                                        <h4>ชื่อร้านค้า : <?=$row['NameStore']?></h4>
+                                        <h4>จำนวนสินค้า : <?=$row['qty']?></h4>
+                                        <div class="col-md-12">
+                                            <a href="detailHistory.php?id_order=<?=$idorder?>" class="btn btn-info">รายละเอียดใบเสร็จ</a>
+                                            <?php if(!empty($shipping['id_shipping'])){ ?>
+                                                <a class="btn btn-info" href="#">ยืนยันรับของ</a>
+                                            <?php 
+                                                }else{
+                                            ?>
+                                                <button class="btn btn-danger" disabled>สินค้ายังไม่มีการจัดส่ง</button>
+                                            <?php
+                                                } 
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
                         </div>
                     </div>
                 </div>
                 <?php } ?>
                 </div>
-            </div>
         </div>
 		<?php include "footer.php"; mysqli_close($connect);?>
 

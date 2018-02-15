@@ -103,7 +103,7 @@
 													<input name="PriceProduct" type="hidden" value="<?php echo $row['PriceProduct'];?>">
 													<input name="thumb" type="hidden" value="1">
 													<input name="qtyproduct" type="hidden" value="1">
-													<input name="addproducttocart"  type="submit" class="add-to-cart my-cart-btn" value="Add to Cart">
+													<input id="clickaddcart" name="addproducttocart"  type="submit" class="add-to-cart my-cart-btn" value="Add to Cart">
 											</figure>
 										</form>
 									</div> <!--item-->
@@ -188,15 +188,6 @@
 			</div>
 			<div class="row nopadding">
 				<div class="col-md-12 nopadding">
-					<!-- <div class="col-md-3 col-sm-3 col-xs-6 nopadding">
-						<div class="thumbnail">
-							<div class="img"><img class="img-responsive" src="images/blog/Thumb_Blog_1.png" alt=""></div>
-							<div class="caption">
-								<p class="title">ภูคราม ผ้าฝ้ายปัก</p>
-								<p class="sub">สกลนคร >></p>
-							</div>
-						</div>
-					</div> -->
 					<?php 
 						$sqlBlog = "SELECT * FROM `blog` order by id_blog desc LIMIT 4";
 						$queryBlog = mysqli_query($connect,$sqlBlog);
@@ -233,9 +224,8 @@
 	
 	<script type="text/javascript">
 	
-	// $('#setfocus').click(function() {
-	// 	window.location.hash = '#sec-b';
-	// });
+	
+       
 
 	</script>
 	
