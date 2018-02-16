@@ -205,8 +205,8 @@
                                         <h4>จำนวนสินค้า : <?=$row['qty']?></h4>
                                         <div class="col-md-12">
                                             <a href="detailHistory.php?id_order=<?=$idorder?>" class="btn btn-info">รายละเอียดใบเสร็จ</a>
-                                            <?php if(!empty($shipping['id_shipping'])){ ?>
-                                                <a class="btn btn-info" href="#">ยืนยันรับของ</a>
+                                            <?php if(!empty($shipping['id_shipping']) && $shipping['Status'] == 1){ ?>
+                                                <a class="btn btn-info" href="">ยืนยันรับของ</a>
                                             <?php 
                                                 }else{
                                             ?>
