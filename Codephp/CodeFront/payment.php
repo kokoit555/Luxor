@@ -4,7 +4,7 @@
     <!--SHIPPING METHOD-->
         <div class="panel-body">
             <div class="col-sm-8 col-xs-12" id="pay-form">
-                <form class="form-horizontal" method="POST" autocomplete="off">
+                <form class="form-horizontal" method="POST" name="paymentform" onsubmit="return validationPayment()"  autocomplete="off">
                     <fieldset>
                     <legend>ชำระเงิน</legend>
                     <div class="form-group">
@@ -83,7 +83,7 @@
 
                 if(!empty($_POST['Submitpayment'])){
                     
-                    $idorder = $_GET["id_order"];
+                    $idorder = mysqli_escape_string($connect,$_GET["id_order"]); ;
                     $datepaymenmt = date("Y-m-d H:i:s");
                     $cardholdername = $_POST['cardholdername'];
                     $cardnumber = $_POST['cardnumber'];
@@ -114,8 +114,10 @@
 
                     while($row = mysqli_fetch_array($queryidstore)){
 
-                        $strSQL = "INSERT INTO `store_product_shipment` (`id_shipment`, `id_order`, `id_payment`, `Status`, `id_store`, `id_shipping`, `ShipCode`) VALUES 
-                        ('0', '$idorder', '$last_paymentid', '0', '".$row['id_store']."' , NULL, NULL);";
+                        
+
+                        echo $strSQL = "INSERT INTO `store_product_shipment` (`id_shipment`, `id_order`, `id_payment`, `Status`, `id_store`, `id_orderDetail`, `id_shipping`, `ShipCode`) VALUES 
+                        ('0', '$idorder', '$last_paymentid', '0', '".$row['id_store']."', '".$row['id_orderDetail']."', NULL, NULL);";
     
                         mysqli_query($connect,$strSQL);
 
@@ -133,7 +135,38 @@
             ?>
         </div><!--SHIPPING METHOD END-->
 
+        <script>
        
+        function validationPayment()
+        {
+          var cardholdername =  document.forms['paymentform']['cardholdername'].value;
+          var cardnumber =  document.forms['paymentform']['cardnumber'].value;
+          var expirymonth =  document.forms['paymentform']['expirymonth'].value;
+          var expiryyear =  document.forms['paymentform']['expiryyear'].value;
+          var cvv =  document.forms['paymentform']['cvv'].value;
+              
+              
+          var message ="Missing Content \n";
+          var valid =true;
+            
+              
+          if(cardholdername ==  null || cardholdername == ''){ valid = false; message = message + " - กรุณากรอกชื่อหน้าบัตร !! \n";}
+         
+          if(cardnumber ==  null || cardnumber == ''){ valid = false; message = message + " - กรุณากรอกเลขหน้าบัตร !! \n";}
+          
+          if(expirymonth ==  null || expirymonth == ''){ valid = false; message = message + " - กรุณาเลือกเดือนหมดอายุบัตร!! \n";}
+          
+          if(expiryyear ==  null || expiryyear == '') { valid = false; message = message + " - กรุณาเลือกปีหมดอายุบัตร !! \n"; }
+
+          if(cvv ==  null || cvv == '') { valid = false; message = message + " - กรุณากรอกเลข CVV !! \n"; }
+          
+          
+          if(valid == false)
+                alert(message);
+                return valid;
+          }
+       
+   </script>
         <!-- end confirm -->
     </div> <!--id pay-->
 </div>

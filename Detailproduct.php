@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style-mobi.css">
     <link rel="stylesheet" type="text/css" href="css/media.css">
+    <link rel="stylesheet" type="text/css" href="css/zoom.css">
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" href="css/p_detail.css">
@@ -59,13 +60,11 @@
                         ?>
                         <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
                             <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6 item-photo">
-                                <div id="glasscase" class="gc-start">
                                 <?php for ($i=0; $i < count($img); $i++) { ?>
-                                    <div class="img-area" id="area-0<?php echo $i+1; ?>">
+                                    <div class="img-area ex1" id="area-0<?php echo $i+1; ?>">
                                         <img style="max-width:100%;" data-gc-caption="Your caption text" src="<?php echo $img[$i]; ?>" />
                                     </div>
                                 <?php } ?>
-                                </div>
                             </div>
                             <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6" style="border:0px solid gray;padding: 1% 4%;">
                             <form method="POST">
@@ -475,5 +474,13 @@
         ele.onKeyPress=vchar;
     }
         </script>
+
+
+    <script type="text/javascript" src='js/jquery.zoom.js'></script>
+    <script>
+		$(document).ready(function(){
+			$('.ex1').zoom();
+		});
+	</script>
     </body>
 </html>

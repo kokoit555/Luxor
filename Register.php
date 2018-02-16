@@ -68,7 +68,7 @@ input.btn.btn-primary.btn-lg.center-block {
                         <div class="col-sm-12 col-md-12">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                                    <form class="form-horizontal" name="regmember" method="post" onsubmit="return validationReg()" enctype="multipart/form-data">
                                         <fieldset class="field-box" style="width: 70%;margin-left: 15%;margin-top: 0;margin-bottom: 5%;">
                                             <legend class="text-center" style="padding-bottom: 3%;">ลงทะเบียนสมาชิกใหม่</legend>
                                             <h4 class="text-center">สมัครสมาชิก</h4>
@@ -160,7 +160,54 @@ input.btn.btn-primary.btn-lg.center-block {
 
 	</div>
 	<!-- wrapper -->
+    <script>
+       
+        function validationReg()
+        {
+          var r_firstname =  document.forms['regmember']['firstname'].value;
+          var r_lastname =  document.forms['regmember']['lastname'].value;
+          var r_tel =  document.forms['regmember']['tel'].value;
+          var r_address =  document.forms['regmember']['address'].value;
+          var r_city =  document.forms['regmember']['city'].value;
+          var r_state =  document.forms['regmember']['state'].value;
+          var r_country =  document.forms['regmember']['country'].value;
+          var r_zip =  document.forms['regmember']['zip'].value;
+          var r_email =  document.forms['regmember']['email'].value;
+          var r_password =  document.forms['regmember']['password'].value;
+              
+              
+          var message ="Missing Content \n";
+          var valid =true;
+            
+              
+          if(r_firstname ==  null || r_firstname == ''){ valid = false; message = message + " - firstname !! \n";}
+         
+          if(r_lastname ==  null || r_lastname == ''){ valid = false; message = message + " - lastname !! \n";}
+          
+          if(r_tel ==  null || r_tel == ''){ valid = false; message = message + " - tel!! \n";}
+          
+          if(r_address ==  null || r_address == '') { valid = false; message = message + " - address !! \n"; }
 
+          if(r_city ==  null || r_city == '') { valid = false; message = message + " - city !! \n"; }
+          
+          if(r_state ==  null || r_state == ''){ valid = false;  message = message + " - state !! \n"; }
+
+          if(r_country ==  null || r_country == ''){  valid = false; message = message + " - country !! \n"; }
+          
+          if(r_zip ==  null || r_zip == ''){ valid = false; message = message + " - zip !! \n"; }
+
+          if(r_email ==  null || r_email == ''){ valid = false; message = message + " - email !! \n"; }
+
+          if(r_password ==  null || r_password == ''){ valid = false; message = message + " - password !! \n"; }
+          
+          if(r_password.length < 6 && valid == true){ valid = false; message = message + " - Password ต้องมากกว่า 6 ตัว !! \n"; }
+          
+          if(valid == false)
+                alert(message);
+                return valid;
+          }
+       
+   </script>
 </body>
 
 </html>

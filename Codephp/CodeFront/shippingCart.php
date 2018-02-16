@@ -83,46 +83,77 @@
                 $iduser = $_SESSION['idnumLoginWebsite'];
                 $dateinput = date("Y-m-d H:i:s");
 
-                $id =mysqli_fetch_array(mysqli_query($connect,"Select Max(substr(id_order,-5)+1) as MaxID from order_product"));//เลือกเอาค่า id ที่มากที่สุดในฐานข้อมูลและบวก 1 เข้าไปด้วยเลย
-                $new_id = $id['MaxID'];
-                if($new_id==''){ // ถ้าได้เป็นค่าว่าง หรือ null ก็แสดงว่ายังไม่มีข้อมูลในฐานข้อมูล
-                    $idorder= date("Y").date("m").date("d")."00001";
-                }else{
-                    $idorder = date("Y").date("m").date("d").sprintf("%05d",$new_id);//ถ้าไม่ใช่ค่าว่าง
+                // $id =mysqli_fetch_array(mysqli_query($connect,"Select Max(substr(id_order,-5)) as MaxID from order_product"));
+                // $new_id =  (float)$id['MaxID'];
+                // if(empty($new_id)){
+                //     $new_id = 1;
+                //     $yearOfid = substr($id['MaxID'],0,4);
+                //     $monthOfid = substr($id['MaxID'],4,2);
+                //     $dayOfid = substr($id['MaxID'],6,2);
+                // }
+                // else{
+                //     $yearOfid = substr($id['MaxID'],0,4);
+                //     $monthOfid = substr($id['MaxID'],4,2);
+                //     $dayOfid = substr($id['MaxID'],6,2);
+
+                //     $new_id = substr($id['MaxID'],-5)+1;
+
+                //     if(date("Y") != $yearOfid){
+                //         $yearOfid = date("Y");
+                //         $new_id = 1;
+                //     }
+                //     if(date("m") != $monthOfid){
+                //         $monthOfid = date("m");
+                //         $new_id = 1;
+                //     }
+                //     if(date("d") != $dayOfid){
+                //         $dayOfid = date("d");
+                //         $new_id = 1;
+                //     }
+                // }
+                // echo $idorder = $yearOfid.$monthOfid.$dayOfid.sprintf("%05d",$new_id);
+                $id =mysqli_fetch_array(mysqli_query($connect,"Select id_order from order_product where id_order like '".date("Ymd") . "%' order by id_order DESC limit 1"));
+                $test = substr($id['id_order'],-5);
+                $new_id =  (int)$test;
+                if($new_id == 0){
+                    $new_id = 1;
                 }
+                else{
+                    $new_id += 1;
+                }
+                
+                 echo $idorder = date("Y").date("m").date("d").sprintf("%05d",$new_id);
     
 
                 $strSQL = "INSERT INTO `order_product` (`id_order`, `id_user`, `Date_order`, `Tax`, `Name`, `LastName`, `Tel`, `Address`, `Zip`, `Send_email_order`, `Totalprice`) 
                             VALUES('$idorder', '$iduser', '$dateinput', '7%', '$first_name','$last_name', '$txtTel'
                                     , '$address"." อำเภอ"."$state"." จังหวัด"."$city"." ประเทศ"."$country', '$zip_code', '$txtEmail', '$totalprice');";
 
-                // $queryinsertOrder = mysqli_query($connect,$strSQL);
-                // if(!$queryinsertOrder)
-                // {
-                //     echo $queryinsertOrder->error;
-                //     exit();
-                // }
+                $queryinsertOrder = mysqli_query($connect,$strSQL);
+                if(!$queryinsertOrder)
+                {
+                    echo $queryinsertOrder->error;
+                    exit();
+                }
 
-                // $last_orderid = mysqli_insert_id($connect);
+                for($i=0;$i< count($_SESSION['cartProduct']);$i++)
+                {
+                    if($_SESSION["cartProduct"][$i]['NumberListProduct'] != "")
+                    {
+                            echo $strSQL = "INSERT INTO `orderproductdetail` (`id_orderDetail`, `id_order`, `id_product`, `namethumbProduct`, `qty`, `Price`) VALUES 
+                                        ('0', '$idorder', 
+                                        '".$_SESSION['cartProduct'][$i]['idProduct']."', 
+                                        '".$_SESSION['cartProduct'][$i]['thumb']."' ,
+                                        '".$_SESSION['cartProduct'][$i]['qtyproduct']."', 
+                                        '".$_SESSION['cartProduct'][$i]['priceProduct']."');";
+                            mysqli_query($connect,$strSQL);
+                    }
+                }
 
-                // for($i=0;$i< count($_SESSION['cartProduct']);$i++)
-                // {
-                //     if($_SESSION["cartProduct"][$i]['NumberListProduct'] != "")
-                //     {
-                //             echo $strSQL = "INSERT INTO `orderproductdetail` (`id_orderDetail`, `id_order`, `id_product`, `namethumbProduct`, `qty`, `Price`) VALUES 
-                //                         ('0', '$last_orderid', 
-                //                         '".$_SESSION['cartProduct'][$i]['idProduct']."', 
-                //                         '".$_SESSION['cartProduct'][$i]['thumb']."' ,
-                //                         '".$_SESSION['cartProduct'][$i]['qtyproduct']."', 
-                //                         '".$_SESSION['cartProduct'][$i]['priceProduct']."');";
-                //             mysqli_query($connect,$strSQL);
-                //     }
-                // }
+                unset($_SESSION['cartProduct']);
+                mysqli_close($connect);
 
-                // unset($_SESSION['cartProduct']);
-                // mysqli_close($connect);
-
-                // header("location: ?Cart_Status=payment&&id_order=".$last_orderid);
+                header("location: ?Cart_Status=payment&&id_order=".$idorder);
         }
         ?>
     </div>

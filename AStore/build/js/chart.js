@@ -57,7 +57,7 @@ function drawChart2() {
 }
 
 $(window).resize(function(){
-  drawChart1();
+ // drawChart1();
   drawChart2();
 });
 

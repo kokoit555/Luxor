@@ -13,9 +13,10 @@
         $Customize = $_POST['checkCustomize'];
         $idstore = $_GET['idstore'];
 
-        $selectnamestore = "SELECT * FROM store WHERE id_store = $idstore;";
-        $querynamestore = mysqli_query($connect,$select);
-        $namestore = mysqli_fetch_array($query);
+        echo $selectnamestore = "SELECT * FROM store WHERE id_store = $idstore;";
+        $querynamestore = mysqli_query($connect,$selectnamestore);
+        $data = mysqli_fetch_array($querynamestore);
+        $namestore = $data['NameStore'];
 
         
 
@@ -25,7 +26,10 @@
     
         if(mysqli_query($connect,$sqlinsertProduct)){ echo "Complete insert product";}
 
-        $idproduct = mysqli_insert_id($connect);
+       
+        $selectidproduct = "SELECT id_product FROM product ORDER BY id_product DESC LIMIT 1";
+        $queryidproduct = mysqli_query($connect,$selectidproduct);
+        $idproduct = mysqli_fetch_array($queryidproduct);
 
         for ($i=0; $i < count($_POST['quant']); $i++) { 
             $qty[] = $_POST['quant'][$i];
@@ -35,7 +39,7 @@
             // $Str_file = explode(".",$_FILES["input-file-img-product"]["name"][$i]);
             // $new_name="ทดสอบ_upload.".$Str_file[1];
             echo "<br/>";
-            echo  $basenameproduct = $namestore['NameStore'].$idproduct.$i.substr(basename($_FILES["input-file-img-product"]["name"][$i]),-4);
+            echo  $basenameproduct = $namestore.$idproduct[0].$i.substr(basename($_FILES["input-file-img-product"]["name"][$i]),-4);
             echo "<br/>";
             echo $target_file = $target_dir . $basenameproduct;
             echo "<br/>";
@@ -45,7 +49,7 @@
     
             $target_dir_thumb = "images/thumbproduct/";
             echo "<br/>";
-            echo $basenameproduct_thumb = $namestore['NameStore'].$idproduct.$i.substr(basename($_FILES["input-file-img-product-thumb"]["name"][$i]),-4);
+            echo $basenameproduct_thumb = $namestore.$idproduct[0].$i.substr(basename($_FILES["input-file-img-product-thumb"]["name"][$i]),-4);
             echo "<br/>";
             echo $target_file_thumb = $target_dir_thumb . $basenameproduct_thumb;
             echo "<br/>";
@@ -87,7 +91,6 @@
             if(mysqli_query($connect,$sqlinsertimgdetail))
             { 
                 echo "complete insert detailproduct".$i;
-                $idstore = $_GET['idstore'];
                 echo "<script type='text/javascript'>window.location='./index.php?link=listproduct&&idstore=$idstore'</script>";
             } 
 

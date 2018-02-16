@@ -33,7 +33,7 @@
         header("Location: index.php"); 
     }
      else{
-         echo "<script> alert('ไม่สำเร็จ');</script>";
+         echo "<script> alert('อีเมล์หรือรหัสผ่านของท่านผิดพลาด');</script>";
      }
 
      mysqli_close($connect);

@@ -123,17 +123,28 @@ function nextTab(elem) {
 
 
 
-var app = angular.module("ListProduct",[]);
-app.controller("UserListProduct",function($scope,$http){
+var app = angular.module("ListProduct",['ui.bootstrap']); 
+
+app.filter('beginning_data', function() {
+  return function(input, begin) {
+      if (input) {
+          begin = +begin;
+          return input.slice(begin);
+      }
+      return [];
+  }
+});
+
+app.controller("UserListProduct",function($scope,$http, $timeout){
     $scope.displayListProduct = function(){
         $http.get("Codephp/CodeFront/listproduct.php").then(function(response){
           $scope.masterListProdut = response.data.records;  
           $scope.listproduct = $scope.masterListProdut; 
           
           $scope.current_grid = 1;
-          $scope.data_limit = 3;
-          $scope.filter_data = $scope.masterListProdut.length;
-          $scope.entire_user = $scope.masterListProdut.length;
+          $scope.data_limit = 12;
+          $scope.filter_data = $scope.listproduct.length;
+          $scope.entire_user = $scope.listproduct.length;
           
         });
         $scope.page_position = function(page_number) {
@@ -145,6 +156,7 @@ app.controller("UserListProduct",function($scope,$http){
             }, 20);
         };
     }
+
     $scope.updateTypeFilter = function(){
       $scope.listproduct = $scope.masterListProdut;
       var criteria = [];
@@ -154,12 +166,21 @@ app.controller("UserListProduct",function($scope,$http){
           criteria.push(i);
         } 
       }
-
       if (criteria.length > 0) {
         $scope.listproduct = $scope.listproduct.filter((e)=>{
           return  criteria.indexOf(parseInt(e.idtype)) != -1; 
         });
       }
+      $scope.filter_data = $scope.listproduct.length;
+      $scope.entire_user = $scope.listproduct.length;
+      $scope.page_position = function(page_number) {
+        $scope.current_grid = page_number;
+      };
+      $scope.filter = function() {
+          $timeout(function() {
+              $scope.filter_data = $scope.searched.length;
+          }, 20);
+      };
     }
 
     $scope.updateCustomizeFilter = function(){
@@ -176,6 +197,16 @@ app.controller("UserListProduct",function($scope,$http){
           return  criteria.indexOf(parseInt(e.checkCustomize)) != -1; 
         });
       }
+      $scope.filter_data = $scope.listproduct.length;
+      $scope.entire_user = $scope.listproduct.length;
+      $scope.page_position = function(page_number) {
+        $scope.current_grid = page_number;
+      };
+      $scope.filter = function() {
+          $timeout(function() {
+              $scope.filter_data = $scope.searched.length;
+          }, 20);
+      };
     }
 
     

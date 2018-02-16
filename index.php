@@ -24,8 +24,7 @@
 		<div class="container-fluid contant-a" id="sec-a" style="padding: 0!important;    margin-top: -20px;">
 			<div class="jumbotron" style="position:relative;">
 				<video id="video-background" preload muted autoplay loop>
-					<source src="video/thor.mp4" type="video/mp4">
-					<source src="video/thor.ogg" type="video/ogg">
+					<source src="video/02.mp4" type="video/mp4">
 				</video>
 				<div class="container">
 					<div class="video-caption center-block">
@@ -71,7 +70,8 @@
 													INNER JOIN product p ON p.id_product = hp.id_product
 													INNER JOIN imgproductdetail ipdt ON ipdt.id_product = p.id_product
 													INNER JOIN imgproduct ip ON ipdt.id_imgProduct = ip.id_imgProduct
-													WHERE ipdt.namethumbProduct = '1'";
+													WHERE ipdt.namethumbProduct = '1'
+													ORDER BY RAND() LIMIT 3";
 
 							$queryproduct = mysqli_query($connect,$sqlqueryhotproduct);
 							if(!empty($queryproduct))
@@ -80,7 +80,7 @@
 								{
 						?>
 									<div class="item">
-										<form method="POST">
+										<form method="POST" action="index.php">
 											<figure class="snip1268">
 												<div class="image">
 													<img style="height:250px;" class="img-responsive center-block" src="./<?php echo $row['url_img'].$row['Name_img'];?>" alt="sq-sample4"/>

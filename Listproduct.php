@@ -39,7 +39,7 @@
       <div>
         <div class="form-group">
           <label>ค้นหาชื่อสินค้า</label>
-          <input class="form-control" type="text" ng-model="searchname">
+          <input class="form-control" type="text" ng-model="searchname" ng-change="filter()" >
         </div>
         <div id="group-3" class="list-group collapse in">
           <div class="panel panel-default">
@@ -65,16 +65,16 @@
                   <label><input type="checkbox" name="filterCheckbox" value="1" ng-click="updateTypeFilter()">เสื้อผ้า</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" name="filterCheckbox" value="2" ng-click="updateTypeFilter()">กางเกง</label>
+                  <label><input type="checkbox" name="filterCheckbox" value="2" ng-click="updateTypeFilter()">หมวก</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" name="filterCheckbox" value="3" ng-click="updateTypeFilter()">เครื่องประดับ</label>
+                  <label><input type="checkbox" name="filterCheckbox" value="3" ng-click="updateTypeFilter()">ผ้าพันคอ</label>
                 </div>
                 <div class="checkbox">
                   <label><input type="checkbox" name="filterCheckbox" value="4" ng-click="updateTypeFilter()">ของฝาก</label>
                 </div>
                 <div class="checkbox">
-                  <label><input type="checkbox" name="filterCheckbox" value="5" ng-click="updateTypeFilter()">ผ้าพันคอ</label>
+                  <label><input type="checkbox" name="filterCheckbox" value="5" ng-click="updateTypeFilter()">กระเป๋า</label>
                 </div>
                 <div class="checkbox">
                   <label><input type="checkbox" name="filterCheckbox" value="6" ng-click="updateTypeFilter()"> อื่น ๆ</label>
@@ -112,11 +112,9 @@
             </div>
         </div>
     <div id="products" class="row list-group">
-
     <!-- เริ่มสินค้า -->
         <div class="item col-xs-12 col-sm-6 col-md-4 col-lg-4" 
-              ng-repeat="x in listproduct | filter:{nameproduct: searchname}
-                          | orderBy:orderList">
+              ng-repeat="x in searched = (listproduct | filter:{nameproduct: searchname} | orderBy:orderList) | beginning_data:(current_grid-1)*data_limit | limitTo:data_limit">
             <div class="thumbnail">
               <figure class="snip1268">
               <div class="image">
@@ -143,15 +141,15 @@
             </div>
         </div>
     <!-- จบสินค้า -->
-    
+                <div class="col-md-12">
+                    <div class="col-md-6 pull-left">
+                        <h5>Showing {{ searched.length }} of {{ entire_user}} entries</h5>
+                    </div>
+                    <div class="col-md-6" ng-show="filter_data > 0">
+                        <div pagination="" page="current_grid" on-select-page="page_position(page)" boundary-links="true" total-items="filter_data" items-per-page="data_limit" class="pagination-small pull-right" previous-text="&laquo;" next-text="&raquo;"></div>
+                    </div>
+                </div>
     </div>
-      <!-- <button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1">
-          <
-      </button>
-            {{currentPage+1}}/{{numberOfPages()}}
-      <button ng-disabled="currentPage >= numberOfPages()-1" ng-click="currentPage=currentPage+1">
-          >
-      </button> -->
 </div>
 
   </div>
