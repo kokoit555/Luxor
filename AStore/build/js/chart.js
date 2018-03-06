@@ -29,25 +29,11 @@
 google.load("visualization", "1", {packages:["corechart"]});
 google.setOnLoadCallback(drawChart2);
 function drawChart2() {
-  var data = google.visualization.arrayToDataTable([
-    ['Year', 'Sales', 'Expenses', 'XXX'],
-    ['2',  1170, 460, 555],
-    ['1',  1000, 400, 555],
-    ['3',  660, 1120, 555],
-    ['4',  333, 1120, 555],
-    ['5',  666, 1120, 555],
-    ['6',  1123, 1120, 555],
-    ['7',  878,1120, 555],
-    ['8',  565, 1120, 555],
-    ['9',  322, 1120, 555],
-    ['10',  660, 1120, 555],
-    ['11',  1030, 540, 555],
-    ['12',  660, 1120, 555]
-  ]);
+  var data = google.visualization.arrayToDataTable([<?=$text?>]);
 
   var options = {
-    title: 'Company Performance',
-    hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+    title: 'กราฟสรุปยอดขายประจำปี',
+    hAxis: {title: 'เดือน',  titleTextStyle: {color: '#333'}},
     vAxis: {minValue: 0},
     height: 600
   };

@@ -1,6 +1,6 @@
 <div class="container">
     <div id="Address" class="">
-        <form name="form1" method="post">
+        <form name="form1" method="post" onsubmit="return validationshipping()">
             <!--SHIPPING METHOD-->
             <div class="panel-body">
                 <div class="form-group">
@@ -66,6 +66,39 @@
                 </div>
             </div>
         </form>
+
+        <script>
+       
+       function validationshipping()
+       {
+         var cardholdername =  document.forms['form1']['cardholdername'].value;
+         var cardnumber =  document.forms['form1']['cardnumber'].value;
+         var expirymonth =  document.forms['form1']['expirymonth'].value;
+         var expiryyear =  document.forms['form1']['expiryyear'].value;
+         var cvv =  document.forms['form1']['cvv'].value;
+             
+             
+         var message ="Missing Content \n";
+         var valid =true;
+           
+             
+         if(cardholdername ==  null || cardholdername == ''){ valid = false; message = message + " - กรุณากรอกชื่อหน้าบัตร !! \n";}
+        
+         if(cardnumber ==  null || cardnumber == ''){ valid = false; message = message + " - กรุณากรอกเลขหน้าบัตร !! \n";}
+         
+         if(expirymonth ==  null || expirymonth == ''){ valid = false; message = message + " - กรุณาเลือกเดือนหมดอายุบัตร!! \n";}
+         
+         if(expiryyear ==  null || expiryyear == '') { valid = false; message = message + " - กรุณาเลือกปีหมดอายุบัตร !! \n"; }
+
+         if(cvv ==  null || cvv == '') { valid = false; message = message + " - กรุณากรอกเลข CVV !! \n"; }
+         
+         
+         if(valid == false)
+               alert(message);
+               return valid;
+         }
+      
+        </script>
         <?php 
         if(!empty($_POST['SubmitShipping'])){
                 date_default_timezone_set("Asia/Bangkok");

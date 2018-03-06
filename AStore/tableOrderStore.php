@@ -19,6 +19,7 @@
                                         INNER JOIN user_member um ON um.id_user = op.id_user
                                         INNER JOIN store_product_shipment sps ON sps.id_order = op.id_order
                                         WHERE sps.id_store = '$idstore'
+                                        GROUP BY op.id_order
                                         ORDER BY op.id_order;";
                             $query = mysqli_query($connect,$select);
 
@@ -35,11 +36,46 @@
                                     <td><?php echo $row['Name']; ?></td>
                                     <td><?php echo $row['Date_order']; ?></td>
                                     <td><?php echo number_format($row['Totalprice']); ?></td>
-                                    <td><?php if($row['Status'] == '1'){echo "จัดส่งแล้ว";}
-                                              else if($row['Status'] == '0'){echo "ยังไม่ได้ทำการจัดส่ง";} ?></td>
+                                    <td><?php   if($row['Status'] == '1'){echo "จัดส่งแล้ว";}
+                                                else if($row['Status'] == '2'){echo "สินค้าถึงมือลูกค้าแล้ว";} 
+                                                else if($row['Status'] == '0'){echo "ยังไม่ได้ทำการจัดส่ง";} ?></td>
                                     <td><a href="?link=infoorder&&idstore=<?php echo $idstore; ?>&&idorder=<?php echo $row['id_order']; ?>" class="btn btn-info">ดูข้อมูลเชิงลึก</a></td>
-                                    <td><a href="#shipping<?php echo $row['id_order']; ?>" data-toggle="modal"  class="btn btn-success">จัดการข้อมูลจัดส่ง</a></td>
+                                    <td>
+                                        <?php 
+                                            $isshow = 0;
+                                            $checker = "SELECT sps.id_shipment,sps.id_order,sps.Status FROM store_product_shipment sps WHERE id_order = '".$row['id_order']."'";
+                                            $querychecker = mysqli_query($connect,$checker);
+
+                                            while($arr = mysqli_fetch_array($querychecker)){
+                                                if($arr['Status'] == 2){
+                                                    $isshow = 2;
+                                                }
+                                                else if($arr['Status'] == 1){
+                                                    $isshow = 1;
+                                                }
+                                                else if($arr['Status'] == 0){
+                                                    $isshow = 0;
+                                                }
+                                            }
+
+
+                                            if($isshow == 2){
+                                                echo "<p>ลูกค้าได้รับสินค้าเรียบร้อย</p>";
+                                            }else if($isshow == 0){
+                                                ?>
+                                        <a href="#shipping<?php echo $row['id_order'];?>" data-toggle="modal"  class="btn btn-success">จัดการข้อมูลจัดส่ง</a>
+                                                <?php
+                                            }else if($isshow == 1){
+                                                echo "<button class='btn btn-warning'>รอการยืนยันจากลูกค้า</button>";
+                                            }
+                                        ?>
+                                        
+                                    </td>
                                 </tr>
+
+
+
+
                                 <div class="modal fade" id="shipping<?php echo $row['id_order']; ?>" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
@@ -129,6 +165,8 @@
                                                      WHERE `id_order` = '$idorder' AND `id_store` = '$idstore'";
                                  
                                 mysqli_query($connect,$sqlupdateshipping);
+
+                                header("Location: index.php?link=orderstore");
                              }
                             mysqli_close($connect);
                         ?>

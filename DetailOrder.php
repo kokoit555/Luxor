@@ -178,7 +178,7 @@
                                     WHERE p.id_product = '".$row['id_product']."' AND ipd.namethumbProduct = '".$row['namethumbProduct']."'";
                         $imgproduct = mysqli_fetch_array(mysqli_query($connect,$showimg));
 
-                        $checkshipping = "SELECT op.id_order ,op.Name, op.Date_order , op.Totalprice , sps.id_shipment , sps.id_orderDetail , sps.id_shipping , sps.ShipCode
+                        $checkshipping = "SELECT op.id_order ,op.Name, op.Date_order , op.Totalprice ,sps.Status , sps.id_shipment , sps.id_orderDetail , sps.id_shipping , sps.ShipCode
                                             FROM order_product op
                                             LEFT JOIN store_product_shipment sps ON sps.id_order = op.id_order
                                             INNER JOIN orderproductdetail opd ON opd.id_orderDetail = sps.id_orderDetail
@@ -203,17 +203,21 @@
                                         <h4>รูปแบบสินค้า : <?=$row['namethumbProduct']?></h4>
                                         <h4>ชื่อร้านค้า : <?=$row['NameStore']?></h4>
                                         <h4>จำนวนสินค้า : <?=$row['qty']?></h4>
-                                        <div class="col-md-12">
-                                            <a href="detailHistory.php?id_order=<?=$idorder?>" class="btn btn-info">รายละเอียดใบเสร็จ</a>
-                                            <?php if(!empty($shipping['id_shipping']) && $shipping['Status'] == 1){ ?>
-                                                <a class="btn btn-info" href="">ยืนยันรับของ</a>
-                                            <?php 
-                                                }else{
-                                            ?>
-                                                <button class="btn btn-danger" disabled>สินค้ายังไม่มีการจัดส่ง</button>
-                                            <?php
-                                                } 
-                                            ?>
+                                        <div class="col-xs-12" style="padding:0">
+                                            <div class="col-xs-12 col-md-5" style="margin-bottom:5px;">
+                                            <a href="detailHistory.php?id_order=<?=$idorder?>" class="btn btn-info btn-block">รายละเอียดใบเสร็จ</a>
+                                            </div>
+                                            <div class="col-xs-12 col-md-5" style="margin-bottom:5px;">
+                                                <?php if(!empty($shipping['id_shipping']) && $shipping['Status'] == 1){ ?>
+                                                    <a class="btn btn-success btn-block" href="?id_order=<?=$idorder?>&&id_detail=<?=$row['id_orderDetail']?>&&shipment=<?=$shipping['id_shipment']?>">ยืนยันรับของ</a>
+                                                <?php 
+                                                    }else{
+                                                ?>
+                                                    <button class="btn btn-danger btn-block" disabled>สินค้ายังไม่มีการจัดส่ง</button>
+                                                <?php
+                                                    } 
+                                                ?>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -221,7 +225,17 @@
                         </div>
                     </div>
                 </div>
-                <?php } ?>
+                <?php 
+                    } 
+                    if(!empty($_GET['id_order'])&&!empty($_GET['id_detail'])&&!empty($_GET['shipment'])){
+                        $updatestatus = "UPDATE `h514771_birdfire`.`store_product_shipment` SET `Status` = '2' 
+                                            WHERE `store_product_shipment`.`id_shipment` = '".$_GET['shipment']."'";
+                        if(mysqli_query($connect,$updatestatus)){
+                            header("Location: DetailOrder.php?id_order=$idorder");
+                        }
+                        
+                    }
+                ?>
                 </div>
         </div>
 		<?php include "footer.php"; mysqli_close($connect);?>

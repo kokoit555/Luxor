@@ -67,6 +67,8 @@
                         include "./tableListproduct.php";
                     }else if(!empty($_GET['link']) && $_GET['link'] == "editproduct" && !empty($_GET['idproduct'])){
                         include "./Editproduct.php";
+                    }else if(!empty($_GET['link']) && $_GET['link'] == "infoorder" && !empty($_GET['idorder'])){
+                        include "./infoorder.php";
                     }
                     else{ 
                         include "tableDashbord.php";
@@ -91,9 +93,9 @@
     <!-- Bootstrap -->
     <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Google Chart -->
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <!-- <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="build/js/chart.js"></script>
+    <script type="text/javascript" src="build/js/chart.js"></script> -->
     <!-- Angular -->
     <script src="./build/js/angular.min.js"></script>
     <!-- FastClick -->

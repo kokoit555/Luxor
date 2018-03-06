@@ -2,7 +2,7 @@
 
         $idorder = $_GET['idorder'];
 
-        $sqlinfoOrder =  "SELECT op.id_order,um.Name, op.Date_order , p.NameProduct, opd.qty , opd.Price , op.Totalprice  , sps.Status 
+        echo $sqlinfoOrder =  "SELECT op.id_order,um.Name, op.Date_order , p.NameProduct, opd.qty , opd.Price , op.Totalprice  , sps.Status 
                             FROM `order_product` op 
                             INNER JOIN user_member um ON um.id_user = op.id_user 
                             INNER JOIN store_product_shipment sps ON sps.id_order = op.id_order 
@@ -87,7 +87,7 @@
                         &nbsp
                         <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <a href="?link=listproduct&&idstore=<?php echo $_GET['idstore']; ?>" type="submit" class="btn btn-primary btn-lg"> ย้อนกลับ </a>
+                                <a href="index.php?link=orderstore" type="submit" class="btn btn-primary btn-lg"> ย้อนกลับ </a>
                             </div>
                         </div>
             </div>
