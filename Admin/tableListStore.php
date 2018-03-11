@@ -5,7 +5,7 @@
          <div class="x_panel">
              <div class="x_title">
                  <h2>รายชื่อร้านค้า</h2>
-                 <a class="btn btn-primary pull-right" href="?link=insertstore" >Insert Store</a>
+                 <!-- <a class="btn btn-primary pull-right" href="?link=insertstore" >Insert Store</a> -->
              <div class="clearfix"></div>
          </div>
          <div class="x_content">

@@ -203,21 +203,33 @@
                                         <h4>รูปแบบสินค้า : <?=$row['namethumbProduct']?></h4>
                                         <h4>ชื่อร้านค้า : <?=$row['NameStore']?></h4>
                                         <h4>จำนวนสินค้า : <?=$row['qty']?></h4>
+                                        <?php if(!empty($shipping['id_shipping']) && $shipping['Status'] >= 1){?>
+                                        <h4>Trcking Number : <?=$shipping['ShipCode']?></h4>
+                                        <?php }?>
                                         <div class="col-xs-12" style="padding:0">
                                             <div class="col-xs-12 col-md-5" style="margin-bottom:5px;">
                                             <a href="detailHistory.php?id_order=<?=$idorder?>" class="btn btn-info btn-block">รายละเอียดใบเสร็จ</a>
                                             </div>
                                             <div class="col-xs-12 col-md-5" style="margin-bottom:5px;">
                                                 <?php if(!empty($shipping['id_shipping']) && $shipping['Status'] == 1){ ?>
-                                                    <a class="btn btn-success btn-block" href="?id_order=<?=$idorder?>&&id_detail=<?=$row['id_orderDetail']?>&&shipment=<?=$shipping['id_shipment']?>">ยืนยันรับของ</a>
+                                                    <a class="btn btn-warning btn-block" href="?id_order=<?=$idorder?>&&confirmitem=yes&&id_detail=<?=$row['id_orderDetail']?>&&shipment=<?=$shipping['id_shipment']?>">ยืนยันรับของ</a>
                                                 <?php 
-                                                    }else{
+                                                }else if(!empty($shipping['id_shipping']) && $shipping['Status'] == 2){
+                                                ?>
+                                                    <a class="btn btn-success btn-block">สินค้าได้รับเรียบร้อย</a>
+                                                <?php }
+                                                    else{
                                                 ?>
                                                     <button class="btn btn-danger btn-block" disabled>สินค้ายังไม่มีการจัดส่ง</button>
                                                 <?php
                                                     } 
                                                 ?>
                                             </div>
+                                            <?php if(!empty($shipping['id_shipping']) && $shipping['Status'] == 2){ ?>
+                                                <div class="col-xs-12 col-md-10" style="margin-bottom:5px;">
+                                                        <a class="btn btn-danger btn-block"  data-toggle="modal" data-target="#myModal">คืนสินค้า</a>
+                                                </div>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div>
@@ -225,9 +237,42 @@
                         </div>
                     </div>
                 </div>
+
+
+                <?php if(!empty($shipping['id_shipping']) && $shipping['Status'] == 2){ ?>
+                <!-- Modal -->
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">คืนสินค้า</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="col-lg-6 col-md-6 col-xs-12">
+                                    <img class="img-responsive" src="<?=$imgproduct['url_img'].$imgproduct['Name_img']?>">
+                                </div>
+                                <!-- Email -->
+                                <div class="form-group col-lg-6 col-md-6 col-xs-12" style="margin-top:0.5em">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" style="margin-top:0.5em">Email</label>
+                                    <div class="col-md-9 col-sm-6 col-xs-9">
+                                        <input id="email" name="email" type="text" placeholder="Email@info.com" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
                 <?php 
+                }
                     } 
-                    if(!empty($_GET['id_order'])&&!empty($_GET['id_detail'])&&!empty($_GET['shipment'])){
+                    if(!empty($_GET['id_order'])&&!empty($_GET['id_detail'])&&!empty($_GET['shipment'])&&!empty($_GET['confirmitem'])){
                         $updatestatus = "UPDATE `h514771_birdfire`.`store_product_shipment` SET `Status` = '2' 
                                             WHERE `store_product_shipment`.`id_shipment` = '".$_GET['shipment']."'";
                         if(mysqli_query($connect,$updatestatus)){

@@ -36,7 +36,83 @@
                     </div>
                 </div> <!-- /top tiles -->
             <div class="clearfix"></div>
-        
+            <?php
+
+                $select = "SELECT YEAR(op.Date_order) as year,MONTH(op.Date_order) as month ,SUM(opd.Price) as totalprice ,COUNT(opd.id_orderDetail) as item FROM order_product op
+                            INNER JOIN orderproductdetail opd ON opd.id_order = op.id_order
+                            INNER JOIN product p ON p.id_product = opd.id_product
+                            GROUP BY YEAR(op.Date_order) , MONTH(op.Date_order)";
+
+                //AND (MONTH(op.Date_order) BETWEEN '1' and '9')
+
+                $querychart = mysqli_query($connect,$select);
+                $text = "['เดือน', 'ยอดขาย']";
+                $totalprice = 0;
+                $totalitem = 0;
+                $strMonthCut = Array("","Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec");
+
+                while($data = mysqli_fetch_array($querychart)){
+                    $totalprice += $data['totalprice']; 
+                    $totalitem += $data['item'];
+
+                    $strMonthThai=$strMonthCut[$data['month']];
+
+                    $text .= ",['".$data['year']."-".$strMonthThai."',".$data['totalprice']."]";
+                }
+
+                //echo $text;
+
+            ?>
+        <!-- page content -->
+        <div class="clearfix"></div>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>จำนวนยอดขายภายในเว็บไซต์</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                            </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="col-sm-12">
+                            <div id="chart_div1" class="img-responsive"></div>
+                        </div> 
+                    </div> <!--x_content-->
+                </div> <!--col-md-12 col-sm-12 col-xs-12-->
+              </div><!--row-->
+            <div class="clearfix"></div>
+        <!-- /page content -->
+
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+            <script type="text/javascript">
+
+                google.load('visualization', '1.0', {'packages':['corechart']});
+                google.setOnLoadCallback(drawChart2);
+                function drawChart2() {
+                    var data = google.visualization.arrayToDataTable([<?=$text?>]);
+
+                    var options = {
+                        title: 'กราฟสรุปยอดขายประจำปี',
+                        hAxis: {title: 'เดือน',  titleTextStyle: {color: '#333'}},
+                        vAxis: {minValue: 0},
+                        height: 600
+                    };
+
+                    var chart = new google.visualization.LineChart(document.getElementById('chart_div1'));
+                    chart.draw(data, options);
+                }
+
+                $(window).resize(function(){
+                    drawChart2();
+                });
+                
+            </script>
+
+
         <!-- page content -->
             <div class="clearfix"></div>
             <div class="row">

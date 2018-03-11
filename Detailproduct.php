@@ -23,6 +23,20 @@
 <body>
 <html>
     <body>
+
+    <style>
+    .TitleCustomize{
+        font-weight:50;
+        border: 1px solid #a62041;
+        border-radius: 0.75em;
+        text-align: center;
+        margin: 0.8em;
+        background-color: #a62041;
+        color:#fff;
+        cursor: default;
+    }
+    </style>
+        
         <?php 
             include "./Codephp/connectdb.php";
             require './header.php';
@@ -45,6 +59,7 @@
                                 while($data = mysqli_fetch_array($querythumbproduct)){
                                     $thumb[] = $data['urlthumbProduct'];
                                     $thumbname[] = $data['namethumbProduct'];
+                                    $detailthumb[] = $data['textDetailThumb'];
                                     $qtyproduct[] = $data['qty'];
 
                                     $sqlimg = "SELECT * FROM `imgproduct` WHERE `id_imgProduct` = '".$data['id_imgProduct']."'";
@@ -67,6 +82,13 @@
                                 <?php } ?>
                             </div>
                             <div class="col-xs-12 col-md-6 col-sm-6 col-lg-6" style="border:0px solid gray;padding: 1% 4%;">
+                            
+                            <?php if(count($thumbname) > 1){ ?>
+                                <div class="TitleCustomize">
+                                    <h2>สินค้าปรับแต่งพิเศษ!!</h2>
+                                </div>
+                            <?php } ?>
+                            
                             <form method="POST">
                                 <h3><?php echo $row['NameProduct']; ?></h3>
                                 <div class="section">
@@ -74,12 +96,17 @@
                                 <div class="caption">
                                     <p><?php echo $row['productDetail']; ?></p>
                                 </div>
-                                <h4 class="title-attr" style="margin-top:5px; <?php if($row['checkCustomize'] == '0'){echo "display:none;";}?>"><small>สี / ลวดลาย</small></h4>
+                                <h4 class="title-attr" style="margin-top:5px; <?php if($row['checkCustomize'] == '0'){echo "display:none;";}?>">สี / ลวดลาย</h4>
                                 <div>
                                     <?php for ($i=0; $i < count($thumb); $i++) { ?>
                                         <a class="attr <?php if($i==0){echo "active";} ?>" id="option<?php echo $i+1; ?>" style="width:50px;height:auto;<?php if($row['checkCustomize'] == '0'){echo "display:none;";}?>">
                                             <img class="thumb-img img-responsive center-block" data-id="<?php echo $thumbname[$i]; ?>" src="<?php echo $thumb[$i]; ?>" alt="">
                                         </a>
+                                    <?php } ?>
+                                </div>
+                                <div style="margin-top:0.5em;">
+                                    <?php for ($i=0; $i < count($thumb); $i++) { ?>
+                                        <p id="detail<?=$i+1?>"><?=$detailthumb[$i]?></p>
                                     <?php } ?>
                                 </div>
                             </div>
@@ -202,6 +229,16 @@
                     $("#area-08").hide();
                     $("#area-09").hide();
 
+                    $("#detail1").show();
+                    $("#detail2").hide();
+                    $("#detail3").hide();
+                    $("#detail4").hide();
+                    $("#detail5").hide();
+                    $("#detail6").hide();
+                    $("#detail7").hide();
+                    $("#detail8").hide();
+                    $("#detail9").hide();
+
                     $("#addproducttocart1").show();
                     $("#addproducttocart2").hide();
                     $("#addproducttocart3").hide();
@@ -267,6 +304,16 @@
             $("#area-08").hide();
             $("#area-09").hide();
 
+            $("#detail1").show();
+            $("#detail2").hide();
+            $("#detail3").hide();
+            $("#detail4").hide();
+            $("#detail5").hide();
+            $("#detail6").hide();
+            $("#detail7").hide();
+            $("#detail8").hide();
+            $("#detail9").hide();
+
             $("#addproducttocart1").show();
             $("#addproducttocart2").hide();
             $("#addproducttocart3").hide();
@@ -290,6 +337,16 @@
             $("#area-07").hide();
             $("#area-08").hide();
             $("#area-09").hide();
+
+            $("#detail1").hide();
+            $("#detail2").show();
+            $("#detail3").hide();
+            $("#detail4").hide();
+            $("#detail5").hide();
+            $("#detail6").hide();
+            $("#detail7").hide();
+            $("#detail8").hide();
+            $("#detail9").hide();
 
             $("#addproducttocart1").hide();
             $("#addproducttocart2").show();
@@ -315,6 +372,16 @@
             $("#area-08").hide();
             $("#area-09").hide();
 
+            $("#detail1").hide();
+            $("#detail2").hide();
+            $("#detail3").show();
+            $("#detail4").hide();
+            $("#detail5").hide();
+            $("#detail6").hide();
+            $("#detail7").hide();
+            $("#detail8").hide();
+            $("#detail9").hide();
+
             $("#addproducttocart1").hide();
             $("#addproducttocart2").hide();
             $("#addproducttocart3").show();
@@ -337,6 +404,16 @@
             $("#area-07").hide();
             $("#area-08").hide();
             $("#area-09").hide();
+
+            $("#detail1").hide();
+            $("#detail2").hide();
+            $("#detail3").hide();
+            $("#detail4").show();
+            $("#detail5").hide();
+            $("#detail6").hide();
+            $("#detail7").hide();
+            $("#detail8").hide();
+            $("#detail9").hide();
 
             $("#addproducttocart1").hide();
             $("#addproducttocart2").hide();
@@ -361,6 +438,16 @@
             $("#area-08").hide();
             $("#area-09").hide();
 
+            $("#detail1").hide();
+            $("#detail2").hide();
+            $("#detail3").hide();
+            $("#detail4").hide();
+            $("#detail5").show();
+            $("#detail6").hide();
+            $("#detail7").hide();
+            $("#detail8").hide();
+            $("#detail9").hide();
+
             $("#addproducttocart1").hide();
             $("#addproducttocart2").hide();
             $("#addproducttocart3").hide();
@@ -383,6 +470,16 @@
             $("#area-07").hide();
             $("#area-08").hide();
             $("#area-09").hide();
+
+            $("#detail1").hide();
+            $("#detail2").hide();
+            $("#detail3").hide();
+            $("#detail4").hide();
+            $("#detail5").hide();
+            $("#detail6").show();
+            $("#detail7").hide();
+            $("#detail8").hide();
+            $("#detail9").hide();
 
             $("#addproducttocart1").hide();
             $("#addproducttocart2").hide();
@@ -407,6 +504,16 @@
             $("#area-08").hide();
             $("#area-09").hide();
 
+            $("#detail1").hide();
+            $("#detail2").hide();
+            $("#detail3").hide();
+            $("#detail4").hide();
+            $("#detail5").hide();
+            $("#detail6").hide();
+            $("#detail7").show();
+            $("#detail8").hide();
+            $("#detail9").hide();
+
             $("#addproducttocart1").hide();
             $("#addproducttocart2").hide();
             $("#addproducttocart3").hide();
@@ -430,6 +537,16 @@
             $("#area-08").show();
             $("#area-09").hide();
 
+            $("#detail1").hide();
+            $("#detail2").hide();
+            $("#detail3").hide();
+            $("#detail4").hide();
+            $("#detail5").hide();
+            $("#detail6").hide();
+            $("#detail7").hide();
+            $("#detail8").show();
+            $("#detail9").hide();
+
             $("#addproducttocart1").hide();
             $("#addproducttocart2").hide();
             $("#addproducttocart3").hide();
@@ -452,6 +569,16 @@
             $("#area-07").hide();
             $("#area-08").hide();
             $("#area-09").show();
+
+            $("#detail1").hide();
+            $("#detail2").hide();
+            $("#detail3").hide();
+            $("#detail4").hide();
+            $("#detail5").hide();
+            $("#detail6").hide();
+            $("#detail7").hide();
+            $("#detail8").hide();
+            $("#detail9").show();
 
             $("#addproducttocart1").hide();
             $("#addproducttocart2").hide();
