@@ -22,19 +22,13 @@
 <!-- sidebar menu -->
 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
   <div class="menu_section">
-    <h3>General</h3>
     <ul class="nav side-menu">
-      <li><a href="index.php"><i class="fa fa-home"></i>Home</a></li>
-      <!-- <li><a><i class="fa fa-edit"></i>จัดการข้อมูล<span class="fa fa-chevron-down"></span></a>
-        <ul class="nav child_menu">
-          <li><a href="?link=liststore">รายชื่อร้านค้า</a></li>
-          <li><a href="?link=listRegisterStore">ข้อมูลสมัครร้านค้า</a></li>
-        </ul>
-      </li> -->
-      <li><a href="?link=liststore"> <i class="fa fa-shopping-bag"></i>รายชื่อร้านค้า</a></li>
-      <li><a href="?link=listRegisterStore"><i class="fa fa-registered"></i>ข้อมูลสมัครร้านค้า</a></li>
-      <li><a href="?link=hotproduct"><i class="fa fa-pencil-square-o"></i>เพิ่มสินค้าแนะนำ</a></li>
-      <li>
+      <li class="testrun"><a href="index.php"><i class="fa fa-home"></i>Home</a></li>
+      <li class="testrun"><a href="?link=liststore"> <i class="fa fa-shopping-bag"></i>รายชื่อร้านค้า</a></li>
+      <li class="testrun"><a href="?link=returnitem"><i class="fa fa-pencil-square-o"></i>คืนสินค้า</a></li>
+      <li class="testrun"><a href="?link=listRegisterStore"><i class="fa fa-registered"></i>ข้อมูลสมัครร้านค้า</a></li>
+      <li class="testrun"><a href="?link=hotproduct"><i class="fa fa-pencil-square-o"></i>เพิ่มสินค้าแนะนำ</a></li>
+      <li class="testrun">
         <a href="logout.php"><i class="fa fa-sign-out"></i>Log Out</a>
       </li>
     </ul>

@@ -93,9 +93,9 @@
     <!-- Bootstrap -->
     <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Google Chart -->
-    <!-- <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" src="build/js/chart.js"></script> -->
+    <!-- <script type="text/javascript" src="https://www.google.com/jsapi"></script> -->
+    <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
+    <!-- <script type="text/javascript" src="build/js/chart.js"></script> --> -->
     <!-- Angular -->
     <script src="./build/js/angular.min.js"></script>
     <!-- FastClick -->

@@ -103,6 +103,8 @@
                         include "./inserthotproduct.php";
                     }else if(!empty($_GET['link']) && $_GET['link'] == "insertstore"){
                         include "./insertstore.php";
+                    }else if(!empty($_GET['link']) && $_GET['link'] == "returnitem"){
+                        include "./tableReturnItem.php";
                     }else if(!empty($_GET['link']) && $_GET['link'] == "insertproduct" && !empty($_GET['idstore'])){
                         include "./insertproduct.php";
                     }else if(!empty($_GET['link']) && $_GET['link'] == "editstore" && !empty($_GET['idstore'])){
@@ -132,9 +134,9 @@
         
     <?php ob_end_flush(); ?>
     <!-- jQuery -->
-    <script src="./vendors/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="./vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Angular -->
     <script src="./build/js/angular.min.js"></script>
     <!-- FastClick -->

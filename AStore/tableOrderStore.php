@@ -38,7 +38,8 @@
                                     <td><?php echo number_format($row['Totalprice']); ?></td>
                                     <td><?php   if($row['Status'] == '1'){echo "จัดส่งแล้ว";}
                                                 else if($row['Status'] == '2'){echo "สินค้าถึงมือลูกค้าแล้ว";} 
-                                                else if($row['Status'] == '0'){echo "ยังไม่ได้ทำการจัดส่ง";} ?></td>
+                                                else if($row['Status'] == '0'){echo "ยังไม่ได้ทำการจัดส่ง";}
+                                                else if($row['Status'] == '3'){echo "สินค้ามีการส่งคืน";} ?></td>
                                     <td><a href="?link=infoorder&&idstore=<?php echo $idstore; ?>&&idorder=<?php echo $row['id_order']; ?>" class="btn btn-info">ดูข้อมูลเชิงลึก</a></td>
                                     <td>
                                         <?php 
@@ -56,18 +57,26 @@
                                                 else if($arr['Status'] == 0){
                                                     $isshow = 0;
                                                 }
+                                                else if($arr['Status'] == 3){
+                                                    $isshow = 3;
+                                                }
                                             }
 
 
                                             if($isshow == 2){
                                                 echo "<p>ลูกค้าได้รับสินค้าเรียบร้อย</p>";
                                             }else if($isshow == 0){
-                                                ?>
-                                        <a href="#shipping<?php echo $row['id_order'];?>" data-toggle="modal"  class="btn btn-success">จัดการข้อมูลจัดส่ง</a>
-                                                <?php
+                                            ?>
+                                                <a href="#shipping<?php echo $row['id_order'];?>" data-toggle="modal"  class="btn btn-success">จัดการข้อมูลจัดส่ง</a>
+                                            <?php
                                             }else if($isshow == 1){
                                                 echo "<button class='btn btn-warning'>รอการยืนยันจากลูกค้า</button>";
+                                            }else if($isshow == 3){
+                                            ?>
+                                                <a href="#" data-toggle="modal"  class="btn btn-danger">สินค้ามีการส่งคืน</a>
+                                            <?php
                                             }
+
                                         ?>
                                         
                                     </td>
@@ -161,7 +170,9 @@
                                 $idorder = $_POST['idorder'];
                                 $SetShipping = $_POST['SetShipping'];
                                 $numbertrack = $_POST['numbertrack'];
-                                $sqlupdateshipping = "UPDATE `store_product_shipment` SET `Status`= '1',`id_shipping`= '$SetShipping',`ShipCode`= '$numbertrack' 
+                                $dateSendItem = date("Y-m-d");
+                                
+                                $sqlupdateshipping = "UPDATE `store_product_shipment` SET `Status`= '1',`id_shipping`= '$SetShipping',`ShipCode`= '$numbertrack' ,`dateSendItem`='$dateSendItem'
                                                      WHERE `id_order` = '$idorder' AND `id_store` = '$idstore'";
                                  
                                 mysqli_query($connect,$sqlupdateshipping);

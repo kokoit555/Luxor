@@ -85,6 +85,12 @@
 
 	<?php
         include 'Codephp/connectdb.php';
+
+
+        function DateDiff($strDate1,$strDate2)
+	    {  
+			return (strtotime($strDate2) - strtotime($strDate1))/  ( 60 * 60 * 24 );  // 1 day = 60*60*24
+	    }
         
         $idorder = mysqli_escape_string($connect,$_GET['id_order']);
         $iduser = mysqli_escape_string($connect,$_SESSION['idnumLoginWebsite']);
@@ -178,13 +184,18 @@
                                     WHERE p.id_product = '".$row['id_product']."' AND ipd.namethumbProduct = '".$row['namethumbProduct']."'";
                         $imgproduct = mysqli_fetch_array(mysqli_query($connect,$showimg));
 
-                        $checkshipping = "SELECT op.id_order ,op.Name, op.Date_order , op.Totalprice ,sps.Status , sps.id_shipment , sps.id_orderDetail , sps.id_shipping , sps.ShipCode
+                        $checkshipping = "SELECT op.id_order ,op.Name, op.Date_order , op.Totalprice , opd.Price , opd.qty ,sps.Status , sps.id_shipment , sps.id_orderDetail , sps.id_shipping , sps.ShipCode ,sps.dateSendItem , sps.dateGetItem
                                             FROM order_product op
                                             LEFT JOIN store_product_shipment sps ON sps.id_order = op.id_order
                                             INNER JOIN orderproductdetail opd ON opd.id_orderDetail = sps.id_orderDetail
                                             WHERE op.id_user = '$iduser' AND sps.id_orderDetail = '".$row['id_orderDetail']."'
                                             ORDER BY op.id_order";
                         $shipping = mysqli_fetch_array(mysqli_query($connect,$checkshipping));
+
+                        if(!empty($shipping['dateGetItem'])){
+                            $calDateReturn = DateDiff($shipping['dateGetItem'] , date("Y-m-d"));
+                        }
+                        
                                 
                 ?>
                 <div class="row">
@@ -217,6 +228,10 @@
                                                 }else if(!empty($shipping['id_shipping']) && $shipping['Status'] == 2){
                                                 ?>
                                                     <a class="btn btn-success btn-block">สินค้าได้รับเรียบร้อย</a>
+                                                <?php 
+                                                }else if(!empty($shipping['id_shipping']) && $shipping['Status'] == 3){
+                                                ?>
+                                                    <a class="btn btn-warning btn-block">สินค้ามีการส่งคืน</a>
                                                 <?php }
                                                     else{
                                                 ?>
@@ -227,9 +242,12 @@
                                             </div>
                                             <?php if(!empty($shipping['id_shipping']) && $shipping['Status'] == 2){ ?>
                                                 <div class="col-xs-12 col-md-10" style="margin-bottom:5px;">
-                                                        <a class="btn btn-danger btn-block"  data-toggle="modal" data-target="#myModal">คืนสินค้า</a>
+                                                        <button class="btn btn-danger btn-block" data-toggle="modal" data-target="#myModal" <?php if($calDateReturn > 7 ){echo "disabled > ไม่สามารถคืนได้";}else{ echo "> คืนสินค้า";} ?></button>
                                                 </div>
-                                            <?php } ?>
+                                                <div class="form-group col-lg-12 col-md-10" style="margin-bottom:5px;">
+                                                    <label class="control-label col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5em">**หมายเหตุสินค้าจะไม่สามารถคืนได้หากมีการกดยืนยันหลังการซื้อ 7 วัน**</label>
+                                                </div>
+                                            <?php }?>
                                         </div>
                                     </div>
                                 </div>
@@ -239,7 +257,7 @@
                 </div>
 
 
-                <?php if(!empty($shipping['id_shipping']) && $shipping['Status'] == 2){ ?>
+                <?php if(!empty($shipping['id_shipping']) && $shipping['Status'] == 2 && $calDateReturn <= 7){ ?>
                 <!-- Modal -->
                 <div id="myModal" class="modal fade" role="dialog">
                     <div class="modal-dialog">
@@ -250,21 +268,56 @@
                                 <h4 class="modal-title">คืนสินค้า</h4>
                             </div>
                             <div class="modal-body">
-                                <div class="col-lg-6 col-md-6 col-xs-12">
+                                <div class="col-lg-5 col-md-5 col-xs-12">
                                     <img class="img-responsive" src="<?=$imgproduct['url_img'].$imgproduct['Name_img']?>">
                                 </div>
-                                <!-- Email -->
-                                <div class="form-group col-lg-6 col-md-6 col-xs-12" style="margin-top:0.5em">
-                                    <label class="control-label col-md-3 col-sm-3 col-xs-3" style="margin-top:0.5em">Email</label>
-                                    <div class="col-md-9 col-sm-6 col-xs-9">
-                                        <input id="email" name="email" type="text" placeholder="Email@info.com" class="form-control">
+                                <div class="col-lg-7 col-md-7 col-xs-12">
+                                    <div class="form-group col-lg-12 col-md-12 col-xs-12" style="margin-top:0.5em">
+                                        <label class="control-label col-md-3 col-sm-4 col-xs-3" style="margin-top:0.5em">สินค้า</label>
+                                        <label class="control-label col-md-9 col-sm-8 col-xs-9" style="margin-top:0.5em"><?=$row['NameProduct']?></label>
+                                    </div>
+                                    <!-- <div class="form-group col-lg-12 col-md-12 col-xs-12" style="margin-top:0.5em">
+                                        <label class="control-label col-md-3 col-sm-4 col-xs-3" style="margin-top:0.5em">จำนวนเงิน</label>
+                                        <label class="control-label col-md-9 col-sm-8 col-xs-9" style="margin-top:0.5em"> บาท</label>
+                                    </div> -->
+                                    <form method="POST">
+                                    <div class="form-group col-lg-12 col-md-12 col-xs-12" style="margin-top:0.5em">
+                                        <label class="control-label col-md-3 col-sm-4 col-xs-3" style="margin-top:0.5em">จำนวนสินค้า</label>
+                                        <div class="col-md-9 col-sm-8 col-xs-9">
+                                            <select id="returnQty" name="return_Qty" class="form-control">
+                                                <?php 
+                                                    for ($i=0; $i < $shipping['qty']; $i++) {
+                                                        $num = $i+1;
+                                                        echo "<option value='$num'>$num</option>";
+                                                    }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>    
+                                    <div class="form-group col-lg-12 col-md-12 col-xs-12" style="margin-top:0.5em">
+                                        <label class="control-label col-md-3 col-sm-4 col-xs-3" style="margin-top:0.5em">เหตุผล</label>
+                                        <div class="col-md-9 col-sm-8 col-xs-9">
+                                            <select id="remark" name="remark" class="form-control">
+                                                <option value="">เลือกเหตุผลในการคืนสินค้า</option>
+                                                <option value="สินค้าชำรุด/มีตำหนิ">สินค้าชำรุด/มีตำหนิ</option>
+                                                <option value="ได้รับสินค้าผิดจากที่สั่ง">ได้รับสินค้าผิดจากที่สั่ง</option>
+                                                <option value="เปลี่ยนใจ">เปลี่ยนใจ</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-12 col-md-12 col-xs-12" style="margin-top:0.5em">
+                                        <label class="control-label col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5em">**เมื่อกดยืนยันลูกค้ารอการตอบกลับจากทางเว็บไซต์</label>
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <input type="hidden" value="<?=$shipping['Price']?>" name="price">
+                                    <input type="hidden" value="<?=$shipping['id_shipment']?>" name="id_shipment">
+                                    <input type="submit" name="submitReturnItem" class="btn btn-info" value="ยืนยัน">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
+                            </form>
                         </div>
 
                     </div>
@@ -273,12 +326,35 @@
                 }
                     } 
                     if(!empty($_GET['id_order'])&&!empty($_GET['id_detail'])&&!empty($_GET['shipment'])&&!empty($_GET['confirmitem'])){
-                        $updatestatus = "UPDATE `h514771_birdfire`.`store_product_shipment` SET `Status` = '2' 
+                        $dateGetItem = date("Y-m-d");;
+                        $updatestatus = "UPDATE `h514771_birdfire`.`store_product_shipment` SET `Status` = '2' , `dateGetItem`='$dateGetItem'
                                             WHERE `store_product_shipment`.`id_shipment` = '".$_GET['shipment']."'";
                         if(mysqli_query($connect,$updatestatus)){
                             header("Location: DetailOrder.php?id_order=$idorder");
                         }
+                    }
+                    if(!empty($_POST['submitReturnItem'])){
+                        $datereturn = date("Y-m-d");
+                        $return_qty = $_POST['return_Qty'];
+                        echo $Price = $_POST['price']*$_POST['return_Qty'];
+                        $remark = $_POST['remark'];
+                        $idshipment = $_POST['id_shipment'];
                         
+                        $updatestatus = "UPDATE `h514771_birdfire`.`store_product_shipment` SET `Status` = '3'
+                                            WHERE `store_product_shipment`.`id_shipment` = '$idshipment'";
+
+                        if(mysqli_query($connect,$updatestatus)){echo"Complete update";}
+                        
+
+                        $insertReturnItem = "INSERT INTO `returnitem` (`id_returnitem`, `date_returnitem`, `remark`, `return_qty` , `return_Price`, `status_ReturnItem`, `return_ShipCode`, `id_shipment`) VALUES 
+                                                (0, '$datereturn', '$remark', '$return_qty', '$Price', '0', NULL, '$idshipment')";
+
+                        if(mysqli_query($connect,$insertReturnItem)){
+                            // echo "Complete Insert";
+                            header("Location: DetailOrder.php?id_order=$idorder");
+                        }
+                        
+
                     }
                 ?>
                 </div>

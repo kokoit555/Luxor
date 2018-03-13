@@ -35,10 +35,10 @@
                         <div class="x_title">
                             <h2 class="text-center">ยอดขายของร้านค้า <?=$_SESSION['Store_user_name']?></h2>
                             <div class="clearfix"></div>
-                            <form method="POST">
-                                <div class="form-group">
-                                    <label class="col-md-1 col-sm-1 col-xs-12">เลือกปีที่ต้องการ</label>
-                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                            <form method="POST" style="margin-top:1em">
+                                <div class="form-group col-md-4 col-xs-12">
+                                    <label class="col-md-5 col-sm-3 col-xs-12" style="margin-top:0.5em">เลือกปีที่ต้องการ</label>
+                                    <div class="col-md-7 col-sm-8 col-xs-12">
                                         <select class="form-control" name="selectyear">
                                         <?php 
                                             $selectyear = "SELECT YEAR(op.Date_order) as year FROM order_product op
@@ -55,40 +55,43 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-md-1 col-sm-1 col-xs-12">เลือกปีที่ต้องการ</label>
-                                    <div class="col-md-3 col-sm-3 col-xs-6">
-                                        <select class="form-control" name="selectmonth">
+                                <div class="form-group col-md-6 col-xs-12">
+                                    <label class="col-md-3 col-sm-3 col-xs-12" style="margin-top:0.5em">เลือกปีที่ต้องการ</label>
+                                    <div class="col-md-4 col-sm-4 col-xs-6">
+                                        <select class="form-control" id="selectmonth" name="selectmonth">
                                             <option value="1">ม.ค.</option>
                                             <option value="2">ก.พ.</option>
                                             <option value="3">มี.ค.</option>
                                             <option value="4">เม.ย.</option>
-                                            <option value="5">ม.ค.</option>
-                                            <option value="6">ม.ค.</option>
-                                            <option value="7">ม.ค.</option>
-                                            <option value="8">ม.ค.</option>
-                                            <option value="9">ม.ค.</option>
-                                            <option value="10">ม.ค.</option>
-                                            <option value="11">ม.ค.</option>
-                                            <option value="12">ม.ค.</option>
+                                            <option value="5">พ.ค.</option>
+                                            <option value="6">มิ.ย.</option>
+                                            <option value="7">ก.ค.</option>
+                                            <option value="8">สิ.ค.</option>
+                                            <option value="9">ก.ย.</option>
+                                            <option value="10">ต.ค.</option>
+                                            <option value="11">พ.ย.</option>
+                                            <option value="12">ธ.ค.</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-3 col-sm-3 col-xs-6">
-                                        <select class="form-control" name="selectmonth">
-                                            <option value="1">ม.ค.</option>
-                                            <option value="2">ก.พ.</option>
-                                            <option value="3">มี.ค.</option>
-                                            <option value="4">เม.ย.</option>
-                                            <option value="5">ม.ค.</option>
-                                            <option value="6">ม.ค.</option>
-                                            <option value="7">ม.ค.</option>
-                                            <option value="8">ม.ค.</option>
-                                            <option value="9">ม.ค.</option>
-                                            <option value="10">ม.ค.</option>
-                                            <option value="11">ม.ค.</option>
-                                            <option value="12">ม.ค.</option>
+                                    <div class="col-md-4 col-sm-4 col-xs-6">
+                                        <select class="form-control" name="beforemonth" id="beforemonth">
+                                            <option value="1" id="mon1" >ม.ค.</option>
+                                            <option value="2" id="mon2">ก.พ.</option>
+                                            <option value="3" id="mon3">มี.ค.</option>
+                                            <option value="4" id="mon4">เม.ย.</option>
+                                            <option value="5" id="mon5">พ.ค.</option>
+                                            <option value="6" id="mon6">มิ.ย.</option>
+                                            <option value="7" id="mon7">ก.ค.</option>
+                                            <option value="8" id="mon8">สิ.ค.</option>
+                                            <option value="9" id="mon9">ก.ย.</option>
+                                            <option value="10" id="mon10">ต.ค.</option>
+                                            <option value="11" id="mon11">พ.ย.</option>
+                                            <option value="12" id="mon12">ธ.ค.</option>
                                         </select>
                                     </div>
+                                </div>
+                                <div class="form-group col-md-2 col-xs-12">
+                                    <button class="btn btn-block btn-info">ยืนยัน</button>
                                 </div>
                             </form>
                         </div>
@@ -105,11 +108,11 @@
         </div>
 
 
-
+            
 
             <script type="text/javascript" src="https://www.google.com/jsapi"></script>
             <script type="text/javascript">
-
+        
                 google.load('visualization', '1.0', {'packages':['corechart']});
                 google.setOnLoadCallback(drawChart2);
                 function drawChart2() {
@@ -130,4 +133,15 @@
                     drawChart2();
                 });
                 
+            </script>
+
+
+
+            <script type="text/javascript">
+                
+                $(document).ready(function() {
+                    $('#selectmonth').change(function(){
+                        $("#beforemonth").hide();
+                    });
+                });
             </script>
