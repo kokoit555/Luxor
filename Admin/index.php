@@ -41,6 +41,11 @@
     <link href="./vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="./build/css/custom.css" rel="stylesheet">
+
+     <!-- jQuery -->
+     <script type="text/javascript" src="./vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
   </head>
 
     <?php 
@@ -133,10 +138,7 @@
         <!-- /footer content -->
         
     <?php ob_end_flush(); ?>
-    <!-- jQuery -->
-    <script type="text/javascript" src="./vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script type="text/javascript" src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+   
     <!-- Angular -->
     <script src="./build/js/angular.min.js"></script>
     <!-- FastClick -->

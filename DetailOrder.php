@@ -247,7 +247,9 @@
                                                 <div class="form-group col-lg-12 col-md-10" style="margin-bottom:5px;">
                                                     <label class="control-label col-md-12 col-sm-12 col-xs-12" style="margin-top:0.5em">**หมายเหตุสินค้าจะไม่สามารถคืนได้หากมีการกดยืนยันหลังการซื้อ 7 วัน**</label>
                                                 </div>
-                                            <?php }?>
+                                            <?php 
+                                                }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
@@ -255,7 +257,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <?php if(!empty($shipping['id_shipping']) && $shipping['Status'] == 2 && $calDateReturn <= 7){ ?>
                 <!-- Modal -->

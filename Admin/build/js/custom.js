@@ -2554,6 +2554,7 @@ if (typeof NProgress != 'undefined') {
 				}();
 
 				$('#datatable').dataTable();
+				
 
 				$('#datatable-keytable').DataTable({
 				  keys: true
@@ -2563,6 +2564,7 @@ if (typeof NProgress != 'undefined') {
 				$('#datatable-responsive2').DataTable();
 				$('#datatable-responsive3').DataTable();
 				$('#datatable-responsive4').DataTable();
+				
 
 				$('#datatable-scroller').DataTable({
 				  ajax: "js/datatables/json/scroller-demo.json",

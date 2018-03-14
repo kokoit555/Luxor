@@ -75,18 +75,18 @@
                                     </div>
                                     <div class="col-md-4 col-sm-4 col-xs-6">
                                         <select class="form-control" name="beforemonth" id="beforemonth">
-                                            <option value="1" id="mon1" >ม.ค.</option>
-                                            <option value="2" id="mon2">ก.พ.</option>
-                                            <option value="3" id="mon3">มี.ค.</option>
-                                            <option value="4" id="mon4">เม.ย.</option>
-                                            <option value="5" id="mon5">พ.ค.</option>
-                                            <option value="6" id="mon6">มิ.ย.</option>
-                                            <option value="7" id="mon7">ก.ค.</option>
-                                            <option value="8" id="mon8">สิ.ค.</option>
-                                            <option value="9" id="mon9">ก.ย.</option>
-                                            <option value="10" id="mon10">ต.ค.</option>
-                                            <option value="11" id="mon11">พ.ย.</option>
-                                            <option value="12" id="mon12">ธ.ค.</option>
+                                            <option value="1" selected>ม.ค.</option>
+                                            <option value="2">ก.พ.</option>
+                                            <option value="3">มี.ค.</option>
+                                            <option value="4">เม.ย.</option>
+                                            <option value="5">พ.ค.</option>
+                                            <option value="6">มิ.ย.</option>
+                                            <option value="7">ก.ค.</option>
+                                            <option value="8">สิ.ค.</option>
+                                            <option value="9">ก.ย.</option>
+                                            <option value="10">ต.ค.</option>
+                                            <option value="11">พ.ย.</option>
+                                            <option value="12">ธ.ค.</option>
                                         </select>
                                     </div>
                                 </div>
@@ -138,10 +138,25 @@
 
 
             <script type="text/javascript">
-                
-                $(document).ready(function() {
-                    $('#selectmonth').change(function(){
-                        $("#beforemonth").hide();
+
+                $(function(){
+                    $('#beforemonth').prop("disabled",true);
+
+                    $('#selectmonth').on('change', function(){
+                        var value = $(this).val();
+                        $('select option').prop("disabled" , false);
+                        $('#beforemonth').prop("disabled",false);
+                        $('#beforemonth option').each(function(){
+                            $(this).prop("selected" , false);
+                            if($(this).val() < value){
+                                $(this).prop("disabled" , true);
+                            }
+                            else if($(this).val() == value){
+                                $(this).prop("selected" , true);
+                            }
+                        });
                     });
+                    
                 });
+                 
             </script>

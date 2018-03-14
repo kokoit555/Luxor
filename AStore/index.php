@@ -41,6 +41,11 @@
     <link href="./vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="./build/css/custom.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="./vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
   </head>
 
     <?php 
@@ -88,10 +93,7 @@
         <!-- /footer content -->
         
     <?php ob_end_flush(); ?>
-    <!-- jQuery -->
-    <script src="./vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="./vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    
     <!-- Google Chart -->
     <!-- <script type="text/javascript" src="https://www.google.com/jsapi"></script> -->
     <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->

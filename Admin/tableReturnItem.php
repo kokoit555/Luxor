@@ -26,6 +26,8 @@
                     $select = "SELECT * FROM returnitem r
                                 INNER JOIN store_product_shipment sps ON sps.id_shipment = r.id_shipment
                                 INNER JOIN orderproductdetail opd ON opd.id_orderDetail = sps.id_orderDetail
+                                INNER JOIN order_product op ON op.id_order = sps.id_order
+                                INNER JOIN user_member um ON um.id_user = op.id_user
                                 INNER JOIN product p ON p.id_product = opd.id_product";
                     $query = mysqli_query($connect,$select);
                     
@@ -40,21 +42,32 @@
                             <td><?php echo $row['return_Price']; ?></td>
                             <td><?php echo $row['date_returnitem']; ?></td>
                             <?php if($row['status_ReturnItem'] == 0){ ?>
-                                <td><a href="#" class="btn btn-block btn-info">ยืนยันคืนสินค้า</a></td>
+                                <td><a href="?link=returnitem&&status=yes&&id_return=<?=$row['id_returnitem']?>" class="btn btn-block btn-info">ยืนยันคืนสินค้า</a></td>
                             <?php } else if($row['status_ReturnItem'] == 1){?>
-                                <td><a href="#" class="btn btn-block btn-warning">ยืนยันคืนสินค้า</a></td>
+                                <td><a href="#" class="btn btn-block btn-warning">อยู่ในระหว่างดำเนินงาน</a></td>
                             <?php } else if($row['status_ReturnItem'] == 2){ ?>
-                                <td><a href="#" class="btn btn-block btn-success">ยืนยันคืนสินค้า</a></td>
+                                <td><a href="#" class="btn btn-block btn-success">ยืนยันขั้นตอนโอนเงินคืน</a></td>
+                            <?php }else if($row['status_ReturnItem'] == 3){ ?>
+                                <td><p>ดำเนินงานคืนเงินเรียบร้อย</p></td>
                             <?php } ?>
                         </tr>
                         <?php
                         }
                     }
-
-                    mysqli_close($connect);
+                   
                  ?>
                  </tbody>
              </table>
+             <?php
+            
+            if(!empty($_GET['status']) && $_GET['status']=='yes'){
+                echo $update = "UPDATE `returnitem` SET `status_ReturnItem`= '1' WHERE `id_returnitem` = '".$_GET['id_return']."'";
+                if(mysqli_query($connect,$update)){
+                    header("Location: index.php?link=returnitem");
+                }
+            }
+            mysqli_close($connect);
+            ?>
          </div> <!--x_content-->
      </div> <!--col-md-12 col-sm-12 col-xs-12-->
    </div><!--row-->
